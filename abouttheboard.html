@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastor's Picks - About the Board</title>
+  <style>
+    /* Global Styles & Red, White, Blue Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --patriot-red: #BA1200;
+      --board-slate: #1F3A60; /* Slightly distinct shade for Board identity */
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Logo & Branding Text Styles */
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 60px;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid var(--patriot-red);
+    }
+
+    /* Top Notice Banner (Matching Team Page style) */
+    .notice-banner {
+      background-color: #FFF3CD;
+      color: #856404;
+      border-bottom: 1px solid #FFEEBA;
+      padding: 0.75rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .notice-banner strong {
+      color: #533F03;
+    }
+
+    /* Board Purpose Hero Section */
+    .purpose-section {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+      border-bottom: 4px solid var(--patriot-red);
+    }
+
+    .purpose-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .purpose-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .purpose-text {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #E0E6ED;
+    }
+
+    /* Full Screen Board Member Block Sections */
+    .board-section {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      box-sizing: border-box;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .board-section:nth-child(even) {
+      background-color: var(--white);
+    }
+
+    .board-section:nth-child(odd) {
+      background-color: var(--light-bg);
+    }
+
+    /* Two-Column Card Layout (Matching Team Page structure) */
+    .board-card {
+      max-width: 1000px;
+      width: 100%;
+      background: var(--white);
+      padding: 3rem 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-top: 6px solid var(--board-slate);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    /* Left Side Headshot Container (25-30% Width) */
+    .photo-container {
+      flex: 0 0 28%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .member-photo {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--board-slate);
+    }
+
+    /* Right Side Content Container */
+    .info-container {
+      flex: 1;
+      text-align: left;
+    }
+
+    .state-badge {
+      display: inline-block;
+      background-color: var(--board-slate);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .role-title {
+      color: var(--patriot-red);
+      text-transform: uppercase;
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .member-name {
+      color: var(--navy-blue);
+      font-size: 2.2rem;
+      margin: 0 0 1rem 0;
+    }
+
+    .member-bio {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Contact Button (Matching Chairman/Dean buttons) */
+    .btn-contact {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 10px 24px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-contact:hover {
+      background-color: #900E00;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .board-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+
+      .info-container {
+        text-align: center;
+      }
+
+      .member-photo {
+        max-width: 180px;
+      }
+      
+      .brand-text {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Footer & Legal Disclaimer (Matched directly from index.html) */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logo.png" alt="Pastor's Picks Logo">
+        <span class="brand-text">Pastor's Picks</span>
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mission.html">Mission</a>
+      <a href="endorsements.html">Endorsements</a>
+      <a href="endorsements-location.html">By Location</a>
+      <a href="team.html">About Team</a>
+      <a href="board.html" class="active">About The Board</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Top Notice Banner -->
+  <div class="notice-banner">
+    <strong>Please Note:</strong> Our official domain email addresses are currently inactive while setup is being completed. Please do not send messages to these addresses yet as they will bounce back.
+  </div>
+
+  <main>
+
+    <section class="purpose-section">
+      <div class="purpose-container">
+        <h1 class="purpose-title">The Board of Chairs</h1>
+        <p class="purpose-text">
+          The Board of Chairs exists to provide advice to the Chairman, approve or deny his endorsements, and exists to assist in local and state level endorsements.
+        </p>
+      </div>
+    </section>
+
+    <section class="board-section" id="california">
+      <div class="board-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="Tim Vaught" class="member-photo">
+        </div>
+        <div class="info-container">
+          <span class="state-badge">California</span>
+          <div class="role-title">Board Representative</div>
+          <h2 class="member-name">Tim Vaught</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for Tim Vaught here. Detail his leadership and work representing California on the board.]</p>
+          </div>
+          <div>
+            <a href="mailto:MrVaught.Tim@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Tim Vaught</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-section" id="florida">
+      <div class="board-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="Aidan Durity" class="member-photo">
+        </div>
+        <div class="info-container">
+          <span class="state-badge">Florida</span>
+          <div class="role-title">Board Representative</div>
+          <h2 class="member-name">Aidan Durity</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for Aidan Durity here. Detail his leadership and work representing Florida on the board.]</p>
+          </div>
+          <div>
+            <a href="mailto:MrDurity.Aidan@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Aidan Durity</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-section" id="georgia">
+      <div class="board-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="Pastor Tom Gray" class="member-photo">
+        </div>
+        <div class="info-container">
+          <span class="state-badge">Georgia</span>
+          <div class="role-title">Board Representative</div>
+          <h2 class="member-name">Pastor Tom Gray</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for Pastor Tom Gray here. Detail his leadership, pastoral ministry, and work representing Georgia on the board.]</p>
+          </div>
+          <div>
+            <a href="mailto:PastorGray.Tom@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Pastor Gray</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-section" id="north-carolina">
+      <div class="board-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="Pastor Kevin DeYoung" class="member-photo">
+        </div>
+        <div class="info-container">
+          <span class="state-badge">North Carolina</span>
+          <div class="role-title">Board Representative</div>
+          <h2 class="member-name">Pastor Kevin DeYoung</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for Pastor Kevin DeYoung here. Detail his pastoral ministry and work representing North Carolina on the board.]</p>
+          </div>
+          <div>
+            <a href="mailto:PastorDeYoung.Kevin@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Pastor DeYoung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-section" id="pennsylvania">
+      <div class="board-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="Lee Giles" class="member-photo">
+        </div>
+        <div class="info-container">
+          <span class="state-badge">Pennsylvania</span>
+          <div class="role-title">Board Representative</div>
+          <h2 class="member-name">Lee Giles</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for Lee Giles here. Detail her leadership and work representing Pennsylvania on the board.]</p>
+          </div>
+          <div>
+            <a href="mailto:MrsGiles.Lee@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Lee Giles</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-section" id="tennessee">
+      <div class="board-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="Scott Smith" class="member-photo">
+        </div>
+        <div class="info-container">
+          <span class="state-badge">Tennessee</span>
+          <div class="role-title">Board Representative</div>
+          <h2 class="member-name">Scott Smith</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for Scott Smith here. Detail his leadership and work representing Tennessee on the board.]</p>
+          </div>
+          <div>
+            <a href="mailto:MrSmith.Scott@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Scott Smith</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-section" id="virginia">
+      <div class="board-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="JJ Allen" class="member-photo">
+        </div>
+        <div class="info-container">
+          <span class="state-badge">Virginia</span>
+          <div class="role-title">Board Representative</div>
+          <h2 class="member-name">JJ Allen</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for JJ Allen here. Detail his leadership and work representing Virginia on the board.]</p>
+          </div>
+          <div>
+            <a href="mailto:MrAllen.JJ@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact JJ Allen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-section" id="washington">
+      <div class="board-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="Pastor Joe Fuiten" class="member-photo">
+        </div>
+        <div class="info-container">
+          <span class="state-badge">Washington</span>
+          <div class="role-title">Board Representative</div>
+          <h2 class="member-name">Pastor Joe Fuiten</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for Pastor Joe Fuiten here. Detail his pastoral leadership and work representing Washington on the board.]</p>
+          </div>
+          <div>
+            <a href="mailto:PastorFuiten.Joe@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Pastor Fuiten</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+  </footer>
+
+</body>
+</html>
