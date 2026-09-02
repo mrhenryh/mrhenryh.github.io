@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastor's Picks - Mission</title>
+  <style>
+    /* Global Styles & Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --patriot-red: #BA1200;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --gold-yellow: #FFD700;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+    }
+
+    /* Logo & Branding Text Styles */
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 60px;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid var(--patriot-red);
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Content Cards */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-left: 6px solid var(--patriot-red);
+    }
+
+    /* Progress Border Wrapper */
+    .goal-tracker-wrapper {
+      position: relative;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      padding: 4px; /* Space for the progress line */
+      background: #DDD; /* Base border path */
+    }
+
+    .border-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border-radius: 8px;
+    }
+
+    .border-path-bg {
+      fill: none;
+      stroke: #DDD;
+      stroke-width: 6;
+      rx: 8px;
+    }
+
+    .border-path-progress {
+      fill: none;
+      stroke: var(--patriot-red);
+      stroke-width: 6;
+      stroke-linecap: round;
+      rx: 8px;
+      transition: stroke-dashoffset 0.8s ease-in-out;
+    }
+
+    .goal-tracker-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .goal-tracker-card h2 {
+      color: var(--navy-blue);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    .goal-subtitle {
+      color: #555;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Subscribe Buttons */
+    .btn-subscribe {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      margin: 1rem 0;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-subscribe:hover {
+      background-color: #900E00;
+    }
+
+    /* Analog Digit Slot Display */
+    .ticker-block {
+      margin: 1.5rem 0;
+    }
+
+    .clock-display {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      padding: 10px 14px;
+      border-radius: 6px;
+      gap: 6px;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.8), 0 3px 6px rgba(0,0,0,0.3);
+      border: 2px solid #333;
+    }
+
+    .digit-box {
+      width: 36px;
+      height: 52px;
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--gold-yellow); /* Golden yellow digit display */
+      text-shadow: 0 0 4px rgba(255, 215, 0, 0.4);
+      box-shadow: inset 0 0 4px rgba(0,0,0,0.9);
+    }
+
+    .ticker-label {
+      font-size: 0.95rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--navy-blue);
+      margin-top: 0.75rem;
+    }
+
+    .ticker-question {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--patriot-red);
+      font-weight: bold;
+      margin-top: 0.25rem;
+    }
+
+    .map-container {
+      margin: 2rem 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .map-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border: 2px solid #DDD;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .brand-text {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logo.png" alt="Pastor's Picks Logo">
+        <span class="brand-text">Pastor's Picks</span>
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mission.html" class="active">Mission</a>
+      <a href="endorsements.html">Endorsements</a>
+      <a href="endorsements-location.html">By Location</a>
+      <a href="team.html">About Team</a>
+      <a href="abouttheboard.html">About The Board</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Our Mission</h1>
+    <p>Turning the world upside down. Acts 17:6</p>
+  </section>
+
+  <main class="container">
+    <div class="card">
+      <h2>Mission Statement</h2>
+      <p>Pastor’s Picks exists to:
+1. find, encourage, and endorse good, high-quality Christian men and women who feel called into public service and to
+2. supply Americans with quality options for consideration in the voting booth.</p>
+    </div>
+
+    <div class="card">
+      <h2>Organizational Goals</h2>
+      <ul>
+        <li><strong>Goal 1:</strong> Stay true to Christ and encourage others to reflect their faith through their votes.</li>
+        <li><strong>Goal 2:</strong> Pray for wisdom and courage.</li>
+        <li><strong>Goal 3:</strong> Help Christian politicians be lights for Jesus in their workspaces.</li>
+      </ul>
+    </div>
+
+    <div class="goal-tracker-wrapper" id="trackerWrapper">
+      
+      <svg class="border-svg">
+        <rect id="borderBg" class="border-path-bg" x="3" y="3" width="99%" height="99%" rx="8"></rect>
+        <rect id="borderProgress" class="border-path-progress" x="3" y="3" width="99%" height="99%" rx="8"></rect>
+      </svg>
+
+      <div class="goal-tracker-card">
+        <h2>2028 National Outreach Vision</h2>
+        <p class="goal-subtitle">Our goal is to reach 10,000 subscribers and have representation in every county (and equivalent) before 2028.</p>
+
+        <div>
+          <a href="subscribe.html" class="btn-subscribe">Subscribe Today</a>
+        </div>
+
+        <div class="ticker-block">
+          <div class="clock-display" id="subscribersTicker"></div>
+          <div class="ticker-label">Total Subscribers</div>
+          <div class="ticker-question">Will you become the next subscriber?</div>
+        </div>
+
+        <div class="map-container">
+          <img src="map.png" alt="Subscriber Outreach Map by County">
+        </div>
+
+        <div class="ticker-block">
+          <div class="clock-display" id="countiesTicker"></div>
+          <div class="ticker-label">Counties Represented</div>
+          <div class="ticker-question">Is your county represented?</div>
+        </div>
+
+        <div>
+          <a href="subscribe.html" class="btn-subscribe">Subscribe Today</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // EDIT YOUR NUMBERS HERE
+    const currentSubscribers = 8; // Target: 10,000
+    const currentCounties = 2;    // Target: 3,143
+
+    // Render Digits into Individual Boxes
+    function renderTicker(containerId, value, totalDigits) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      const strVal = String(value).padStart(totalDigits, '0');
+      
+      for (let i = 0; i < strVal.length; i++) {
+        const box = document.createElement('div');
+        box.className = 'digit-box';
+        box.textContent = strVal[i];
+        container.appendChild(box);
+      }
+    }
+
+    // Update Progress Border Length Dynamically
+    function updateProgressBorder() {
+      const wrapper = document.getElementById('trackerWrapper');
+      const progressPath = document.getElementById('borderProgress');
+      const bgPath = document.getElementById('borderBg');
+
+      const width = wrapper.clientWidth;
+      const height = wrapper.clientHeight;
+      
+      // Calculate total perimeter around wrapper
+      const totalPerimeter = (width * 2) + (height * 2);
+
+      bgPath.setAttribute('width', width - 6);
+      bgPath.setAttribute('height', height - 6);
+      progressPath.setAttribute('width', width - 6);
+      progressPath.setAttribute('height', height - 6);
+
+      progressPath.style.strokeDasharray = totalPerimeter;
+      
+      // Calculate progress fraction (0 to 10,000)
+      const fraction = Math.min(Math.max(currentSubscribers / 10000, 0), 1);
+      const offset = totalPerimeter * (1 - fraction);
+      
+      progressPath.style.strokeDashoffset = offset;
+    }
+
+    // Initialize Displays
+    renderTicker('subscribersTicker', currentSubscribers, 5);
+    renderTicker('countiesTicker', currentCounties, 4);
+    updateProgressBorder();
+
+    window.addEventListener('resize', updateProgressBorder);
+  </script>
+
+</body>
+</html>
