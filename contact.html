@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastor's Picks - Contact Us</title>
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <meta property="og:title" content="Pastor's Picks - Contact Us">
+  <meta property="og:description" content="Reach out to leadership, executive staff, or regional board members directly.">
+  <meta property="og:image" content="og-image.png">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pastor's Picks - Contact Us">
+  <meta name="twitter:description" content="Reach out to leadership, executive staff, or regional board members directly.">
+  <meta name="twitter:image" content="og-image.png">
+
+  <style>
+    /* Global Styles & Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --patriot-red: #BA1200;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --link-blue: #0056b3;
+      --notice-yellow: #FFF3CD;
+      --notice-border: #FFEBAA;
+      --notice-text: #856404;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Logo & Branding Text Styles */
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 60px;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid var(--patriot-red);
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: #D1D5DB;
+      font-size: 1.1rem;
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Disclaimer Notice Banner (Top) */
+    .notice-banner {
+      background-color: var(--notice-yellow);
+      border: 1px solid var(--notice-border);
+      border-left: 6px solid var(--patriot-red);
+      color: var(--notice-text);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .notice-banner strong {
+      color: #533F03;
+    }
+
+    /* Direct Contact Snippet Box */
+    .direct-contact-box {
+      background-color: #EBF3FA;
+      border: 1px solid #BEE3F8;
+      border-left: 6px solid var(--navy-blue);
+      color: var(--navy-blue);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .direct-contact-box a {
+      color: var(--link-blue);
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .direct-contact-box a:hover {
+      color: var(--patriot-red);
+    }
+
+    .contact-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-top: 6px solid var(--patriot-red);
+    }
+
+    /* Contact Entry Item */
+    .contact-entry {
+      margin-bottom: 1.8rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .contact-entry:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-name-title {
+      color: var(--navy-blue);
+      font-size: 1.35rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-email-link {
+      color: var(--link-blue);
+      font-size: 1.05rem;
+      text-decoration: underline;
+      display: inline-block;
+      word-break: break-word;
+    }
+
+    .contact-email-link:hover {
+      color: var(--patriot-red);
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+      .brand-text {
+        font-size: 1.2rem;
+      }
+
+      .contact-card {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Footer & Legal Compliance Disclaimer (Bottom) */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logo.png" alt="Pastor's Picks Logo">
+        <span class="brand-text">Pastor's Picks</span>
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mission.html">Mission</a>
+      <a href="endorsements.html">Endorsements</a>
+      <a href="endorsements-location.html">By Location</a>
+      <a href="team.html">About Team</a>
+      <a href="abouttheboard.html">About The Board</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="contact.html" class="active">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Contact Us</h1>
+    <p>Reach out to leadership, executive staff, or regional board members directly.</p>
+  </section>
+
+  <main class="container">
+
+    <div class="notice-banner">
+      <strong>Please Note:</strong> Our official domain email addresses are currently inactive while setup is being completed. Please do not send messages to these addresses yet as they will bounce back.
+    </div>
+
+    <div class="direct-contact-box">
+      To contact Chairman Hart, please email <a href="mailto:MrHart.Henry@gmail.com" target="_blank" rel="noopener noreferrer">MrHart.Henry@gmail.com</a>.
+    </div>
+
+    <div class="contact-card">
+
+      <div class="contact-entry">
+        <div class="contact-name-title">Chairman Henry W. Hart</div>
+        <a href="mailto:MrHart.Chairman@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrHart.Chairman@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">Dean Pastor Aaron Crawford</div>
+        <a href="mailto:PastorCrawford.Dean@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">PastorCrawford.Dean@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">Secretary Andrew Alderman</div>
+        <a href="mailto:MrAlderman.Secretary@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrAlderman.Secretary@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">Recorder Jayson Hart</div>
+        <a href="mailto:MrHart.Recorder@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrHart.Recorder@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">Treasurer Dan Smith</div>
+        <a href="mailto:MrSmith.Treasurer@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrSmith.Treasurer@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">Communications Director Dawn Hart</div>
+        <a href="mailto:MrsHart.Communications@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrsHart.Communications@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">Community Engagement Director Eric Hazelip</div>
+        <a href="mailto:MrHazelip.CommunityEngagement@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrHazelip.CommunityEngagement@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">CA Board Member Tim Vaught</div>
+        <a href="mailto:MrVaught.Tim@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrVaught.Tim@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">FL Board Member Aidan Durity</div>
+        <a href="mailto:MrDurity.Aidan@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrDurity.Aidan@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">GA Board Member Pastor Tom Gray</div>
+        <a href="mailto:PastorGray.Tom@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">PastorGray.Tom@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">NC Board Member Pastor Kevin DeYoung</div>
+        <a href="mailto:PastorDeYoung.Kevin@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">PastorDeYoung.Kevin@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">PA Board Member Lee Giles</div>
+        <a href="mailto:MrsGiles.Lee@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrsGiles.Lee@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">TN Board Member Scott Smith</div>
+        <a href="mailto:MrSmith.Scott@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrSmith.Scott@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">VA Board Member JJ Allen</div>
+        <a href="mailto:MrAllen.JJ@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">MrAllen.JJ@PastorsPicks.us.org</a>
+      </div>
+
+      <div class="contact-entry">
+        <div class="contact-name-title">WA Board Member Joe Fuiten</div>
+        <a href="mailto:PastorFuiten.Joe@PastorsPicks.us.org" class="contact-email-link" target="_blank" rel="noopener noreferrer">PastorFuiten.Joe@PastorsPicks.us.org</a>
+      </div>
+        
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+  </footer>
+
+</body>
+</html>
