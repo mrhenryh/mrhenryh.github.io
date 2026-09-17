@@ -152,7 +152,7 @@
         right: 0;
         bottom: 0;
         background-color: var(--navy-blue);
-        padding: 1rem 0 2rem 0;
+        padding: 0; /* Zero container padding prevents side/top margins */
         overflow-y: auto; /* Allows menu to scroll on short devices */
         z-index: 999;
         box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
@@ -163,17 +163,19 @@
       }
 
       .nav-links a {
-        padding: 0.85rem 1.5rem;
+        display: block; /* Spans full horizontal container width */
+        padding: 1rem 1.5rem;
         font-size: 1.1rem;
         text-align: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         width: 100%;
         box-sizing: border-box;
+        margin: 0;
       }
 
       .nav-links a.active {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        background-color: rgba(186, 18, 0, 0.25);
+        background-color: rgba(186, 18, 0, 0.25); /* Kept semi-transparent red */
         color: #FFFFFF;
         font-weight: bold;
       }
