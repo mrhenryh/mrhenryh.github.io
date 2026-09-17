@@ -11,8 +11,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <meta name="apple-mobile-web-app-title" content="Pastor's Picks">
 
-    <!-- Browser Tab Icon (Favicon) -->
-<link rel="icon" type="image/png" href="images/logowithbackground.png">
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="images/logowithbackground.png">
 
   <!-- Open Graph & Social/Messaging Thumbnail Preview -->
   <meta property="og:title" content="Pastor's Picks - About the Board">
@@ -78,18 +78,65 @@
       letter-spacing: 0.5px;
     }
 
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
+    /* Base Layout & Mobile Navigation Toggle */
+    nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    nav a.active {
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding-bottom: 0.25rem;
+    }
+
+    .nav-links a.active {
       border-bottom: 2px solid var(--patriot-red);
     }
 
-    /* Top Notice Banner (Matching Team Page style) */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 22px;
+    }
+
+    /* Hamburger Bars */
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Morph Hamburger to "X" when Active */
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(9.5px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-9.5px) rotate(-45deg);
+    }
+
+    /* Top Notice Banner */
     .notice-banner {
       background-color: #FFF3CD;
       color: #856404;
@@ -150,7 +197,7 @@
       background-color: var(--light-bg);
     }
 
-    /* Two-Column Card Layout (Matching Team Page structure) */
+    /* Two-Column Card Layout */
     .board-card {
       max-width: 1000px;
       width: 100%;
@@ -165,7 +212,7 @@
       gap: 2.5rem;
     }
 
-    /* Left Side Headshot Container (25-30% Width) */
+    /* Left Side Headshot Container */
     .photo-container {
       flex: 0 0 28%;
       display: flex;
@@ -223,7 +270,7 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Contact Button (Matching Chairman/Dean buttons) */
+    /* Contact Button */
     .btn-contact {
       display: inline-block;
       background-color: var(--patriot-red);
@@ -242,6 +289,35 @@
 
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--navy-blue);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        padding: 1rem 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.75rem 1.5rem;
+        border-bottom: none;
+      }
+
+      .nav-links a.active {
+        border-left: 4px solid var(--patriot-red);
+      }
+
       .board-card {
         flex-direction: column;
         text-align: center;
@@ -261,7 +337,7 @@
       }
     }
 
-    /* Footer & Legal Disclaimer (Matched directly from index.html) */
+    /* Footer & Legal Disclaimer */
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -280,93 +356,6 @@
       color: #D1D5DB;
       text-align: justify;
     }
-    /* Base Layout & Desktop Navigation */
-nav {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  padding-bottom: 0.25rem;
-}
-
-.nav-links a.active {
-  border-bottom: 2px solid var(--patriot-red, #b22234);
-}
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 22px;
-}
-
-/* Hamburger Bars */
-.nav-toggle .bar {
-  height: 3px;
-  width: 100%;
-  background-color: var(--patriot-red, #b22234);
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Morph Hamburger to "X" when Active */
-.nav-toggle.active .bar:nth-child(1) {
-  transform: translateY(9.5px) rotate(45deg);
-}
-
-.nav-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle.active .bar:nth-child(3) {
-  transform: translateY(-9.5px) rotate(-45deg);
-}
-
-/* Mobile Screens */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: flex; /* Show toggle button */
-  }
-
-  .nav-links {
-    display: none; /* Hide links by default */
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    padding: 1rem 0;
-  }
-
-  .nav-links.open {
-    display: flex; /* Show dropdown when toggled */
-  }
-
-  .nav-links a {
-    padding: 0.75rem 1.5rem;
-    border-bottom: none;
-  }
-
-  .nav-links a.active {
-    border-left: 4px solid var(--patriot-red, #b22234);
-  }
-}
   </style>
 </head>
 <body>
@@ -378,17 +367,7 @@ nav {
         <span class="brand-text">Pastor's Picks</span>
       </a>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="mission.html">Mission</a>
-      <a href="endorsements.html">Endorsements</a>
-      <a href="endorsements-location.html">By Location</a>
-      <a href="mypage.html">My Page</a>
-      <a href="team.html">About Team</a>
-      <a href="abouttheboard.html" class="active">About The Board</a>
-      <a href="subscribe.html">Subscribe</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
+    <nav id="main-nav"></nav>
   </header>
 
   <!-- Top Notice Banner -->
@@ -568,5 +547,6 @@ nav {
     </p>
   </footer>
 
+  <script src="navbar.js"></script>
 </body>
 </html>
