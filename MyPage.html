@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastor's Picks - My Page</title>
+
+  <meta property="og:title" content="Pastor's Picks - Subscriber Portal">
+  <meta property="og:description" content="Access your exclusively tailored voter guide, contact cheat sheets, and state endorsements.">
+  <meta property="og:image" content="https://pastorspicks.us.org/images/logo.png">
+  <meta property="og:url" content="https://pastorspicks.us.org/mypage.html">
+  <meta property="og:type" content="website">
+
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="images/logowithbackground.png">
+
+  <style>
+    :root {
+      --navy-blue: #0A2342;
+      --patriot-red: #BA1200;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --card-border: #E0E0E0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 60px;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid var(--patriot-red);
+    }
+
+    /* Main Layout Container */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Login View Styles */
+    .login-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-top: 5px solid var(--patriot-red);
+      text-align: center;
+      max-width: 600px;
+      margin: 3rem auto;
+    }
+
+    .login-card h1 {
+      color: var(--navy-blue);
+      margin-top: 0;
+    }
+
+    .login-intro {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .btn-subscribe {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 12px 28px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-subscribe:hover {
+      background-color: #900E00;
+    }
+
+    .divider {
+      border-top: 1px solid #DDD;
+      margin: 1.5rem 0;
+    }
+
+    .login-form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .password-input {
+      width: 80%;
+      max-width: 320px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #CCC;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .password-input:focus {
+      border-color: var(--navy-blue);
+      outline: none;
+    }
+
+    .btn-login {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-login:hover {
+      background-color: #06162B;
+    }
+
+    .error-msg {
+      color: var(--patriot-red);
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* Dashboard View Styles */
+    .dashboard {
+      display: none; /* Shown dynamically upon login */
+    }
+
+    .dashboard-header {
+      background: var(--navy-blue);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .dashboard-header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .user-address {
+      margin: 5px 0 0 0;
+      font-size: 0.95rem;
+      color: #D1D5DB;
+    }
+
+    .btn-logout {
+      background-color: var(--patriot-red);
+      color: var(--white);
+      border: none;
+      padding: 8px 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .section-card {
+      background: var(--white);
+      padding: 1.8rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      border-left: 6px solid var(--navy-blue);
+    }
+
+    .section-card h2 {
+      margin-top: 0;
+      color: var(--navy-blue);
+      border-bottom: 2px solid var(--light-bg);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Cards & Lists inside Dashboard */
+    .pdf-card {
+      background: #F9FAFC;
+      padding: 1.2rem;
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-action {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 10px 18px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .btn-action:hover {
+      background-color: var(--patriot-red);
+    }
+
+    .btn-update {
+      background-color: var(--patriot-red);
+      color: var(--white);
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 15px;
+      margin-top: 1rem;
+    }
+
+    .contact-card {
+      background: #F9FAFC;
+      padding: 1.2rem;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+    }
+
+    .contact-card h3 {
+      margin: 0 0 0.3rem 0;
+      color: var(--navy-blue);
+      font-size: 1.1rem;
+    }
+
+    .contact-card p {
+      margin: 0 0 0.8rem 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .safety-notice {
+      background-color: #FFF8E7;
+      border: 1px solid #FFE0B2;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      color: #8D6E63;
+      margin-top: 10px;
+    }
+
+    .thank-you-card {
+      text-align: center;
+      background: var(--navy-blue);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 6px;
+    }
+
+    .thank-you-card h2 {
+      color: var(--white);
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Pastor's Picks Logo">
+        <span class="brand-text">Pastor's Picks</span>
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mission.html">Mission</a>
+      <a href="endorsements.html">Endorsements</a>
+      <a href="endorsements-location.html">By Location</a>
+      <a href="mypage.html" class="active">My Page</a>
+      <a href="team.html">About Team</a>
+      <a href="abouttheboard.html">About The Board</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- LOGIN SECTION (Shown when not logged in) -->
+    <div id="loginView" class="login-card">
+      <h1>Subscriber Portal</h1>
+      <p class="login-intro">
+        To see your exclusively tailored page with state endorsements, contact cheat sheets, your specific voter guide, and more, please log in!<br><br>
+        <em>This feature will not work if you do not have a registered password with Pastor’s Picks.</em>
+      </p>
+
+      <a href="subscribe.html" class="btn-subscribe">Subscribe Now</a>
+
+      <div class="divider"></div>
+
+      <div class="login-form-group">
+        <label for="passwordInput" style="font-weight: bold; color: var(--navy-blue);">Already a Subscriber? Enter Password:</label>
+        <input type="password" id="passwordInput" class="password-input" placeholder="Enter your password...">
+        <button onclick="attemptLogin()" class="btn-login">Log In</button>
+        <div id="errorMsg" class="error-msg">Invalid password. Please check your subscription email.</div>
+      </div>
+    </div>
+
+
+    <!-- DASHBOARD SECTION (Shown after successful login) -->
+    <div id="dashboardView" class="dashboard">
+
+      <!-- Header Banner -->
+      <div class="dashboard-header">
+        <div>
+          <h1 id="welcomeGreeting">Welcome, Subscriber!</h1>
+          <p id="userAddress" class="user-address">Address: </p>
+        </div>
+        <button onclick="logout()" class="btn-logout">Log Out</button>
+      </div>
+
+      <!-- Section 1: Local Voter Guide -->
+      <div class="section-card">
+        <h2>Your Local Voter Guide</h2>
+        <div class="pdf-card">
+          <div>
+            <h3 id="guideTitle" style="margin: 0; color: var(--navy-blue);">Voter Guide</h3>
+            <p id="guideDesc" style="margin: 5px 0 0 0; color: #555; font-size: 0.95rem;">Tailored for your registered location.</p>
+          </div>
+          <a id="guideBtn" href="#" target="_blank" class="btn-action" style="white-space: nowrap;">View PDF</a>
+        </div>
+      </div>
+
+      <!-- Section 2: State Level Endorsed Candidates -->
+      <div class="section-card">
+        <h2>State Level Endorsements</h2>
+        <div id="stateEndorsementsList">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Section 3: Update Information Button & Security Notice -->
+      <div class="section-card">
+        <h2>Update Your Information</h2>
+        <p>Has your address, phone number, or preference changed? Click below to request an update directly with the Secretary.</p>
+        <a id="updateInfoBtn" href="#" class="btn-update" target="_blank" rel="noopener noreferrer">Update Information Here!</a>
+        
+        <div class="safety-notice">
+          <strong>Security Notice:</strong> All requested information changes will be manually confirmed by Pastor's Picks staff prior to implementation to ensure the safety and security of your subscriber account.
+        </div>
+      </div>
+
+      <!-- Section 4: Leadership & Official Contact Cheat Sheet -->
+      <div class="section-card">
+        <h2>Leadership Contact Cheat Sheet</h2>
+        <div class="grid-cards">
+          <div class="contact-card">
+            <h3>Georgia Board Member</h3>
+            <p id="boardMemberName">Assigned Board Official</p>
+            <a href="mailto:BoardMember@PastorsPicks.us.org" class="btn-action" target="_blank">Contact</a>
+          </div>
+          <div class="contact-card">
+            <h3>Secretary</h3>
+            <p>Andrew Alderman</p>
+            <a href="mailto:MrAlderman.Secretary@PastorsPicks.us.org" class="btn-action" target="_blank">Contact</a>
+          </div>
+          <div class="contact-card">
+            <h3>Community Engagement</h3>
+            <p>Director of Community Engagement</p>
+            <a href="mailto:Mr_______.CommunityEngagement@PastorsPicks.us.org" class="btn-action" target="_blank">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Endorsed Officials' Websites -->
+      <div class="section-card">
+        <h2>Elected Officials and Candidates in Your Area</h2>
+        <div id="officialsCards" class="grid-cards">
+          <!-- Dynamically populated with 'Contact' buttons -->
+        </div>
+      </div>
+
+      <!-- Section 6: Voting Location Search Button -->
+      <div class="section-card" style="text-align: center;">
+        <h2>Find Your Polling Place</h2>
+        <p>Ready to cast your ballot? Click below to locate nearby voting places tailored to your address.</p>
+        <a id="voteSearchBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-action" style="background-color: var(--patriot-red); font-size: 1.1rem; padding: 12px 28px;">VOTE - Locate Polling Place</a>
+      </div>
+
+      <!-- Section 7: Donation Notice -->
+      <div class="section-card">
+        <h2>Donations</h2>
+        <p>
+          Pastor's Picks is not accepting donations as of yet. If you would like, you can join our notification list for when fundraising officially opens by emailing our Treasurer below:
+        </p>
+        <a href="mailto:Mr_____.Treasurer@PastorsPicks.us.org?subject=Join%20Donation%20Notification%20List&body=Hello%20Mr.%20Treasurer,%20please%20add%20me%20to%20the%20notification%20list%20for%20future%20donations." class="btn-action" target="_blank">Email Treasurer</a>
+      </div>
+
+      <!-- Section 8: Thank You Banner -->
+      <div class="thank-you-card">
+        <h2>THANK YOU!</h2>
+        <p style="font-size: 1.1rem; margin: 0;">Your active subscription and commitment to informed voting mean the world to us and our community!</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+  </footer>
+
+  <script>
+    // Database of subscribers (Mapped by Password)
+    // Add or edit member entries here easily!
+    const subscriberData = {
+      "Genesis1:1": {
+        name: "Henry Hart",
+        county: "Paulding County, GA",
+        voterGuideTitle: "Paulding County Voter Guide",
+        voterGuideDesc: "Covers Paulding County Commission, School Board, and Judicial races, plus Georgia State endorsements.",
+        voterGuidePdf: "pdfs/paulding-county-guide.pdf",
+        boardMember: "Pastor ___ ____",
+        stateEndorsements: [
+          "Lt. Governor: Greg Dolezal",
+          "Secretary of State: Tim Flemming",
+          "Agriculture Commissioner: Tyler Harper",
+          "State Senator, District 31: Jason Anavitarte"
+        ],
+        officials: [
+          { name: "Donald J. Trump", role: "President of the United State", website: "https://www.whitehouse.gov/contact/" },
+          { name: "Jon Ossoff", role: "Senior Senator from Georgia", website: "https://www.ossoff.senate.gov/contact-us/share-your-views/" }, 
+          { name: "Mike Collins", role: "Candidate for U.S. Senate", website: "https://www.collins.house.gov/contact" },
+          { name: "Raphael Warnock", role: "Junior Senator from Georgia", website: "https://www.warnock.senate.gov/contact/contact-form/" },
+          { name: "Brian Kemp", role: "Governor of Georgia", website: "https://gov.georgia.gov/contact-us" },
+          { name: "Rick Jackson", role: "Candidate for Governor", website: "https://rickjackson.com/contact/" },
+          { name: "Kiesha Lance Bottoms", role: "Candidate for Governor", website: "https://www.keishaforgovernor.com/" },
+          { name: "Burt Jones", role: "Lieutenant Governor of Georgia", website: "https://ltgov.georgia.gov/contact-lt-governor" },
+          { name: "Greg Dolezal", role: "Candidate for Lt. Governor", website: "https://gregdolezal.com/#contact-form" },
+          { name: "Josh McLaurin", role: "Candidate for Lt. Governor", website: "https://www.joshmclaurin.com/contact" }
+        ]
+      },
+      "Genesis1:2": {
+        name: "Andrew Alderman",
+        county: "Cobb County, GA",
+        voterGuideTitle: "Cobb County Voter Guide",
+        voterGuideDesc: "Includes Acworth City Council, Mayor, and Cobb County races, plus Georgia State endorsemets.",
+        voterGuidePdf: "pdfs/acworth-city-guide.pdf",
+        boardMember: "Pastor ___ ____",
+        stateEndorsements: [
+          "U.S. House, GA-11: Dr. John Cowan",
+          "Lt. Governor: Greg Dolezal",
+          "Secretary of State: Tim Flemming",
+          "Agriculture Commissioner: Tyler Harper",
+          "State Senator, District 37: Ed Setzler"
+        ],
+        officials: [
+          { name: "Donald J. Trump", role: "President of the United State", website: "https://www.whitehouse.gov/contact/" },
+          { name: "Jon Ossoff", role: "Senior Senator from Georgia", website: "https://www.ossoff.senate.gov/contact-us/share-your-views/" }, 
+          { name: "Mike Collins", role: "Candidate for U.S. Senate", website: "https://www.collins.house.gov/contact" },
+          { name: "Raphael Warnock", role: "Junior Senator from Georgia", website: "https://www.warnock.senate.gov/contact/contact-form/" },
+          { name: "Brian Kemp", role: "Governor of Georgia", website: "https://gov.georgia.gov/contact-us" },
+          { name: "Rick Jackson", role: "Candidate for Governor", website: "https://rickjackson.com/contact/" },
+          { name: "Kiesha Lance Bottoms", role: "Candidate for Governor", website: "https://www.keishaforgovernor.com/" },
+          { name: "Burt Jones", role: "Lieutenant Governor of Georgia", website: "https://ltgov.georgia.gov/contact-lt-governor" },
+          { name: "Greg Dolezal", role: "Candidate for Lt. Governor", website: "https://gregdolezal.com/#contact-form" },
+          { name: "Josh McLaurin", role: "Candidate for Lt. Governor", website: "https://www.joshmclaurin.com/contact" }
+        ]
+      }
+    };
+
+    function attemptLogin() {
+      const inputPass = document.getElementById('passwordInput').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (subscriberData[inputPass]) {
+        // Password found! Store session state temporarily (clears on tab close)
+        sessionStorage.setItem('loggedInUser', inputPass);
+        errorMsg.style.display = 'none';
+        renderDashboard(subscriberData[inputPass]);
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    }
+
+    function renderDashboard(user) {
+      // Hide Login, Show Dashboard
+      document.getElementById('loginView').style.display = 'none';
+      document.getElementById('dashboardView').style.display = 'block';
+
+      // 1. Welcome Greeting & Address
+      document.getElementById('welcomeGreeting').innerText = `Welcome, ${user.name}!`;
+      document.getElementById('userAddress').innerText = `Address: ${user.county}`;
+
+      // 2. Voter Guide PDF
+      document.getElementById('guideTitle').innerText = user.voterGuideTitle;
+      document.getElementById('guideDesc').innerText = user.voterGuideDesc;
+      document.getElementById('guideBtn').href = user.voterGuidePdf;
+
+      // 3. State Endorsements
+      const stateListContainer = document.getElementById('stateEndorsementsList');
+      stateListContainer.innerHTML = '<ul>' + user.stateEndorsements.map(e => `<li style="margin-bottom: 6px; font-weight: bold;">${e}</li>`).join('') + '</ul>';
+
+      // 4. Pre-filled Email Link for Secretary Update
+      const emailSubject = encodeURIComponent(`Update Member Information - ${user.name}`);
+      const emailBody = encodeURIComponent(`Hello, Mr. Secretary.\n\nMy name is ${user.name}, and I would like to update information about my [address/phone/email].\n\nMy new details are:\n\nThank you!`);
+      document.getElementById('updateInfoBtn').href = `mailto:MrSecretary.Alderman@PastorsPicks.us.org?subject=${emailSubject}&body=${emailBody}`;
+
+      // 5. Leadership Contacts
+      document.getElementById('boardMemberName').innerText = user.boardMember;
+
+      // 6. Officials Websites
+      const officialsContainer = document.getElementById('officialsCards');
+      officialsContainer.innerHTML = user.officials.map(o => `
+        <div class="contact-card">
+          <h3>${o.name}</h3>
+          <p>${o.role}</p>
+          <a href="${o.website}" target="_blank" class="btn-action">Contact</a>
+        </div>
+      `).join('');
+
+      // 7. Dynamic Google Search link for VOTE button
+      const voteQuery = encodeURIComponent(`where to vote in ${user.county}`);
+      document.getElementById('voteSearchBtn').href = `https://www.google.com/search?q=${voteQuery}`;
+    }
+
+    function logout() {
+      sessionStorage.removeItem('loggedInUser');
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('dashboardView').style.display = 'none';
+      document.getElementById('loginView').style.display = 'block';
+    }
+
+    // Auto-login check if user refreshes within the same active tab session
+    window.onload = function() {
+      const activeUser = sessionStorage.getItem('loggedInUser');
+      if (activeUser && subscriberData[activeUser]) {
+        renderDashboard(subscriberData[activeUser]);
+      }
+    };
+
+    // Press Enter to submit password
+    document.getElementById('passwordInput').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        attemptLogin();
+      }
+    });
+  </script>
+
+</body>
+</html>
