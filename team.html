@@ -14,8 +14,8 @@
   <meta property="og:image" content="og-image.png">
   <meta property="og:type" content="website">
 
-    <!-- Browser Tab Icon (Favicon) -->
-<link rel="icon" type="image/png" href="images/logowithbackground.png">
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="images/logowithbackground.png">
 
   <style>
     /* Global Styles & Red, White, Blue Palette */
@@ -42,7 +42,7 @@
     header {
       background-color: var(--navy-blue);
       color: var(--white);
-      padding: 1rem 2rem;
+      padding: 0.8rem 1.2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -56,36 +56,146 @@
     .logo-container a {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
     }
 
     .logo-container img {
-      max-height: 60px;
+      max-height: 50px;
     }
 
     .brand-text {
       color: var(--white);
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: bold;
       letter-spacing: 0.5px;
     }
 
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
+    /* Navigation Container */
+    nav {
+      display: flex;
+      align-items: center;
     }
 
-    nav a.active {
+    /* Desktop View Navigation */
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
       border-bottom: 2px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    /* Hamburger Bars */
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Morph Hamburger to "X" when Active */
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation Drawer Overhaul */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px; /* Sits directly under header bar */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 0; /* Zero container padding prevents side margins */
+        overflow-y: auto;
+        z-index: 999;
+        box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block; /* Spans full horizontal width */
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .nav-links a.active {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(186, 18, 0, 0.25);
+        color: #FFFFFF;
+        font-weight: bold;
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+      }
+
+      .team-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+
+      .info-container {
+        text-align: center;
+      }
+
+      .member-photo {
+        max-width: 180px;
+      }
     }
 
     /* Disclaimer Notice Section (Matching White Background) */
     .notice-section {
       background-color: var(--white);
-      padding: 2.5rem 1rem 0.5rem 1rem; /* Added top padding to shift banner down */
+      padding: 2.5rem 1rem 0.5rem 1rem;
     }
 
     .notice-wrapper {
@@ -212,27 +322,6 @@
       font-weight: bold;
     }
 
-    /* Mobile Adaptability */
-    @media (max-width: 768px) {
-      .brand-text {
-        font-size: 1.2rem;
-      }
-
-      .team-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1.5rem;
-      }
-
-      .info-container {
-        text-align: center;
-      }
-
-      .member-photo {
-        max-width: 180px;
-      }
-    }
-
     /* Footer */
     footer {
       text-align: center;
@@ -251,17 +340,7 @@
         <span class="brand-text">Pastor's Picks</span>
       </a>
     </div>
-    <nav>
-       <a href="index.html">Home</a>
-      <a href="mission.html">Mission</a>
-      <a href="endorsements.html">Endorsements</a>
-      <a href="endorsements-location.html">By Location</a>
-      <a href="mypage.html">My Page</a>
-      <a href="team.html" class="active">About Team</a>
-      <a href="abouttheboard.html">About The Board</a>
-      <a href="subscribe.html">Subscribe</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
+    <nav id="main-nav"></nav>
   </header>
 
   <main>
@@ -275,22 +354,22 @@
     </section>
 
     <section class="team-section">
-  <div class="team-card">
-    <div class="photo-container">
-      <img src="images/henry-hart.jpg" alt="Henry W. Hart" class="member-photo">
-    </div>
-    <div class="info-container">
-      <div class="role-title">Chairman</div>
-      <h2 class="member-name">Henry W. Hart</h2>
-      <div class="member-bio">
-        <p>Henry Hart is the Chairman of Pastor’s Picks, leading the organization's mission to support faithful Christians running for public office. He discovered a deep passion for Christian politics after working on Pastor Tom Gray’s congressional campaign. Outside of his leadership work, Henry is an avid runner, guitar player, and the creator of the strategy card game <a href="https://consec-ya.com" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline; font-style: italic;">Consec-ya!</a>.</p>
+      <div class="team-card">
+        <div class="photo-container">
+          <img src="images/henry-hart.jpg" alt="Henry W. Hart" class="member-photo">
+        </div>
+        <div class="info-container">
+          <div class="role-title">Chairman</div>
+          <h2 class="member-name">Henry W. Hart</h2>
+          <div class="member-bio">
+            <p>Henry Hart is the Chairman of Pastor’s Picks, leading the organization's mission to support faithful Christians running for public office. He discovered a deep passion for Christian politics after working on Pastor Tom Gray’s congressional campaign. Outside of his leadership work, Henry is an avid runner, guitar player, and the creator of the strategy card game <a href="https://consec-ya.com" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline; font-style: italic;">Consec-ya!</a>.</p>
+          </div>
+          <div>
+            <a href="mailto:MrHart.Chairman@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Chairman Hart</a>
+          </div>
+        </div>
       </div>
-      <div>
-        <a href="mailto:MrHart.Chairman@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Chairman Hart</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="team-section">
       <div class="team-card">
@@ -406,5 +485,6 @@
     <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
   </footer>
 
+  <script src="navbar.js"></script>
 </body>
 </html>
