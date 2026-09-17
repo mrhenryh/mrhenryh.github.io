@@ -15,8 +15,8 @@
   <!-- iPhone Home Screen Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-    <!-- Browser Tab Icon (Favicon) -->
-<link rel="icon" type="image/png" href="images/logowithbackground.png">
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="images/logowithbackground.png">
 
   <style>
     /* Global Styles & Red, White, Blue Palette */
@@ -36,45 +36,144 @@
       color: var(--text-dark);
     }
 
-    /* Header & Navigation */
+    /* Header & Navigation Layout */
     header {
       background-color: var(--navy-blue);
       color: var(--white);
-      padding: 1rem 2rem;
+      padding: 0.8rem 1.2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     /* Logo & Branding Text Styles */
     .logo-container a {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
     }
 
     .logo-container img {
-      max-height: 60px;
+      max-height: 50px;
     }
 
     .brand-text {
       color: var(--white);
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: bold;
       letter-spacing: 0.5px;
     }
 
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
+    /* Navigation Container */
+    nav {
+      display: flex;
+      align-items: center;
     }
 
-    nav a.active {
+    /* Desktop View Navigation */
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
       border-bottom: 2px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    /* Hamburger Bars */
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Morph Hamburger to "X" when Active */
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation Drawer Overhaul */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px; /* Sits directly under header bar */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 0; /* Zero container padding prevents side margins */
+        overflow-y: auto;
+        z-index: 999;
+        box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block; /* Spans full horizontal width */
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .nav-links a.active {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(186, 18, 0, 0.25);
+        color: #FFFFFF;
+        font-weight: bold;
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+      }
     }
 
     /* Hero Section */
@@ -150,13 +249,6 @@
       background-color: #900E00;
     }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .brand-text {
-        font-size: 1.2rem;
-      }
-    }
-
     /* Footer & Legal Disclaimer */
     footer {
       text-align: center;
@@ -187,17 +279,7 @@
         <span class="brand-text">Pastor's Picks</span>
       </a>
     </div>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="mission.html">Mission</a>
-      <a href="endorsements.html">Endorsements</a>
-      <a href="endorsements-location.html">By Location</a>
-      <a href="mypage.html">My Page</a>
-      <a href="team.html">About Team</a>
-      <a href="abouttheboard.html">About The Board</a>
-      <a href="subscribe.html">Subscribe</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
+    <nav id="main-nav"></nav>
   </header>
 
   <section class="hero">
@@ -258,5 +340,6 @@
     </p>
   </footer>
 
+  <script src="navbar.js"></script>
 </body>
 </html>
