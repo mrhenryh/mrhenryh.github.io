@@ -130,68 +130,6 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Mobile Navigation Drawer Overhaul */
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 67px; /* Sits directly under header bar */
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--navy-blue);
-        padding: 0; /* Zero container padding prevents side margins */
-        overflow-y: auto;
-        z-index: 999;
-        box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block; /* Spans full horizontal width */
-        padding: 1rem 1.5rem;
-        font-size: 1.1rem;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        box-sizing: border-box;
-        margin: 0;
-      }
-
-      .nav-links a.active {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        background-color: rgba(186, 18, 0, 0.25);
-        color: #FFFFFF;
-        font-weight: bold;
-      }
-
-      .brand-text {
-        font-size: 1.15rem;
-      }
-
-      .team-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1.5rem;
-      }
-
-      .info-container {
-        text-align: center;
-      }
-
-      .member-photo {
-        max-width: 180px;
-      }
-    }
-
     /* Disclaimer Notice Section (Matching White Background) */
     .notice-section {
       background-color: var(--white);
@@ -234,7 +172,7 @@
       background-color: var(--light-bg);
     }
 
-    /* Two-Column Card Layout */
+    /* Two-Column Card Layout (Desktop View) */
     .team-card {
       max-width: 1000px;
       width: 100%;
@@ -320,6 +258,69 @@
       color: #555;
       margin-top: 0.5rem;
       font-weight: bold;
+    }
+
+    /* Mobile Navigation & Card Overhaul (Placed at the bottom to properly override desktop styles) */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px; /* Sits directly under header bar */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 0;
+        overflow-y: auto;
+        z-index: 999;
+        box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .nav-links a.active {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(186, 18, 0, 0.25);
+        color: #FFFFFF;
+        font-weight: bold;
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+      }
+
+      /* Stacked Mobile Card Layout matching abouttheboard.html */
+      .team-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+
+      .info-container {
+        text-align: center;
+      }
+
+      .member-photo {
+        max-width: 180px;
+      }
     }
 
     /* Footer */
