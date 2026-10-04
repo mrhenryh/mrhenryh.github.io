@@ -33,3 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Load GoatCounter dynamically via JavaScript
+const goatScript = document.createElement('script');
+goatScript.setAttribute('data-goatcounter', 'https://pastorspicks.goatcounter.com/count');
+goatScript.async = true;
+goatScript.src = '//gc.zgo.at/count.js';
+document.head.appendChild(goatScript);
