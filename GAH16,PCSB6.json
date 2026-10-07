@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "name": "GAH16, PCSB6",
-        "pdf_url": "paulding-county-guide.pdf"
+        "pdf_url": "pdfs/paulding-county-guide.pdf"
       },
       "geometry": {
         "type": "Polygon",
