@@ -198,6 +198,39 @@
       padding: 0 1rem;
     }
 
+    /* Map Navigation Banner Button */
+    .map-banner-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-left: 6px solid var(--navy-blue);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .map-banner-card p {
+      margin: 0 0 1rem 0;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    .btn-map-link {
+      display: inline-block;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-map-link:hover {
+      background-color: var(--patriot-red);
+    }
+
     /* Search Box Section */
     .search-card {
       background: var(--white);
@@ -353,6 +386,12 @@
   </section>
 
   <main class="container">
+
+    <!-- Interactive Map Button Banner -->
+    <div class="map-banner-card">
+      <p>Prefer to explore visually? Use our interactive map to locate voter guides across your state or county.</p>
+      <a href="endorsements-map.html" class="btn-map-link">View Interactive Map</a>
+    </div>
 
     <div class="search-card">
       <h2>Search Voter Guides</h2>
