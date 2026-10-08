@@ -1,4 +1,4 @@
-{
+const districtData ={
   "type": "FeatureCollection",
   "features": [
     {
