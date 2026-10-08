@@ -300,7 +300,7 @@
     </p>
   </footer>
 
-  <!-- Leaflet JS -->
+ <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     // Initialize map centered around your area
@@ -323,11 +323,23 @@
       onEachFeature: function (feature, layer) {
         let pdfUrl = feature.properties.pdf_url || '#';
         let districtName = feature.properties.name || 'District';
+        
+        // Extract href from feature.properties.link_url string if available
+        let linkUrl = '#';
+        if (feature.properties.link_url) {
+          let match = feature.properties.link_url.match(/href="([^"]+)"/);
+          if (match && match[1]) {
+            linkUrl = match[1];
+          }
+        }
 
         layer.bindPopup(
           `<div style="font-family: Arial, sans-serif; text-align: center; padding: 2px;">` +
           `<strong style="color: #0A2342; font-size: 1rem;">${districtName}</strong><br><br>` +
-          `<a href="${pdfUrl}" target="_blank" style="background-color: #BA1200; color: #FFFFFF; padding: 6px 12px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block;">Open Area PDF Document</a>` +
+          `<div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">` +
+            `<a href="${pdfUrl}" target="_blank" style="background-color: #BA1200; color: #FFFFFF; padding: 6px 12px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block;">Open Area PDF Document</a>` +
+            `<a href="${linkUrl}" target="_blank" style="background-color: #0A2342; color: #FFFFFF; padding: 6px 12px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block;">Visit District Website</a>` +
+          `</div>` +
           `</div>`
         );
       }
