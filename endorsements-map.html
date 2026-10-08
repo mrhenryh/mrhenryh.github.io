@@ -1,72 +1,340 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Endorsements Mapped by Area</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
-    <style>
-        #map { width: 100%; height: 85vh; margin: 0; }
-        body { font-family: sans-serif; margin: 0; padding: 20px; text-align: center; background: #f9f9f9; }
-        h1 { margin-bottom: 5px; font-size: 1.5rem; }
-        p { color: #555; margin-top: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastor's Picks - Endorsements Mapped by Area</title>
 
-        /* Shrink Leaflet Popup Content & Padding for Mobile (~33% smaller) */
-        .leaflet-popup-content-wrapper {
-            padding: 4px;
-            border-radius: 6px;
-        }
-        .leaflet-popup-content {
-            margin: 10px 12px;
-            font-size: 0.85rem;
-            line-height: 1.3;
-        }
-    </style>
+  <meta property="og:title" content="Pastor's Picks - Endorsements Mapped by Area">
+  <meta property="og:description" content="Find your area on the interactive map to view local area details and voter guides.">
+  <meta property="og:image" content="https://pastorspicks.us.org/og-image.png">
+  <meta property="og:url" content="https://pastorspicks.us.org/endorsements-map.html">
+  <meta property="og:type" content="website">
 
-    <!-- Load your external districts JavaScript file -->
-    <script src="districts.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="images/logowithbackground.png">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    /* Global Styles & Red, White, Blue Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --patriot-red: #BA1200;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Logo & Branding Text Styles */
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation Container */
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Desktop View Navigation */
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    /* Hamburger Bars */
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Morph Hamburger to "X" when Active */
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: #D1D5DB;
+    }
+
+    /* Container & Map Section */
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .map-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-top: 6px solid var(--patriot-red);
+    }
+
+    .map-instruction {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    #map {
+      width: 100%;
+      height: 70vh;
+      min-height: 450px;
+      border-radius: 6px;
+      border: 2px solid #ddd;
+    }
+
+    /* Compact Leaflet Popup Content & Padding for Mobile */
+    .leaflet-popup-content-wrapper {
+      padding: 4px;
+      border-radius: 6px;
+    }
+
+    .leaflet-popup-content {
+      margin: 10px 12px;
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    /* Footer & Legal Disclaimer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    /* Mobile Navigation Drawer Overhaul */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 0;
+        overflow-y: auto;
+        z-index: 999;
+        box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .nav-links a.active {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(186, 18, 0, 0.25);
+        color: #FFFFFF;
+        font-weight: bold;
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      #map {
+        height: 55vh;
+      }
+    }
+  </style>
+
+  <!-- External districts JavaScript file -->
+  <script src="districts.js"></script>
 </head>
 <body>
 
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logo.png" alt="Pastor's Picks Logo">
+        <span class="brand-text">Pastor's Picks</span>
+      </a>
+    </div>
+    <nav id="main-nav"></nav>
+  </header>
+
+  <section class="hero">
     <h1>Find Your Area & Info</h1>
     <p>Click on the shaded area to view your local area details and open the document.</p>
+  </section>
 
-    <div id="map"></div>
+  <main class="container">
+    <div class="map-card">
+      <p class="map-instruction">Click on any shaded area to view area details and open your local voter guide PDF.</p>
+      <div id="map"></div>
+    </div>
+  </main>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        // Initialize map centered around your area
-        var map = L.map('map').setView([34.05, -84.8], 11);
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+  </footer>
 
-        // Add OpenStreetMap background tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Initialize map centered around your area
+    var map = L.map('map').setView([34.05, -84.8], 11);
 
-        // Render the district polygons from districts.js onto the map with popup links
-        L.geoJSON(districtData, {
-            style: {
-                color: "#e63946",
-                weight: 3,
-                fillColor: "#457b9d",
-                fillOpacity: 0.5
-            },
-            onEachFeature: function (feature, layer) {
-                let pdfUrl = feature.properties.pdf_url || '#';
-                let districtName = feature.properties.name || 'District';
+    // Add OpenStreetMap background tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
-                layer.bindPopup(
-                    `<strong>${districtName}</strong><br><br>` +
-                    `<a href="${pdfUrl}" target="_blank" style="color: #1d3557; font-weight: bold;">Open District PDF Document</a>`
-                );
-            }
-        }).addTo(map);
-    </script>
+    // Render the district polygons from districts.js onto the map with popup links
+    L.geoJSON(districtData, {
+      style: {
+        color: "#BA1200",     // Patriot Red border stroke
+        weight: 3,
+        fillColor: "#0A2342",   // Navy Blue polygon fill
+        fillOpacity: 0.4
+      },
+      onEachFeature: function (feature, layer) {
+        let pdfUrl = feature.properties.pdf_url || '#';
+        let districtName = feature.properties.name || 'District';
+
+        layer.bindPopup(
+          `<div style="font-family: Arial, sans-serif; text-align: center; padding: 2px;">` +
+          `<strong style="color: #0A2342; font-size: 1rem;">${districtName}</strong><br><br>` +
+          `<a href="${pdfUrl}" target="_blank" style="background-color: #BA1200; color: #FFFFFF; padding: 6px 12px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block;">Open District PDF Document</a>` +
+          `</div>`
+        );
+      }
+    }).addTo(map);
+  </script>
+
+  <script src="navbar.js"></script>
 
 </body>
 </html>
