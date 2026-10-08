@@ -298,7 +298,7 @@
     }).addTo(map);
 
     // Fetch external GeoJSON file directly
-    fetch('GAH16,PCSB6.json')
+    fetch('maps/GAH16 & PCSB6.json')
       .then(response => response.json())
       .then(districtData => {
         L.geoJSON(districtData, {
