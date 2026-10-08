@@ -5,7 +5,8 @@ var districtData = {
       "type": "Feature",
       "properties": {
         "name": "GAH16 & PCSB6",
-        "pdf_url": "paulding-county-guide.pdf"
+        "pdf_url": "paulding-county-guide.pdf",
+        "link_url": "mrhenryh.github.io/addmps/gah16&pcsb6mp.html"
       },
       "geometry": {
         "type": "Polygon",
