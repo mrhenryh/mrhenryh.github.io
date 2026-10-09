@@ -48,7 +48,14 @@
       border-bottom: 5px solid var(--patriot-red);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 2000; /* Raised z-index so top header stays above map controls */
+    }
+
+    /* Ensure Leaflet controls stay underneath the sticky header */
+    .leaflet-top,
+    .leaflet-bottom,
+    .leaflet-pane {
+      z-index: 400 !important;
     }
 
     /* Logo & Branding Text Styles */
@@ -227,7 +234,7 @@
         background-color: var(--navy-blue);
         padding: 0;
         overflow-y: auto;
-        z-index: 999;
+        z-index: 1999;
         box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
       }
 
