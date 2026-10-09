@@ -6,13 +6,13 @@
   <title>Pastor's Picks - GA House 17 & Paulding Co. School Board 6 My Page</title>
 
   <meta property="og:title" content="Pastor's Picks - Subscriber Portal">
-  <meta property="og:description" content="Access your exclusively tailored voter guide, contact cheat sheets, and state endorsements.">
+  <meta property="og:description" content="Access your exclusively tailored voter guide, contact cheat sheets, and area endorsements.">
   <meta property="og:image" content="https://pastorspicks.us.org/logo.png">
   <meta property="og:url" content="https://pastorspicks.us.org/mypage.html">
   <meta property="og:type" content="website">
 
   <!-- Browser Tab Icon (Favicon) -->
-  <link rel="icon" type="image/png" href="images/logowithbackground.png">
+  <link rel="icon" type="image/png" href="/images/logowithbackground.png">
 
   <style>
     :root {
@@ -245,17 +245,6 @@
       background-color: var(--patriot-red);
     }
 
-    .btn-update {
-      background-color: var(--patriot-red);
-      color: var(--white);
-      text-decoration: none;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 4px;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
     .grid-cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -330,8 +319,8 @@
 
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="logo.png" alt="Pastor's Picks Logo">
+      <a href="/index.html">
+        <img src="/logo.png" alt="Pastor's Picks Logo">
         <span class="brand-text">Pastor's Picks</span>
       </a>
     </div>
@@ -340,14 +329,14 @@
 
   <main class="container">
 
-    <!-- DASHBOARD SECTION (Directly Loaded for GAH17 & PCSB6 Residents) -->
+    <!-- DASHBOARD SECTION -->
     <div id="dashboardView">
 
       <!-- Header Banner -->
       <div class="dashboard-header">
         <div>
           <h1 id="welcomeGreeting">Welcome, GA House 17 & Paulding Co. School Board 6 Residents!</h1>
-          <p id="userAddress" class="user-address">Location: Northeast Paulding County, GA</p>
+          <p id="userAddress" class="user-address">Location: Northeastern Paulding County, GA</p>
         </div>
       </div>
 
@@ -359,7 +348,7 @@
             <h3 id="guideTitle" style="margin: 0; color: var(--navy-blue);">GAH17 & PCSB6 Area Voter Guide</h3>
             <p id="guideDesc" style="margin: 5px 0 0 0; color: #555; font-size: 0.95rem;">Covers Paulding County Commission, School Board, and Judicial races, plus Georgia State endorsements.</p>
           </div>
-          <a id="guideBtn" href="pdfs/paulding-county-guide.pdf" target="_blank" class="btn-action" style="white-space: nowrap;">View PDF</a>
+          <a id="guideBtn" href="/pdfs/GAH17&PCSB6voterguide.pdf" target="_blank" class="btn-action">View PDF</a>
         </div>
       </div>
 
@@ -455,7 +444,7 @@
         </div>
       </div>
 
-    <!-- Section 5: Voting Locations in Area -->
+      <!-- Section 5: Voting Locations in Area -->
       <div class="section-card" style="text-align: center;">
         <h2>Find Your Polling Place</h2>
         <p>Ready to cast your ballot? Here are the designated voting locations in your area:</p>
@@ -467,7 +456,7 @@
         </ul>
 
         <p style="font-size: 0.9rem; font-style: italic; color: #666; margin: 1rem 0;">
-          *Note: Your exact polling location depends on your specific address.*<p> <p>Please click the button below to confirm which of these three locations is yours.
+          <p>*Note: Your exact polling location depends on your specific address.*</p> <p>Please click the button below to confirm which of these three locations is yours.*
         </p>
 
         <p style="margin-top: 1.5rem; color: #555;">Click below to access the official Paulding County interactive lookup tool:</p>
@@ -499,13 +488,6 @@
       <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
     </p>
   </footer>
-
-  <script>
-    // Pre-filled dynamic email link for the Secretary Update button
-    const emailSubject = encodeURIComponent("Update Member Information - Henry Hart");
-    const emailBody = encodeURIComponent("Hello, Mr. Secretary.\n\nMy name is Henry Hart, and I would like to update information about my [address/phone/email].\n\nMy new details are:\n\nThank you!");
-    document.getElementById('updateInfoBtn').href = `mailto:MrSecretary.Alderman@PastorsPicks.us.org?subject=${emailSubject}&body=${emailBody}`;
-  </script>
 
   <script src="navbar.js"></script>
 </body>
