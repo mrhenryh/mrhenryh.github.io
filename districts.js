@@ -1,3 +1,4 @@
+// 1. Your original dataset (kept intact)
 const districtData = {
   "type": "FeatureCollection",
   "features": [
@@ -158,7 +159,7 @@ const districtData = {
             [-84.8356223, 34.0069162],
             [-84.8427707, 34.0081493],
             [-84.8718435, 34.0136295],
-            [-84.8766395, 34.0144858],
+            [-84.8766395, 34.014858],
             [-84.8840358, 34.015616],
             [-84.8937873, 34.016986],
             [-84.9072577, 34.0190066],
@@ -320,7 +321,7 @@ const districtData = {
             [-84.7525935, 34.0782406],
             [-84.7515605, 34.0788224],
             [-84.7505688, 34.0788566],
-            [-84.7495358, 34.0788908],
+            [-84.7595358, 34.0788908],
             [-84.7478004, 34.0791988],
             [-84.7461889, 34.079986],
             [-84.7444122, 34.0807389],
@@ -334,3 +335,63 @@ const districtData = {
     }
   ]
 };
+
+// 2. The list of counties you specified for District 5
+const district5Counties = [
+  "Dade", "Walker", "Catoosa", "Whitfield", "Gordon", "Bartow", 
+  "Cobb", "Douglas", "Carroll", "Coweta", "Fayette", "Clayton", 
+  "Spalding", "Lamar", "Upson", "Meriwether", "Harris", "Talbot", 
+  "Taylor", "Crawford", "Troup", "Heard", "Haralson", "Polk", 
+  "Floyd", "Chattooga"
+];
+
+// 3. Async function to fetch the county file, merge them, and append to your list
+async function loadAndMergeDistrict5() {
+  try {
+    // Step A: Fetch your Georgia Counties GeoJSON file
+    const response = await fetch("Counties_Georgia.geojson");
+    if (!response.ok) {
+      throw new Error(`Failed to load GeoJSON: ${response.statusText}`);
+    }
+    const countiesGeoJSON = await response.json();
+
+    // Step B: Filter out only the counties in your list
+    // (Checks property 'NAME' or 'NAME10' depending on standard Census fields)
+    const d5Features = countiesGeoJSON.features.filter(feature => {
+      const countyName = feature.properties.NAME || feature.properties.NAME10 || feature.properties.name;
+      return district5Counties.includes(countyName);
+    });
+
+    if (d5Features.length === 0) {
+      console.warn("No matching counties found. Check county name property keys in Counties_Georgia.geojson.");
+      return;
+    }
+
+    // Step C: Dissolve/Union all matching county polygons into one boundary using Turf.js
+    let mergedBoundary = d5Features[0];
+    for (let i = 1; i < d5Features.length; i++) {
+      mergedBoundary = turf.union(mergedBoundary, d5Features[i]);
+    }
+
+    // Step D: Assign your custom properties
+    mergedBoundary.properties = {
+      "name": "Public Service Commission District 5",
+      "pdf_url": "pdfs/PSC5voterguide.pdf",
+      "link_url": "<a href=\"https://mrhenryh.github.io/addmps/psc5mp.html\" target=\"_blank\">Visit Website</a>"
+    };
+
+    // Step E: Add the newly created feature into your districtData dataset
+    districtData.features.push(mergedBoundary);
+
+    console.log("District 5 successfully merged and added to districtData:", districtData);
+
+    // CALL YOUR MAP DRAWING FUNCTION HERE
+    // Example: renderMap(districtData);
+
+  } catch (error) {
+    console.error("Error processing District 5 GeoJSON:", error);
+  }
+}
+
+// 4. Run the function
+loadAndMergeDistrict5();
