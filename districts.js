@@ -341,9 +341,9 @@ const districtData = {
     {
       "type": "Feature",
       "properties": {
-        "name": "US House 14 & Cobb County 1 & Cobb County School Board 7",
-        "pdf_url": "pdfs/USH14&CC1&CCSB7voterguide.pdf",
-        "link_url": "<a href=\"https://mrhenryh.github.io/addmps/ush14&cc1&ccsb7mp.html\" target=\"_blank\">Visit Website</a>"
+        "name": "US House GA-14 & Cobb Co. School Board 7",
+        "pdf_url": "pdfs/USHGA14&CCSB7voterguide.pdf",
+        "link_url": "<a href=\"https://mrhenryh.github.io/addmps/ushga14ccsb7mp.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
