@@ -184,6 +184,24 @@
       border: 2px solid #ddd;
     }
 
+    /* Yellow Notice Banner Box Below Map */
+    .notice-banner {
+      background-color: #FFF3CD;
+      color: #856404;
+      border: 1px solid #FFEEBA;
+      border-radius: 6px;
+      padding: 0.85rem 1.25rem;
+      margin-top: 1.25rem;
+      text-align: center;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .notice-banner strong {
+      color: #533F03;
+    }
+
     /* Compact Leaflet Popup Content & Padding (33% smaller) */
     .leaflet-popup-content-wrapper {
       padding: 2px;
@@ -299,6 +317,11 @@
       <p class="map-instruction">Click on any shaded area to view area details and open your local voter guide PDF.</p>
       <div id="map"></div>
     </div>
+
+    <!-- Yellow Warning / Notice Box Below Map -->
+    <div class="notice-banner">
+      <strong>Notice:</strong> If you find a problem, a missing district, or an incorrect border on this map, please let us know. We are actively working to maintain and deliver the most accurate maps possible!
+    </div>
   </main>
 
   <footer>
@@ -308,7 +331,7 @@
     </p>
   </footer>
 
- <!-- Leaflet JS -->
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     // Initialize map centered around your area
