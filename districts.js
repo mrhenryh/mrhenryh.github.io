@@ -228,7 +228,7 @@ const districtData = {
       "properties": {
         "name": "US House GA-14 & Cobb Co. School Board 7",
         "pdf_url": "/pdfs/USHGA14&CCSB7voterguide.pdf",
-        "link_url": "<a href=\"https://mrhenryh.github.io/addmps/ushga14ccsb7mp.html\" target=\"_blank\">Visit Website</a>"
+        "link_url": "<a href=\"https://mrhenryh.github.io/addmps/ushga14&ccsb7mp.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
