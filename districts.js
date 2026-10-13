@@ -5,7 +5,7 @@ const districtData = {
       "type": "Feature",
       "properties": {
         "name": "GA House 16 & Paulding Co. School Board 6",
-        "pdf_url": "pdfs/GAH16&PCSB6voterguide.pdf",
+        "pdf_url": "/pdfs/GAH16&PCSB6voterguide.pdf",
         "link_url": "<a href=\"https://mrhenryh.github.io/addmps/gah16&pcsb6mp.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
@@ -191,7 +191,7 @@ const districtData = {
       "type": "Feature",
       "properties": {
         "name": "GA House 19 & Paulding Co. School Board 6",
-        "pdf_url": "pdfs/GAH19&PCSB6voterguide.pdf",
+        "pdf_url": "/pdfs/GAH19&PCSB6voterguide.pdf",
         "link_url": "<a href=\"https://mrhenryh.github.io/addmps/gah19&pcsb6mp.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
@@ -227,7 +227,7 @@ const districtData = {
       "type": "Feature",
       "properties": {
         "name": "GA House 17 & Paulding Co. School Board 6",
-        "pdf_url": "pdfs/GAH17&PCSB6voterguide.pdf",
+        "pdf_url": "/pdfs/GAH17&PCSB6voterguide.pdf",
         "link_url": "<a href=\"https://mrhenryh.github.io/addmps/gah17&pcsb6mp.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
@@ -342,7 +342,7 @@ const districtData = {
       "type": "Feature",
       "properties": {
         "name": "US House GA-14 & Cobb Co. School Board 7",
-        "pdf_url": "pdfs/USHGA14&CCSB7voterguide.pdf",
+        "pdf_url": "/pdfs/USHGA14&CCSB7voterguide.pdf",
         "link_url": "<a href=\"https://mrhenryh.github.io/addmps/ushga14ccsb7mp.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
