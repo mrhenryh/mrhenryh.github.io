@@ -1814,7 +1814,7 @@ const districtData = {
       "type": "Feature",
       "properties": {
         "name": "GA House 17 & Paulding Co. Post 4 & Paulding Co. School Board 6: First District",
-        "pdf_url": "/pdfs/GAH17&PCP4&PCSB6",
+        "pdf_url": "/pdfs/GAH17&PCP4&PCSB6voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/addmps/gah17&pcp4&pcsb6mp.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
@@ -2197,7 +2197,7 @@ const districtData = {
       "type": "Feature",
       "properties": {
         "name": "GA House 17 & Paulding Co. Post 4 & Paulding Co. School Board 6: Second District",
-        "pdf_url": "/pdfs/GAH17&PCP4&PCSB6",
+        "pdf_url": "/pdfs/GAH17&PCP4&PCSB6voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/addmps/gah17&pcp4&pcsb6mp.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
