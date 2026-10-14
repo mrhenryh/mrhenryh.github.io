@@ -23,6 +23,8 @@
     :root {
       --navy-blue: #0A2342;
       --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --navy-blue-hover: #06162a;
       --light-bg: #F4F6F9;
       --white: #FFFFFF;
       --text-dark: #2B2D42;
@@ -143,7 +145,7 @@
         right: 0;
         bottom: 0;
         background-color: var(--navy-blue);
-        padding: 0; /* Zero container padding prevents side margins */
+        padding: 0;
         overflow-y: auto;
         z-index: 999;
         box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
@@ -154,7 +156,7 @@
       }
 
       .nav-links a {
-        display: block; /* Spans full horizontal width */
+        display: block;
         padding: 1rem 1.5rem;
         font-size: 1.1rem;
         text-align: center;
@@ -201,7 +203,7 @@
       padding: 0 1rem;
     }
 
-    /* Alternating Card Border Colors (Red / Blue) */
+    /* General Card Base */
     .card {
       background: var(--white);
       padding: 2rem;
@@ -210,17 +212,19 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .card:nth-child(odd) {
-      border-left: 6px solid var(--patriot-red);
-    }
-
-    .card:nth-child(even) {
+    /* Explicit Border Alternating starting from Card 2 */
+    .card-blue-border {
       border-left: 6px solid var(--navy-blue);
     }
 
-    /* Verse Callout Box Styling */
+    .card-red-border {
+      border-left: 6px solid var(--patriot-red);
+    }
+
+    /* Verse Callout Box Styling (All Navy Blue) */
     .verse-box {
       background-color: #EBF3FA;
+      border-left: 6px solid var(--navy-blue);
       font-style: italic;
     }
 
@@ -229,20 +233,33 @@
       background-color: #FAFAFA;
     }
 
-    /* Buttons */
+    /* Base Button Styling */
     .btn {
       display: inline-block;
-      background-color: var(--patriot-red);
       color: var(--white);
       padding: 12px 24px;
       text-decoration: none;
       font-weight: bold;
       border-radius: 4px;
       margin-top: 1rem;
+      transition: background-color 0.2s ease;
     }
 
-    .btn:hover {
-      background-color: #900E00;
+    /* Opposite Button Colors */
+    .btn-red {
+      background-color: var(--patriot-red);
+    }
+
+    .btn-red:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    .btn-blue {
+      background-color: var(--navy-blue);
+    }
+
+    .btn-blue:hover {
+      background-color: var(--navy-blue-hover);
     }
 
     /* Footer & Legal Disclaimer */
@@ -271,7 +288,7 @@
   <header>
     <div class="logo-container">
       <a href="index.html">
-        <img src="logo.png" alt="Pastor's Picks Logo">
+        <img src="logo.png" alt="Pastor's Picks logo">
         <span class="brand-text">Pastor's Picks</span>
       </a>
     </div>
@@ -285,47 +302,53 @@
 
   <main class="container">
     
+    <!-- All-Blue Verse Box -->
     <div class="card verse-box">
       <h2>Bible Verse of the Month</h2>
       <p>"Let your light so shine before men, that they may see your good works and glorify your Father in heaven."</p>
       <p><strong>— Matthew 5:16</strong></p>
     </div>
 
-    <div class="card">
+    <!-- Alternating Card 1: Blue Border / Red Button -->
+    <div class="card card-blue-border">
       <h2>Latest Updates & Announcements</h2>
       <p>Welcome to the official home of Pastor's Picks. We are actively reviewing and adding candidates dedicated to serving with integrity and Christian principles in public office.</p>
       <p>Check out our latest endorsement updates or search by your local city and ZIP code to find endorsed candidates near you.
       Because we are just beginning, your area may not have any endorsed candidates yet. Please feel free to contact us to request that we research your area.</p>
-      <a href="contact.html" class="btn">Contact Us</a>
+      <a href="contact.html" class="btn btn-red">Contact Us</a>
     </div>
 
-    <div class="card">
+    <!-- Alternating Card 2: Red Border / Blue Button -->
+    <div class="card card-red-border">
       <h2>Recent Endorsements Spotlight</h2>
       <ul>
         <li><strong>[Dr. John Cowan]</strong> — Very happy to endorse Dr. Cowan for Georgia's 11th district in the U.S. House of Representatives.</li>
         <li><strong>[Joseph Gullett]</strong> — Very happy to endorse Representative Gullett as he seeks re-election for the Georgia State House, District 19.</li>
       </ul>
-      <a href="endorsements.html" class="btn">View All Endorsements</a>
+      <a href="endorsements.html" class="btn btn-blue">View All Endorsements</a>
     </div>
 
-    <div class="card">
+    <!-- Alternating Card 3: Blue Border / Red Button -->
+    <div class="card card-blue-border">
       <h2>Stay Informed</h2>
       <p>Join our newsletter list to receive updates, new endorsement notices, and voter resources directly to your inbox.</p>
-      <a href="subscribe.html" class="btn">Subscribe Now</a>
+      <a href="subscribe.html" class="btn btn-red">Subscribe Now</a>
     </div>
       
-    <div class="card">
+    <!-- Alternating Card 4: Red Border / Blue Button -->
+    <div class="card card-red-border">
       <h2>Are you a Candidate?</h2>
       <p>Contact us with your campaign website, name, and location and we will investigate to see if you can be added to our list of endorsements.</p>
-      <a href="contact.html" class="btn">Contact Us</a>
+      <a href="contact.html" class="btn btn-blue">Contact Us</a>
     </div>
 
-    <div class="card donate-notice-box">
+    <!-- Alternating Card 5: Blue Border / Red Button -->
+    <div class="card card-blue-border donate-notice-box">
       <h2>Donation Information</h2>
       <p>
         If you'd like to donate to our cause, THANK YOU. However, we are not currently accepting donations as we are still figuring things out. If you would like to be notified once we are ready to accept donations, please let us know.
       </p>
-      <a href="mailto:MrSmith.Treasurer@PastorsPicks.us.org?subject=DONATE&body=DONATE" target="_blank" rel="noopener noreferrer" class="btn">
+      <a href="mailto:MrSmith.Treasurer@PastorsPicks.us.org?subject=DONATE&body=DONATE" target="_blank" rel="noopener noreferrer" class="btn btn-red">
         Email Treasurer
       </a>
     </div>
