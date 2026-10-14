@@ -201,36 +201,32 @@
       padding: 0 1rem;
     }
 
+    /* Alternating Card Border Colors (Red / Blue) */
     .card {
       background: var(--white);
       padding: 2rem;
       margin-bottom: 1.5rem;
       border-radius: 6px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card:nth-child(odd) {
       border-left: 6px solid var(--patriot-red);
     }
 
-    /* Verse Callout Box */
+    .card:nth-child(even) {
+      border-left: 6px solid var(--navy-blue);
+    }
+
+    /* Verse Callout Box Styling */
     .verse-box {
       background-color: #EBF3FA;
-      border-left-color: var(--navy-blue);
       font-style: italic;
     }
 
     /* Donation Notice Box Styling */
     .donate-notice-box {
       background-color: #FAFAFA;
-      border-left-color: var(--navy-blue);
-    }
-
-    .donate-notice-box a {
-      color: var(--patriot-red);
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    .donate-notice-box a:hover {
-      color: #900E00;
     }
 
     /* Buttons */
@@ -324,17 +320,15 @@
       <a href="contact.html" class="btn">Contact Us</a>
     </div>
 
-   <div class="card donate-notice-box">
-  <h2>Donation Information</h2>
-  <p>
-    If you'd like to donate to our cause, THANK YOU. However, we are not currently accepting donations as we are still figuring things out. If you would like to be notified once we are ready to accept donations, please let us know.
-  </p>
-  <p style="margin-top: 15px;">
-    <a href="mailto:MrSmith.Treasurer@PastorsPicks.us.org?subject=DONATE" class="email-btn">
-      Email Treasurer
-    </a>
-  </p>
-</div>
+    <div class="card donate-notice-box">
+      <h2>Donation Information</h2>
+      <p>
+        If you'd like to donate to our cause, THANK YOU. However, we are not currently accepting donations as we are still figuring things out. If you would like to be notified once we are ready to accept donations, please let us know.
+      </p>
+      <a href="mailto:MrSmith.Treasurer@PastorsPicks.us.org?subject=DONATE&body=DONATE" target="_blank" rel="noopener noreferrer" class="btn">
+        Email Treasurer
+      </a>
+    </div>
 
   </main>
 
