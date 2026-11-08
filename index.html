@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Conservative Association - Home</title>
+
+  <!-- Open Graph / Text Preview Meta Tags -->
+  <meta property="og:title" content="Christian Conservative Association - Home">
+  <meta property="og:description" content="Encouraging faithful leadership and informed citizenship.">
+  <meta property="og:image" content="https://cca.us.org/images/og-image.png">
+  <meta property="og:url" content="https://cca.us.org/index.html">
+  <meta property="og:type" content="website">
+
+  <!-- iPhone Home Screen Touch Icon & Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="images/logowithbackground.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://cca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    /* Global Styles & Red, White, Blue Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --navy-blue-hover: #06162a;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --gold-accent: #D4AF37;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Desktop Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 3px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Mobile Navigation Menu */
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .nav-links a.active {
+        background-color: rgba(186, 18, 0, 0.25);
+        color: var(--white);
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #D1D5DB;
+      max-width: 750px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.5;
+    }
+
+    .hero-btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Main Container & Cards */
+    .container {
+      max-width: 950px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 1.8rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .card-blue-border {
+      border-left: 6px solid var(--navy-blue);
+    }
+
+    .card-red-border {
+      border-left: 6px solid var(--patriot-red);
+    }
+
+    .verse-box {
+      background-color: #EBF3FA;
+      border-left: 6px solid var(--navy-blue);
+      font-style: italic;
+    }
+
+    /* Three Core Pillars Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .pillar-item {
+      background-color: #F8FAFC;
+      padding: 1.2rem;
+      border-radius: 6px;
+      border-top: 4px solid var(--navy-blue);
+    }
+
+    .pillar-item h3 {
+      margin-top: 0;
+      color: var(--navy-blue);
+      font-size: 1.15rem;
+    }
+
+    .pillar-item p {
+      font-size: 0.95rem;
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
+
+    /* Form Styles */
+    .search-box-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .search-box-form input[type="text"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 2px solid #CBD5E1;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .search-box-form input[type="text"]:focus {
+      border-color: var(--navy-blue);
+    }
+
+    .login-form-inline {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .login-form-inline input[type="password"] {
+      padding: 10px 14px;
+      font-size: 1rem;
+      border: 2px solid #CBD5E1;
+      border-radius: 4px;
+      min-width: 200px;
+    }
+
+    /* Featured Op-Ed Card Item */
+    .oped-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .oped-item:last-child {
+      border-bottom: none;
+    }
+
+    .oped-item h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.15rem;
+    }
+
+    .oped-item h3 a {
+      color: var(--navy-blue);
+      text-decoration: none;
+    }
+
+    .oped-item h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .oped-meta {
+      font-size: 0.88rem;
+      color: #64748B;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Base Buttons */
+    .btn {
+      display: inline-block;
+      color: var(--white);
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-red {
+      background-color: var(--patriot-red);
+    }
+
+    .btn-red:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    .btn-blue {
+      background-color: var(--navy-blue);
+    }
+
+    .btn-blue:hover {
+      background-color: var(--navy-blue-hover);
+    }
+
+    /* Footer & Disclaimer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      .search-box-form { flex-direction: column; }
+      .search-box-form input[type="text"], .search-box-form .btn { width: 100%; }
+      .disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="logo.png" alt="CCA logo">
+        <span class="brand-text">CCA</span>
+      </a>
+    </div>
+
+    <!-- Complete 7-Page Accessibility Navigation -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="candidates&officeholders/endorsements.html">Candidates & Officeholders</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="op-eds/index.html">Op-Eds & News</a></li>
+        <li><a href="community/index.html">Community</a></li>
+        <li><a href="getinvolved/contact.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to the Christian Conservative Association</h1>
+    <p>Encouraging faithful Christian leadership in public office, supporting parents and families, and equipping grassroots voters across our nation.</p>
+    <div class="hero-btn-container">
+      <a href="getinvolved/subscribe.html" class="btn btn-red">Join as a Subscriber</a>
+      <a href="candidates&officeholders/incubator.html" class="btn btn-blue">Apply for Candidate Membership</a>
+    </div>
+  </section>
+
+  <main class="container">
+    
+    <!-- Scripture Verse Callout Box -->
+    <div class="card verse-box">
+      <h2>Bible Verse of the Month</h2>
+      <p>"Let your light so shine before men, that they may see your good works and glorify your Father in heaven."</p>
+      <p><strong>— Matthew 5:16</strong></p>
+    </div>
+
+    <!-- Core Worldview Pillars -->
+    <div class="card card-blue-border">
+      <h2>Our Core Pillars</h2>
+      <p>The Christian Conservative Association brings together grassroots voters and public leaders around three foundational commitments:</p>
+      
+      <div class="pillars-grid">
+        <div class="pillar-item">
+          <h3>1. Strengthening the Nuclear Family</h3>
+          <p>We believe the nuclear family is society's foundational institution. Healthy communities, strong churches, and flourishing governance begin with supporting marriage, parents, and children.</p>
+        </div>
+        <div class="pillar-item">
+          <h3>2. Encouraging Christian Candidates</h3>
+          <p>We equip faithful Christian candidates and elected officeholders with peer support, strategy resources, model policies, and platform visibility to serve with integrity.</p>
+        </div>
+        <div class="pillar-item">
+          <h3>3. Empowering Grassroots Voters</h3>
+          <p>We provide voters with clear election resources, candidate guides, and educational tools to help citizens make informed decisions at the ballot box.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search / Voter Guide Lookup -->
+    <div class="card card-red-border">
+      <h2>Find Endorsed Candidates Near You</h2>
+      <p>Enter your ZIP code or city below to look up endorsed Christian candidates running for public office in your area.</p>
+      
+      <form class="search-box-form" id="voter-lookup-form" action="candidates&officeholders/bylocation.html" method="GET">
+        <input type="text" name="search" id="zip-search-input" placeholder="Enter ZIP Code or City (e.g. 30144 or Atlanta)" required>
+        <button type="submit" class="btn btn-red">Search Candidates</button>
+      </form>
+    </div>
+
+    <!-- Endorsements Spotlight -->
+    <div class="card card-blue-border">
+      <h2>Recent Endorsements Spotlight</h2>
+      <p>We are actively reviewing faithful leaders dedicated to serving with Christian principles in public office:</p>
+      <ul>
+        <li><strong>Dr. John Cowan</strong> — Endorsed for Georgia's 11th district in the U.S. House of Representatives.</li>
+        <li><strong>Representative Joseph Gullett</strong> — Endorsed for re-election to the Georgia State House, District 19.</li>
+      </ul>
+      <a href="candidates&officeholders/endorsements.html" class="btn btn-blue">View All Endorsements</a>
+    </div>
+
+    <!-- Candidate & Officeholder Membership Callout -->
+    <div class="card card-red-border">
+      <h2>Are You a Candidate or Elected Leader?</h2>
+      <p>If you are a Christian candidate running for office or a current elected official, we invite you to apply for <strong>Member</strong> status. Verified Members gain access to our private member caucuses, model policy tools, and op-ed publishing platform.</p>
+      <a href="candidates&officeholders/incubator.html" class="btn btn-blue">Candidate & Member Application</a>
+    </div>
+
+    <!-- Featured Op-Eds Section -->
+    <div class="card card-blue-border">
+      <h2>Featured Member Commentary & News</h2>
+      <p>Read recent op-eds and articles written by our candidate members and civic leaders:</p>
+      
+      <div class="oped-item">
+        <h3><a href="op-eds/family-policy-stewardship.html">Protecting Parental Rights in Local Governance</a></h3>
+        <div class="oped-meta">Written by <strong>Hon. Marcus Vance</strong> | City Council Member | Dallas, Paulding County, GA</div>
+        <p>Why local policy decisions must always honor and protect the authority of parents in guiding their children's education and well-being...</p>
+      </div>
+
+      <div class="oped-item">
+        <h3><a href="op-eds/faithful-stewardship.html">Faithful Citizenship and Public Service</a></h3>
+        <div class="oped-meta">Written by <strong>Sarah Jenkins</strong> | School Board Candidate | Cherokee County, GA</div>
+        <p>An encouraging reflection on bringing Christian integrity, transparent stewardship, and humility into local elective office...</p>
+      </div>
+
+      <a href="op-eds/index.html" class="btn btn-red" style="margin-top: 1rem;">Read More Op-Eds</a>
+    </div>
+
+    <!-- Member Caucus Portal Login -->
+    <div class="card card-red-border">
+      <h2>Member Caucus Access</h2>
+      <p>Verified Candidate & Officeholder Members may log in below to access private caucus discussions and member profile settings.</p>
+      
+      <form class="login-form-inline" action="passwords.html" method="GET">
+        <label for="member-password" style="font-weight: bold;">Member Password:</label>
+        <input type="password" id="member-password" name="pass" placeholder="Enter Password" required>
+        <button type="submit" class="btn btn-blue">Enter Member Portal</button>
+      </form>
+    </div>
+
+    <!-- Friendly Donation Notice Box -->
+    <div class="card card-blue-border donate-notice-box">
+      <h2>Donation Information</h2>
+      <p>
+        If you would like to support the Christian Conservative Association, thank you for your generosity! We are not currently accepting financial contributions while we finish setting up our administrative systems. If you'd like us to notify you as soon as donation features go live, please feel free to drop our team an email.
+      </p>
+      <a href="mailto:MrSmith.Treasurer@CCA.us.org?subject=Donation%20Notification%20Request" target="_blank" rel="noopener noreferrer" class="btn btn-red">
+        Email Treasurer
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+    
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+
+    // Direct Form Handling for Zip / City Lookup
+    const voterForm = document.getElementById('voter-lookup-form');
+    if (voterForm) {
+      voterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const searchInput = document.getElementById('zip-search-input').value.trim();
+        if (searchInput) {
+          window.location.href = 'candidates&officeholders/bylocation.html?search=' + encodeURIComponent(searchInput);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
