@@ -3,25 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pastor's Picks - About the Team</title>
+  <title>Christian Conservative Association - About the Team</title>
 
   <!-- Apple Touch Icon -->
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="The CCA">
 
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Pastor's Picks - About the Team">
-  <meta property="og:description" content="Meet the team behind Pastor's Picks and learn more about our leadership and vision.">
-  <meta property="og:image" content="og-image.png">
+  <meta property="og:title" content="Christian Conservative Association - About the Team">
+  <meta property="og:description" content="Meet the team behind The CCA.">
+  <meta property="og:image" content="https://cca.us.org/images/og-image.png">
+  <meta property="og:url" content="https://cca.us.org/about/team.html">
   <meta property="og:type" content="website">
 
   <!-- Browser Tab Icon (Favicon) -->
-  <link rel="icon" type="image/png" href="images/logowithbackground.png">
+  <link rel="icon" type="image/png" href="../images/logowithbackground.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://cca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <style>
     /* Global Styles & Red, White, Blue Palette */
     :root {
       --navy-blue: #0A2342;
       --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
       --light-bg: #F4F6F9;
       --white: #FFFFFF;
       --text-dark: #2B2D42;
@@ -36,6 +42,7 @@
       padding: 0;
       background-color: var(--light-bg);
       color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
     }
 
     /* Header & Navigation */
@@ -62,6 +69,7 @@
 
     .logo-container img {
       max-height: 50px;
+      width: auto;
     }
 
     .brand-text {
@@ -80,19 +88,23 @@
     /* Desktop View Navigation */
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-weight: bold;
-      padding: 0.3rem 0;
+      padding: 0.4rem 0.2rem;
       font-size: 0.95rem;
     }
 
     .nav-links a.active {
-      border-bottom: 2px solid var(--patriot-red);
+      border-bottom: 3px solid var(--patriot-red);
     }
 
     .nav-toggle {
@@ -108,7 +120,6 @@
       box-sizing: border-box;
     }
 
-    /* Hamburger Bars */
     .nav-toggle .bar {
       height: 3px;
       width: 100%;
@@ -117,20 +128,7 @@
       transition: all 0.3s ease-in-out;
     }
 
-    /* Morph Hamburger to "X" when Active */
-    .nav-toggle.active .bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .nav-toggle.active .bar:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.active .bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* Disclaimer Notice Section (Matching White Background) */
+    /* Disclaimer Notice Section */
     .notice-section {
       background-color: var(--white);
       padding: 2.5rem 1rem 0.5rem 1rem;
@@ -250,7 +248,7 @@
     }
 
     .btn-contact:hover {
-      background-color: #900E00;
+      background-color: var(--patriot-red-hover);
     }
 
     .contact-text-plain {
@@ -260,8 +258,8 @@
       font-weight: bold;
     }
 
-    /* Mobile Navigation & Card Overhaul (Placed at the bottom to properly override desktop styles) */
-    @media (max-width: 768px) {
+    /* Mobile Navigation & Card Overhaul */
+    @media (max-width: 900px) {
       .nav-toggle {
         display: flex;
       }
@@ -270,15 +268,14 @@
         display: none;
         flex-direction: column;
         position: fixed;
-        top: 67px; /* Sits directly under header bar */
+        top: 67px;
         left: 0;
         right: 0;
         bottom: 0;
         background-color: var(--navy-blue);
-        padding: 0;
+        padding: 1rem 0;
         overflow-y: auto;
         z-index: 999;
-        box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
       }
 
       .nav-links.open {
@@ -297,17 +294,15 @@
       }
 
       .nav-links a.active {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         background-color: rgba(186, 18, 0, 0.25);
         color: #FFFFFF;
-        font-weight: bold;
       }
 
       .brand-text {
         font-size: 1.15rem;
       }
 
-      /* Stacked Mobile Card Layout matching abouttheboard.html */
+      /* Stacked Mobile Card Layout */
       .team-card {
         flex-direction: column;
         text-align: center;
@@ -323,12 +318,28 @@
       }
     }
 
-    /* Footer */
+    /* Footer & Disclaimer */
     footer {
       text-align: center;
-      padding: 1.5rem;
+      padding: 2.5rem 1rem;
       background-color: var(--navy-blue);
       color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .disclaimer { text-align: left; }
     }
   </style>
 </head>
@@ -336,12 +347,29 @@
 
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="logo.png" alt="Pastor's Picks Logo">
-        <span class="brand-text">Pastor's Picks</span>
+      <a href="../index.html">
+        <img src="../images/logowithbackground.png" alt="The CCA logo">
+        <span class="brand-text">The CCA</span>
       </a>
     </div>
-    <nav id="main-nav"></nav>
+
+    <!-- Complete 7-Page Accessibility Navigation -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html" class="active">About</a></li>
+        <li><a href="../candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="../community.html">Community</a></li>
+        <li><a href="../getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -349,7 +377,7 @@
     <section class="notice-section">
       <div class="notice-wrapper">
         <div class="notice-banner">
-          <strong>Please Note:</strong> Our official domain email addresses are currently inactive while setup is being completed. Please do not send messages to these addresses yet as they will bounce back.
+          <strong>Please Note:</strong> Our official domain email addresses are currently inactive while setup is being completed. Please do not send messages to these addresses yet, as they will bounce back.
         </div>
       </div>
     </section>
@@ -357,16 +385,16 @@
     <section class="team-section">
       <div class="team-card">
         <div class="photo-container">
-          <img src="images/henry-hart.jpg" alt="Henry W. Hart" class="member-photo">
+          <img src="../images/henry-hart.jpg" alt="Henry W. Hart" class="member-photo">
         </div>
         <div class="info-container">
           <div class="role-title">Chairman</div>
           <h2 class="member-name">Henry W. Hart</h2>
           <div class="member-bio">
-            <p>Henry Hart is the Chairman of Pastor’s Picks, leading the organization's mission to support faithful Christians running for public office. He discovered a deep passion for Christian politics after working on Pastor Tom Gray’s congressional campaign. Outside of his leadership work, Henry is an avid runner, guitar player, and the creator of the strategy card game <a href="https://consec-ya.com" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline; font-style: italic;">Consec-ya!</a>.</p>
+            <p>Henry Hart is the Chairman of The CCA, leading the organization's mission to support faithful Christians running for public office. He discovered a deep passion for Christian politics after working on Pastor Tom Gray’s congressional campaign. Outside of his leadership work, Henry is an avid runner, guitar player, and the creator of the strategy card game <a href="https://consec-ya.com" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline; font-style: italic;">Consec-ya!</a>.</p>
           </div>
           <div>
-            <a href="mailto:MrHart.Chairman@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Chairman Hart</a>
+            <a href="mailto:MrHart.Chairman@CCA.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Chairman Hart</a>
           </div>
         </div>
       </div>
@@ -384,7 +412,7 @@
             <p>[PLACEHOLDER: Insert biography for Pastor _____ ________ here. Detail pastoral experience, spiritual leadership, and guidance.]</p>
           </div>
           <div>
-            <a href="mailto:Pastor________.Dean@PastorsPicks.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Pastor ________</a>
+            <a href="mailto:Pastor________.Dean@CCA.us.org" class="btn-contact" target="_blank" rel="noopener noreferrer">Contact Pastor ________</a>
           </div>
         </div>
       </div>
@@ -393,22 +421,22 @@
     <section class="team-section">
       <div class="team-card">
         <div class="photo-container">
-          <img src="images/andrew-alderman.jpeg" alt="Andrew Alderman" class="member-photo">
+          <img src="https://via.placeholder.com/220" alt="______ ________" class="member-photo">
         </div>
         <div class="info-container">
           <div class="role-title">Secretary</div>
-          <h2 class="member-name">Andrew Alderman</h2>
+          <h2 class="member-name">______ ________</h2>
           <div class="member-bio">
-            <p>Andrew serves as the Secretary of the organization, assisting with the background of the operation. He finds edification in hard work and leadership, as well as deep study of history and philosophy. Apart from Pastors picks, Andrew is an Eagle Scout, swim instructor, and 3 year Robotics team captain.</p>
+            <p>[PLACEHOLDER: Insert biography for ______ ________ here. Detail experience, spiritual leadership, and guidance.]</p>
           </div>
           <div class="contact-text-plain">
-            To contact, email: MrAlderman.Secretary@PastorsPicks.us.org
+            To contact, email: Mr________.Secretary@CCA.us.org
           </div>
         </div>
       </div>
     </section>
 
-     <section class="team-section">
+    <section class="team-section">
       <div class="team-card">
         <div class="photo-container">
           <img src="https://via.placeholder.com/220" alt="_____ ____" class="member-photo">
@@ -420,7 +448,7 @@
             <p>[PLACEHOLDER: Insert biography for _____ ____ here.]</p>
           </div>
           <div class="contact-text-plain">
-            To contact, email: Mr____.Advisor@PastorsPicks.us.org
+            To contact, email: Mr____.Advisor@CCA.us.org
           </div>
         </div>
       </div>
@@ -438,7 +466,7 @@
             <p>[PLACEHOLDER: Insert biography for _____ ____ here.]</p>
           </div>
           <div class="contact-text-plain">
-            To contact, email: Mr____.Recorder@PastorsPicks.us.org
+            To contact, email: Mr____.Recorder@CCA.us.org
           </div>
         </div>
       </div>
@@ -456,7 +484,25 @@
             <p>[PLACEHOLDER: Insert biography for ___ _____ here.]</p>
           </div>
           <div class="contact-text-plain">
-            To contact, email: Mr_____.Treasurer@PastorsPicks.us.org
+            To contact, email: Mr_____.Treasurer@CCA.us.org
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <section class="team-section">
+      <div class="team-card">
+        <div class="photo-container">
+          <img src="https://via.placeholder.com/220" alt="___ _____" class="member-photo">
+        </div>
+        <div class="info-container">
+          <div class="role-title">Editor In Chief</div>
+          <h2 class="member-name">___ _____</h2>
+          <div class="member-bio">
+            <p>[PLACEHOLDER: Insert biography for ___ _____ here.]</p>
+          </div>
+          <div class="contact-text-plain">
+            To contact, email: Mr_____.Editor@CCA.us.org
           </div>
         </div>
       </div>
@@ -474,7 +520,7 @@
             <p>[PLACEHOLDER: Insert biography for Dawn Hart here.]</p>
           </div>
           <div class="contact-text-plain">
-            To contact, email: MrsHart.Communications@PastorsPicks.us.org
+            To contact, email: MrsHart.Communications@CCA.us.org
           </div>
         </div>
       </div>
@@ -492,7 +538,7 @@
             <p>[PLACEHOLDER: Insert biography for ____ _______ here.]</p>
           </div>
           <div class="contact-text-plain">
-            To contact, email: Mr_______.CommunityEngagement@PastorsPicks.us.org
+            To contact, email: Mr_______.Engagement@CCA.us.org
           </div>
         </div>
       </div>
@@ -500,16 +546,27 @@
 
   </main>
 
-<footer>
+  <footer>
     <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
     <p class="disclaimer">
       <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
     </p>
     <p class="disclaimer">
-      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
     </p>
   </footer>
 
-  <script src="navbar.js"></script>
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+  </script>
 </body>
 </html>
