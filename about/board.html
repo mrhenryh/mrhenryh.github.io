@@ -38,6 +38,9 @@
       --light-bg: #F4F6F9;
       --white: #FFFFFF;
       --text-dark: #2B2D42;
+      --notice-yellow: #FFF3CD;
+      --notice-border: #FFEBAA;
+      --notice-text: #856404;
     }
 
     body {
@@ -177,19 +180,26 @@
       }
     }
 
-    /* Notice Banner */
-    .notice-banner {
-      background-color: #FFF3CD;
-      color: #856404;
-      border-bottom: 1px solid #FFEEBA;
-      padding: 0.75rem 1.5rem;
-      text-align: center;
-      font-size: 0.9rem;
-      line-height: 1.4;
+    /* Disclaimer Notice Section */
+    .notice-section {
+      background-color: var(--white);
+      padding: 2.5rem 1rem 0.5rem 1rem;
     }
 
-    .notice-banner strong {
-      color: #533F03;
+    .notice-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .notice-banner {
+      background-color: var(--notice-yellow);
+      border: 1px solid var(--notice-border);
+      border-left: 6px solid var(--patriot-red);
+      color: var(--notice-text);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     /* Purpose Hero Section */
@@ -396,15 +406,14 @@
     </nav>
   </header>
 
-  <section class="notice-section">
+  <main>
+    <section class="notice-section">
       <div class="notice-wrapper">
         <div class="notice-banner">
           <strong>Please Note:</strong> Our official domain email addresses are currently inactive while setup is being completed. Please do not send messages to these addresses yet, as they will bounce back.
         </div>
       </div>
     </section>
-
-  <main>
 
     <section class="purpose-section">
       <div class="purpose-container">
@@ -566,7 +575,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
