@@ -150,6 +150,33 @@
       line-height: 1.5;
     }
 
+    /* Purpose Hero Section */
+    .purpose-section {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      border-bottom: 4px solid var(--patriot-red);
+    }
+
+    .purpose-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .purpose-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .purpose-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #E0E6ED;
+    }
+
     /* Full Screen Team Block Sections */
     .team-section {
       min-height: 80vh;
@@ -339,6 +366,7 @@
     }
 
     @media (max-width: 600px) {
+      .purpose-title { font-size: 1.8rem; }
       .disclaimer { text-align: left; }
     }
   </style>
@@ -373,12 +401,20 @@
   </header>
 
   <main>
-
     <section class="notice-section">
       <div class="notice-wrapper">
         <div class="notice-banner">
           <strong>Please Note:</strong> Our official domain email addresses are currently inactive while setup is being completed. Please do not send messages to these addresses yet, as they will bounce back.
         </div>
+      </div>
+    </section>
+
+    <section class="purpose-section">
+      <div class="purpose-container">
+        <h1 class="purpose-title">The Executive Team</h1>
+        <p class="purpose-text">
+          Meet the executive leadership team behind The CCA, dedicated to supporting faithful Christians running for public office.
+        </p>
       </div>
     </section>
 
@@ -543,7 +579,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
