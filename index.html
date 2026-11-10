@@ -410,7 +410,7 @@
     <p>Encouraging faithful Christian leadership in public office, supporting parents and families, and equipping grassroots voters across our nation.</p>
     <div class="hero-btn-container">
       <a href="getinvolved/subscribe.html" class="btn btn-red">Join as a Subscriber</a>
-      <a href="candidates&officeholders/incubator.html" class="btn btn-blue">Apply for Candidate Membership</a>
+      <a href="getinvolved/becomeamember.html" class="btn btn-blue">Apply for Membership</a>
     </div>
   </section>
 
@@ -449,7 +449,7 @@
       <h2>Find Endorsed Candidates Near You</h2>
       <p>Enter your ZIP code or city below to look up endorsed Christian candidates running for public office in your area.</p>
       
-      <form class="search-box-form" id="voter-lookup-form" action="candidates&officeholders/bylocation.html" method="GET">
+      <form class="search-box-form" id="voter-lookup-form" action="c&o/bylocation.html" method="GET">
         <input type="text" name="search" id="zip-search-input" placeholder="Enter ZIP Code or City (e.g. 30101 or Acworth)" required>
         <button type="submit" class="btn btn-blue">Search Endorsements</button>
       </form>
@@ -463,14 +463,14 @@
         <li><strong>Dr. John Cowan</strong> — Endorsed for Georgia's 11th district in the U.S. House of Representatives.</li>
         <li><strong>Representative Joseph Gullett</strong> — Endorsed for re-election to the Georgia State House, District 19.</li>
       </ul>
-      <a href="candidates&officeholders/endorsements.html" class="btn btn-red">View All Endorsements</a>
+      <a href="c&o/endorsements.html" class="btn btn-red">View All Endorsements</a>
     </div>
 
     <!-- Candidate & Officeholder Membership Callout -->
     <div class="card card-red-border">
       <h2>Are You a Candidate or Elected Leader?</h2>
       <p>If you are a Christian candidate running for office or a current elected official, we invite you to apply for <strong>Member</strong> status. Verified Members gain access to our private caucuses, model policy tools, and op-ed publishing platform.</p>
-      <a href="candidates&officeholders/incubator.html" class="btn btn-blue">Candidate & Member Application</a>
+      <a href="c&o/runforoffice.html" class="btn btn-blue">Candidate & Member Application</a>
     </div>
 
     <!-- Featured Op-Eds Section -->
@@ -549,7 +549,7 @@
         e.preventDefault();
         const searchInput = document.getElementById('zip-search-input').value.trim();
         if (searchInput) {
-          window.location.href = 'candidates&officeholders/bylocation.html?search=' + encodeURIComponent(searchInput);
+          window.location.href = 'c&o/bylocation.html?search=' + encodeURIComponent(searchInput);
         }
       });
     }
