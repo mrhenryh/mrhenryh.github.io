@@ -26,11 +26,13 @@
     /* Global Styles & Red, White, Blue Palette */
     :root {
       --navy-blue: #0A2342;
+      --subnav-bg: #0E2D52;
       --patriot-red: #BA1200;
       --patriot-red-hover: #900E00;
       --light-bg: #F4F6F9;
       --white: #FFFFFF;
       --text-dark: #2B2D42;
+      --gold-metallic: #D4AF37;
       --notice-yellow: #FFF3CD;
       --notice-border: #FFEBAA;
       --notice-text: #856404;
@@ -126,6 +128,48 @@
       background-color: var(--white);
       border-radius: 2px;
       transition: all 0.3s ease-in-out;
+    }
+
+    /* Sub-Menu Subpage Banner */
+    .sub-nav-banner {
+      background-color: var(--subnav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.6rem 1rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    .sub-nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sub-nav-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .sub-nav-links a:hover {
+      color: var(--white);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .sub-nav-links a.active {
+      color: var(--white);
+      font-weight: bold;
+      background-color: rgba(212, 175, 55, 0.18);
+      border-bottom: 2px solid var(--gold-metallic);
     }
 
     /* Disclaimer Notice Section */
@@ -345,27 +389,17 @@
       }
     }
 
-    /* Footer & Disclaimer */
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      background-color: var(--navy-blue);
-      color: var(--white);
-      margin-top: 3rem;
-    }
-
-    .disclaimer {
-      max-width: 850px;
-      margin: 1.5rem auto 0;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: #D1D5DB;
-      text-align: justify;
-    }
-
+    /* Sub-menu Mobile Styling */
     @media (max-width: 600px) {
+      .sub-nav-links {
+        gap: 0.5rem;
+      }
+
+      .sub-nav-links a {
+        font-size: 0.88rem;
+        padding: 0.3rem 0.5rem;
+      }
+
       .purpose-title { font-size: 1.8rem; }
       .disclaimer { text-align: left; }
     }
@@ -399,6 +433,15 @@
       </ul>
     </nav>
   </header>
+
+  <!-- Secondary About Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="About section menu">
+    <ul class="sub-nav-links">
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="board.html">Board</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+    </ul>
+  </nav>
 
   <main>
     <section class="notice-section">
