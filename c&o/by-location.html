@@ -384,10 +384,42 @@
 
     .no-results {
       background: var(--white);
-      padding: 2rem;
+      padding: 2.2rem 1.8rem;
       text-align: center;
       border-radius: 6px;
-      color: #666;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border-left: 6px solid var(--patriot-red);
+      margin-bottom: 1.5rem;
+    }
+
+    .no-results h3 {
+      margin-top: 0;
+      color: var(--navy-blue);
+      font-size: 1.3rem;
+    }
+
+    .no-results p {
+      color: #475569;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      max-width: 650px;
+      margin: 0.6rem auto 1.4rem;
+    }
+
+    .btn-contact-request {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 10px 22px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-contact-request:hover {
+      background-color: var(--patriot-red-hover);
     }
 
     /* Footer & Legal Disclaimer */
@@ -507,7 +539,7 @@
       });
     }
 
-    // Example database of voter guides (Replace/expand with your actual list or data source)
+    // Database of voter guides
     const voterGuides = [
       {
         title: "Acworth & West Cobb Voter Guide 2026",
@@ -530,7 +562,9 @@
     ];
 
     function searchPDFs() {
-      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const searchInputEl = document.getElementById('searchInput');
+      const rawQuery = searchInputEl ? searchInputEl.value.trim() : '';
+      const query = rawQuery.toLowerCase();
       const resultsContainer = document.getElementById('pdfResults');
       const countContainer = document.getElementById('resultsCount');
       
@@ -549,13 +583,20 @@
         guide.tags.some(tag => tag.toLowerCase().includes(query))
       );
 
-      countContainer.innerHTML = `Found ${filtered.length} result(s) for "${document.getElementById('searchInput').value}"`;
+      countContainer.innerHTML = `Found ${filtered.length} result(s) for "${rawQuery}"`;
 
       if (filtered.length === 0) {
         resultsContainer.innerHTML = `
           <div class="no-results">
-            <h3>No voter guides found</h3>
-            <p>We couldn't find any guides matching your search. Please check your spelling or try searching for your county or ZIP code.</p>
+            <h3>No Voter Guide Found</h3>
+            <p>
+              We couldn't find a voter guide matching <strong>"${rawQuery}"</strong>. 
+              Please check your spelling, or try searching with another city, county, or 5-digit ZIP code.
+            </p>
+            <p>
+              Don't see your location listed? You can request a custom voter guide for your area by reaching out to our team.
+            </p>
+            <a href="../getinvolved/contact.html" class="btn-contact-request">Request a Voter Guide</a>
           </div>
         `;
         return;
@@ -579,17 +620,27 @@
       resultsContainer.innerHTML = html;
     }
 
-    // Automatically check URL parameters on page load to execute search
+    // Check URL parameters on page load and bind Enter key listener
     window.addEventListener('DOMContentLoaded', () => {
+      const searchInputEl = document.getElementById('searchInput');
+
+      // Allow pressing 'Enter' on keyboard to execute search
+      if (searchInputEl) {
+        searchInputEl.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            searchPDFs();
+          }
+        });
+      }
+
+      // Automatically search if query parameter exists in URL
       const urlParams = new URLSearchParams(window.location.search);
       const searchQuery = urlParams.get('search');
       
-      if (searchQuery) {
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-          searchInput.value = decodeURIComponent(searchQuery);
-          searchPDFs(); // Automatically run the search function on load
-        }
+      if (searchQuery && searchInputEl) {
+        searchInputEl.value = decodeURIComponent(searchQuery);
+        searchPDFs();
       }
     });
   </script>
