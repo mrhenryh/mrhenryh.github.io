@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christian Conservative Association - Endorsements</title>
+  <title>Christian Conservative Association - Candidate Endorsements</title>
 
-  <!-- Open Graph / Text Preview Meta Tags -->
-  <meta property="og:title" content="Christian Conservative Association - Endorsements">
-  <meta property="og:description" content="Explore endorsed Christian candidates and officeholders serving with integrity.">
+  <meta property="og:title" content="Christian Conservative Association - Candidate Endorsements">
+  <meta property="og:description" content="Browse our official active, inactive, and retired Christian candidate endorsements.">
   <meta property="og:image" content="https://cca.us.org/images/og-image.png">
   <meta property="og:url" content="https://cca.us.org/c&o/endorsements.html">
   <meta property="og:type" content="website">
@@ -20,14 +19,13 @@
   <script data-goatcounter="https://cca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <style>
-    /* Global Styles & Palette */
+    /* Global Styles & Red, White, Blue Palette */
     :root {
       --navy-blue: #0A2342;
       --subnav-bg: #0E2D52;
-      --tertiary-nav-bg: #1B3B6F;
+      --tertiary-nav-bg: #153A66;
       --patriot-red: #BA1200;
       --patriot-red-hover: #900E00;
-      --navy-blue-hover: #06162a;
       --light-bg: #F4F6F9;
       --white: #FFFFFF;
       --text-dark: #2B2D42;
@@ -43,7 +41,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Header & Main Navigation */
+    /* Header & Navigation Layout */
     header {
       background-color: var(--navy-blue);
       color: var(--white);
@@ -76,6 +74,7 @@
       letter-spacing: 0.5px;
     }
 
+    /* Desktop View Navigation */
     .nav-links {
       display: flex;
       gap: 1.1rem;
@@ -200,19 +199,7 @@
       }
     }
 
-    @media (max-width: 600px) {
-      .sub-nav-links {
-        gap: 0.4rem;
-        flex-wrap: wrap;
-      }
-
-      .sub-nav-links a {
-        font-size: 0.85rem;
-        padding: 0.25rem 0.4rem;
-      }
-    }
-
-    /* Hero Section (Matched to by-location.html) */
+    /* Hero Section */
     .hero {
       background-color: var(--navy-blue);
       color: var(--white);
@@ -227,107 +214,109 @@
 
     .hero p {
       color: #D1D5DB;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    /* Explanatory Guidance Banner */
-    .guide-callout-banner {
+    /* Explanatory Banner Below Hero */
+    .guidance-bar {
       background-color: #EBF3FA;
-      border-bottom: 3px solid var(--navy-blue);
-      padding: 0.9rem 1.2rem;
+      border-bottom: 2px solid #CBD5E1;
       text-align: center;
-    }
-
-    .guide-callout-banner p {
-      margin: 0;
+      padding: 0.85rem 1rem;
+      font-size: 0.98rem;
       color: var(--navy-blue);
-      font-size: 1.02rem;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     /* Sub-Sub Navigation Bar (Active / Inactive / Retired) */
-    .tertiary-nav-bar {
+    .category-nav-bar {
       background-color: var(--tertiary-nav-bg);
-      padding: 0.8rem 1rem;
-      border-bottom: 4px solid var(--gold-metallic);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 0.5rem 1rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-    .tertiary-nav-links {
+    .category-nav-links {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    .tertiary-nav-links a {
+    .category-nav-links a {
       color: #E2E8F0;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.35rem 1rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.4px;
+    }
+
+    .category-nav-links a:hover {
+      color: var(--white);
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Distinct White Accent Highlight for Current Category Tab */
+    .category-nav-links a.active {
+      color: var(--white);
       font-weight: bold;
-      letter-spacing: 0.5px;
-      transition: color 0.2s ease;
-      padding: 0.2rem 0.5rem;
+      background-color: rgba(255, 255, 255, 0.22);
+      border-bottom: 3px solid var(--white);
     }
 
-    .tertiary-nav-links a:hover {
-      color: var(--white);
-      text-decoration: underline;
-    }
-
-    /* Class to apply on child pages when created: */
-    .tertiary-nav-links a.active {
-      color: var(--white);
-      border-bottom: 3px solid var(--patriot-red);
-    }
-
-    /* Main Content Container & Action Cards */
+    /* Main Container & Cards */
     .container {
       max-width: 900px;
-      margin: 2.5rem auto;
+      margin: 2rem auto;
       padding: 0 1rem;
     }
 
     .action-card {
       background: var(--white);
-      padding: 2rem;
+      padding: 1.8rem;
       margin-bottom: 1.8rem;
-      border-radius: 8px;
+      border-radius: 6px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    .card-red-border {
-      border-left: 6px solid var(--patriot-red);
+    .action-card-blue {
+      border-left: 6px solid var(--navy-blue);
     }
 
-    .card-blue-border {
-      border-left: 6px solid var(--navy-blue);
+    .action-card-red {
+      border-left: 6px solid var(--patriot-red);
     }
 
     .action-card h2 {
       margin-top: 0;
       color: var(--navy-blue);
       font-size: 1.35rem;
+      margin-bottom: 0.6rem;
     }
 
     .action-card p {
+      margin: 0 0 1.2rem 0;
       color: #475569;
+      line-height: 1.5;
       font-size: 0.98rem;
-      line-height: 1.55;
-      margin-bottom: 1.2rem;
     }
 
     /* Buttons */
     .btn {
       display: inline-block;
       color: var(--white);
-      padding: 10px 22px;
+      padding: 10px 20px;
       text-decoration: none;
       font-weight: bold;
       border-radius: 4px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       border: none;
       cursor: pointer;
       text-align: center;
@@ -347,7 +336,7 @@
     }
 
     .btn-blue:hover {
-      background-color: var(--navy-blue-hover);
+      background-color: #06162a;
     }
 
     /* Footer & Disclaimer */
@@ -356,7 +345,7 @@
       padding: 2.5rem 1rem;
       background-color: var(--navy-blue);
       color: var(--white);
-      margin-top: 3.5rem;
+      margin-top: 3rem;
     }
 
     .disclaimer {
@@ -372,15 +361,14 @@
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.8rem; }
-      .tertiary-nav-links { gap: 1.2rem; }
-      .tertiary-nav-links a { font-size: 0.98rem; }
+      .sub-nav-links, .category-nav-links { gap: 0.4rem; flex-wrap: wrap; }
+      .sub-nav-links a, .category-nav-links a { font-size: 0.85rem; padding: 0.25rem 0.5rem; }
       .disclaimer { text-align: left; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Main Site Navigation Header -->
   <header>
     <div class="logo-container">
       <a href="../index.html">
@@ -389,6 +377,7 @@
       </a>
     </div>
 
+    <!-- Main Site Navigation -->
     <nav id="main-nav">
       <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
         <span class="bar"></span>
@@ -407,7 +396,7 @@
     </nav>
   </header>
 
-  <!-- Sub-Menu Banner -->
+  <!-- Secondary Candidates & Officeholders Sub-Menu Banner -->
   <nav class="sub-nav-banner" aria-label="Candidates and Officeholders section menu">
     <ul class="sub-nav-links">
       <li><a href="members.html">Members</a></li>
@@ -417,20 +406,20 @@
     </ul>
   </nav>
 
-  <!-- Big Hero Title Header -->
+  <!-- Main Hero Section -->
   <section class="hero">
     <h1>Endorsements</h1>
-    <p>Honoring Christian candidates and elected leaders dedicated to serving with integrity.</p>
+    <p>Official candidate endorsements representing faithful Christian leadership across local, state, and federal offices.</p>
   </section>
 
-  <!-- Instructional Guidance Line -->
-  <div class="guide-callout-banner">
-    <p>Select a category below to browse Active, Inactive, or Retired candidate endorsements:</p>
+  <!-- Explanatory Callout Banner -->
+  <div class="guidance-bar">
+    Please select a category below to explore Active, Inactive, or Retired Candidate Endorsements:
   </div>
 
-  <!-- Sub-Sub Navigation Bar -->
-  <nav class="tertiary-nav-bar" aria-label="Endorsements status filter">
-    <ul class="tertiary-nav-links">
+  <!-- Sub-Sub Navigation Bar for Endorsements Status Pages -->
+  <nav class="category-nav-bar" aria-label="Endorsement status category navigation">
+    <ul class="category-nav-links">
       <li><a href="endorsements/active.html">Active</a></li>
       <li><a href="endorsements/inactive.html">Inactive</a></li>
       <li><a href="endorsements/retired.html">Retired</a></li>
@@ -439,42 +428,41 @@
 
   <main class="container">
 
-    <!-- Card 1: Seeking Endorsement (Direct email to Chairman) -->
-    <div class="action-card card-red-border">
+    <!-- Candidate Seeking Endorsement Callout -->
+    <div class="action-card action-card-red">
       <h2>Are You a Candidate Seeking an Endorsement?</h2>
       <p>
-        We welcome applications from Christian candidates seeking endorsement for local, state, or federal public office. Click below to contact our Chairman directly to begin the endorsement review process.
+        If you are a Christian candidate running for public office and would like to be considered for an official endorsement by the Christian Conservative Association, please reach out directly to our Chairman.
       </p>
       <a href="mailto:MrHart.Chairman@CCA.us.org?subject=endorsement%20request" target="_blank" rel="noopener noreferrer" class="btn btn-red">
-        Request an Endorsement
+        Contact Chairman for Endorsement
       </a>
     </div>
 
-    <!-- Card 2: Endorsed Candidates Becoming Members -->
-    <div class="action-card card-blue-border">
-      <h2>Already Endorsed? Become a Member</h2>
+    <!-- Endorsed Candidate Member Application Callout -->
+    <div class="action-card action-card-blue">
+      <h2>Already Endorsed? Apply for Full Membership</h2>
       <p>
-        If you are an endorsed candidate or current officeholder looking to gain access to our private member caucuses, policy tools, and op-ed publishing platform, please submit your member application.
+        Candidates and officeholders who have been endorsed are eligible to apply for verified Member status to gain access to private caucus discussions, policy tools, and commentary publishing.
       </p>
       <a href="../getinvolved/becomeamember.html" class="btn btn-blue">
         Apply for Membership
       </a>
     </div>
 
-    <!-- Card 3: Voter Area Investigation Request (Pre-populated email) -->
-    <div class="action-card card-red-border">
-      <h2>Don't See Endorsements in Your Area?</h2>
+    <!-- Community Area Investigation Request Callout -->
+    <div class="action-card action-card-red">
+      <h2>Don't See Endorsements for Your Area?</h2>
       <p>
-        If there are currently no endorsed candidates listed for your city, county, or district, let us know! Contact our community team so we can investigate upcoming races and evaluate candidates in your local region.
+        If there are currently no endorsed candidates listed in your city or county, let our team know! We will investigate candidate filings in your district to identify faithful Christian leaders.
       </p>
-      <a href="mailto:Mr_______.Community@CCA.us.org?subject=Voter%20Guide%20Location%20Request&body=Hello%20CCA%20Community%20Team%2C%0A%0AI%20am%20looking%20for%20endorsed%20candidate%20information%20for%20my%20area.%20Please%20investigate%20races%20in%20" target="_blank" rel="noopener noreferrer" class="btn btn-red">
+      <a href="mailto:Mr.Community@CCA.us.org?subject=Voter%20Guide%20Investigation%20Request&body=Hello%20CCA%20Community%20Team,%0A%0AI%20do%20not%20see%20any%20endorsed%20candidates%20listed%20for%20my%20area.%20Please%20investigate%20upcoming%20races%20and%20candidates%20for:%20" target="_blank" rel="noopener noreferrer" class="btn btn-red">
         Request Area Investigation
       </a>
     </div>
 
   </main>
 
-  <!-- Footer & Legal Disclaimer -->
   <footer>
     <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
     <p class="disclaimer">
