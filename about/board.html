@@ -32,12 +32,14 @@
     /* Global Styles & Red, White, Blue Palette */
     :root {
       --navy-blue: #0A2342;
+      --subnav-bg: #0E2D52;
       --patriot-red: #BA1200;
       --patriot-red-hover: #900E00;
       --board-slate: #1F3A60;
       --light-bg: #F4F6F9;
       --white: #FFFFFF;
       --text-dark: #2B2D42;
+      --gold-metallic: #D4AF37;
       --notice-yellow: #FFF3CD;
       --notice-border: #FFEBAA;
       --notice-text: #856404;
@@ -135,6 +137,48 @@
       transition: all 0.3s ease-in-out;
     }
 
+    /* Sub-Menu Subpage Banner */
+    .sub-nav-banner {
+      background-color: var(--subnav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.6rem 1rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    .sub-nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sub-nav-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .sub-nav-links a:hover {
+      color: var(--white);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .sub-nav-links a.active {
+      color: var(--white);
+      font-weight: bold;
+      background-color: rgba(212, 175, 55, 0.18);
+      border-bottom: 2px solid var(--gold-metallic);
+    }
+
     /* Mobile Navigation Drawer Overhaul */
     @media (max-width: 900px) {
       .nav-toggle {
@@ -177,6 +221,18 @@
 
       .brand-text {
         font-size: 1.15rem;
+      }
+    }
+
+    /* Sub-menu Mobile Styling */
+    @media (max-width: 600px) {
+      .sub-nav-links {
+        gap: 0.5rem;
+      }
+
+      .sub-nav-links a {
+        font-size: 0.88rem;
+        padding: 0.3rem 0.5rem;
       }
     }
 
@@ -405,6 +461,15 @@
       </ul>
     </nav>
   </header>
+
+  <!-- Secondary About Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="About section menu">
+    <ul class="sub-nav-links">
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="board.html" class="active">Board</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+  </nav>
 
   <main>
     <section class="notice-section">
