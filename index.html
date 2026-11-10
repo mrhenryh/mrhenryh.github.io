@@ -253,11 +253,12 @@
     .search-box-form input[type="text"] {
       flex: 1;
       min-width: 220px;
-      padding: 12px 16px;
-      font-size: 1rem;
+      padding: 10px 14px;
+      font-size: 0.95rem;
       border: 2px solid #CBD5E1;
       border-radius: 4px;
       outline: none;
+      box-sizing: border-box;
     }
 
     .search-box-form input[type="text"]:focus {
@@ -274,10 +275,11 @@
 
     .login-form-inline input[type="password"] {
       padding: 10px 14px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       border: 2px solid #CBD5E1;
       border-radius: 4px;
-      min-width: 200px;
+      min-width: 180px;
+      box-sizing: border-box;
     }
 
     /* Featured Op-Ed Card Item */
@@ -314,7 +316,7 @@
     .btn {
       display: inline-block;
       color: var(--white);
-      padding: 12px 24px;
+      padding: 10px 20px;
       text-decoration: none;
       font-weight: bold;
       border-radius: 4px;
@@ -364,8 +366,11 @@
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.8rem; }
       .hero p { font-size: 1rem; }
-      .search-box-form { flex-direction: column; }
-      .search-box-form input[type="text"], .search-box-form .btn { width: 100%; }
+      .search-box-form { flex-direction: column; gap: 8px; }
+      .search-box-form input[type="text"] { min-width: 100%; padding: 8px 12px; font-size: 0.9rem; }
+      .search-box-form .btn { width: 100%; padding: 9px 16px; font-size: 0.9rem; }
+      .login-form-inline { flex-direction: column; align-items: stretch; gap: 8px; }
+      .login-form-inline input[type="password"], .login-form-inline .btn { width: 100%; padding: 9px 12px; font-size: 0.9rem; }
       .disclaimer { text-align: left; }
     }
   </style>
@@ -446,7 +451,7 @@
       
       <form class="search-box-form" id="voter-lookup-form" action="candidates&officeholders/bylocation.html" method="GET">
         <input type="text" name="search" id="zip-search-input" placeholder="Enter ZIP Code or City (e.g. 30101 or Acworth)" required>
-        <button type="submit" class="btn btn-blue">Search Endorsements and Voter Guides</button>
+        <button type="submit" class="btn btn-blue">Search Endorsements</button>
       </form>
     </div>
 
@@ -464,13 +469,13 @@
     <!-- Candidate & Officeholder Membership Callout -->
     <div class="card card-red-border">
       <h2>Are You a Candidate or Elected Leader?</h2>
-      <p>If you are a Christian candidate running for office or a current elected official, we invite you to apply for <strong>Member</strong> status. Verified Members gain access to our private member caucuses, model policy tools, and op-ed publishing platform.</p>
+      <p>If you are a Christian candidate running for office or a current elected official, we invite you to apply for <strong>Member</strong> status. Verified Members gain access to our private caucuses, model policy tools, and op-ed publishing platform.</p>
       <a href="candidates&officeholders/incubator.html" class="btn btn-blue">Candidate & Member Application</a>
     </div>
 
     <!-- Featured Op-Eds Section -->
     <div class="card card-blue-border">
-      <h2>Featured Member Commentary & News</h2>
+      <h2>Featured Commentary & News</h2>
       <p>Read recent op-eds and articles written by our candidate members and civic leaders:</p>
       
       <div class="oped-item">
@@ -488,15 +493,15 @@
       <a href="op-eds/index.html" class="btn btn-red" style="margin-top: 1rem;">Read More Op-Eds</a>
     </div>
 
-    <!-- Member Caucus Portal Login -->
+    <!-- Caucus Portal Login -->
     <div class="card card-red-border">
-      <h2>Member Caucus Access</h2>
-      <p>Verified Candidate & Officeholder Members may log in below to access private caucus discussions and member profile settings.</p>
+      <h2>Caucus Portal Access</h2>
+      <p>Verified candidates and officeholders may log in below to access private discussions and profile settings.</p>
       
       <form class="login-form-inline" action="passwords.html" method="GET">
-        <label for="member-password" style="font-weight: bold;">Member Password:</label>
+        <label for="member-password" style="font-weight: bold;">Password:</label>
         <input type="password" id="member-password" name="pass" placeholder="Enter Password" required>
-        <button type="submit" class="btn btn-blue">Enter Member Portal</button>
+        <button type="submit" class="btn btn-blue">Login</button>
       </form>
     </div>
 
