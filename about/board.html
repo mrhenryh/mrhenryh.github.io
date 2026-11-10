@@ -236,35 +236,12 @@
       }
     }
 
-    /* Disclaimer Notice Section */
-    .notice-section {
-      background-color: var(--white);
-      padding: 2.5rem 1rem 0.5rem 1rem;
-    }
-
-    .notice-wrapper {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .notice-banner {
-      background-color: var(--notice-yellow);
-      border: 1px solid var(--notice-border);
-      border-left: 6px solid var(--patriot-red);
-      color: var(--notice-text);
-      padding: 1rem 1.25rem;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
     /* Purpose Hero Section */
     .purpose-section {
       background-color: var(--navy-blue);
       color: var(--white);
       text-align: center;
-      padding: 3rem 1.5rem;
-      border-bottom: 4px solid var(--patriot-red);
+      padding: 3rem 1.5rem 1.5rem 1.5rem;
     }
 
     .purpose-container {
@@ -283,6 +260,30 @@
       font-size: 1.1rem;
       line-height: 1.6;
       color: #E0E6ED;
+    }
+
+    /* Disclaimer Notice Section - Integrated on Navy Blue */
+    .notice-section {
+      background-color: var(--navy-blue);
+      padding: 1rem 1rem 2.5rem 1rem;
+      border-bottom: 4px solid var(--patriot-red);
+    }
+
+    .notice-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .notice-banner {
+      background-color: var(--notice-yellow);
+      border: 1px solid var(--notice-border);
+      border-left: 6px solid var(--patriot-red);
+      color: var(--notice-text);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      text-align: left;
     }
 
     /* Full Screen Board Member Block Sections */
@@ -472,20 +473,22 @@
   </nav>
 
   <main>
-    <section class="notice-section">
-      <div class="notice-wrapper">
-        <div class="notice-banner">
-          <strong>Please Note:</strong> Our official domain email addresses are currently inactive while setup is being completed. Please do not send messages to these addresses yet, as they will bounce back.
-        </div>
-      </div>
-    </section>
-
+    <!-- Purpose Hero Section -->
     <section class="purpose-section">
       <div class="purpose-container">
         <h1 class="purpose-title">The Board of Chairs</h1>
         <p class="purpose-text">
           The Board of Chairs exists to provide advice to the Chairman, approve or deny his endorsements, and exists to assist in local and state-level endorsements.
         </p>
+      </div>
+    </section>
+
+    <!-- Email Disclaimer Notice Section (Moved to Hero on Navy Blue) -->
+    <section class="notice-section">
+      <div class="notice-wrapper">
+        <div class="notice-banner">
+          <strong>Please Note:</strong> Our official domain email addresses are currently inactive while setup is being completed. Please do not send messages to these addresses yet, as they will bounce back.
+        </div>
       </div>
     </section>
 
