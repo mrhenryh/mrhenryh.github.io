@@ -442,10 +442,26 @@
       margin-top: 0.25rem;
     }
 
+    /* Map Container & Smooth Loading Spinner */
     .map-container {
       margin: 2rem 0;
       width: 100%;
-      text-align: center;
+      min-height: 220px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8fafc;
+      border-radius: 6px;
+      border: 2px dashed #CBD5E1;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .map-container.loaded {
+      border: none;
+      background-color: transparent;
+      min-height: auto;
     }
 
     .map-container img {
@@ -454,6 +470,62 @@
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       border: 2px solid #DDD;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      display: block;
+    }
+
+    .map-container img.is-loaded {
+      opacity: 1;
+    }
+
+    /* Custom Spinner Widget (Navy, Red & Gold Christian Cross Orbit) */
+    .map-loader-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+    }
+
+    .spinner-orbit-container {
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+
+    .spinner-ring {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid transparent;
+      border-top-color: var(--patriot-red);
+      border-bottom-color: var(--navy-blue);
+      animation: spinOrbit 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+      box-sizing: border-box;
+    }
+
+    .spinner-center-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+    }
+
+    .loader-text {
+      font-size: 0.88rem;
+      font-weight: bold;
+      color: var(--navy-blue);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    @keyframes spinOrbit {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     /* Footer & Disclaimer */
@@ -605,8 +677,19 @@
           <div class="ticker-question">Will you become the next subscriber?</div>
         </div>
 
-        <div class="map-container">
-          <img src="../images/map.png" alt="Subscriber Outreach Map by County">
+        <!-- Interactive Map Container with Coded Loading Animation -->
+        <div class="map-container" id="mapWrapper">
+          <div class="map-loader-wrapper" id="mapLoader">
+            <div class="spinner-orbit-container">
+              <div class="spinner-ring"></div>
+              <!-- Gold Cross Icon Centerpiece -->
+              <svg class="spinner-center-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M10 2H14V8H20V12H14V22H10V12H4V8H10V2Z" fill="#D4AF37"/>
+              </svg>
+            </div>
+            <span class="loader-text">Loading Map...</span>
+          </div>
+          <img src="../images/map.png" alt="Subscriber Outreach Map by County" id="outreachMap">
         </div>
 
         <div class="ticker-block">
@@ -690,6 +773,29 @@
       const offset = totalPerimeter * (1 - fraction);
       
       progressPath.style.strokeDashoffset = offset;
+    }
+
+    // Smooth Image Load Handler with Loader Animation Fade-Out
+    const mapImg = document.getElementById('outreachMap');
+    const mapLoader = document.getElementById('mapLoader');
+    const mapWrapper = document.getElementById('mapWrapper');
+
+    function revealMap() {
+      if (mapLoader) mapLoader.style.display = 'none';
+      if (mapImg) mapImg.classList.add('is-loaded');
+      if (mapWrapper) mapWrapper.classList.add('loaded');
+      updateProgressBorder(); // Recalculate tracker box size once image dimensions settle
+    }
+
+    if (mapImg) {
+      if (mapImg.complete) {
+        revealMap();
+      } else {
+        mapImg.addEventListener('load', revealMap);
+        mapImg.addEventListener('error', () => {
+          if (mapLoader) mapLoader.innerHTML = '<span style="color:#BA1200; font-size: 0.9rem;">Unable to load map image.</span>';
+        });
+      }
     }
 
     // Initialize Displays
