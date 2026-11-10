@@ -252,6 +252,29 @@
       padding: 0 1rem;
     }
 
+    /* Navigation Red Button Styling */
+    .map-banner-card {
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-map-link {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .btn-map-link:hover {
+      background-color: var(--patriot-red-hover);
+      color: var(--white);
+    }
+
     .map-card {
       background: var(--white);
       padding: 1.5rem;
@@ -384,8 +407,8 @@
     }
   </style>
 
-  <!-- External districts JavaScript file -->
-  <script src="districts.js"></script>
+  <!-- External districts JavaScript file loaded relative to parent directory -->
+  <script src="../districts.js"></script>
 </head>
 <body>
 
@@ -433,9 +456,9 @@
 
   <main class="container">
 
-    <!-- Interactive Map Button Banner -->
+    <!-- Red Button Link Back to Search By Location -->
     <div class="map-banner-card">
-      <a href="c&o/by-location.html" class="btn-map-link">Back to Search By Location</a>
+      <a href="by-location.html" class="btn-map-link">← Back to Search By Location</a>
     </div>
     
     <div class="map-card">
@@ -530,7 +553,7 @@
             `<strong style="color: #0A2342; font-size: 0.85rem;">${districtName}</strong><br><br>` +
             `<div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">` +
               `<a href="${pdfUrl}" target="_blank" style="background-color: #BA1200; color: #FFFFFF; padding: 5px 9px; text-decoration: none; font-size: 0.72rem; font-weight: bold; border-radius: 3px; display: inline-block;">Open Area PDF Document</a>` +
-              `<a href="${linkUrl}" target="_blank" style="background-color: #0A2342; color: #FFFFFF; padding: 5px 9px; text-decoration: none; font-size: 0.72rem; font-weight: bold; border-radius: 3px; display: inline-block;">Visit Area My Page</a>` +
+              `<a href="${linkUrl}" target="_blank" style="background-color: #0A2342; color: #FFFFFF; padding: 5px 9px; text-decoration: none; font-size: 0.72rem; font-weight: bold; border-radius: 3px; display: inline-block;">Visit Area Page</a>` +
             `</div>` +
             `</div>`,
             { maxWidth: 230 }
