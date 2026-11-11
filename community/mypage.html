@@ -14,14 +14,20 @@
   <!-- Browser Tab Icon (Favicon) -->
   <link rel="icon" type="image/png" href="../images/logowithbackground.png">
 
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
   <style>
     :root {
       --navy-blue: #0A2342;
+      --subnav-bg: #0E2D52;
       --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
       --light-bg: #F4F6F9;
       --white: #FFFFFF;
       --text-dark: #2B2D42;
       --card-border: #E0E0E0;
+      --gold-metallic: #D4AF37;
     }
 
     body {
@@ -30,6 +36,7 @@
       padding: 0;
       background-color: var(--light-bg);
       color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
     }
 
     /* Header & Navigation Layout */
@@ -73,19 +80,23 @@
 
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-weight: bold;
-      padding: 0.3rem 0;
+      padding: 0.4rem 0.2rem;
       font-size: 0.95rem;
     }
 
     .nav-links a.active {
-      border-bottom: 2px solid var(--patriot-red);
+      border-bottom: 3px solid var(--patriot-red);
     }
 
     .nav-toggle {
@@ -121,7 +132,49 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    @media (max-width: 768px) {
+    /* Sub-Menu Subpage Banner */
+    .sub-nav-banner {
+      background-color: var(--subnav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.6rem 1rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    .sub-nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sub-nav-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .sub-nav-links a:hover {
+      color: var(--white);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .sub-nav-links a.active {
+      color: var(--white);
+      font-weight: bold;
+      background-color: rgba(212, 175, 55, 0.18);
+      border-bottom: 2px solid var(--gold-metallic);
+    }
+
+    @media (max-width: 900px) {
       .nav-toggle {
         display: flex;
       }
@@ -135,10 +188,9 @@
         right: 0;
         bottom: 0;
         background-color: var(--navy-blue);
-        padding: 0;
+        padding: 1rem 0;
         overflow-y: auto;
         z-index: 999;
-        box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
       }
 
       .nav-links.open {
@@ -157,14 +209,24 @@
       }
 
       .nav-links a.active {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         background-color: rgba(186, 18, 0, 0.25);
         color: #FFFFFF;
-        font-weight: bold;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .brand-text {
         font-size: 1.15rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sub-nav-links {
+        gap: 0.5rem;
+      }
+
+      .sub-nav-links a {
+        font-size: 0.88rem;
+        padding: 0.3rem 0.5rem;
       }
     }
 
@@ -268,7 +330,7 @@
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
       background-color: var(--navy-blue);
       color: var(--white);
       margin-top: 3rem;
@@ -284,6 +346,10 @@
       color: #D1D5DB;
       text-align: justify;
     }
+
+    @media (max-width: 600px) {
+      .disclaimer { text-align: left; }
+    }
   </style>
 </head>
 <body>
@@ -295,8 +361,32 @@
         <span class="brand-text">The CCA</span>
       </a>
     </div>
-    <nav id="main-nav"></nav>
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="../community.html" class="active">Community</a></li>
+        <li><a href="../getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
   </header>
+
+  <!-- Secondary Community Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="Community section menu">
+    <ul class="sub-nav-links">
+      <li><a href="mypage.html" class="active">My Page</a></li>
+      <li><a href="public.html">Public Community</a></li>
+      <li><a href="private.html">Private Community</a></li>
+    </ul>
+  </nav>
 
   <main class="container">
 
@@ -371,8 +461,5 @@
       });
     }
   </script>
-
-  <!-- GoatCounter Analytics Script -->
-  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
