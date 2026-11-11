@@ -443,7 +443,7 @@
       </div>
       <p>If you fit one of the categories below, please use our direct contact channels instead:</p>
       <ul>
-        <li><strong>Already Endorsed Candidates & Verified Members:</strong> Please do not submit this form. Contact our Dean directly or email our Secretary at <a href="mailto:Mr________.Secretary@CCA.us.org" style="color: var(--navy-blue); font-weight: bold;">Mr________.Secretary@CCA.us.org</a>.</li>
+        <li><strong>Already Endorsed Candidates & Verified Members:</strong> Please do not submit this form. Contact our Dean directly or email our <a href="mailto:Mr________.Secretary@CCA.us.org" style="color: var(--navy-blue); font-weight: bold;">Secretary</a>.</li>
         <li><strong>Candidates Seeking Official Endorsement:</strong> Candidates seeking an official endorsement from the Chairman should utilize the Endorsement Contact box below.</li>
       </ul>
     </div>
@@ -491,17 +491,17 @@
 
         <div class="form-group">
           <label for="applicant-name">Full Name *</label>
-          <input type="text" id="applicant-name" class="form-control" placeholder="e.g., Henry Hart" required>
+          <input type="text" id="applicant-name" class="form-control" placeholder="e.g., John Smith" required>
         </div>
 
         <div class="form-group">
-          <label for="applicant-email">Email Address *</label>
-          <input type="email" id="applicant-email" class="form-control" placeholder="e.g., candidate@domain.com" required>
+          <label for="applicant-email">Personal Email Address *</label>
+          <input type="email" id="applicant-email" class="form-control" placeholder="e.g., MrSmith.John@email.com" required>
         </div>
 
         <div class="form-group">
           <label for="applicant-phone">Phone Number *</label>
-          <input type="tel" id="applicant-phone" class="form-control" placeholder="e.g., (404) 555-0199" required>
+          <input type="tel" id="applicant-phone" class="form-control" placeholder="e.g., (404) 123-4567" required>
         </div>
 
         <div class="form-group">
@@ -552,7 +552,7 @@
           <textarea id="statement-bio" class="form-control" placeholder="Share a brief overview of your background, church affiliation, occupation, and why you feel led to consider public office..." required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-red">Email Dean for More Information</button>
+        <button type="submit" class="btn btn-red">Submit Email to Dean</button>
       </form>
     </div>
 
@@ -625,7 +625,7 @@
           "Target Office: " + office + "\n\n" +
           "--- STATEMENT OF PURPOSE & BACKGROUND ---\n" +
           bio + "\n\n" +
-          "Thank you for your time, counsel, and prayers.\n\n" +
+          "Thank you for your time.\n\n" +
           "Sincerely,\n" + name;
 
         const mailtoUrl = "mailto:" + recipient + "?subject=" + subject + "&body=" + encodeURIComponent(bodyText);
