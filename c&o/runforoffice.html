@@ -443,7 +443,7 @@
       </div>
       <p>If you fit one of the categories below, please use our direct contact channels instead:</p>
       <ul>
-        <li><strong>Already Endorsed Candidates & Verified Members:</strong> Please do not submit this form. Contact our Dean directly or email our <a href="mailto:Mr________.Secretary@CCA.us.org" style="color: var(--navy-blue); font-weight: bold;">Secretary</a>.</li>
+        <li><strong>Already Endorsed Candidates & Verified Members:</strong> Please do not submit this form. Contact our Dean directly or email our <a href="mailto:Mr________.Secretary@CCA.us.org" style="color: var(--navy-blue); font-weight: bold;" target="_blank" rel="noopener noreferrer">Secretary</a>.</li>
         <li><strong>Candidates Seeking Official Endorsement:</strong> Candidates seeking an official endorsement from the Chairman should utilize the Endorsement Contact box below.</li>
       </ul>
     </div>
@@ -583,7 +583,7 @@
       <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual personal opinions of the Chairman acting solely as a private citizen, subject to review and advice from the Board of Chairs. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
     </p>
     <p class="disclaimer">
-      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;" target="_blank" rel="noopener noreferrer">Contact Page</a> so we can assist you and address the issue promptly.
     </p>
   </footer>
 
@@ -599,7 +599,7 @@
       });
     }
 
-    // Interactive Mailto Builder Script for Form
+    // Interactive Mailto Builder Script for Form (Opens in New Tab with Paragraph Spacing)
     const inquiryForm = document.getElementById('candidate-inquiry-form');
     if (inquiryForm) {
       inquiryForm.addEventListener('submit', function(e) {
@@ -615,23 +615,31 @@
         const recipient = "Pastor________.Dean@CCA.us.org";
         const subject = encodeURIComponent("Candidate Interest Inquiry: " + name + " - " + office);
         
+        // Using \n\n to ensure each field appears as a separate paragraph in the email client
         const bodyText = "Hello Pastor Dean,\n\n" +
           "I am reaching out regarding my interest in running for public office and connecting with the Christian Conservative Association.\n\n" +
-          "--- APPLICANT DETAILS ---\n" +
-          "Full Name: " + name + "\n" +
-          "Email: " + email + "\n" +
-          "Phone: " + phone + "\n" +
-          "Location (City/County/State): " + location + "\n" +
+          "--- APPLICANT DETAILS ---\n\n" +
+          "Full Name: " + name + "\n\n" +
+          "Email: " + email + "\n\n" +
+          "Phone: " + phone + "\n\n" +
+          "Location (City/County/State): " + location + "\n\n" +
           "Target Office: " + office + "\n\n" +
-          "--- STATEMENT OF PURPOSE & BACKGROUND ---\n" +
+          "--- STATEMENT OF PURPOSE & BACKGROUND ---\n\n" +
           bio + "\n\n" +
           "Thank you for your time.\n\n" +
-          "Sincerely,\n" + name;
+          "Sincerely,\n\n" +
+          name;
 
         const mailtoUrl = "mailto:" + recipient + "?subject=" + subject + "&body=" + encodeURIComponent(bodyText);
         
-        // Open user's email program with pre-filled content
-        window.location.href = mailtoUrl;
+        // Dynamically create a temporary link with target="_blank" to open in a new tab/window
+        const tempLink = document.createElement('a');
+        tempLink.href = mailtoUrl;
+        tempLink.target = '_blank';
+        tempLink.rel = 'noopener noreferrer';
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
       });
     }
   </script>
