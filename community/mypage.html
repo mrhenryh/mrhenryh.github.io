@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CCA - Subscriber Portal</title>
+
+  <meta property="og:title" content="The CCA - Subscriber Portal">
+  <meta property="og:description" content="Access your tailored voter guide and subscriber resources from the Christian Conservative Association.">
+  <meta property="og:image" content="../images/logo.png">
+  <meta property="og:url" content="https://thecca.us.org/community/mypage.html">
+  <meta property="og:type" content="website">
+
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="../images/logowithbackground.png">
+
+  <style>
+    :root {
+      --navy-blue: #0A2342;
+      --patriot-red: #BA1200;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --card-border: #E0E0E0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Logo & Branding Text Styles */
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation Container */
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 0;
+        overflow-y: auto;
+        z-index: 999;
+        box-shadow: inset 0 4px 6px -4px rgba(0,0,0,0.3);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .nav-links a.active {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(186, 18, 0, 0.25);
+        color: #FFFFFF;
+        font-weight: bold;
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+      }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Login Card Styles */
+    .login-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-top: 5px solid var(--patriot-red);
+      text-align: center;
+      max-width: 600px;
+      margin: 3rem auto;
+    }
+
+    .login-card h1 {
+      color: var(--navy-blue);
+      margin-top: 0;
+    }
+
+    .login-intro {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .btn-subscribe {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 12px 28px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-subscribe:hover {
+      background-color: #900E00;
+    }
+
+    .divider {
+      border-top: 1px solid #DDD;
+      margin: 1.5rem 0;
+    }
+
+    .login-form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .password-input {
+      width: 85%;
+      max-width: 340px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #CCC;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .password-input:focus {
+      border-color: var(--navy-blue);
+      outline: none;
+    }
+
+    .btn-login {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-login:hover {
+      background-color: #06162B;
+    }
+
+    .error-msg {
+      color: var(--patriot-red);
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="The CCA Logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+    <nav id="main-nav"></nav>
+  </header>
+
+  <main class="container">
+
+    <div id="loginView" class="login-card">
+      <h1>Subscriber Access Portal</h1>
+      <p class="login-intro">
+        Welcome to the Christian Conservative Association subscriber portal. Enter your security passcode below to access your local voter guide and precinct page.<br><br>
+        <em>Your password is your favorite Bible verse (just numbers, no spaces) followed by the last 4 digits of your phone number (e.g., <code>111234</code>).</em>
+      </p>
+
+      <a href="../getinvolved/subscribe.html" class="btn-subscribe">Request Access / Subscribe</a>
+
+      <div class="divider"></div>
+
+      <div class="login-form-group">
+        <label for="passwordInput" style="font-weight: bold; color: var(--navy-blue);">Enter Subscriber Password:</label>
+        <input type="password" id="passwordInput" class="password-input" placeholder="e.g. 111234">
+        <button onclick="attemptLogin()" class="btn-login">Access My Page</button>
+        <div id="errorMsg" class="error-msg">Invalid password. Please check your credentials or contact support.</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // Password to MyPage Redirect Mapping (Relative to /community/)
+    const pageRedirects = {
+      "15176466": "../mypages/crowville.paulding.ga.html",
+      "1250865": "../mypages/crowville.paulding.ga.html",
+      "350875": "../mypages/lostmountain.cobb.ga.html",
+      "53149151": "../mypages/hiram.paulding.ga.html"
+    };
+
+    function attemptLogin() {
+      const inputPass = document.getElementById('passwordInput').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (pageRedirects[inputPass]) {
+        errorMsg.style.display = 'none';
+        // Immediately redirect to the mapped precinct page
+        window.location.href = pageRedirects[inputPass];
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    }
+
+    // Press Enter to submit password
+    document.getElementById('passwordInput').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        attemptLogin();
+      }
+    });
+
+    // Mobile Navigation Drawer Script
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+  </script>
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
