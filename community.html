@@ -1,1 +1,456 @@
-This page is not yet written. Thank you for your patience.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CCA - Community Hub</title>
+
+  <!-- Apple Touch Icon & App Metadata -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="The CCA">
+
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="images/logowithbackground.png">
+
+  <!-- Open Graph & Social/Messaging Thumbnail Preview -->
+  <meta property="og:title" content="Christian Conservative Association - Community Hub">
+  <meta property="og:description" content="Connect with fellow voters, join discussions, and access your subscriber portal.">
+  <meta property="og:image" content="https://thecca.us.org/images/logo.png">
+  <meta property="og:url" content="https://thecca.us.org/community.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Christian Conservative Association - Community Hub">
+  <meta name="twitter:description" content="Connect with fellow voters, join discussions, and access your subscriber portal.">
+  <meta name="twitter:image" content="https://thecca.us.org/images/logo.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root {
+      --navy-blue: #0A2342;
+      --subnav-bg: #0E2D52;
+      --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --card-border: #E0E0E0;
+      --gold-metallic: #D4AF37;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 3px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .nav-links a.active {
+        background-color: rgba(186, 18, 0, 0.25);
+        color: #FFFFFF;
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+      }
+    }
+
+    /* Purpose Hero Section */
+    .purpose-section {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 1.5rem 2.5rem 1.5rem;
+      border-bottom: 4px solid var(--patriot-red);
+    }
+
+    .purpose-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .purpose-title {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .purpose-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #E0E6ED;
+      margin: 0;
+    }
+
+    /* Interactive List Directory Section */
+    .hub-container {
+      max-width: 850px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .directory-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .directory-item {
+      display: flex;
+      align-items: center;
+      background-color: var(--white);
+      border: 1px solid var(--card-border);
+      border-left: 6px solid var(--navy-blue);
+      border-radius: 6px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-left-color 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .directory-item:hover {
+      transform: translateX(6px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-left-color: var(--patriot-red);
+    }
+
+    .item-icon {
+      font-size: 2rem;
+      margin-right: 1.5rem;
+      width: 45px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .item-content {
+      flex: 1;
+    }
+
+    .item-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.3rem;
+    }
+
+    .item-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--navy-blue);
+      margin: 0;
+    }
+
+    .badge-tag {
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-subscriber {
+      background-color: rgba(186, 18, 0, 0.12);
+      color: var(--patriot-red);
+    }
+
+    .badge-public {
+      background-color: rgba(10, 35, 66, 0.1);
+      color: var(--navy-blue);
+    }
+
+    .badge-private {
+      background-color: rgba(212, 175, 55, 0.2);
+      color: #8A6D05;
+    }
+
+    .item-desc {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .item-arrow {
+      font-size: 1.5rem;
+      color: var(--navy-blue);
+      font-weight: bold;
+      margin-left: 1rem;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .directory-item:hover .item-arrow {
+      transform: translateX(4px);
+      color: var(--patriot-red);
+    }
+
+    /* Footer & Legal Disclaimer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 4rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .purpose-title { font-size: 1.8rem; }
+      .directory-item { padding: 1.2rem; }
+      .item-icon { font-size: 1.6rem; margin-right: 1rem; width: 30px; }
+      .item-title { font-size: 1.15rem; }
+      .disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="images/logo.png" alt="The CCA Logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="community.html" class="active">Community</a></li>
+        <li><a href="getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Purpose Hero Banner -->
+    <section class="purpose-section">
+      <div class="purpose-container">
+        <h1 class="purpose-title">Community Hub</h1>
+        <p class="purpose-text">
+          Connect with grassroots voters, join public discussion caucuses, and access your subscriber tools.
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Directory List -->
+    <section class="hub-container">
+      <div class="directory-list">
+
+        <a href="community/mypage.html" class="directory-item">
+          <div class="item-icon">🔑</div>
+          <div class="item-content">
+            <div class="item-header">
+              <h2 class="item-title">My Page</h2>
+              <span class="badge-tag badge-subscriber">Passcode Access</span>
+            </div>
+            <p class="item-desc">Access your personalized local voter guide, precinct resources, and contact sheets.</p>
+          </div>
+          <div class="item-arrow">&rarr;</div>
+        </a>
+
+        <a href="community/public.html" class="directory-item">
+          <div class="item-icon">💬</div>
+          <div class="item-content">
+            <div class="item-header">
+              <h2 class="item-title">Public Community</h2>
+              <span class="badge-tag badge-public">Open Forum</span>
+            </div>
+            <p class="item-desc">Join public discussions on local policy, grassroots initiatives, and civic reform.</p>
+          </div>
+          <div class="item-arrow">&rarr;</div>
+        </a>
+
+        <a href="community/private.html" class="directory-item">
+          <div class="item-icon">🛡️</div>
+          <div class="item-content">
+            <div class="item-header">
+              <h2 class="item-title">Private Community</h2>
+              <span class="badge-tag badge-private">Verified Members</span>
+            </div>
+            <p class="item-desc">Dedicated caucus portal for candidates, officeholders, and executive leadership.</p>
+          </div>
+          <div class="item-arrow">&rarr;</div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>
