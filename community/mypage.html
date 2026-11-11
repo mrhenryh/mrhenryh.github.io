@@ -132,20 +132,23 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Sub-Menu Subpage Banner */
+    /* Sub-Menu Subpage Banner (Centered & Cleaned for Mobile) */
     .sub-nav-banner {
       background-color: var(--subnav-bg);
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 0.6rem 1rem;
+      padding: 0.5rem 0.5rem;
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
-      display: block;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .sub-nav-links {
-      display: flex;
+      display: inline-flex;
       justify-content: center;
       align-items: center;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: 1.2rem;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -156,22 +159,24 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
+      padding: 0.4rem 0.6rem;
       transition: all 0.2s ease;
       letter-spacing: 0.3px;
+      white-space: nowrap;
+      display: inline-block;
+      border-bottom: 3px solid transparent;
     }
 
     .sub-nav-links a:hover {
       color: var(--white);
-      background-color: rgba(255, 255, 255, 0.08);
     }
 
     .sub-nav-links a.active {
       color: var(--white);
       font-weight: bold;
-      background-color: rgba(212, 175, 55, 0.18);
-      border-bottom: 2px solid var(--gold-metallic);
+      border-bottom: 3px solid var(--gold-metallic);
+      background-color: transparent;
+      border-radius: 0;
     }
 
     @media (max-width: 900px) {
@@ -221,12 +226,12 @@
 
     @media (max-width: 600px) {
       .sub-nav-links {
-        gap: 0.5rem;
+        gap: 0.6rem;
       }
 
       .sub-nav-links a {
         font-size: 0.88rem;
-        padding: 0.3rem 0.5rem;
+        padding: 0.3rem 0.4rem;
       }
     }
 
