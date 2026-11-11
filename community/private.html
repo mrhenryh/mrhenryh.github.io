@@ -1,1 +1,509 @@
-This page is not yet written. Thank you for your patience.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CCA - Private Member Portal</title>
+
+  <meta property="og:title" content="The CCA - Private Member Portal">
+  <meta property="og:description" content="Exclusive access portal for verified Christian Conservative Association Members to manage their personal profiles, Passion Projects, and private forums.">
+  <meta property="og:image" content="https://cca.us.org/images/og-image.png">
+  <meta property="og:url" content="https://thecca.us.org/community/private.html">
+  <meta property="og:type" content="website">
+
+  <!-- Apple Touch Icon & Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../images/logowithbackground.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root {
+      --navy-blue: #0A2342;
+      --subnav-bg: #0E2D52;
+      --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --navy-blue-hover: #06162B;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --card-border: #E0E0E0;
+      --gold-metallic: #D4AF37;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Logo & Branding Text Styles */
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation Container */
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 3px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Sub-Menu Subpage Banner (Centered & Cleaned for Mobile) */
+    .sub-nav-banner {
+      background-color: var(--subnav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.5rem 0.5rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .sub-nav-links {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sub-nav-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.4rem 0.6rem;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      display: inline-block;
+      border-bottom: 3px solid transparent;
+    }
+
+    .sub-nav-links a:hover {
+      color: var(--white);
+    }
+
+    .sub-nav-links a.active {
+      color: var(--white);
+      font-weight: bold;
+      border-bottom: 3px solid var(--gold-metallic);
+      background-color: transparent;
+      border-radius: 0;
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .nav-links a.active {
+        background-color: rgba(186, 18, 0, 0.25);
+        color: #FFFFFF;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sub-nav-links {
+        gap: 0.6rem;
+      }
+
+      .sub-nav-links a {
+        font-size: 0.88rem;
+        padding: 0.3rem 0.4rem;
+      }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Login Card Styles */
+    .login-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      border-top: 6px solid var(--gold-metallic);
+      border-bottom: 4px solid var(--navy-blue);
+      text-align: center;
+      max-width: 620px;
+      margin: 3rem auto;
+    }
+
+    .member-badge {
+      display: inline-block;
+      background-color: var(--navy-blue);
+      color: var(--gold-metallic);
+      border: 1px solid var(--gold-metallic);
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
+    }
+
+    .login-card h1 {
+      color: var(--navy-blue);
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .member-notice {
+      background-color: #FFF8E7;
+      border-left: 4px solid var(--patriot-red);
+      color: #665000;
+      padding: 0.9rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.93rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .login-intro {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn-apply {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 12px 26px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-apply:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    .divider {
+      border-top: 1px solid #DDD;
+      margin: 1.5rem 0;
+    }
+
+    .login-form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .password-input {
+      width: 85%;
+      max-width: 340px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #CCC;
+      border-radius: 4px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .password-input:focus {
+      border-color: var(--navy-blue);
+      outline: none;
+    }
+
+    .btn-login {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-login:hover {
+      background-color: var(--navy-blue-hover);
+    }
+
+    .error-msg {
+      color: var(--patriot-red);
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .disclaimer { text-align: left; }
+      .login-card { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="The CCA Logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="../community.html" class="active">Community</a></li>
+        <li><a href="../getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Secondary Community Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="Community section menu">
+    <ul class="sub-nav-links">
+      <li><a href="mypage.html">My Page</a></li>
+      <li><a href="public.html">Public Community</a></li>
+      <li><a href="private.html" class="active">Private Community</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+
+    <div id="loginView" class="login-card">
+      <span class="member-badge">Members Only Access</span>
+      <h1>Private Member Portal</h1>
+
+      <div class="member-notice">
+        <strong>Notice:</strong> This private portal is strictly restricted to verified <strong>Members</strong> of the Christian Conservative Association (vetted elected officials, candidates, pastors, and CCA staff). If you are a general subscriber looking for your local precinct voter guide, please visit <a href="mypage.html" style="color: var(--navy-blue); font-weight: bold; text-decoration: underline;">Subscriber My Page</a>.
+      </div>
+
+      <p class="login-intro">
+        Enter your confidential Member passcode below to access your personal member dashboard, manage your Passion Project, view restricted caucus discussions, and update your profile details.
+      </p>
+
+      <a href="../getinvolved/becomeamember.html" class="btn-apply">Apply for Membership</a>
+
+      <div class="divider"></div>
+
+      <div class="login-form-group">
+        <label for="passwordInput" style="font-weight: bold; color: var(--navy-blue);">Enter Member Passcode:</label>
+        <input type="password" id="passwordInput" class="password-input" placeholder="Enter confidential password">
+        <button onclick="attemptLogin()" class="btn-login">Access Private Member Page</button>
+        <div id="errorMsg" class="error-msg">Invalid Member passcode. Please verify your credentials or contact the Chairman or Dean.</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // Password to Private Member Page Redirect Mapping (Relative to /community/)
+    const memberRedirects = {
+      "15176466": "../privatememberpages/henry-hart.html",
+      "1250865": "../privatememberpages/dawn-hart.html",
+      "355417": "../privatememberpages/tom-gray.html",
+      "5315372": "../privatememberpages/lena-aghajanian.html"
+    };
+
+    function attemptLogin() {
+      const inputPass = document.getElementById('passwordInput').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (memberRedirects[inputPass]) {
+        errorMsg.style.display = 'none';
+        // Immediately redirect to the mapped private member page
+        window.location.href = memberRedirects[inputPass];
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    }
+
+    // Press Enter to submit password
+    document.getElementById('passwordInput').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        attemptLogin();
+      }
+    });
+
+    // Mobile Navigation Drawer Script
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>
