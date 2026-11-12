@@ -498,11 +498,12 @@
       <h2>Member MyPage Access</h2>
       <p>Verified candidates and officeholders may log in below to access their private discussions and profiles.</p>
       
-      <form class="login-form-inline" action="passwords.html" method="GET">
+      <form class="login-form-inline" id="member-login-form">
         <label for="member-password" style="font-weight: bold;">Password:</label>
         <input type="password" id="member-password" name="pass" placeholder="Enter Password" required>
-        <button type="submit" class="btn btn-blue">Login</button>
+        <button type="submit" class="btn btn-blue" id="member-login-btn">Login</button>
       </form>
+      <p id="login-status-msg" style="margin-top: 0.75rem; font-weight: bold; font-size: 0.92rem; display: none;"></p>
     </div>
 
     <!-- Friendly Donation Notice Box -->
@@ -550,6 +551,61 @@
         const searchInput = document.getElementById('zip-search-input').value.trim();
         if (searchInput) {
           window.location.href = 'c&o/by-location.html?search=' + encodeURIComponent(searchInput);
+        }
+      });
+    }
+
+    // Member MyPage Login via Google Sheets
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbya3KD_EB8S5AQA-hK15x4uQAGaXhkIP2QDBpqJcyTIDXw7WkWnVnrz4XpvG5yhCbJb/exec';
+    const memberLoginForm = document.getElementById('member-login-form');
+
+    if (memberLoginForm) {
+      memberLoginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const passwordInput = document.getElementById('member-password');
+        const loginBtn = document.getElementById('member-login-btn');
+        const statusMsg = document.getElementById('login-status-msg');
+        const password = passwordInput.value.trim();
+
+        if (!password) return;
+
+        // Show loading state
+        loginBtn.disabled = true;
+        loginBtn.textContent = 'Verifying...';
+        statusMsg.style.display = 'block';
+        statusMsg.style.color = '#0A2342';
+        statusMsg.textContent = 'Checking credentials...';
+
+        try {
+          const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8'
+            },
+            body: JSON.stringify({
+              password: password,
+              portal: 'member'
+            })
+          });
+
+          const result = await response.json();
+
+          if (result.success && result.redirectUrl) {
+            statusMsg.style.color = '#15803D';
+            statusMsg.textContent = 'Access granted! Redirecting to your Member MyPage...';
+            window.location.href = result.redirectUrl;
+          } else {
+            statusMsg.style.color = '#BA1200';
+            statusMsg.textContent = result.message || 'Invalid password. Please try again.';
+            loginBtn.disabled = false;
+            loginBtn.textContent = 'Login';
+          }
+        } catch (error) {
+          statusMsg.style.color = '#BA1200';
+          statusMsg.textContent = 'Unable to connect to the login server. Please check your connection and try again.';
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Login';
         }
       });
     }
