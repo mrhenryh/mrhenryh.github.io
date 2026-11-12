@@ -1,1 +1,551 @@
-This page is not yet written. Thank you for your patience.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Conservative Association - Donate</title>
+
+  <!-- Apple Touch Icon & Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../images/logowithbackground.png">
+
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:title" content="Christian Conservative Association - Support & Donate">
+  <meta property="og:description" content="Support the Christian Conservative Association in strengthening the nuclear family and equipping Christian leaders.">
+  <meta property="og:image" content="https://cca.us.org/images/og-image.png">
+  <meta property="og:url" content="https://cca.us.org/getinvolved/donate.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Christian Conservative Association - Support & Donate">
+  <meta name="twitter:description" content="Support the Christian Conservative Association in strengthening the nuclear family and equipping Christian leaders.">
+  <meta name="twitter:image" content="https://cca.us.org/images/og-image.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    /* Global Styles & Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --subnav-bg: #0E2D52;
+      --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --navy-blue-hover: #06162a;
+      --board-slate: #1F3A60;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --link-blue: #0056b3;
+      --gold-metallic: #D4AF37;
+      --notice-yellow: #FFF3CD;
+      --notice-border: #FFEEBA;
+      --notice-text: #856404;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Desktop Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 3px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Secondary Get Involved Sub-Menu Banner */
+    .sub-nav-banner {
+      background-color: var(--subnav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.6rem 1rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+      display: block;
+      text-align: center;
+    }
+
+    .sub-nav-links {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    .sub-nav-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .sub-nav-links a:hover {
+      color: var(--white);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .sub-nav-links a.active {
+      color: var(--white);
+      font-weight: bold;
+      background-color: rgba(212, 175, 55, 0.18);
+      border-bottom: 2px solid var(--gold-metallic);
+    }
+
+    /* Mobile Navigation Drawer */
+    @media (max-width: 1200px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .nav-links a.active {
+        background-color: rgba(186, 18, 0, 0.25);
+        color: var(--white);
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #D1D5DB;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Layout Container */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Disclaimer Notice Banner */
+    .notice-banner {
+      background-color: var(--notice-yellow);
+      border: 1px solid var(--notice-border);
+      border-left: 6px solid var(--patriot-red);
+      color: var(--notice-text);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin-bottom: 1.8rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .notice-banner strong {
+      color: #533F03;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--white);
+      padding: 2.2rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-top: 6px solid var(--navy-blue);
+      margin-bottom: 2rem;
+    }
+
+    .card.red-top {
+      border-top: 6px solid var(--patriot-red);
+    }
+
+    .card h2 {
+      color: var(--navy-blue);
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.55rem;
+    }
+
+    .card p, .card li {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Simple Notification Sign-Up Form */
+    .notify-form {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      color: var(--navy-blue);
+      font-size: 0.95rem;
+    }
+
+    .form-group input {
+      padding: 10px 14px;
+      font-size: 0.98rem;
+      border: 2px solid #CBD5E1;
+      border-radius: 4px;
+      outline: none;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .form-group input:focus {
+      border-color: var(--navy-blue);
+    }
+
+    .form-helper-text {
+      font-size: 0.88rem;
+      color: #64748B;
+      margin-top: 0.4rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      color: var(--white);
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-red {
+      background-color: var(--patriot-red);
+    }
+
+    .btn-red:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    .btn-blue {
+      background-color: var(--navy-blue);
+    }
+
+    .btn-blue:hover {
+      background-color: var(--navy-blue-hover);
+    }
+
+    .action-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    /* Footer & Legal Compliance Disclaimer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      .sub-nav-links { gap: 0.5rem; }
+      .sub-nav-links a { font-size: 0.85rem; padding: 0.25rem 0.5rem; }
+      .card { padding: 1.5rem; }
+      .btn { width: 100%; box-sizing: border-box; }
+      .disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="The CCA logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="../community.html">Community</a></li>
+        <li><a href="../getinvolved.html" class="active">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Secondary Get Involved Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="Get Involved section menu">
+    <ul class="sub-nav-links">
+      <li><a href="subscribe.html">Subscribe</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="donate.html" class="active">Donate</a></li>
+      <li><a href="becomeamember.html">Become a Member</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Support the Mission</h1>
+    <p>Partner with the Christian Conservative Association to strengthen the nuclear family and equip faithful Christian leaders in public service.</p>
+  </section>
+
+  <main class="container">
+
+    <!-- Status Notice Banner -->
+    <div class="notice-banner">
+      <strong>Donations Temporarily Paused:</strong> Thank you for your willingness to support our mission! We are not currently accepting financial contributions while we complete our organizational, legal, and treasury setup. Please do not send funds until our official contribution portal is announced.
+    </div>
+
+    <!-- Notification Sign-Up Card -->
+    <div class="card red-top">
+      <h2>Get Notified When Donations Open</h2>
+      <p>
+        If you would like to be notified as soon as the Christian Conservative Association is ready to receive financial contributions, fill out your details below to generate a quick pre-filled notification request to our Treasurer.
+      </p>
+
+      <form class="notify-form" id="donate-notify-form">
+        <div class="form-group">
+          <label for="donor-name">Your Name</label>
+          <input type="text" id="donor-name" placeholder="Full Name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="donor-email">Your Email Address</label>
+          <input type="email" id="donor-email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="donor-location">City &amp; State (Optional)</label>
+          <input type="text" id="donor-location" placeholder="e.g., Powder Springs, GA">
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-red">Notify Me via Email</button>
+        </div>
+        <p class="form-helper-text">
+          Clicking the button above will open your default email app with a pre-filled message to the CCA Treasurer.
+        </p>
+      </form>
+    </div>
+
+    <!-- Alternative Ways to Support Right Now -->
+    <div class="card">
+      <h2>How You Can Help Today</h2>
+      <p>While financial contributions are being set up, your prayers and grassroots participation make an immediate impact:</p>
+      <ul>
+        <li><strong>Pray for Wisdom &amp; Courage:</strong> Pray for our leadership team, Board members, and Christian candidates stepping forward to serve in local, state, and national office.</li>
+        <li><strong>Join Our Subscriber Network:</strong> Help us reach our 2030 outreach vision of representation across every county in the United States.</li>
+        <li><strong>Share Voter Resources:</strong> Share our candidate lookups and family-first policy resources with fellow believers in your church and community.</li>
+      </ul>
+      <div class="action-links">
+        <a href="subscribe.html" class="btn btn-blue">Subscribe for Updates</a>
+        <a href="../about/mission.html" class="btn btn-red">View Our 2030 Vision</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="contact.html" style="color: #FFFFFF; text-decoration: underline;" target="_blank" rel="noopener noreferrer">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+
+    // Pre-filled Email Notification Handler
+    const notifyForm = document.getElementById('donate-notify-form');
+    if (notifyForm) {
+      notifyForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('donor-name').value.trim();
+        const email = document.getElementById('donor-email').value.trim();
+        const location = document.getElementById('donor-location').value.trim();
+
+        const treasurerEmail = 'Mr_____.Treasurer@CCA.us.org';
+        const subject = encodeURIComponent('CCA Donation Notification Request');
+        
+        let bodyText = 'Hello CCA Treasurer,\n\n'
+          + 'Please add me to the notification list so I can be informed as soon as the Christian Conservative Association is ready to accept donations.\n\n'
+          + 'Name: ' + name + '\n'
+          + 'Email: ' + email + '\n';
+
+        if (location) {
+          bodyText += 'Location: ' + location + '\n';
+        }
+
+        bodyText += '\nBlessings,\n' + name;
+
+        const mailtoLink = 'mailto:' + treasurerEmail + '?subject=' + subject + '&body=' + encodeURIComponent(bodyText);
+        window.location.href = mailtoLink;
+      });
+    }
+  </script>
+</body>
+</html>
