@@ -120,19 +120,6 @@
       width: 100%;
       background-color: var(--white);
       border-radius: 2px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .nav-toggle.active .bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .nav-toggle.active .bar:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.active .bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
     }
 
     /* Sub-Menu Subpage Banner with Active Highlight & Gold Line */
@@ -141,13 +128,14 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       padding: 0.6rem 1rem;
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
-      text-align: center;
+      display: flex;
+      justify-content: center;
       width: 100%;
       box-sizing: border-box;
     }
 
     .sub-nav-links {
-      display: inline-flex;
+      display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
@@ -497,7 +485,6 @@
 
     if (navToggleBtn && navMenu) {
       navToggleBtn.addEventListener('click', () => {
-        navToggleBtn.classList.toggle('active');
         navMenu.classList.toggle('open');
       });
     }
