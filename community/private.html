@@ -134,11 +134,11 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Sub-Menu Subpage Banner (Centered & Cleaned for Mobile) */
+    /* Sub-Menu Subpage Banner (Preserving Active Highlight & Gold Line) */
     .sub-nav-banner {
       background-color: var(--subnav-bg);
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 0.5rem 0.5rem;
+      padding: 0.6rem 1rem;
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
       text-align: center;
       width: 100%;
@@ -161,24 +161,26 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
-      padding: 0.4rem 0.6rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
       transition: all 0.2s ease;
       letter-spacing: 0.3px;
       white-space: nowrap;
       display: inline-block;
-      border-bottom: 3px solid transparent;
+      border-bottom: 2px solid transparent;
     }
 
     .sub-nav-links a:hover {
       color: var(--white);
+      background-color: rgba(255, 255, 255, 0.08);
     }
 
     .sub-nav-links a.active {
       color: var(--white);
       font-weight: bold;
-      border-bottom: 3px solid var(--gold-metallic);
-      background-color: transparent;
-      border-radius: 0;
+      background-color: rgba(212, 175, 55, 0.18);
+      border-bottom: 2px solid var(--gold-metallic);
+      border-radius: 4px;
     }
 
     @media (max-width: 1200px) {
@@ -228,12 +230,12 @@
 
     @media (max-width: 600px) {
       .sub-nav-links {
-        gap: 0.6rem;
+        gap: 0.5rem;
       }
 
       .sub-nav-links a {
         font-size: 0.88rem;
-        padding: 0.3rem 0.4rem;
+        padding: 0.3rem 0.5rem;
       }
     }
 
@@ -428,6 +430,7 @@
       <li><a href="mypage.html">My Page</a></li>
       <li><a href="public.html">Public Community</a></li>
       <li><a href="private.html" class="active">Private Community</a></li>
+      <li><a href="passionprojects.html">Passion Projects</a></li>
     </ul>
   </nav>
 
