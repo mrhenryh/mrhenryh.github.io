@@ -1,1 +1,411 @@
-This page is not yet written. Thank you for your patience. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Conservative Association - Op-Eds &amp; News Hub</title>
+
+  <!-- Apple Touch Icon & Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="images/logowithbackground.png">
+
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:title" content="Christian Conservative Association - Op-Eds &amp; News Hub">
+  <meta property="og:description" content="Explore official board news, member op-eds, and grassroots passion projects from the Christian Conservative Association.">
+  <meta property="og:image" content="https://cca.us.org/images/og-image.png">
+  <meta property="og:url" content="https://cca.us.org/op-eds&news.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Christian Conservative Association - Op-Eds &amp; News Hub">
+  <meta name="twitter:description" content="Explore official board news, member op-eds, and grassroots passion projects from the Christian Conservative Association.">
+  <meta name="twitter:image" content="https://cca.us.org/images/og-image.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    /* Global Styles & Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --navy-blue-hover: #06162a;
+      --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --board-slate: #1F3A60;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --gold-metallic: #D4AF37;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Desktop Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 3px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Mobile Navigation Drawer */
+    @media (max-width: 1200px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .nav-links a.active {
+        background-color: rgba(186, 18, 0, 0.25);
+        color: var(--white);
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #D1D5DB;
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Main Container & Pathway Grid */
+    .container {
+      max-width: 950px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+
+    .hub-intro {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pathways-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .pathway-card {
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      padding: 2.2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top: 6px solid var(--navy-blue);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pathway-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .pathway-card.red-border {
+      border-top: 6px solid var(--patriot-red);
+    }
+
+    .pathway-card.slate-border {
+      border-top: 6px solid var(--board-slate);
+    }
+
+    .pathway-content h2 {
+      color: var(--navy-blue);
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .pathway-content p {
+      color: #475569;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .pathway-action {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .btn-pathway {
+      display: inline-block;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 10px 22px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-pathway:hover {
+      background-color: var(--navy-blue-hover);
+    }
+
+    .btn-pathway.red-btn {
+      background-color: var(--patriot-red);
+    }
+
+    .btn-pathway.red-btn:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    /* Footer & Disclaimers */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3.5rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.9rem; }
+      .hero p { font-size: 1.05rem; }
+      .pathway-card { padding: 1.8rem 1.4rem; }
+      .disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="images/logo.png" alt="The CCA logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="op-eds&news.html" class="active">Op-Eds & News</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Op-Eds, News &amp; Initiatives</h1>
+    <p>Stay informed with official board actions, member-written commentary, and grassroots member projects from across the association.</p>
+  </section>
+
+  <main class="container">
+
+    <div class="hub-intro">
+      Welcome to our central publishing and information hub. Choose a category below to explore official leadership resolutions, member essays on constitutional reform and family preservation, or dedicated community outreach initiatives.
+    </div>
+
+    <!-- Three Pathways Grid -->
+    <div class="pathways-grid">
+
+      <!-- Pathway 1: News -->
+      <article class="pathway-card">
+        <div class="pathway-content">
+          <h2>Chairman &amp; Board News</h2>
+          <p>
+            Review official announcements, governance votes, and policy resolutions placed on public view by the Chairman and Board of Directors.
+          </p>
+        </div>
+        <div class="pathway-action">
+          <a href="o&n/news.html" class="btn-pathway">View Board News &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Pathway 2: Op-Eds -->
+      <article class="pathway-card red-border">
+        <div class="pathway-content">
+          <h2>Op-Eds &amp; Commentary</h2>
+          <p>
+            Explore thoughtful essays and policy breakdowns written by Christian candidates, officeholders, and association members. Use our live keyword search to find articles.
+          </p>
+        </div>
+        <div class="pathway-action">
+          <a href="o&n/op-eds.html" class="btn-pathway red-btn">Read Op-Eds &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Pathway 3: Passion Projects -->
+      <article class="pathway-card slate-border">
+        <div class="pathway-content">
+          <h2>Member Passion Projects</h2>
+          <p>
+            Discover charitable foundations, educational awareness campaigns, and community outreach projects spearheaded by verified CCA members[cite: 7].
+          </p>
+        </div>
+        <div class="pathway-action">
+          <a href="o&n/passionprojects.html" class="btn-pathway" style="background-color: var(--board-slate);">Explore Projects &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;" target="_blank" rel="noopener noreferrer">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>
