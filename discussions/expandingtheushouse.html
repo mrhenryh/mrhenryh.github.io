@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CCA - Discussion: Expanding the U.S. House</title>
+
+  <!-- Open Graph / Text Preview Meta Tags -->
+  <meta property="og:title" content="The CCA - Discussion: Expanding the U.S. House">
+  <meta property="og:description" content="Join the Christian Conservative Association community discussion on expanding the U.S. House of Representatives.">
+  <meta property="og:image" content="../images/logo.png">
+  <meta property="og:url" content="https://cca.us.org/discussions/expandingtheushouse.html">
+  <meta property="og:type" content="website">
+
+  <!-- iPhone Home Screen Touch Icon & Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../images/logowithbackground.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root {
+      --navy-blue: #0A2342;
+      --navy-blue-hover: #06162a;
+      --subnav-bg: #0E2D52;
+      --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --text-muted: #64748B;
+      --card-border: #E2E8F0;
+      --gold-metallic: #D4AF37;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 3px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Sub-Menu Subpage Banner */
+    .sub-nav-banner {
+      background-color: var(--subnav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.5rem 0.5rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .sub-nav-links {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sub-nav-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.4rem 0.6rem;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      display: inline-block;
+      border-bottom: 3px solid transparent;
+    }
+
+    .sub-nav-links a:hover {
+      color: var(--white);
+    }
+
+    .sub-nav-links a.active {
+      color: var(--white);
+      font-weight: bold;
+      border-bottom: 3px solid var(--gold-metallic);
+    }
+
+    @media (max-width: 1200px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .nav-links a.active {
+        background-color: rgba(186, 18, 0, 0.25);
+        color: var(--white);
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+      }
+    }
+
+    /* Topic Hero / Header Section */
+    .topic-hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 2rem 1.5rem 2.2rem;
+    }
+
+    .topic-hero-inner {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #D1D5DB;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    .topic-badge {
+      display: inline-block;
+      background-color: rgba(212, 175, 55, 0.18);
+      border: 1px solid var(--gold-metallic);
+      color: var(--gold-metallic);
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+
+    .topic-hero h1 {
+      font-size: 2rem;
+      margin: 0 0 0.6rem;
+      line-height: 1.25;
+    }
+
+    .topic-hero p {
+      color: #E2E8F0;
+      font-size: 1.02rem;
+      line-height: 1.55;
+      margin: 0;
+      max-width: 820px;
+    }
+
+    /* Sticky White Action Bar (Stays at top when scrolling through comments) */
+    .sticky-action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background-color: var(--white);
+      border-bottom: 2px solid #CBD5E1;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      padding: 0.75rem 1rem;
+    }
+
+    .sticky-bar-inner {
+      max-width: 950px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn-post-comment {
+      background-color: var(--patriot-red);
+      color: var(--white);
+      border: none;
+      padding: 9px 16px;
+      font-size: 0.92rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-post-comment:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    .bar-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+      max-width: 340px;
+    }
+
+    .search-input-wrap input {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 4px;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .search-input-wrap input:focus {
+      border-color: var(--navy-blue);
+    }
+
+    .sort-select {
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 4px;
+      background-color: var(--white);
+      color: var(--text-dark);
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .sort-select:focus {
+      border-color: var(--navy-blue);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 950px;
+      margin: 1.8rem auto;
+      padding: 0 1rem;
+    }
+
+    /* New Top-Level Comment Drawer */
+    .new-comment-panel {
+      display: none;
+      background: var(--white);
+      border: 2px solid var(--navy-blue);
+      border-top: 6px solid var(--patriot-red);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .new-comment-panel.open {
+      display: block;
+    }
+
+    .new-comment-panel h2 {
+      margin: 0 0 0.4rem;
+      color: var(--navy-blue);
+      font-size: 1.25rem;
+    }
+
+    .form-note {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+      line-height: 1.45;
+    }
+
+    /* Submission Confirmation Alert */
+    .submission-banner {
+      display: none;
+      background-color: #ECFDF5;
+      border: 1.5px solid #10B981;
+      border-left: 6px solid #059669;
+      color: #065F46;
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      font-size: 0.98rem;
+    }
+
+    .results-status {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    /* Thread Group (Holds parent comment + locked replies) */
+    .thread-group {
+      margin-bottom: 1.8rem;
+    }
+
+    /* Comment Cards */
+    .comment-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      border: 1px solid var(--card-border);
+      position: relative;
+    }
+
+    /* Alternating Red and Blue Left Lines (Assigned dynamically via JS so sorting keeps alternation clean) */
+    .comment-card.border-red {
+      border-left: 6px solid var(--patriot-red);
+    }
+
+    .comment-card.border-blue {
+      border-left: 6px solid var(--navy-blue);
+    }
+
+    /* Reply Card Styling with Extended Faded Top Banner */
+    .reply-chain-wrapper {
+      margin-top: 0.75rem;
+      padding-left: 1.5rem;
+      border-left: 2px dashed #CBD5E1;
+    }
+
+    .reply-toggle-btn {
+      background: #E2E8F0;
+      color: var(--navy-blue);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .reply-toggle-btn:hover {
+      background: #CBD5E1;
+    }
+
+    .reply-list.collapsed {
+      display: none;
+    }
+
+    .reply-card {
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+    }
+
+    .reply-card.border-red {
+      border-left: 6px solid var(--patriot-red);
+    }
+
+    .reply-card.border-blue {
+      border-left: 6px solid var(--navy-blue);
+    }
+
+    .reply-context-header {
+      background-color: #F1F5F9;
+      color: #64748B;
+      font-size: 0.84rem;
+      font-style: italic;
+      padding: 0.55rem 1.4rem;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .reply-card-body {
+      padding: 1.2rem 1.4rem;
+    }
+
+    /* Comment Title Section (Used for Keyword Search) */
+    .comment-title {
+      font-size: 1.18rem;
+      font-weight: bold;
+      color: var(--navy-blue);
+      margin: 0 0 0.75rem;
+      line-height: 1.3;
+    }
+
+    /* Author Header Row */
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .verified-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold-metallic);
+      background-color: #E2E8F0;
+      flex-shrink: 0;
+    }
+
+    .author-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .author-name-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .author-name {
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+
+    /* Role Badges */
+    .badge-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border: 1px solid var(--gold-metallic);
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .badge-verified .check-icon {
+      color: var(--gold-metallic);
+      font-weight: bold;
+    }
+
+    .badge-subscriber {
+      display: inline-block;
+      background-color: #E2E8F0;
+      color: #475569;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .comment-date {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    /* Upvote Box */
+    .upvote-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #F8FAFC;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 4px 10px;
+    }
+
+    .upvote-count {
+      font-weight: bold;
+      font-size: 0.95rem;
+      color: var(--navy-blue);
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .btn-upvote {
+      background-color: var(--white);
+      color: var(--navy-blue);
+      border: 1px solid #CBD5E1;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-upvote:hover {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border-color: var(--navy-blue);
+    }
+
+    /* Main Comment Body */
+    .comment-body {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-bottom: 1.1rem;
+      white-space: pre-line;
+    }
+
+    /* Comment Card Footer (Reply Button) */
+    .comment-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+
+    .btn-reply {
+      background-color: transparent;
+      color: var(--navy-blue);
+      border: 1.5px solid var(--navy-blue);
+      padding: 6px 14px;
+      font-size: 0.88rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-reply:hover {
+      background-color: var(--navy-blue);
+      color: var(--white);
+    }
+
+    /* Inline Reply Form Box */
+    .reply-form-container {
+      display: none;
+      margin-top: 1rem;
+      padding: 1.25rem;
+      background-color: #F8FAFC;
+      border: 1.5px solid #CBD5E1;
+      border-left: 5px solid var(--patriot-red);
+      border-radius: 6px;
+    }
+
+    .reply-form-container.open {
+      display: block;
+    }
+
+    .reply-form-container h4 {
+      margin: 0 0 0.75rem;
+      color: var(--navy-blue);
+      font-size: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    .form-grid .form-group {
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      font-size: 0.86rem;
+      font-weight: bold;
+      color: var(--navy-blue);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 9px 11px;
+      font-size: 0.94rem;
+      font-family: Arial, sans-serif;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 4px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy-blue);
+      outline: none;
+    }
+
+    .form-btn-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-submit {
+      background-color: var(--patriot-red);
+      color: var(--white);
+      border: none;
+      padding: 9px 18px;
+      font-size: 0.92rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    .btn-cancel {
+      background-color: #E2E8F0;
+      color: var(--text-dark);
+      border: none;
+      padding: 9px 14px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-cancel:hover {
+      background-color: #CBD5E1;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 650px) {
+      .topic-hero h1 { font-size: 1.55rem; }
+      .sticky-bar-inner { flex-direction: column; align-items: stretch; }
+      .bar-controls { justify-content: stretch; }
+      .search-input-wrap { max-width: 100%; }
+      .sort-select { width: 100%; }
+      .form-grid { grid-template-columns: 1fr; }
+      .reply-chain-wrapper { padding-left: 0.85rem; }
+      .disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Header -->
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="The CCA Logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="../community.html" class="active">Community</a></li>
+        <li><a href="../getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Secondary Community Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="Community section menu">
+    <ul class="sub-nav-links">
+      <li><a href="../community/mypage.html">My Page</a></li>
+      <li><a href="../community/public.html" class="active">Public Community</a></li>
+      <li><a href="../community/private.html">Private Community</a></li>
+    </ul>
+  </nav>
+
+  <!-- Topic Hero Section -->
+  <section class="topic-hero">
+    <div class="topic-hero-inner">
+      <a href="../community/public.html" class="back-link">&larr; Back to Public Community Topics</a>
+      <div><span class="topic-badge">Constitutional &amp; Legislative Policy</span></div>
+      <h1>Should Congress Expand the U.S. House of Representatives?</h1>
+      <p>Since the Permanent Apportionment Act of 1929, the U.S. House has been capped at 435 voting members—leaving each representative responsible for over 760,000 citizens. Share your perspective on constitutional representation, local accountability, and practical governance.</p>
+    </div>
+  </section>
+
+  <!-- Sticky Action Bar (Pins to top as visitor scrolls down) -->
+  <div class="sticky-action-bar">
+    <div class="sticky-bar-inner">
+      <button type="button" id="toggleNewCommentBtn" class="btn-post-comment">+ Post Your Comment</button>
+
+      <div class="bar-controls">
+        <div class="search-input-wrap">
+          <input type="text" id="keywordSearchInput" placeholder="Search comment titles &amp; themes..." aria-label="Search comments by title keyword">
+        </div>
+
+        <select id="sortSelect" class="sort-select" aria-label="Sort comments">
+          <option value="newest">Sort: Newest at Top</option>
+          <option value="oldest">Sort: Oldest at Top</option>
+          <option value="most-upvotes">Sort: Most Upvotes at Top</option>
+          <option value="least-upvotes">Sort: Least Upvotes at Top</option>
+          <option value="verified-only">Filter: Verified Members Only (Newest)</option>
+          <option value="verified-first">Sort: Verified Members First</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Discussion Container -->
+  <main class="container">
+
+    <!-- On-Screen Submission Confirmation Banner -->
+    <div id="globalSubmissionBanner" class="submission-banner" role="alert">
+      Your comment has been submitted, it will be posted soon. Thank you!
+    </div>
+
+    <!-- Top-Level New Comment Form (Hidden until "Post Your Comment" is clicked) -->
+    <section id="newCommentPanel" class="new-comment-panel" aria-label="Post a new comment">
+      <h2>Post Your Comment on This Topic</h2>
+      <p class="form-note">
+        All comments are reviewed by our editorial team before publication to verify membership credentials and maintain civil, constructive discourse. Submitting this form will open your email client addressed to our Editor.
+      </p>
+      <form id="topLevelCommentForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="newAuthorName">1. Name *</label>
+            <input type="text" id="newAuthorName" placeholder="e.g., John Adams" required>
+          </div>
+          <div class="form-group">
+            <label for="newAuthorPassword">2. Password *</label>
+            <input type="password" id="newAuthorPassword" placeholder="Enter your CCA passcode" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="newCommentTitle">3. Title of Comment (Keywords help readers search) *</label>
+          <input type="text" id="newCommentTitle" placeholder="e.g., Madison's Federalist 55 and District Size" required>
+        </div>
+        <div class="form-group">
+          <label for="newCommentBody">4. Comment Itself *</label>
+          <textarea id="newCommentBody" rows="4" placeholder="Write your thoughtful response here..." required></textarea>
+        </div>
+        <div class="form-btn-row">
+          <button type="submit" class="btn-submit">Submit Comment to Editor</button>
+          <button type="button" id="cancelNewCommentBtn" class="btn-cancel">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="resultsStatus" class="results-status">Showing 3 discussion threads</div>
+
+    <!-- Discussion Feed Container -->
+    <div id="discussionFeed">
+
+      <!-- =========================================================
+           THREAD 1: Verified Member + Sub-Conversation Reply Chain
+           ========================================================= -->
+      <div class="thread-group" data-timestamp="2026-10-18T14:30:00" data-upvotes="24" data-verified="true">
+        <article class="comment-card border-red">
+          <h3 class="comment-title">Restoring James Madison's Vision of Local Accountability</h3>
+
+          <div class="comment-header">
+            <div class="author-info">
+              <img src="../images/logowithbackground.png" alt="Hon. Marcus Vance" class="verified-avatar">
+              <div class="author-meta">
+                <div class="author-name-row">
+                  <span class="author-name">Hon. Marcus Vance</span>
+                  <span class="badge-verified"><span class="check-icon">&#10003;</span> Verified Member</span>
+                </div>
+                <span class="comment-date">Published October 18, 2026</span>
+              </div>
+            </div>
+
+            <div class="upvote-box">
+              <span class="upvote-count">24</span>
+              <button type="button" class="btn-upvote" onclick="sendUpvoteEmail(this)" title="Send an email to the Editor to upvote this comment">
+                &#9650; Upvote
+              </button>
+            </div>
+          </div>
+
+          <div class="comment-body">In Federalist No. 55, James Madison warned that too few representatives would leave lawmakers detached from the everyday lives and moral convictions of their constituents. Today, one U.S. Representative speaks for more than three-quarters of a million people—making grassroots campaigning nearly impossible without massive donor networks.
+
+Expanding the House modestly, perhaps using the "Cube Root Rule," would shrink congressional districts, allow ordinary Christian citizens of modest means to run for office, and restore genuine accountability between representatives and local churches and families.</div>
+
+          <div class="comment-actions">
+            <button type="button" class="btn-reply" onclick="toggleReplyForm(this)">Reply</button>
+          </div>
+
+          <!-- Reply Form -->
+          <div class="reply-form-container">
+            <h4>Reply to Hon. Marcus Vance</h4>
+            <form onsubmit="submitReplyEmail(event, this, 'Hon. Marcus Vance', 'October 18, 2026')">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>1. Name *</label>
+                  <input type="text" name="replyName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <label>2. Password *</label>
+                  <input type="password" name="replyPassword" placeholder="Your CCA Passcode" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>3. Title of Comment *</label>
+                <input type="text" name="replyTitle" placeholder="Brief title or theme of your reply" required>
+              </div>
+              <div class="form-group">
+                <label>4. Comment Itself *</label>
+                <textarea name="replyBody" rows="3" placeholder="Type your reply here..." required></textarea>
+              </div>
+              <div class="form-btn-row">
+                <button type="submit" class="btn-submit">Submit Reply to Editor</button>
+                <button type="button" class="btn-cancel" onclick="toggleReplyForm(this)">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </article>
+
+        <!-- Sub-Conversation Reply Chain (Locked to Thread 1 during sorting) -->
+        <div class="reply-chain-wrapper">
+          <button type="button" class="reply-toggle-btn" onclick="toggleReplyChain(this)">
+            &#9662; Hide Replies (2)
+          </button>
+
+          <div class="reply-list">
+            <!-- Reply 1 -->
+            <article class="reply-card border-blue">
+              <div class="reply-context-header">
+                Replying to Hon. Marcus Vance, October 18, 2026
+              </div>
+              <div class="reply-card-body">
+                <h4 class="comment-title">Donor Influence vs. District Size</h4>
+                <div class="comment-header">
+                  <div class="author-info">
+                    <div class="author-meta">
+                      <div class="author-name-row">
+                        <span class="author-name">Caleb Thornton</span>
+                        <span class="badge-subscriber">Subscriber</span>
+                      </div>
+                      <span class="comment-date">Published October 19, 2026</span>
+                    </div>
+                  </div>
+
+                  <div class="upvote-box">
+                    <span class="upvote-count">9</span>
+                    <button type="button" class="btn-upvote" onclick="sendUpvoteEmail(this)">
+                      &#9650; Upvote
+                    </button>
+                  </div>
+                </div>
+
+                <div class="comment-body">That point about campaign finance is huge, Councilman. When a district has 760,000 people, you cannot knock on enough doors to win—you are forced to buy expensive television ads. Smaller districts bring back retail politics where character and face-to-face trust matter more than PAC money.</div>
+
+                <div class="comment-actions">
+                  <button type="button" class="btn-reply" onclick="toggleReplyForm(this)">Reply</button>
+                </div>
+
+                <div class="reply-form-container">
+                  <h4>Reply to Caleb Thornton</h4>
+                  <form onsubmit="submitReplyEmail(event, this, 'Caleb Thornton', 'October 19, 2026')">
+                    <div class="form-grid">
+                      <div class="form-group">
+                        <label>1. Name *</label>
+                        <input type="text" name="replyName" required>
+                      </div>
+                      <div class="form-group">
+                        <label>2. Password *</label>
+                        <input type="password" name="replyPassword" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>3. Title of Comment *</label>
+                      <input type="text" name="replyTitle" required>
+                    </div>
+                    <div class="form-group">
+                      <label>4. Comment Itself *</label>
+                      <textarea name="replyBody" rows="3" required></textarea>
+                    </div>
+                    <div class="form-btn-row">
+                      <button type="submit" class="btn-submit">Submit Reply to Editor</button>
+                      <button type="button" class="btn-cancel" onclick="toggleReplyForm(this)">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </article>
+
+            <!-- Reply 2 (Continuing the Sub-Conversation) -->
+            <article class="reply-card border-red">
+              <div class="reply-context-header">
+                Replying to Caleb Thornton, October 19, 2026
+              </div>
+              <div class="reply-card-body">
+                <h4 class="comment-title">Door-to-Door Accountability Works</h4>
+                <div class="comment-header">
+                  <div class="author-info">
+                    <img src="../images/logowithbackground.png" alt="Hon. Marcus Vance" class="verified-avatar">
+                    <div class="author-meta">
+                      <div class="author-name-row">
+                        <span class="author-name">Hon. Marcus Vance</span>
+                        <span class="badge-verified"><span class="check-icon">&#10003;</span> Verified Member</span>
+                      </div>
+                      <span class="comment-date">Published October 20, 2026</span>
+                    </div>
+                  </div>
+
+                  <div class="upvote-box">
+                    <span class="upvote-count">14</span>
+                    <button type="button" class="btn-upvote" onclick="sendUpvoteEmail(this)">
+                      &#9650; Upvote
+                    </button>
+                  </div>
+                </div>
+
+                <div class="comment-body">Exactly right, Caleb. When a representative actually attends the same county fairs, churches, and town halls as their neighbors, it becomes much harder for Washington leadership to pressure them into voting against their community's values.</div>
+
+                <div class="comment-actions">
+                  <button type="button" class="btn-reply" onclick="toggleReplyForm(this)">Reply</button>
+                </div>
+
+                <div class="reply-form-container">
+                  <h4>Reply to Hon. Marcus Vance</h4>
+                  <form onsubmit="submitReplyEmail(event, this, 'Hon. Marcus Vance', 'October 20, 2026')">
+                    <div class="form-grid">
+                      <div class="form-group">
+                        <label>1. Name *</label>
+                        <input type="text" name="replyName" required>
+                      </div>
+                      <div class="form-group">
+                        <label>2. Password *</label>
+                        <input type="password" name="replyPassword" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>3. Title of Comment *</label>
+                      <input type="text" name="replyTitle" required>
+                    </div>
+                    <div class="form-group">
+                      <label>4. Comment Itself *</label>
+                      <textarea name="replyBody" rows="3" required></textarea>
+                    </div>
+                    <div class="form-btn-row">
+                      <button type="submit" class="btn-submit">Submit Reply to Editor</button>
+                      <button type="button" class="btn-cancel" onclick="toggleReplyForm(this)">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           THREAD 2: Subscriber Comment (No Replies Yet)
+           ========================================================= -->
+      <div class="thread-group" data-timestamp="2026-10-22T09:15:00" data-upvotes="17" data-verified="false">
+        <article class="comment-card border-blue">
+          <h3 class="comment-title">Fiscal Responsibility and Federal Bureaucracy Concerns</h3>
+
+          <div class="comment-header">
+            <div class="author-info">
+              <div class="author-meta">
+                <div class="author-name-row">
+                  <span class="author-name">Rebecca Miller</span>
+                  <span class="badge-subscriber">Subscriber</span>
+                </div>
+                <span class="comment-date">Published October 22, 2026</span>
+              </div>
+            </div>
+
+            <div class="upvote-box">
+              <span class="upvote-count">17</span>
+              <button type="button" class="btn-upvote" onclick="sendUpvoteEmail(this)">
+                &#9650; Upvote
+              </button>
+            </div>
+          </div>
+
+          <div class="comment-body">While I sympathize with the desire for smaller districts, as a fiscal conservative I worry about the practical cost of adding 150 or 200 new congressional offices. Every single House member comes with a staff budget, franking privileges, security details, and pension obligations.
+
+Before we grow the size of Congress, shouldn't we require them to balance the federal budget and rein in unelected administrative agencies first? Adding more politicians in Washington won't automatically shrink the federal government.</div>
+
+          <div class="comment-actions">
+            <button type="button" class="btn-reply" onclick="toggleReplyForm(this)">Reply</button>
+          </div>
+
+          <div class="reply-form-container">
+            <h4>Reply to Rebecca Miller</h4>
+            <form onsubmit="submitReplyEmail(event, this, 'Rebecca Miller', 'October 22, 2026')">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>1. Name *</label>
+                  <input type="text" name="replyName" required>
+                </div>
+                <div class="form-group">
+                  <label>2. Password *</label>
+                  <input type="password" name="replyPassword" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>3. Title of Comment *</label>
+                <input type="text" name="replyTitle" required>
+              </div>
+              <div class="form-group">
+                <label>4. Comment Itself *</label>
+                <textarea name="replyBody" rows="3" required></textarea>
+              </div>
+              <div class="form-btn-row">
+                <button type="submit" class="btn-submit">Submit Reply to Editor</button>
+                <button type="button" class="btn-cancel" onclick="toggleReplyForm(this)">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </article>
+      </div>
+
+      <!-- =========================================================
+           THREAD 3: Verified Member Comment (Newest)
+           ========================================================= -->
+      <div class="thread-group" data-timestamp="2026-10-25T16:45:00" data-upvotes="31" data-verified="true">
+        <article class="comment-card border-red">
+          <h3 class="comment-title">Impact on the Electoral College and Rural States</h3>
+
+          <div class="comment-header">
+            <div class="author-info">
+              <img src="../images/logowithbackground.png" alt="Sarah Jenkins" class="verified-avatar">
+              <div class="author-meta">
+                <div class="author-name-row">
+                  <span class="author-name">Sarah Jenkins</span>
+                  <span class="badge-verified"><span class="check-icon">&#10003;</span> Verified Member</span>
+                </div>
+                <span class="comment-date">Published October 25, 2026</span>
+              </div>
+            </div>
+
+            <div class="upvote-box">
+              <span class="upvote-count">31</span>
+              <button type="button" class="btn-upvote" onclick="sendUpvoteEmail(this)">
+                &#9650; Upvote
+              </button>
+            </div>
+          </div>
+
+          <div class="comment-body">One constitutional detail every conservative should examine is how expanding the House directly affects the Electoral College. Because each state's electoral votes equal its House seats plus two Senate seats, increasing the House reduces the relative weight of the two-senator boost that protects smaller, rural states.
+
+However, it would also break up massive winner-take-all urban blocks and give suburban and rural counties inside larger states far stronger representation in both Congress and presidential elections. It is a constitutional trade-off worth careful prayer and study.</div>
+
+          <div class="comment-actions">
+            <button type="button" class="btn-reply" onclick="toggleReplyForm(this)">Reply</button>
+          </div>
+
+          <div class="reply-form-container">
+            <h4>Reply to Sarah Jenkins</h4>
+            <form onsubmit="submitReplyEmail(event, this, 'Sarah Jenkins', 'October 25, 2026')">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>1. Name *</label>
+                  <input type="text" name="replyName" required>
+                </div>
+                <div class="form-group">
+                  <label>2. Password *</label>
+                  <input type="password" name="replyPassword" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>3. Title of Comment *</label>
+                <input type="text" name="replyTitle" required>
+              </div>
+              <div class="form-group">
+                <label>4. Comment Itself *</label>
+                <textarea name="replyBody" rows="3" required></textarea>
+              </div>
+              <div class="form-btn-row">
+                <button type="submit" class="btn-submit">Submit Reply to Editor</button>
+                <button type="button" class="btn-cancel" onclick="toggleReplyForm(this)">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // =========================================================
+    // CONFIGURATION: Update Editor Email Address Here Later
+    // =========================================================
+    const EDITOR_EMAIL = 'Mr_____.Editor@CCA.us.org';
+    const DISCUSSION_TOPIC = 'Expanding the U.S. House (expandingtheushouse.html)';
+
+    // Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+
+    // Toggle Top-Level "Post Your Comment" Panel
+    const toggleNewCommentBtn = document.getElementById('toggleNewCommentBtn');
+    const cancelNewCommentBtn = document.getElementById('cancelNewCommentBtn');
+    const newCommentPanel = document.getElementById('newCommentPanel');
+
+    toggleNewCommentBtn.addEventListener('click', () => {
+      newCommentPanel.classList.toggle('open');
+      if (newCommentPanel.classList.contains('open')) {
+        newCommentPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    cancelNewCommentBtn.addEventListener('click', () => {
+      newCommentPanel.classList.remove('open');
+    });
+
+    // Show On-Screen Confirmation Banner
+    function showSubmissionMessage() {
+      const banner = document.getElementById('globalSubmissionBanner');
+      banner.style.display = 'block';
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Handle New Top-Level Comment Form Submission (Option A: mailto)
+    const topLevelForm = document.getElementById('topLevelCommentForm');
+    topLevelForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('newAuthorName').value.trim();
+      const password = document.getElementById('newAuthorPassword').value.trim();
+      const title = document.getElementById('newCommentTitle').value.trim();
+      const body = document.getElementById('newCommentBody').value.trim();
+
+      const subject = `New Discussion Comment: ${title}`;
+      const emailBody =
+        `Discussion Page: ${DISCUSSION_TOPIC}\n` +
+        `Submission Type: New Top-Level Comment\n\n` +
+        `1. Name: ${name}\n` +
+        `2. Password: ${password}\n` +
+        `3. Title of Comment: ${title}\n` +
+        `4. Comment Itself:\n${body}`;
+
+      window.location.href = `mailto:${EDITOR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+      topLevelForm.reset();
+      newCommentPanel.classList.remove('open');
+      showSubmissionMessage();
+    });
+
+    // Toggle Inline Reply Form Underneath Any Comment
+    function toggleReplyForm(button) {
+      const card = button.closest('.comment-card, .reply-card-body');
+      const formBox = card.querySelector('.reply-form-container');
+      formBox.classList.toggle('open');
+    }
+
+    // Handle Reply Form Submission (Option A: mailto)
+    function submitReplyEmail(event, form, replyingToName, replyingToDate) {
+      event.preventDefault();
+
+      const name = form.querySelector('[name="replyName"]').value.trim();
+      const password = form.querySelector('[name="replyPassword"]').value.trim();
+      const title = form.querySelector('[name="replyTitle"]').value.trim();
+      const body = form.querySelector('[name="replyBody"]').value.trim();
+
+      const subject = `New Discussion Reply: ${title}`;
+      const emailBody =
+        `Discussion Page: ${DISCUSSION_TOPIC}\n` +
+        `Submission Type: Reply\n` +
+        `Replying To: ${replyingToName} (${replyingToDate})\n\n` +
+        `1. Name: ${name}\n` +
+        `2. Password: ${password}\n` +
+        `3. Title of Comment: ${title}\n` +
+        `4. Comment Itself:\n${body}`;
+
+      window.location.href = `mailto:${EDITOR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+      form.reset();
+      form.closest('.reply-form-container').classList.remove('open');
+      showSubmissionMessage();
+    }
+
+    // Handle Upvote Button Click (Option A: Immediate mailto with exact comment text)
+    function sendUpvoteEmail(button) {
+      const card = button.closest('.comment-card, .reply-card-body');
+      const commentText = card.querySelector('.comment-body').innerText.trim();
+
+      const subject = 'Discussion Upvote Request';
+      const emailBody = `Please give one upvote to this comment: "${commentText}."`;
+
+      window.location.href = `mailto:${EDITOR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+    }
+
+    // Toggle Sub-Conversation Reply Chain Visibility
+    function toggleReplyChain(button) {
+      const wrapper = button.closest('.reply-chain-wrapper');
+      const list = wrapper.querySelector('.reply-list');
+      const replyCount = list.querySelectorAll('.reply-card').length;
+
+      list.classList.toggle('collapsed');
+      if (list.classList.contains('collapsed')) {
+        button.innerHTML = `&#9656; Show Replies (${replyCount})`;
+      } else {
+        button.innerHTML = `&#9662; Hide Replies (${replyCount})`;
+      }
+    }
+
+    // Alternating Red and Blue Left Borders on Visible Top-Level Cards
+    function applyAlternatingBorders() {
+      const visibleThreads = Array.from(document.querySelectorAll('.thread-group'))
+        .filter(thread => thread.style.display !== 'none');
+
+      visibleThreads.forEach((thread, index) => {
+        const mainCard = thread.querySelector('.comment-card');
+        mainCard.classList.remove('border-red', 'border-blue');
+        mainCard.classList.add(index % 2 === 0 ? 'border-red' : 'border-blue');
+      });
+    }
+
+    // Search by Title Keywords & Sort Top-Level Threads (Keeping Replies Grouped)
+    const searchInput = document.getElementById('keywordSearchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const discussionFeed = document.getElementById('discussionFeed');
+    const resultsStatus = document.getElementById('resultsStatus');
+
+    function updateDiscussionDisplay() {
+      const query = searchInput.value.toLowerCase().trim();
+      const sortMode = sortSelect.value;
+      const threads = Array.from(discussionFeed.querySelectorAll('.thread-group'));
+
+      // 1. Sort top-level threads (replies remain inside their thread-group)
+      threads.sort((a, b) => {
+        const timeA = new Date(a.dataset.timestamp).getTime();
+        const timeB = new Date(b.dataset.timestamp).getTime();
+        const upvotesA = parseInt(a.dataset.upvotes, 10);
+        const upvotesB = parseInt(b.dataset.upvotes, 10);
+        const verA = a.dataset.verified === 'true' ? 1 : 0;
+        const verB = b.dataset.verified === 'true' ? 1 : 0;
+
+        if (sortMode === 'newest' || sortMode === 'verified-only') {
+          return timeB - timeA;
+        } else if (sortMode === 'oldest') {
+          return timeA - timeB;
+        } else if (sortMode === 'most-upvotes') {
+          return upvotesB - upvotesA;
+        } else if (sortMode === 'least-upvotes') {
+          return upvotesA - upvotesB;
+        } else if (sortMode === 'verified-first') {
+          if (verB !== verA) return verB - verA;
+          return timeB - timeA;
+        }
+        return 0;
+      });
+
+      // Re-append sorted threads to DOM
+      threads.forEach(thread => discussionFeed.appendChild(thread));
+
+      // 2. Filter by Title Keywords (checks main title + reply titles) and Verified-Only filter
+      let visibleCount = 0;
+      threads.forEach(thread => {
+        const isVerified = thread.dataset.verified === 'true';
+        const titles = Array.from(thread.querySelectorAll('.comment-title'))
+          .map(el => el.textContent.toLowerCase())
+          .join(' ');
+
+        const matchesKeyword = query === '' || titles.includes(query);
+        const matchesVerifiedFilter = sortMode !== 'verified-only' || isVerified;
+
+        if (matchesKeyword && matchesVerifiedFilter) {
+          thread.style.display = 'block';
+          visibleCount++;
+        } else {
+          thread.style.display = 'none';
+        }
+      });
+
+      resultsStatus.textContent = `Showing ${visibleCount} discussion thread${visibleCount === 1 ? '' : 's'}`;
+      applyAlternatingBorders();
+    }
+
+    searchInput.addEventListener('input', updateDiscussionDisplay);
+    sortSelect.addEventListener('change', updateDiscussionDisplay);
+
+    // Run initial sort (Newest at top) and border alternation on page load
+    updateDiscussionDisplay();
+  </script>
+</body>
+</html>
