@@ -1,1 +1,637 @@
-This page is not yet written. Thank you for your patience.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Conservative Association - Op-Eds &amp; Commentary</title>
+
+  <!-- Apple Touch Icon & Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../images/logowithbackground.png">
+
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:title" content="Christian Conservative Association - Op-Eds &amp; Commentary">
+  <meta property="og:description" content="Member-written essays, family policy perspectives, and structural civic reform commentary from the Christian Conservative Association.">
+  <meta property="og:image" content="https://cca.us.org/images/og-image.png">
+  <meta property="og:url" content="https://cca.us.org/o&n/op-eds.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Christian Conservative Association - Op-Eds &amp; Commentary">
+  <meta name="twitter:description" content="Member-written essays, family policy perspectives, and structural civic reform commentary from the Christian Conservative Association.">
+  <meta name="twitter:image" content="https://cca.us.org/images/og-image.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    /* Global Styles & Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --subnav-bg: #0E2D52;
+      --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --navy-blue-hover: #06162a;
+      --board-slate: #1F3A60;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --link-blue: #0056b3;
+      --gold-metallic: #D4AF37;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Desktop Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 3px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Secondary Op-Eds & News Sub-Menu Banner */
+    .sub-nav-banner {
+      background-color: var(--subnav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.6rem 1rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+      display: block;
+      text-align: center;
+    }
+
+    .sub-nav-links {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    .sub-nav-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .sub-nav-links a:hover {
+      color: var(--white);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .sub-nav-links a.active {
+      color: var(--white);
+      font-weight: bold;
+      background-color: rgba(212, 175, 55, 0.18);
+      border-bottom: 2px solid var(--gold-metallic);
+    }
+
+    /* Mobile Navigation Drawer */
+    @media (max-width: 1200px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .nav-links a.active {
+        background-color: rgba(186, 18, 0, 0.25);
+        color: var(--white);
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #D1D5DB;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Container & Search Bar */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .search-card {
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-left: 6px solid var(--patriot-red);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .search-card label {
+      display: block;
+      font-weight: bold;
+      color: var(--navy-blue);
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .search-input-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-row input[type="text"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 11px 14px;
+      font-size: 1rem;
+      border: 2px solid #CBD5E1;
+      border-radius: 4px;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input-row input[type="text"]:focus {
+      border-color: var(--navy-blue);
+    }
+
+    .btn-clear {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      padding: 11px 20px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-clear:hover {
+      background-color: var(--navy-blue-hover);
+    }
+
+    .search-status {
+      font-size: 0.88rem;
+      color: #64748B;
+      margin: 0.6rem 0 0;
+    }
+
+    /* Op-Ed Cards Layout */
+    .oped-card {
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-top: 6px solid var(--navy-blue);
+      margin-bottom: 2rem;
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .oped-card.featured-card {
+      border-top: 6px solid var(--patriot-red);
+    }
+
+    .oped-meta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 0.8rem;
+    }
+
+    .author-badge {
+      background-color: #EBF3FA;
+      color: var(--navy-blue);
+      border: 1px solid #BEE3F8;
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .date-badge {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .oped-title {
+      color: var(--navy-blue);
+      font-size: 1.45rem;
+      font-weight: bold;
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    .oped-title a {
+      color: var(--navy-blue);
+      text-decoration: none;
+    }
+
+    .oped-title a:hover {
+      color: var(--patriot-red);
+      text-decoration: underline;
+    }
+
+    .oped-summary {
+      color: var(--text-dark);
+      font-size: 1.02rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .oped-footer-action {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+    }
+
+    .btn-read-more {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 9px 20px;
+      font-size: 0.92rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-read-more:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    .no-results-box {
+      display: none;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-top: 6px solid var(--board-slate);
+    }
+
+    .no-results-box h3 {
+      color: var(--navy-blue);
+      margin-top: 0;
+    }
+
+    /* Footer & Disclaimers */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      .sub-nav-links { gap: 0.5rem; }
+      .sub-nav-links a { font-size: 0.85rem; padding: 0.25rem 0.5rem; }
+      .search-card { padding: 1.2rem; }
+      .search-input-row { flex-direction: column; }
+      .btn-clear { width: 100%; }
+      .oped-card { padding: 1.5rem; }
+      .disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="The CCA logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+        <li><a href="../op-eds&news.html" class="active">Op-Eds & News</a></li>
+        <li><a href="../community.html">Community</a></li>
+        <li><a href="../getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Secondary Op-Eds & News Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="Op-Eds & News section menu">
+    <ul class="sub-nav-links">
+      <li><a href="news.html">News</a></li>
+      <li><a href="op-eds.html" class="active">Op-Eds</a></li>
+      <li><a href="passionprojects.html">Passion Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Op-Eds &amp; Commentary</h1>
+    <p>Essays, policy reflections, and civic commentary from Christian candidates, officeholders, and association members.</p>
+  </section>
+
+  <main class="container">
+
+    <!-- Keyword Title Search Bar -->
+    <section class="search-card" aria-label="Search Op-Eds by Title">
+      <label for="oped-search-input">Search Op-Eds by Title Keywords</label>
+      <div class="search-input-row">
+        <input 
+          type="text" 
+          id="oped-search-input" 
+          placeholder="Type keywords from a title (e.g., House, Family, Voting)..." 
+          autocomplete="off"
+        >
+        <button type="button" class="btn-clear" id="clear-search-btn">Clear</button>
+      </div>
+      <p class="search-status" id="search-status">Showing all 3 op-eds</p>
+    </section>
+
+    <!-- Op-Eds List -->
+    <div id="opeds-list">
+
+      <!-- Sample Op-Ed 1 -->
+      <article class="oped-card featured-card" data-title="Why We Need a Smaller U.S. House">
+        <div class="oped-meta-header">
+          <span class="author-badge">By Henry Hart</span>
+          <span class="date-badge">November 12, 2026</span>
+        </div>
+        <h2 class="oped-title">
+          <a href="../op-eds/whyweneedasmallerushousehenryhart.html">Why We Need a Smaller U.S. House</a>
+        </h2>
+        <p class="oped-summary">
+          Examining constitutional apportionment, legislative accountability, and how district sizing impacts the relationship between local families and their federal representatives.
+        </p>
+        <div class="oped-footer-action">
+          <a href="../op-eds/whyweneedasmallerushousehenryhart.html" class="btn-read-more">Read Full Op-Ed</a>
+        </div>
+      </article>
+
+      <!-- Sample Op-Ed 2 -->
+      <article class="oped-card" data-title="Rebuilding the Nuclear Family First">
+        <div class="oped-meta-header">
+          <span class="author-badge">By Hon. Marcus Vance</span>
+          <span class="date-badge">October 28, 2026</span>
+        </div>
+        <h2 class="oped-title">
+          <a href="../op-eds/rebuildingthenuclearfamilyfirsthonmarcusvance.html">Rebuilding the Nuclear Family First</a>
+        </h2>
+        <p class="oped-summary">
+          True civic renewal cannot be legislated from the top down while households are weakened from within. Local leaders must align community policy to strengthen marriage, parents, and children first.
+        </p>
+        <div class="oped-footer-action">
+          <a href="../op-eds/rebuildingthenuclearfamilyfirsthonmarcusvance.html" class="btn-read-more">Read Full Op-Ed</a>
+        </div>
+      </article>
+
+      <!-- Sample Op-Ed 3 -->
+      <article class="oped-card" data-title="Consensus Voting and Christian Stewardship">
+        <div class="oped-meta-header">
+          <span class="author-badge">By Sarah Jenkins</span>
+          <span class="date-badge">October 9, 2026</span>
+        </div>
+        <h2 class="oped-title">
+          <a href="../op-eds/consensusvotingandchristianstewardshipsarahjenkins.html">Consensus Voting and Christian Stewardship</a>
+        </h2>
+        <p class="oped-summary">
+          Moving beyond divisive plurality elections toward consensus-driven voting methods allows believers to vote their conscience without fear of the spoiler effect.
+        </p>
+        <div class="oped-footer-action">
+          <a href="../op-eds/consensusvotingandchristianstewardshipsarahjenkins.html" class="btn-read-more">Read Full Op-Ed</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Empty Search State -->
+    <div class="no-results-box" id="no-results-box">
+      <h3>No Matching Op-Eds Found</h3>
+      <p>No op-ed titles matched your search keywords. Try a different keyword or reset the filter to view all commentary.</p>
+      <button type="button" class="btn-clear" id="reset-empty-btn">Show All Op-Eds</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;" target="_blank" rel="noopener noreferrer">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+
+    // Real-Time Title Keyword Search Filter
+    const searchInput = document.getElementById('oped-search-input');
+    const clearBtn = document.getElementById('clear-search-btn');
+    const resetEmptyBtn = document.getElementById('reset-empty-btn');
+    const opedCards = document.querySelectorAll('.oped-card');
+    const searchStatus = document.getElementById('search-status');
+    const noResultsBox = document.getElementById('no-results-box');
+
+    function filterOpEds() {
+      const query = searchInput.value.trim().toLowerCase();
+      const keywords = query.split(/\s+/).filter(Boolean);
+      let visibleCount = 0;
+
+      opedCards.forEach(card => {
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        const matches = keywords.every(word => title.includes(word));
+
+        if (matches) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResultsBox.style.display = 'block';
+        searchStatus.textContent = '0 op-eds found';
+      } else {
+        noResultsBox.style.display = 'none';
+        searchStatus.textContent = query === ''
+          ? `Showing all ${opedCards.length} op-eds`
+          : `Showing ${visibleCount} of ${opedCards.length} op-eds`;
+      }
+    }
+
+    function resetSearch() {
+      searchInput.value = '';
+      filterOpEds();
+      searchInput.focus();
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterOpEds);
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener('click', resetSearch);
+    }
+    if (resetEmptyBtn) {
+      resetEmptyBtn.addEventListener('click', resetSearch);
+    }
+  </script>
+</body>
+</html>
