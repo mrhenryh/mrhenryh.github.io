@@ -461,22 +461,22 @@
 
         <div class="form-group">
           <label for="member-name">Full Name <span class="required-star">*</span></label>
-          <input type="text" id="member-name" class="form-control" placeholder="e.g., John David Smith" required>
+          <input type="text" id="member-name" class="form-control" placeholder="e.g., John Smith" required>
         </div>
 
         <div class="form-group">
           <label for="member-email">Personal Email Address <span class="required-star">*</span></label>
-          <input type="email" id="member-email" class="form-control" placeholder="e.g., john.smith@email.com" required>
+          <input type="email" id="member-email" class="form-control" placeholder="e.g., mrsmith.john@email.com" required>
         </div>
 
         <div class="form-group">
           <label for="member-phone">Phone Number <span class="required-star">*</span></label>
-          <input type="tel" id="member-phone" class="form-control" placeholder="e.g., (404) 555-0199" required>
+          <input type="tel" id="member-phone" class="form-control" placeholder="e.g., (404) 123-4567" required>
         </div>
 
         <div class="form-group">
           <label for="member-role">Current Public Office, Candidacy, Pastoral Role, or CCA Staff Position <span class="required-star">*</span></label>
-          <input type="text" id="member-role" class="form-control" placeholder="e.g., City Council Member, Pastor, or Candidate for County Commission" required>
+          <input type="text" id="member-role" class="form-control" placeholder="e.g., Church, position, or candidacy for what?" required>
         </div>
 
         <div class="form-group">
@@ -485,8 +485,8 @@
         </div>
 
         <div class="form-group">
-          <label for="member-church">Home Church & Denomination <span class="required-star">*</span></label>
-          <input type="text" id="member-church" class="form-control" placeholder="e.g., Grace Baptist Church (Southern Baptist)" required>
+          <label for="member-password">Subscriber Password <span class="required-star">*</span></label>
+          <input type="text" id="member-church" class="form-control" placeholder="e.g., 3161234" required>
         </div>
 
         <div class="form-group">
@@ -494,17 +494,17 @@
           <textarea id="member-testimony" class="form-control" placeholder="Please describe your walk and relationship with God, and how your faith actively reflects in your daily workplace, profession, or public service..." required></textarea>
         </div>
 
-        <div class="form-group">
-          <label for="member-video">1-Minute Video Link (Testimony / Introduction) <span class="required-star">*</span></label>
-          <input type="url" id="member-video" class="form-control" placeholder="Provide a link to your unlisted YouTube or video file (e.g., https://youtu.be/...)" required>
-        </div>
+   <div class="form-group">
+  <label for="member-video">1-Minute YouTube Video Link (Testimony / Introduction) <span class="required-star">*</span></label>
+  
+  <p class="form-text text-muted" style="font-size: 0.9em; margin-top: 4px; margin-bottom: 8px;">
+    <strong>What to include:</strong> Why should you be a Member? What would your Passion Project be? Tell us a bit of your testimony. This video is how you convince us that you should be a Member. 
+  </p>
 
-        <div class="form-group">
-          <label for="member-passion">Proposed Passion Project Idea (Optional)</label>
-          <textarea id="member-passion" class="form-control" placeholder="Describe any civic project, legislative focus, or community initiative you hope to showcase on your member page..."></textarea>
-        </div>
+  <input type="url" id="member-video" class="form-control" placeholder="Provide a link to your public or link-only YouTube testimony video (e.g., https://youtu.be/...)" required>
+</div>
 
-        <button type="submit" class="btn btn-red">Submit Membership Application to Dean</button>
+        <button type="submit" class="btn btn-red">Submit Membership Application to the CCA Dean</button>
       </form>
     </div>
 
@@ -543,10 +543,9 @@
         const phone = document.getElementById('member-phone').value.trim();
         const role = document.getElementById('member-role').value.trim();
         const location = document.getElementById('member-location').value.trim();
-        const church = document.getElementById('member-church').value.trim();
+        const church = document.getElementById('member-password').value.trim();
         const testimony = document.getElementById('member-testimony').value.trim();
         const video = document.getElementById('member-video').value.trim();
-        const passion = document.getElementById('member-passion').value.trim();
 
         const recipient = "MrHart.Chairman@CCA.us.org";
         const subject = encodeURIComponent("CCA Membership Application: " + name);
