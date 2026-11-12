@@ -324,8 +324,12 @@
       background-color: #06162B;
     }
 
-    .error-msg {
-      color: var(--patriot-red);
+    .btn-login:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .status-msg {
       font-weight: bold;
       font-size: 0.95rem;
       margin-top: 10px;
@@ -406,12 +410,12 @@
 
       <div class="divider"></div>
 
-      <div class="login-form-group">
+      <form id="subscriber-login-form" class="login-form-group">
         <label for="passwordInput" style="font-weight: bold; color: var(--navy-blue);">Enter Subscriber Password:</label>
-        <input type="password" id="passwordInput" class="password-input" placeholder="e.g. 111234">
-        <button onclick="attemptLogin()" class="btn-login">Access My Page</button>
-        <div id="errorMsg" class="error-msg">Invalid password. Please check your credentials or contact support.</div>
-      </div>
+        <input type="password" id="passwordInput" class="password-input" placeholder="e.g. 111234" required>
+        <button type="submit" id="loginBtn" class="btn-login">Access My Page</button>
+        <div id="statusMsg" class="status-msg"></div>
+      </form>
     </div>
 
   </main>
@@ -427,33 +431,60 @@
   </footer>
 
   <script>
-    // Password to MyPage Redirect Mapping (Relative to /community/)
-    const pageRedirects = {
-      "15176466": "../mypages/crowville.paulding.ga.html",
-      "1250865": "../mypages/crowville.paulding.ga.html",
-      "355417": "../mypages/lostmountain.cobb.ga.html",
-      "4655372": "../mypages/hiram.paulding.ga.html"
-    };
+    // Subscriber / Area MyPage Login via Google Sheets
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbya3KD_EB8S5AQA-hK15x4uQAGaXhkIP2QDBpqJcyTIDXw7WkWnVnrz4XpvG5yhCbJb/exec';
+    const subscriberLoginForm = document.getElementById('subscriber-login-form');
 
-    function attemptLogin() {
-      const inputPass = document.getElementById('passwordInput').value.trim();
-      const errorMsg = document.getElementById('errorMsg');
+    if (subscriberLoginForm) {
+      subscriberLoginForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-      if (pageRedirects[inputPass]) {
-        errorMsg.style.display = 'none';
-        // Immediately redirect to the mapped precinct page
-        window.location.href = pageRedirects[inputPass];
-      } else {
-        errorMsg.style.display = 'block';
-      }
+        const passwordInput = document.getElementById('passwordInput');
+        const loginBtn = document.getElementById('loginBtn');
+        const statusMsg = document.getElementById('statusMsg');
+        const inputPass = passwordInput.value.trim();
+
+        if (!inputPass) return;
+
+        // Show loading state
+        loginBtn.disabled = true;
+        loginBtn.textContent = 'Verifying...';
+        statusMsg.style.display = 'block';
+        statusMsg.style.color = '#0A2342';
+        statusMsg.textContent = 'Checking credentials...';
+
+        try {
+          const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8'
+            },
+            body: JSON.stringify({
+              password: inputPass,
+              portal: 'area'
+            })
+          });
+
+          const result = await response.json();
+
+          if (result.success && result.redirectUrl) {
+            statusMsg.style.color = '#15803D';
+            statusMsg.textContent = 'Access granted! Redirecting to your Area MyPage...';
+            window.location.href = result.redirectUrl;
+          } else {
+            statusMsg.style.color = '#BA1200';
+            statusMsg.textContent = result.message || 'Invalid password. Please check your credentials or contact support.';
+            loginBtn.disabled = false;
+            loginBtn.textContent = 'Access My Page';
+          }
+        } catch (error) {
+          statusMsg.style.color = '#BA1200';
+          statusMsg.textContent = 'Unable to connect to the login server. Please check your connection and try again.';
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Access My Page';
+        }
+      });
     }
-
-    // Press Enter to submit password
-    document.getElementById('passwordInput').addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        attemptLogin();
-      }
-    });
 
     // Mobile Navigation Drawer Script
     const navToggleBtn = document.getElementById('nav-toggle-btn');
