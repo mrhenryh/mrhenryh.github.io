@@ -127,19 +127,6 @@
       width: 100%;
       background-color: var(--white);
       border-radius: 2px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .nav-toggle.active .bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .nav-toggle.active .bar:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.active .bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
     }
 
     @media (max-width: 1200px) {
@@ -447,7 +434,6 @@
 
     if (navToggleBtn && navMenu) {
       navToggleBtn.addEventListener('click', () => {
-        navToggleBtn.classList.toggle('active');
         navMenu.classList.toggle('open');
       });
     }
