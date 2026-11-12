@@ -1,1 +1,693 @@
-This page is not written yet. Thank you for your patience. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Conservative Association - Helpful Links</title>
+
+  <!-- Apple Touch Icon & Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../images/logowithbackground.png">
+
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:title" content="Christian Conservative Association - Helpful Links">
+  <meta property="og:description" content="A curated directory of trusted Christian ministries, family advocacy platforms, and biblical worldview organizations.">
+  <meta property="og:image" content="https://cca.us.org/images/og-image.png">
+  <meta property="og:url" content="https://cca.us.org/resources/helpful-links.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Christian Conservative Association - Helpful Links">
+  <meta name="twitter:description" content="A curated directory of trusted Christian ministries, family advocacy platforms, and biblical worldview organizations.">
+  <meta name="twitter:image" content="https://cca.us.org/images/og-image.png">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    /* Global Styles & Palette */
+    :root {
+      --navy-blue: #0A2342;
+      --subnav-bg: #0E2D52;
+      --patriot-red: #BA1200;
+      --patriot-red-hover: #900E00;
+      --navy-blue-hover: #06162a;
+      --board-slate: #1F3A60;
+      --light-bg: #F4F6F9;
+      --white: #FFFFFF;
+      --text-dark: #2B2D42;
+      --text-muted: #64748B;
+      --gold-metallic: #D4AF37;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation Layout */
+    header {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid var(--patriot-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+    }
+
+    .brand-text {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Desktop Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a.active {
+      border-bottom: 3px solid var(--patriot-red);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .nav-toggle .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Secondary Resources Sub-Menu Banner */
+    .sub-nav-banner {
+      background-color: var(--subnav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.6rem 1rem;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+      display: block;
+      text-align: center;
+    }
+
+    .sub-nav-links {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    .sub-nav-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .sub-nav-links a:hover {
+      color: var(--white);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .sub-nav-links a.active {
+      color: var(--white);
+      font-weight: bold;
+      background-color: rgba(212, 175, 55, 0.18);
+      border-bottom: 2px solid var(--gold-metallic);
+    }
+
+    /* Mobile Navigation Drawer */
+    @media (max-width: 1200px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 67px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--navy-blue);
+        padding: 1rem 0;
+        overflow-y: auto;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .nav-links a.active {
+        background-color: rgba(186, 18, 0, 0.25);
+        color: var(--white);
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #D1D5DB;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Selection Criteria & External Link Notice Box */
+    .curation-notice-card {
+      background-color: #EBF3FA;
+      border-left: 6px solid var(--navy-blue);
+      border-radius: 8px;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .curation-notice-card h2 {
+      color: var(--navy-blue);
+      font-size: 1.15rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .curation-notice-card p {
+      font-size: 0.94rem;
+      line-height: 1.55;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    /* Search & Filter Bar */
+    .search-card {
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-left: 6px solid var(--patriot-red);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .search-card label {
+      display: block;
+      font-weight: bold;
+      color: var(--navy-blue);
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .search-input-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-row input[type="text"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 11px 14px;
+      font-size: 1rem;
+      border: 2px solid #CBD5E1;
+      border-radius: 4px;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input-row input[type="text"]:focus {
+      border-color: var(--navy-blue);
+    }
+
+    .btn-clear {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      padding: 11px 20px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-clear:hover {
+      background-color: var(--navy-blue-hover);
+    }
+
+    .search-status {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 0.6rem 0 0;
+    }
+
+    /* Directory Link Cards */
+    .link-card {
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-top: 6px solid var(--navy-blue);
+      margin-bottom: 2rem;
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .link-card.accent-red {
+      border-top: 6px solid var(--patriot-red);
+    }
+
+    .link-meta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 0.8rem;
+    }
+
+    .category-pill {
+      background-color: #EBF3FA;
+      color: var(--navy-blue);
+      border: 1px solid #BEE3F8;
+      font-size: 0.82rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .domain-badge {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+    }
+
+    .link-title {
+      color: var(--navy-blue);
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    .link-title a {
+      color: var(--navy-blue);
+      text-decoration: none;
+    }
+
+    .link-title a:hover {
+      color: var(--patriot-red);
+      text-decoration: underline;
+    }
+
+    .link-bio {
+      color: var(--text-dark);
+      font-size: 1.02rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .link-footer-action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 0.5rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #F1F5F9;
+    }
+
+    .best-for-note {
+      font-size: 0.85rem;
+      color: #475569;
+    }
+
+    .btn-visit-site {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      padding: 9px 20px;
+      font-size: 0.92rem;
+      font-weight: bold;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-visit-site:hover {
+      background-color: var(--patriot-red-hover);
+    }
+
+    .no-results-box {
+      display: none;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-top: 6px solid var(--board-slate);
+    }
+
+    .no-results-box h3 {
+      color: var(--navy-blue);
+      margin-top: 0;
+    }
+
+    /* Footer & Disclaimers */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--navy-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .disclaimer {
+      max-width: 850px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D1D5DB;
+      text-align: justify;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      .sub-nav-links { gap: 0.5rem; }
+      .sub-nav-links a { font-size: 0.85rem; padding: 0.25rem 0.5rem; }
+      .search-card, .curation-notice-card { padding: 1.2rem; }
+      .search-input-row { flex-direction: column; }
+      .btn-clear { width: 100%; }
+      .link-card { padding: 1.5rem; }
+      .link-footer-action { flex-direction: column; align-items: stretch; text-align: center; }
+      .disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="The CCA logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="../resources.html" class="active">Resources</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="../community.html">Community</a></li>
+        <li><a href="../getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Secondary Resources Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="Resources section menu">
+    <ul class="sub-nav-links">
+      <li><a href="feature-articles.html">Featured Articles</a></li>
+      <li><a href="helpful-links.html" class="active">Helpful Links</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Helpful Links &amp; Partner Ministries</h1>
+    <p>An alphabetical directory of trusted organizations equipping Christian families, defending biblical truth, and reporting on cultural and civic issues.</p>
+  </section>
+
+  <main class="container">
+
+    <!-- Selection Criteria & External Attribution Notice -->
+    <section class="curation-notice-card" aria-label="Directory Selection Criteria and Disclaimer">
+      <h2>How Organizations Are Chosen &amp; External Link Notice</h2>
+      <p>
+        The websites listed below are curated alphabetically by the Christian Conservative Association based on their faithfulness to Scripture, commitment to strengthening marriage and the nuclear family, and usefulness to Christian citizens. <strong>All linked organizations operate independently from the CCA.</strong> Inclusion in this directory is provided as an educational resource and does not imply an official affiliation, nor does it indicate that any listed 501(c)(3) ministry endorses the CCA or any political candidate.
+      </p>
+    </section>
+
+    <!-- Search by Need or Organization -->
+    <section class="search-card" aria-label="Search Helpful Links">
+      <label for="directory-search-input">Search Directory by Topic, Need, or Organization Name</label>
+      <div class="search-input-row">
+        <input 
+          type="text" 
+          id="directory-search-input" 
+          placeholder="Search by need (e.g., Parenting, Marriage, Apologetics, Daily News, Creation)..." 
+          autocomplete="off"
+        >
+        <button type="button" class="btn-clear" id="clear-search-btn">Clear</button>
+      </div>
+      <p class="search-status" id="search-status">Showing all 3 organizations (sorted alphabetically)</p>
+    </section>
+
+    <!-- Alphabetical Directory List -->
+    <div id="directory-list">
+
+      <!-- 1. Answers in Genesis -->
+      <article class="link-card" data-name="Answers in Genesis">
+        <div class="link-meta-header">
+          <span class="category-pill">Biblical Apologetics &amp; Worldview</span>
+          <span class="domain-badge">answersingenesis.org</span>
+        </div>
+        <h2 class="link-title">
+          <a href="https://answersingenesis.org/" target="_blank" rel="noopener noreferrer">
+            Answers in Genesis
+          </a>
+        </h2>
+        <p class="link-bio">
+          An apologetics ministry dedicated to helping Christians defend their faith and proclaim the gospel of Jesus Christ effectively. Answers in Genesis provides extensively researched articles, science and archaeology resources, homeschooling curricula, and biblical worldview training rooted in the authority of Scripture from the very first verse.
+        </p>
+        <div class="link-footer-action">
+          <span class="best-for-note"><strong>Helpful for:</strong> Biblical apologetics, science &amp; history defense, family study</span>
+          <a href="https://answersingenesis.org/" target="_blank" rel="noopener noreferrer" class="btn-visit-site">
+            Visit Answers in Genesis &#8599;
+          </a>
+        </div>
+      </article>
+
+      <!-- 2. The Daily Citizen (Focus on the Family) -->
+      <article class="link-card accent-red" data-name="The Daily Citizen">
+        <div class="link-meta-header">
+          <span class="category-pill">Christian News &amp; Cultural Commentary</span>
+          <span class="domain-badge">dailycitizen.focusonthefamily.com</span>
+        </div>
+        <h2 class="link-title">
+          <a href="https://dailycitizen.focusonthefamily.com/" target="_blank" rel="noopener noreferrer">
+            The Daily Citizen (Focus on the Family)
+          </a>
+        </h2>
+        <p class="link-bio">
+          The flagship news and cultural commentary publication of Focus on the Family. The Daily Citizen delivers timely, biblically grounded reporting on public policy, religious liberty, parental rights, education, and cultural developments affecting Christian families across the nation.
+        </p>
+        <div class="link-footer-action">
+          <span class="best-for-note"><strong>Helpful for:</strong> Daily Christian news, policy updates, cultural analysis</span>
+          <a href="https://dailycitizen.focusonthefamily.com/" target="_blank" rel="noopener noreferrer" class="btn-visit-site">
+            Visit The Daily Citizen &#8599;
+          </a>
+        </div>
+      </article>
+
+      <!-- 3. Focus on the Family -->
+      <article class="link-card" data-name="Focus on the Family">
+        <div class="link-meta-header">
+          <span class="category-pill">Marriage, Parenting &amp; Family Support</span>
+          <span class="domain-badge">focusonthefamily.com</span>
+        </div>
+        <h2 class="link-title">
+          <a href="https://www.focusonthefamily.com/" target="_blank" rel="noopener noreferrer">
+            Focus on the Family
+          </a>
+        </h2>
+        <p class="link-bio">
+          A global Christian ministry dedicated to helping families thrive in Christ. Focus on the Family offers practical, faith-based counseling referrals, marriage enrichment tools, parenting guides for every stage of childhood, pro-life advocacy resources, and broadcasts designed to strengthen the nuclear family.
+        </p>
+        <div class="link-footer-action">
+          <span class="best-for-note"><strong>Helpful for:</strong> Marriage support, Christian parenting, pro-life &amp; family counseling</span>
+          <a href="https://www.focusonthefamily.com/" target="_blank" rel="noopener noreferrer" class="btn-visit-site">
+            Visit Focus on the Family &#8599;
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Empty Search State -->
+    <div class="no-results-box" id="no-results-box">
+      <h3>No Matching Organizations Found</h3>
+      <p>No listed websites matched your search terms. Try searching for a broader topic like "family," "news," or "Scripture," or reset the list below.</p>
+      <button type="button" class="btn-clear" id="reset-empty-btn">Show All Helpful Links</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+    </p>
+    <p class="disclaimer">
+      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;" target="_blank" rel="noopener noreferrer">Contact Page</a> so we can assist you and address the issue promptly.
+    </p>
+  </footer>
+
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+
+    // Real-Time Directory Search (Matches Name, Category, Bio, and "Helpful for" tags)
+    const searchInput = document.getElementById('directory-search-input');
+    const clearBtn = document.getElementById('clear-search-btn');
+    const resetEmptyBtn = document.getElementById('reset-empty-btn');
+    const linkCards = document.querySelectorAll('.link-card');
+    const searchStatus = document.getElementById('search-status');
+    const noResultsBox = document.getElementById('no-results-box');
+
+    function filterDirectory() {
+      const query = searchInput.value.trim().toLowerCase();
+      const keywords = query.split(/\s+/).filter(Boolean);
+      let visibleCount = 0;
+
+      linkCards.forEach(card => {
+        const cardContent = card.textContent.toLowerCase();
+        const matches = keywords.every(word => cardContent.includes(word));
+
+        if (matches) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResultsBox.style.display = 'block';
+        searchStatus.textContent = '0 organizations found';
+      } else {
+        noResultsBox.style.display = 'none';
+        searchStatus.textContent = query === ''
+          ? `Showing all ${linkCards.length} organizations (sorted alphabetically)`
+          : `Showing ${visibleCount} of ${linkCards.length} organizations`;
+      }
+    }
+
+    function resetSearch() {
+      searchInput.value = '';
+      filterDirectory();
+      searchInput.focus();
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterDirectory);
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener('click', resetSearch);
+    }
+    if (resetEmptyBtn) {
+      resetEmptyBtn.addEventListener('click', resetSearch);
+    }
+  </script>
+</body>
+</html>
