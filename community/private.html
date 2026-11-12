@@ -357,8 +357,12 @@
       background-color: var(--navy-blue-hover);
     }
 
-    .error-msg {
-      color: var(--patriot-red);
+    .btn-login:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .status-msg {
       font-weight: bold;
       font-size: 0.95rem;
       margin-top: 10px;
@@ -445,12 +449,12 @@
 
       <div class="divider"></div>
 
-      <div class="login-form-group">
+      <form id="member-login-form" class="login-form-group">
         <label for="passwordInput" style="font-weight: bold; color: var(--navy-blue);">Enter Member Passcode:</label>
-        <input type="password" id="passwordInput" class="password-input" placeholder="Enter confidential password">
-        <button onclick="attemptLogin()" class="btn-login">Access Private Member Page</button>
-        <div id="errorMsg" class="error-msg">Invalid Member passcode. Please verify your credentials or contact the Chairman or Dean.</div>
-      </div>
+        <input type="password" id="passwordInput" class="password-input" placeholder="Enter confidential password" required>
+        <button type="submit" id="loginBtn" class="btn-login">Access Private Member Page</button>
+        <div id="statusMsg" class="status-msg"></div>
+      </form>
     </div>
 
   </main>
@@ -466,32 +470,60 @@
   </footer>
 
   <script>
-    // Password to Private Member Page Redirect Mapping (Relative to /community/)
-    const memberRedirects = {
-      "15176466": "../privatememberpages/henry-hart.html",
-      "1250865": "../privatememberpages/dawn-hart.html",
-      "355417": "../privatememberpages/tom-gray.html",
-    };
+    // Private Member Portal Login via Google Sheets
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbya3KD_EB8S5AQA-hK15x4uQAGaXhkIP2QDBpqJcyTIDXw7WkWnVnrz4XpvG5yhCbJb/exec';
+    const memberLoginForm = document.getElementById('member-login-form');
 
-    function attemptLogin() {
-      const inputPass = document.getElementById('passwordInput').value.trim();
-      const errorMsg = document.getElementById('errorMsg');
+    if (memberLoginForm) {
+      memberLoginForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-      if (memberRedirects[inputPass]) {
-        errorMsg.style.display = 'none';
-        // Immediately redirect to the mapped private member page
-        window.location.href = memberRedirects[inputPass];
-      } else {
-        errorMsg.style.display = 'block';
-      }
+        const passwordInput = document.getElementById('passwordInput');
+        const loginBtn = document.getElementById('loginBtn');
+        const statusMsg = document.getElementById('statusMsg');
+        const inputPass = passwordInput.value.trim();
+
+        if (!inputPass) return;
+
+        // Show loading state
+        loginBtn.disabled = true;
+        loginBtn.textContent = 'Verifying...';
+        statusMsg.style.display = 'block';
+        statusMsg.style.color = '#0A2342';
+        statusMsg.textContent = 'Checking credentials...';
+
+        try {
+          const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8'
+            },
+            body: JSON.stringify({
+              password: inputPass,
+              portal: 'member'
+            })
+          });
+
+          const result = await response.json();
+
+          if (result.success && result.redirectUrl) {
+            statusMsg.style.color = '#15803D';
+            statusMsg.textContent = 'Access granted! Redirecting to your Private Member Page...';
+            window.location.href = result.redirectUrl;
+          } else {
+            statusMsg.style.color = '#BA1200';
+            statusMsg.textContent = result.message || 'Invalid Member passcode. Please verify your credentials or contact the Chairman or Dean.';
+            loginBtn.disabled = false;
+            loginBtn.textContent = 'Access Private Member Page';
+          }
+        } catch (error) {
+          statusMsg.style.color = '#BA1200';
+          statusMsg.textContent = 'Unable to connect to the login server. Please check your connection and try again.';
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Access Private Member Page';
+        }
+      });
     }
-
-    // Press Enter to submit password
-    document.getElementById('passwordInput').addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        attemptLogin();
-      }
-    });
 
     // Mobile Navigation Drawer Script
     const navToggleBtn = document.getElementById('nav-toggle-btn');
