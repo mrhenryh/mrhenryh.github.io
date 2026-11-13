@@ -425,6 +425,50 @@
       background-color: var(--navy-blue-hover);
     }
 
+    /* Start Your Own Discussion Callout Box */
+    .start-topic-box {
+      margin-top: 2.2rem;
+      background: linear-gradient(135deg, var(--white) 0%, #F8FAFC 100%);
+      border: 2px dashed #CBD5E1;
+      border-top: 5px solid var(--gold-metallic);
+      border-radius: 8px;
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .start-topic-box h3 {
+      color: var(--navy-blue);
+      font-size: 1.4rem;
+      margin: 0 0 0.65rem;
+    }
+
+    .start-topic-box p {
+      color: #475569;
+      font-size: 0.98rem;
+      max-width: 620px;
+      margin: 0 auto 1.4rem;
+      line-height: 1.55;
+    }
+
+    .btn-start-topic {
+      display: inline-block;
+      background-color: var(--patriot-red);
+      color: var(--white);
+      border: none;
+      font-weight: bold;
+      padding: 11px 24px;
+      border-radius: 4px;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-start-topic:hover {
+      background-color: var(--patriot-red-hover);
+      transform: translateY(-1px);
+    }
+
     /* Popup Modal Styles */
     .modal-overlay {
       display: none;
@@ -513,6 +557,9 @@
       margin-top: 1.2rem;
       padding-top: 1rem;
       border-top: 1px solid #E2E8F0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
     }
 
     .btn-modal-accept {
@@ -528,6 +575,69 @@
 
     .btn-modal-accept:hover {
       background-color: var(--navy-blue-hover);
+    }
+
+    .btn-modal-cancel {
+      background-color: #E2E8F0;
+      color: var(--text-dark);
+      border: none;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-modal-cancel:hover {
+      background-color: #CBD5E1;
+    }
+
+    /* New Topic Form Styles */
+    .form-group {
+      margin-bottom: 1.1rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: var(--navy-blue);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid #CBD5E1;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--navy-blue);
+      box-shadow: 0 0 0 2px rgba(10, 35, 66, 0.15);
+    }
+
+    .form-success-msg {
+      display: none;
+      background-color: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      border-left: 5px solid #059669;
+      color: #065F46;
+      padding: 1rem 1.2rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      font-size: 0.94rem;
+      line-height: 1.5;
     }
 
     /* Footer */
@@ -679,7 +789,72 @@
       </article>
 
     </div>
+
+    <!-- Start Your Own Discussion Box (Placed below existing topics so visitors look first) -->
+    <section class="start-topic-box" aria-labelledby="start-topic-heading">
+      <h3 id="start-topic-heading">Don't see a topic you're interested in? Start your own!</h3>
+      <p>Have a civic, constitutional, or community policy question you'd like fellow members to weigh in on? Propose a new discussion thread for review by our moderation team.</p>
+      <button type="button" class="btn-start-topic" id="open-new-topic-btn">+ Start a New Discussion</button>
+    </section>
+
   </main>
+
+  <!-- Start a New Discussion Popup Modal -->
+  <div class="modal-overlay" id="new-topic-modal" role="dialog" aria-modal="true" aria-labelledby="new-topic-modal-title">
+    <div class="modal-box">
+      <button type="button" class="modal-close-btn" id="close-new-topic-x" aria-label="Close New Discussion Form">&times;</button>
+      <h2 id="new-topic-modal-title">Propose a New Discussion Topic</h2>
+      <p>Before submitting, please make sure your topic isn't already covered above and adheres to our Community Guidelines.</p>
+
+      <form id="new-topic-form">
+        <div class="form-group">
+          <label for="topic-author">Your Name &amp; Title / Affiliation (Optional)</label>
+          <input type="text" id="topic-author" name="author" placeholder="e.g., John Doe, Paulding County" required>
+        </div>
+
+        <div class="form-group">
+          <label for="topic-email">Email Address (For Verification Only — Not Published)</label>
+          <input type="email" id="topic-email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="topic-category">Policy Category</label>
+          <select id="topic-category" name="category" required>
+            <option value="" disabled selected>Select a category...</option>
+            <option value="Constitutional & Legislative Policy">Constitutional &amp; Legislative Policy</option>
+            <option value="Electoral Reform">Electoral Reform</option>
+            <option value="Education & Local Governance">Education &amp; Local Governance</option>
+            <option value="Faith & Civic Engagement">Faith &amp; Civic Engagement</option>
+            <option value="Economic & Fiscal Policy">Economic &amp; Fiscal Policy</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="topic-title">Proposed Discussion Title</label>
+          <input type="text" id="topic-title" name="title" placeholder="e.g., How Can Local Churches Best Support Civic Literacy?" required>
+        </div>
+
+        <div class="form-group">
+          <label for="topic-description">Opening Prompt &amp; Context</label>
+          <textarea id="topic-description" name="description" rows="4" placeholder="Provide a brief, thoughtful overview of the issue and the question you'd like the community to discuss..." required></textarea>
+        </div>
+
+        <div class="modal-review-note">
+          <strong>Moderation Notice:</strong> New discussion topics are reviewed by the <strong>CCA Editor-in-Chief</strong> for civility, relevance, and identity verification prior to going live.
+        </div>
+
+        <div class="form-success-msg" id="new-topic-success">
+          <strong>Thank you for your submission!</strong> Your proposed discussion topic has been sent to our moderation team for review and will appear on the board once approved.
+        </div>
+
+        <div class="modal-footer-actions" id="new-topic-actions">
+          <button type="button" class="btn-modal-cancel" id="cancel-new-topic-btn">Cancel</button>
+          <button type="submit" class="btn-modal-accept">Submit Topic for Review</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- Community Guidelines & Terms Popup Modal -->
   <div class="modal-overlay" id="guidelines-modal" role="dialog" aria-modal="true" aria-labelledby="guidelines-modal-title">
@@ -764,9 +939,63 @@
       });
     }
 
+    // Start a New Discussion Modal Script
+    const newTopicModal = document.getElementById('new-topic-modal');
+    const openNewTopicBtn = document.getElementById('open-new-topic-btn');
+    const closeNewTopicX = document.getElementById('close-new-topic-x');
+    const cancelNewTopicBtn = document.getElementById('cancel-new-topic-btn');
+    const newTopicForm = document.getElementById('new-topic-form');
+    const newTopicSuccess = document.getElementById('new-topic-success');
+    const newTopicActions = document.getElementById('new-topic-actions');
+
+    function openNewTopicModal() {
+      if (newTopicModal) {
+        newTopicModal.classList.add('open');
+      }
+    }
+
+    function closeNewTopicModal() {
+      if (newTopicModal) {
+        newTopicModal.classList.remove('open');
+        // Reset form state after closing
+        setTimeout(() => {
+          if (newTopicForm) newTopicForm.reset();
+          if (newTopicSuccess) newTopicSuccess.style.display = 'none';
+          if (newTopicActions) newTopicActions.style.display = 'flex';
+        }, 200);
+      }
+    }
+
+    if (openNewTopicBtn) openNewTopicBtn.addEventListener('click', openNewTopicModal);
+    if (closeNewTopicX) closeNewTopicX.addEventListener('click', closeNewTopicModal);
+    if (cancelNewTopicBtn) cancelNewTopicBtn.addEventListener('click', closeNewTopicModal);
+
+    if (newTopicModal) {
+      newTopicModal.addEventListener('click', (e) => {
+        if (e.target === newTopicModal) {
+          closeNewTopicModal();
+        }
+      });
+    }
+
+    if (newTopicForm) {
+      newTopicForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Hook up your Google Sheets Apps Script / backend endpoint here if desired
+        if (newTopicSuccess) newTopicSuccess.style.display = 'block';
+        if (newTopicActions) newTopicActions.style.display = 'none';
+      });
+    }
+
+    // Close modals with Escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && guidelinesModal && guidelinesModal.classList.contains('open')) {
-        closeGuidelinesModal();
+      if (e.key === 'Escape') {
+        if (guidelinesModal && guidelinesModal.classList.contains('open')) {
+          closeGuidelinesModal();
+        }
+        if (newTopicModal && newTopicModal.classList.contains('open')) {
+          closeNewTopicModal();
+        }
       }
     });
   </script>
