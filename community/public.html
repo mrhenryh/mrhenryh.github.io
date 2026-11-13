@@ -266,6 +266,47 @@
       padding: 0 1rem;
     }
 
+    /* Moderation & Guidelines Banner */
+    .guidelines-banner {
+      background-color: #EBF3FA;
+      border: 1px solid #CBD5E1;
+      border-left: 6px solid var(--navy-blue);
+      border-radius: 6px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .guidelines-banner-text {
+      font-size: 0.94rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .btn-guidelines {
+      background-color: var(--white);
+      color: var(--navy-blue);
+      border: 1.5px solid var(--navy-blue);
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: bold;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .btn-guidelines:hover {
+      background-color: var(--navy-blue);
+      color: var(--white);
+    }
+
     .section-intro {
       font-size: 1.05rem;
       color: var(--text-dark);
@@ -384,6 +425,111 @@
       background-color: var(--navy-blue-hover);
     }
 
+    /* Popup Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(10, 35, 66, 0.72);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background-color: var(--white);
+      border-radius: 8px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      border-top: 6px solid var(--patriot-red);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--patriot-red);
+    }
+
+    .modal-box h2 {
+      color: var(--navy-blue);
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.45rem;
+      padding-right: 1.5rem;
+    }
+
+    .modal-box p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: #475569;
+    }
+
+    .modal-box ul {
+      padding-left: 1.25rem;
+      margin: 1rem 0;
+    }
+
+    .modal-box li {
+      font-size: 0.94rem;
+      line-height: 1.55;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+
+    .modal-review-note {
+      background-color: #FFF8E7;
+      border-left: 4px solid var(--gold-metallic);
+      padding: 0.85rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #5C4800;
+      margin: 1.2rem 0;
+      line-height: 1.5;
+    }
+
+    .modal-footer-actions {
+      text-align: right;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #E2E8F0;
+    }
+
+    .btn-modal-accept {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-modal-accept:hover {
+      background-color: var(--navy-blue-hover);
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -391,6 +537,25 @@
       background-color: var(--navy-blue);
       color: var(--white);
       margin-top: 3rem;
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links button {
+      background: none;
+      border: none;
+      color: var(--gold-metallic);
+      font-weight: bold;
+      font-size: 0.92rem;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .footer-links button:hover {
+      color: var(--white);
     }
 
     .disclaimer {
@@ -407,6 +572,7 @@
     @media (max-width: 600px) {
       .page-hero h1 { font-size: 1.8rem; }
       .disclaimer { text-align: left; }
+      .modal-box { padding: 1.4rem; }
     }
   </style>
 </head>
@@ -455,6 +621,15 @@
 
   <!-- Main Container -->
   <main class="container">
+
+    <!-- Netiquette & Moderation Notice Banner -->
+    <div class="guidelines-banner">
+      <div class="guidelines-banner-text">
+        <strong>Posting &amp; Moderation Policy:</strong> All submissions are reviewed by moderators and the <strong>CCA Editor-in-Chief</strong> for civility, relevance, and identity verification before publication.
+      </div>
+      <button type="button" class="btn-guidelines" id="open-guidelines-btn">Community Guidelines &amp; Terms</button>
+    </div>
+
     <div class="section-intro">
       Select an active topic below to read community perspectives, explore member insights, and share your own thoughts.
     </div>
@@ -506,8 +681,36 @@
     </div>
   </main>
 
+  <!-- Community Guidelines & Terms Popup Modal -->
+  <div class="modal-overlay" id="guidelines-modal" role="dialog" aria-modal="true" aria-labelledby="guidelines-modal-title">
+    <div class="modal-box">
+      <button type="button" class="modal-close-btn" id="close-guidelines-x" aria-label="Close Guidelines">&times;</button>
+      <h2 id="guidelines-modal-title">Community Guidelines &amp; Terms of Use</h2>
+      <p>Welcome to our public discussion community. By submitting a post or reply here, you agree to the following netiquette rules and moderation terms:</p>
+
+      <ul>
+        <li><strong>Civil Discourse &amp; Netiquette:</strong> Please keep all contributions respectful, constructive, and relevant to the discussion topic. Personal attacks, profanity, hate speech, and off-topic arguments are not permitted.</li>
+        <li><strong>No Impersonation:</strong> You may not use a display name that falsely represents a public figure, elected official, political candidate, or another individual. Unverified posts claiming official representation will be denied or removed.</li>
+        <li><strong>Moderator &amp; Editor-in-Chief Authority:</strong> The <strong>CCA Editor-in-Chief</strong> and site moderators reserve the absolute right, at their sole discretion, to deny, edit, hide, or remove any comment, topic, or display name at any time without prior notice if it is deemed inappropriate, off-topic, spam, or in violation of community standards.</li>
+        <li><strong>User-Generated Content Disclaimer:</strong> Comments and viewpoints expressed on this forum reflect the individual opinions of the posters and do not represent an official position of the Christian Conservative Association.</li>
+        <li><strong>Appeals &amp; Inquiries:</strong> If you believe a comment was denied or removed in error, or if you wish to report impersonation or misconduct, please reach out to our moderation team via our <a href="../getinvolved/contact.html" style="color: var(--navy-blue); font-weight: bold; text-decoration: underline;">Contact Page</a>.</li>
+      </ul>
+
+      <div class="modal-review-note">
+        <strong>How Posting Works:</strong> All submissions are reviewed by moderators for civility and identity verification before publication. Thank you for contributing to thoughtful dialogue.
+      </div>
+
+      <div class="modal-footer-actions">
+        <button type="button" class="btn-modal-accept" id="close-guidelines-btn">I Understand &amp; Agree</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
+    <div class="footer-links">
+      <button type="button" id="footer-guidelines-btn">Community Guidelines &amp; Moderation Policy</button>
+    </div>
     <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
     <p class="disclaimer">
       <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
@@ -528,6 +731,44 @@
         navMenu.classList.toggle('open');
       });
     }
+
+    // Community Guidelines Modal Script
+    const guidelinesModal = document.getElementById('guidelines-modal');
+    const openGuidelinesBtn = document.getElementById('open-guidelines-btn');
+    const footerGuidelinesBtn = document.getElementById('footer-guidelines-btn');
+    const closeGuidelinesX = document.getElementById('close-guidelines-x');
+    const closeGuidelinesBtn = document.getElementById('close-guidelines-btn');
+
+    function openGuidelinesModal() {
+      if (guidelinesModal) {
+        guidelinesModal.classList.add('open');
+      }
+    }
+
+    function closeGuidelinesModal() {
+      if (guidelinesModal) {
+        guidelinesModal.classList.remove('open');
+      }
+    }
+
+    if (openGuidelinesBtn) openGuidelinesBtn.addEventListener('click', openGuidelinesModal);
+    if (footerGuidelinesBtn) footerGuidelinesBtn.addEventListener('click', openGuidelinesModal);
+    if (closeGuidelinesX) closeGuidelinesX.addEventListener('click', closeGuidelinesModal);
+    if (closeGuidelinesBtn) closeGuidelinesBtn.addEventListener('click', closeGuidelinesModal);
+
+    if (guidelinesModal) {
+      guidelinesModal.addEventListener('click', (e) => {
+        if (e.target === guidelinesModal) {
+          closeGuidelinesModal();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && guidelinesModal && guidelinesModal.classList.contains('open')) {
+        closeGuidelinesModal();
+      }
+    });
   </script>
 </body>
 </html>
