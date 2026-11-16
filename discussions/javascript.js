@@ -238,8 +238,8 @@ function renderDiscussionFeed() {
           <h4>Reply to ${escapeHTML(item.name)}</h4>
           <form onsubmit="submitReplyEmail(event, this, '${escapeHTML(item.name)}', '${escapeHTML(item.date)}')">
             <div class="form-grid">
-              <div class="form-group"><label>1. Name *</label><input type="text" name="replyName" placeholder="Your Name" required></div>
-              <div class="form-group"><label>2. Password *</label><input type="password" name="replyPassword" placeholder="Your CCA Passcode" required></div>
+              <div class="form-group"><label>1. Name *</label><input type="text" name="replyName" placeholder="e.g., John Smith" required></div>
+              <div class="form-group"><label>2. Password *</label><input type="password" name="replyPassword" placeholder="Your CCA Password" required></div>
             </div>
             <div class="form-group"><label>3. Title of Comment *</label><input type="text" name="replyTitle" placeholder="Brief title" required></div>
             <div class="form-group"><label>4. Comment Itself *</label><textarea name="replyBody" rows="3" placeholder="Type your reply..." required></textarea></div>
