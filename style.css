@@ -1303,93 +1303,96 @@ textarea.form-control,
 /* ==========================================================================
    12. FOOTER, DROPDOWN LEGAL MENU & DISCLAIMERS
    ========================================================================== */
+
 footer {
   text-align: center;
-  padding: 2.5rem 1rem;
+  padding: 3rem 1rem 4rem;
   background-color: var(--navy-blue);
   color: var(--white);
   margin-top: 3.5rem;
 }
 
-/* Clean Collapsible Footer Dropdown for Policies, Bylaws, & Disclaimers */
-.footer-legal-drawer {
-  display: inline-block;
-  position: relative;
-  margin-bottom: 1.2rem;
-}
-
-.footer-legal-drawer summary {
-  cursor: pointer;
-  background-color: var(--subnav-bg);
-  color: var(--white);
-  padding: 0.65rem 1.3rem;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 0.92rem;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  list-style: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.footer-legal-drawer summary::-webkit-details-marker {
-  display: none;
-}
-
-.footer-legal-drawer summary:hover {
-  background-color: var(--tertiary-nav-bg);
-  border-color: var(--gold-metallic);
-}
-
-.footer-dropdown-panel {
-  max-width: 850px;
-  margin: 1rem auto 0;
-  background-color: rgba(6, 22, 42, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-top: 3px solid var(--gold-metallic);
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-align: left;
-  color: #E2E8F0;
-}
-
-.footer-dropdown-links {
+.footer-accordion-container {
+  max-width: 800px;
+  margin: 0 auto 2rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
 }
 
-.footer-dropdown-links a {
-  color: var(--gold-metallic);
-  text-decoration: none;
+/* Individual Dropdown Item */
+.footer-accordion {
+  background-color: rgba(6, 22, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.footer-accordion:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* The Clickable Summary Row with Down Arrow */
+.footer-accordion summary {
+  cursor: pointer;
+  padding: 0.85rem 1.2rem;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  color: var(--gold-metallic);
+  list-style: none; /* Hides default triangle */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
 }
 
-.footer-dropdown-links a:hover {
-  color: var(--white);
-  text-decoration: underline;
-}
-
-.disclaimer {
-  max-width: 850px;
-  margin: 1rem auto 0;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 0.82rem;
-  line-height: 1.55;
+/* Custom Down Arrow Indicator */
+.footer-accordion summary::after {
+  content: "▼";
+  font-size: 0.75rem;
   color: #D1D5DB;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate arrow when open */
+.footer-accordion[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.footer-accordion summary::-webkit-details-marker {
+  display: none; /* Hides default Safari marker */
+}
+
+.footer-accordion summary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+}
+
+/* The Expanded Content Box */
+.footer-content-box {
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #D1D5DB;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-content-box p {
+  margin: 0.8rem 0 0;
   text-align: justify;
 }
 
-.disclaimer:first-of-type {
-  border-top: none;
-  padding-top: 0;
-  margin-top: 0;
+.copyright-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #CBD5E1;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
 }
+
 
 /* ==========================================================================
    13. RESPONSIVE MOBILE BREAKPOINTS
@@ -1484,96 +1487,4 @@ footer {
   .disclaimer {
     text-align: left;
   }
-}
-
-/* ==========================================================================
-   UPDATED ACCORDION FOOTER STYLES
-   ========================================================================== */
-footer {
-  text-align: center;
-  padding: 3rem 1rem 4rem;
-  background-color: var(--navy-blue);
-  color: var(--white);
-  margin-top: 3.5rem;
-}
-
-.footer-accordion-container {
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  text-align: left;
-}
-
-/* Individual Dropdown Item */
-.footer-accordion {
-  background-color: rgba(6, 22, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  overflow: hidden;
-  transition: border-color 0.2s ease;
-}
-
-.footer-accordion:hover {
-  border-color: rgba(212, 175, 55, 0.5);
-}
-
-/* The Clickable Summary Row with Down Arrow */
-.footer-accordion summary {
-  cursor: pointer;
-  padding: 0.85rem 1.2rem;
-  font-weight: bold;
-  font-size: 0.95rem;
-  color: var(--gold-metallic);
-  list-style: none; /* Hides default triangle */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
-}
-
-/* Custom Down Arrow Indicator */
-.footer-accordion summary::after {
-  content: "▼";
-  font-size: 0.75rem;
-  color: #D1D5DB;
-  transition: transform 0.2s ease;
-}
-
-/* Rotate arrow when open */
-.footer-accordion[open] summary::after {
-  transform: rotate(180deg);
-}
-
-.footer-accordion summary::-webkit-details-marker {
-  display: none; /* Hides default Safari marker */
-}
-
-.footer-accordion summary:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--white);
-}
-
-/* The Expanded Content Box */
-.footer-content-box {
-  padding: 0 1.25rem 1.25rem;
-  font-size: 0.86rem;
-  line-height: 1.6;
-  color: #D1D5DB;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.footer-content-box p {
-  margin: 0.8rem 0 0;
-  text-align: justify;
-}
-
-.copyright-text {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #CBD5E1;
-  margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 1.5rem;
 }
