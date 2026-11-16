@@ -712,6 +712,25 @@ nav {
 }
 
 .search-box-form input[type="text"]:focus,
+.login-form-inline {
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.login-form-inline input[type="password"] {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border: 2px solid #CBD5E1;
+  border-radius: 4px;
+  min-width: 220px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.login-form-inline input[type="password"]:focus {
+  border-color: var(--navy-blue);
+}
 .search-input-row input[type="text"]:focus {
   border-color: var(--navy-blue);
 }
@@ -790,6 +809,11 @@ textarea.form-control,
 .oped-item {
   padding: 1rem 0;
   border-bottom: 1px solid #E2E8F0;
+}
+
+.oped-item:first-of-type {
+  border-top: 1px solid #E2E8F0;
+  margin-top: 1rem;
 }
 
 .oped-item:last-child {
