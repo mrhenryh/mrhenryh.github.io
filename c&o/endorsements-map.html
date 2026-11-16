@@ -275,6 +275,72 @@
       color: var(--white);
     }
 
+    /* County Search Box Card */
+    .search-card {
+      background: var(--white);
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-left: 6px solid var(--navy-blue);
+      margin-bottom: 1.25rem;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 240px;
+      padding: 11px 14px;
+      font-size: 1rem;
+      border: 2px solid #CBD5E1;
+      border-radius: 4px;
+      color: var(--text-dark);
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--navy-blue);
+    }
+
+    .btn-search {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-search:hover {
+      background-color: var(--subnav-bg);
+    }
+
+    .search-status {
+      margin-top: 0.65rem;
+      margin-bottom: 0;
+      font-size: 0.9rem;
+      color: #4B5563;
+    }
+
+    .search-status.error {
+      color: var(--patriot-red);
+      font-weight: bold;
+    }
+
+    .search-status.success {
+      color: #15803D;
+      font-weight: bold;
+    }
+
     .map-card {
       background: var(--white);
       padding: 1.5rem;
@@ -404,11 +470,9 @@
       .hero h1 { font-size: 1.8rem; }
       .map-wrapper { height: 55vh; }
       .disclaimer { text-align: left; }
+      .btn-search { width: 100%; }
     }
   </style>
-
-  <!-- External districts JavaScript file loaded relative to parent directory -->
-  <script src="../districts.js"></script>
 </head>
 <body>
 
@@ -451,7 +515,7 @@
 
   <section class="hero">
     <h1>Interactive Endorsements Map</h1>
-    <p>Click on any shaded district area to view local voter details and open applicable guide documents.</p>
+    <p>Search your county and state below, then click on any shaded district area to view local voter details.</p>
   </section>
 
   <main class="container">
@@ -459,6 +523,22 @@
     <!-- Red Button Link Back to Search By Location -->
     <div class="map-banner-card">
       <a href="by-location.html" class="btn-map-link">← Back to Search By Location</a>
+    </div>
+
+    <!-- County Search Bar Between Back Button and Map -->
+    <div class="search-card">
+      <form class="search-form" id="countySearchForm">
+        <input 
+          type="text" 
+          id="countyInput" 
+          class="search-input" 
+          placeholder="Enter County and State (e.g., Paulding, GA)" 
+          aria-label="Enter County and State"
+          required
+        />
+        <button type="submit" class="btn-search">Load County Map</button>
+      </form>
+      <p class="search-status" id="searchStatus">Type your county and two-letter state abbreviation (for example: <strong>Paulding, GA</strong>) and press Enter.</p>
     </div>
     
     <div class="map-card">
@@ -468,7 +548,7 @@
         <!-- Spinner Overlay -->
         <div class="map-loader" id="mapLoader">
           <div class="spinner"></div>
-          <div class="loader-text">Loading interactive map data...</div>
+          <div class="loader-text" id="loaderText">Loading interactive map...</div>
         </div>
 
         <div id="map"></div>
@@ -505,9 +585,16 @@
       });
     }
 
-    // Initialize Leaflet Map centered around local area
-    var map = L.map('map').setView([34.05, -84.8], 11);
+    // Initialize Leaflet Map (starts with a wider US/regional view until a county is searched)
+    var map = L.map('map').setView([33.75, -84.39], 7);
     var loader = document.getElementById('mapLoader');
+    var loaderText = document.getElementById('loaderText');
+    var currentGeoJsonLayer = null;
+
+    function showLoader(message) {
+      if (loaderText && message) loaderText.textContent = message;
+      if (loader) loader.classList.remove('hidden');
+    }
 
     function hideLoader() {
       if (loader && !loader.classList.contains('hidden')) {
@@ -521,46 +608,102 @@
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    // Hide spinner once initial tiles are fully rendered
     tileLayer.on('load', hideLoader);
-
-    // Fallback timer: ensure loader vanishes within 3 seconds even on slow connections
     setTimeout(hideLoader, 3000);
 
-    // Render district polygons from districts.js if defined
-    if (typeof districtData !== 'undefined') {
-      L.geoJSON(districtData, {
-        style: {
-          color: "#BA1200",     // Patriot Red border stroke
-          weight: 3,
-          fillColor: "#0A2342",   // Navy Blue polygon fill
-          fillOpacity: 0.4
-        },
-        onEachFeature: function (feature, layer) {
-          let pdfUrl = feature.properties.pdf_url || '#';
-          let districtName = feature.properties.name || 'District';
-          
-          let linkUrl = '#';
-          if (feature.properties.link_url) {
-            let match = feature.properties.link_url.match(/href="([^"]+)"/);
-            if (match && match[1]) {
-              linkUrl = match[1];
-            }
+    // Helper: Turns "Paulding, GA" or "Paulding County, GA" into "pauldingga"
+    function formatCountyFilename(rawInput) {
+      return rawInput
+        .toLowerCase()
+        .replace(/\b(county|parish)\b/g, '') // Strip "county" or "parish" if typed
+        .replace(/[^a-z0-9]/g, '');          // Strip spaces, commas, punctuation
+    }
+
+    // Load and render a county's .json GeoJSON file
+    function loadCountyGeoJSON(rawQuery) {
+      const slug = formatCountyFilename(rawQuery);
+      const statusEl = document.getElementById('searchStatus');
+
+      if (!slug) {
+        statusEl.textContent = 'Please enter a valid county and state (e.g., Paulding, GA).';
+        statusEl.className = 'search-status error';
+        return;
+      }
+
+      const filePath = `../districts/${slug}.json`;
+      showLoader(`Loading districts for ${rawQuery.trim()}...`);
+
+      fetch(filePath)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('County file not found');
+          }
+          return response.json();
+        })
+        .then(geoData => {
+          // Remove previously loaded county polygons if any exist
+          if (currentGeoJsonLayer) {
+            map.removeLayer(currentGeoJsonLayer);
           }
 
-          layer.bindPopup(
-            `<div style="font-family: Arial, sans-serif; text-align: center; padding: 2px;">` +
-            `<strong style="color: #0A2342; font-size: 0.85rem;">${districtName}</strong><br><br>` +
-            `<div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">` +
-              `<a href="${pdfUrl}" target="_blank" style="background-color: #BA1200; color: #FFFFFF; padding: 5px 9px; text-decoration: none; font-size: 0.72rem; font-weight: bold; border-radius: 3px; display: inline-block;">Open Area PDF Document</a>` +
-              `<a href="${linkUrl}" target="_blank" style="background-color: #0A2342; color: #FFFFFF; padding: 5px 9px; text-decoration: none; font-size: 0.72rem; font-weight: bold; border-radius: 3px; display: inline-block;">Visit Area Page</a>` +
-            `</div>` +
-            `</div>`,
-            { maxWidth: 230 }
-          );
-        }
-      }).addTo(map);
+          currentGeoJsonLayer = L.geoJSON(geoData, {
+            style: {
+              color: "#BA1200",      // Patriot Red border stroke
+              weight: 3,
+              fillColor: "#0A2342",  // Navy Blue polygon fill
+              fillOpacity: 0.4
+            },
+            onEachFeature: function (feature, layer) {
+              let props = feature.properties || {};
+              let pdfUrl = props.pdf_url || '#';
+              let districtName = props.name || 'District';
+
+              let linkUrl = '#';
+              if (props.link_url) {
+                let match = props.link_url.match(/href="([^"]+)"/);
+                if (match && match[1]) {
+                  linkUrl = match[1];
+                } else if (props.link_url.startsWith('http') || props.link_url.startsWith('/') || props.link_url.startsWith('.')) {
+                  linkUrl = props.link_url;
+                }
+              }
+
+              layer.bindPopup(
+                `<div style="font-family: Arial, sans-serif; text-align: center; padding: 2px;">` +
+                `<strong style="color: #0A2342; font-size: 0.85rem;">${districtName}</strong><br><br>` +
+                `<div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">` +
+                  `<a href="${pdfUrl}" target="_blank" style="background-color: #BA1200; color: #FFFFFF; padding: 5px 9px; text-decoration: none; font-size: 0.72rem; font-weight: bold; border-radius: 3px; display: inline-block;">Open Area PDF Document</a>` +
+                  `<a href="${linkUrl}" target="_blank" style="background-color: #0A2342; color: #FFFFFF; padding: 5px 9px; text-decoration: none; font-size: 0.72rem; font-weight: bold; border-radius: 3px; display: inline-block;">Visit Area Page</a>` +
+                `</div>` +
+                `</div>`,
+                { maxWidth: 230 }
+              );
+            }
+          }).addTo(map);
+
+          // Automatically zoom and center the map on the loaded county
+          const bounds = currentGeoJsonLayer.getBounds();
+          if (bounds.isValid()) {
+            map.fitBounds(bounds, { padding: [25, 25] });
+          }
+
+          statusEl.textContent = `Showing districts for "${rawQuery.trim()}". Click any shaded region for voter guides.`;
+          statusEl.className = 'search-status success';
+          hideLoader();
+        })
+        .catch(() => {
+          hideLoader();
+          statusEl.textContent = `No district map data found for "${rawQuery.trim()}" yet. Check your spelling (e.g., "Paulding, GA") or contact us if your area is missing.`;
+          statusEl.className = 'search-status error';
+        });
     }
+
+    // Handle Search Form Submit (Pressing Enter or Clicking Button)
+    document.getElementById('countySearchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('countyInput').value;
+      loadCountyGeoJSON(query);
+    });
   </script>
 
 </body>
