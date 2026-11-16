@@ -1485,3 +1485,95 @@ footer {
     text-align: left;
   }
 }
+
+/* ==========================================================================
+   UPDATED ACCORDION FOOTER STYLES
+   ========================================================================== */
+footer {
+  text-align: center;
+  padding: 3rem 1rem 4rem;
+  background-color: var(--navy-blue);
+  color: var(--white);
+  margin-top: 3.5rem;
+}
+
+.footer-accordion-container {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+/* Individual Dropdown Item */
+.footer-accordion {
+  background-color: rgba(6, 22, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.footer-accordion:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* The Clickable Summary Row with Down Arrow */
+.footer-accordion summary {
+  cursor: pointer;
+  padding: 0.85rem 1.2rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: var(--gold-metallic);
+  list-style: none; /* Hides default triangle */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+/* Custom Down Arrow Indicator */
+.footer-accordion summary::after {
+  content: "▼";
+  font-size: 0.75rem;
+  color: #D1D5DB;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate arrow when open */
+.footer-accordion[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.footer-accordion summary::-webkit-details-marker {
+  display: none; /* Hides default Safari marker */
+}
+
+.footer-accordion summary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+}
+
+/* The Expanded Content Box */
+.footer-content-box {
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #D1D5DB;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-content-box p {
+  margin: 0.8rem 0 0;
+  text-align: justify;
+}
+
+.copyright-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #CBD5E1;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
+}
