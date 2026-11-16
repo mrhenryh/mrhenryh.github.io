@@ -18,7 +18,7 @@
   <!-- GoatCounter Analytics Script -->
   <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-  <!-- External Stylesheets -->
+  <!-- External Stylesheet -->
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -98,8 +98,37 @@
       Your comment has been submitted; it will be posted soon. Thank you!
     </div>
 
-    <!-- Top-Level New Comment Form Slot (Populated automatically by javascript.js) -->
-    <div id="newCommentSlot"></div>
+    <!-- Top-Level New Comment Form -->
+    <section id="newCommentPanel" class="new-comment-panel" aria-label="Post a new comment">
+      <h2>Post Your Comment on This Topic</h2>
+      <p class="form-note">
+        All comments are reviewed by our editorial team before publication to verify membership credentials and maintain civil, constructive discourse. Submitting this form will open your email client addressed to our Editor.
+      </p>
+      <form id="topLevelCommentForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="newAuthorName">1. Name *</label>
+            <input type="text" id="newAuthorName" placeholder="e.g., John Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="newAuthorPassword">2. Password *</label>
+            <input type="password" id="newAuthorPassword" placeholder="Enter your CCA password" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="newCommentTitle">3. Title of Comment *</label>
+          <input type="text" id="newCommentTitle" placeholder="e.g., Short description of comment" required>
+        </div>
+        <div class="form-group">
+          <label for="newCommentBody">4. Comment Itself *</label>
+          <textarea id="newCommentBody" rows="4" placeholder="Write your comment here..." required></textarea>
+        </div>
+        <div class="form-btn-row">
+          <button type="submit" class="btn-submit">Submit Comment to Editor</button>
+          <button type="button" id="cancelNewCommentBtn" class="btn-cancel">Cancel</button>
+        </div>
+      </form>
+    </section>
 
     <div id="resultsStatus" class="results-status">Showing 3 discussion threads</div>
 
