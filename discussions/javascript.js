@@ -1,5 +1,51 @@
 const EDITOR_EMAIL = 'Mr_____.Editor@CCA.us.org';
-const DISCUSSION_TOPIC = 'Expanding the U.S. House (expandingtheushouse.html)';
+
+// Automatically detect the current discussion page title and filename
+function getDiscussionTopicLabel() {
+  const heading = document.querySelector('.topic-hero h1');
+  const titleText = heading ? heading.textContent.trim() : document.title;
+  const fileName = window.location.pathname.split('/').pop() || 'discussion.html';
+  return `${titleText} (${fileName})`;
+}
+
+// Inject the Top-Level New Comment Form into #newCommentSlot
+function injectNewCommentForm() {
+  const slot = document.getElementById('newCommentSlot');
+  if (!slot) return;
+
+  slot.innerHTML = `
+    <section id="newCommentPanel" class="new-comment-panel" aria-label="Post a new comment">
+      <h2>Post Your Comment on This Topic</h2>
+      <p class="form-note">
+        All comments are reviewed by our editorial team before publication to verify membership credentials and maintain civil, constructive discourse. Submitting this form will open your email client addressed to our Editor.
+      </p>
+      <form id="topLevelCommentForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="newAuthorName">1. Name *</label>
+            <input type="text" id="newAuthorName" placeholder="e.g., John Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="newAuthorPassword">2. Password *</label>
+            <input type="password" id="newAuthorPassword" placeholder="Enter your CCA password" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="newCommentTitle">3. Title of Comment *</label>
+          <input type="text" id="newCommentTitle" placeholder="e.g., Short description of comment" required>
+        </div>
+        <div class="form-group">
+          <label for="newCommentBody">4. Comment Itself *</label>
+          <textarea id="newCommentBody" rows="4" placeholder="Write your comment here..." required></textarea>
+        </div>
+        <div class="form-btn-row">
+          <button type="submit" class="btn-submit">Submit Comment to Editor</button>
+          <button type="button" id="cancelNewCommentBtn" class="btn-cancel">Cancel</button>
+        </div>
+      </form>
+    </section>
+  `;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile Navigation Drawer
@@ -11,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.classList.toggle('open');
     });
   }
+
+  // Inject New Comment Form Markup
+  injectNewCommentForm();
 
   // Toggle Top-Level "Post Your Comment" Panel
   const toggleNewCommentBtn = document.getElementById('toggleNewCommentBtn');
@@ -45,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const subject = `New Discussion Comment: ${title}`;
       const emailBody =
-        `Discussion Page: ${DISCUSSION_TOPIC}\n` +
+        `Discussion Page: ${getDiscussionTopicLabel()}\n` +
         `Submission Type: New Top-Level Comment\n\n` +
         `1. Name: ${name}\n` +
         `2. Password: ${password}\n` +
@@ -55,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = `mailto:${EDITOR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
       topLevelForm.reset();
-      newCommentPanel.classList.remove('open');
+      if (newCommentPanel) newCommentPanel.classList.remove('open');
       showSubmissionMessage();
     });
   }
@@ -141,7 +190,7 @@ function renderDiscussionFeed() {
       : `<span class="badge-subscriber">Subscriber</span>`;
 
     const avatarHTML = item.verified && item.avatar
-      ? `<img src="${item.avatar}" alt="${item.name}" class="verified-avatar">`
+      ? `<img src="${escapeHTML(item.avatar)}" alt="${escapeHTML(item.name)}" class="verified-avatar">`
       : '';
 
     // Build Replies HTML if any exist
@@ -154,12 +203,12 @@ function renderDiscussionFeed() {
           ? `<span class="badge-verified"><span class="check-icon">&#10003;</span> Verified Member</span>`
           : `<span class="badge-subscriber">Subscriber</span>`;
         const repAvatar = rep.verified && rep.avatar
-          ? `<img src="${rep.avatar}" alt="${rep.name}" class="verified-avatar">`
+          ? `<img src="${escapeHTML(rep.avatar)}" alt="${escapeHTML(rep.name)}" class="verified-avatar">`
           : '';
 
         innerRepliesList += `
           <article class="reply-card ${repBorder}">
-            <div class="reply-context-header">Replying to ${item.name}, ${item.date}</div>
+            <div class="reply-context-header">Replying to ${escapeHTML(item.name)}, ${escapeHTML(item.date)}</div>
             <div class="reply-card-body">
               <h4 class="comment-title">${escapeHTML(rep.title)}</h4>
               <div class="comment-header">
@@ -184,7 +233,7 @@ function renderDiscussionFeed() {
               </div>
               <div class="reply-form-container">
                 <h4>Reply to ${escapeHTML(rep.name)}</h4>
-                <form onsubmit="submitReplyEmail(event, this, '${escapeHTML(rep.name)}', '${escapeHTML(rep.date)}')">
+                <form onsubmit="submitReplyEmail(event, this, '${escapeJSArg(rep.name)}', '${escapeJSArg(rep.date)}')">
                   <div class="form-grid">
                     <div class="form-group"><label>1. Name *</label><input type="text" name="replyName" required></div>
                     <div class="form-group"><label>2. Password *</label><input type="password" name="replyPassword" required></div>
@@ -236,7 +285,7 @@ function renderDiscussionFeed() {
         </div>
         <div class="reply-form-container">
           <h4>Reply to ${escapeHTML(item.name)}</h4>
-          <form onsubmit="submitReplyEmail(event, this, '${escapeHTML(item.name)}', '${escapeHTML(item.date)}')">
+          <form onsubmit="submitReplyEmail(event, this, '${escapeJSArg(item.name)}', '${escapeJSArg(item.date)}')">
             <div class="form-grid">
               <div class="form-group"><label>1. Name *</label><input type="text" name="replyName" placeholder="e.g., John Smith" required></div>
               <div class="form-group"><label>2. Password *</label><input type="password" name="replyPassword" placeholder="Your CCA Password" required></div>
@@ -293,7 +342,7 @@ function submitReplyEmail(event, form, replyingToName, replyingToDate) {
 
   const subject = `New Discussion Reply: ${title}`;
   const emailBody =
-    `Discussion Page: ${DISCUSSION_TOPIC}\n` +
+    `Discussion Page: ${getDiscussionTopicLabel()}\n` +
     `Submission Type: Reply\n` +
     `Replying To: ${replyingToName} (${replyingToDate})\n\n` +
     `1. Name: ${name}\n` +
@@ -321,7 +370,12 @@ function sendUpvoteEmail(button) {
 
 // Helper to prevent HTML injection in text
 function escapeHTML(str) {
-  return str.replace(/[&<>'"]/g, 
+  return String(str).replace(/[&<>'"]/g,
     tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
   );
+}
+
+// Helper to safely escape strings passed inside single-quoted JS inline attributes
+function escapeJSArg(str) {
+  return escapeHTML(String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'"));
 }
