@@ -16,364 +16,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="images/logowithbackground.png">
 
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
   <!-- GoatCounter Analytics Script -->
   <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
-  <style>
-    /* Global Styles & Red, White, Blue Palette */
-    :root {
-      --navy-blue: #0A2342;
-      --patriot-red: #BA1200;
-      --patriot-red-hover: #900E00;
-      --navy-blue-hover: #06162a;
-      --light-bg: #F4F6F9;
-      --white: #FFFFFF;
-      --text-dark: #2B2D42;
-      --gold-accent: #D4AF37;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--light-bg);
-      color: var(--text-dark);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Header & Navigation Layout */
-    header {
-      background-color: var(--navy-blue);
-      color: var(--white);
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 5px solid var(--patriot-red);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-container a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .logo-container img {
-      max-height: 50px;
-      width: auto;
-    }
-
-    .brand-text {
-      color: var(--white);
-      font-size: 1.3rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-
-    /* Desktop Navigation Links */
-    .nav-links {
-      display: flex;
-      gap: 1.1rem;
-      align-items: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.4rem 0.2rem;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a.active {
-      border-bottom: 3px solid var(--patriot-red);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 36px;
-      height: 28px;
-      box-sizing: border-box;
-    }
-
-    .nav-toggle .bar {
-      height: 3px;
-      width: 100%;
-      background-color: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    /* Mobile Navigation Menu */
-    @media (max-width: 1200px) {
-      .nav-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 67px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--navy-blue);
-        padding: 1rem 0;
-        overflow-y: auto;
-        z-index: 999;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 1rem 1.5rem;
-        font-size: 1.1rem;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .nav-links a.active {
-        background-color: rgba(186, 18, 0, 0.25);
-        color: var(--white);
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      background-color: var(--navy-blue);
-      color: var(--white);
-      text-align: center;
-      padding: 3.5rem 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: 2.3rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.25;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: #D1D5DB;
-      max-width: 750px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.5;
-    }
-
-    .hero-btn-container {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* Main Container & Cards */
-    .container {
-      max-width: 950px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .card {
-      background: var(--white);
-      padding: 2rem;
-      margin-bottom: 1.8rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-
-    .card-blue-border {
-      border-left: 6px solid var(--navy-blue);
-    }
-
-    .card-red-border {
-      border-left: 6px solid var(--patriot-red);
-    }
-
-    .verse-box {
-      background-color: #EBF3FA;
-      border-left: 6px solid var(--navy-blue);
-      font-style: italic;
-    }
-
-    /* Three Core Pillars Grid */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.2rem;
-    }
-
-    .pillar-item {
-      background-color: #F8FAFC;
-      padding: 1.2rem;
-      border-radius: 6px;
-      border-top: 4px solid var(--navy-blue);
-    }
-
-    .pillar-item h3 {
-      margin-top: 0;
-      color: var(--navy-blue);
-      font-size: 1.15rem;
-    }
-
-    .pillar-item p {
-      font-size: 0.95rem;
-      line-height: 1.45;
-      margin-bottom: 0;
-    }
-
-    /* Form Styles */
-    .search-box-form {
-      display: flex;
-      gap: 10px;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .search-box-form input[type="text"] {
-      flex: 1;
-      min-width: 220px;
-      padding: 10px 14px;
-      font-size: 0.95rem;
-      border: 2px solid #CBD5E1;
-      border-radius: 4px;
-      outline: none;
-      box-sizing: border-box;
-    }
-
-    .search-box-form input[type="text"]:focus {
-      border-color: var(--navy-blue);
-    }
-
-    .login-form-inline {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .login-form-inline input[type="password"] {
-      padding: 10px 14px;
-      font-size: 0.95rem;
-      border: 2px solid #CBD5E1;
-      border-radius: 4px;
-      min-width: 180px;
-      box-sizing: border-box;
-    }
-
-    /* Featured Op-Ed Card Item */
-    .oped-item {
-      padding: 1rem 0;
-      border-bottom: 1px solid #E2E8F0;
-    }
-
-    .oped-item:last-child {
-      border-bottom: none;
-    }
-
-    .oped-item h3 {
-      margin: 0 0 0.4rem;
-      font-size: 1.15rem;
-    }
-
-    .oped-item h3 a {
-      color: var(--navy-blue);
-      text-decoration: none;
-    }
-
-    .oped-item h3 a:hover {
-      text-decoration: underline;
-    }
-
-    .oped-meta {
-      font-size: 0.88rem;
-      color: #64748B;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Base Buttons */
-    .btn {
-      display: inline-block;
-      color: var(--white);
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn-red {
-      background-color: var(--patriot-red);
-    }
-
-    .btn-red:hover {
-      background-color: var(--patriot-red-hover);
-    }
-
-    .btn-blue {
-      background-color: var(--navy-blue);
-    }
-
-    .btn-blue:hover {
-      background-color: var(--navy-blue-hover);
-    }
-
-    /* Footer & Disclaimer */
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      background-color: var(--navy-blue);
-      color: var(--white);
-      margin-top: 3rem;
-    }
-
-    .disclaimer {
-      max-width: 850px;
-      margin: 1.5rem auto 0;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: #D1D5DB;
-      text-align: justify;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .hero p { font-size: 1rem; }
-      .search-box-form { flex-direction: column; gap: 8px; }
-      .search-box-form input[type="text"] { min-width: 100%; padding: 8px 12px; font-size: 0.9rem; }
-      .search-box-form .btn { width: 100%; padding: 9px 16px; font-size: 0.9rem; }
-      .login-form-inline { flex-direction: column; align-items: stretch; gap: 8px; }
-      .login-form-inline input[type="password"], .login-form-inline .btn { width: 100%; padding: 9px 12px; font-size: 0.9rem; }
-      .disclaimer { text-align: left; }
-    }
-  </style>
 </head>
 <body>
 
@@ -395,9 +42,9 @@
       <ul class="nav-links" id="nav-menu">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="candidates&officeholders.html">Candidates & Officeholders</a></li>
+        <li><a href="candidates&officeholders.html">Candidates &amp; Officeholders</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="op-eds&news.html">Op-Eds &amp; News</a></li>
         <li><a href="community.html">Community</a></li>
         <li><a href="getinvolved.html">Get Involved</a></li>
       </ul>
@@ -468,14 +115,14 @@
 
     <!-- Candidate & Officeholder Membership Callout -->
     <div class="card card-red-border">
-      <h2>Are You a Candidate or Elected Leader?</h2>
+      <h2>Are You an Endorsed Candidate or Elected Leader?</h2>
       <p>If you are a Christian candidate running for office or a current elected official, we invite you to apply for <strong>Member</strong> status. Verified Members gain access to our private caucuses, model policy tools, and op-ed publishing platform.</p>
-      <a href="getinvolved/becomeamember.html" class="btn btn-blue">Candidate & Member Application</a>
+      <a href="getinvolved/becomeamember.html" class="btn btn-blue">Candidate &amp; Member Application</a>
     </div>
 
     <!-- Featured Op-Eds Section -->
     <div class="card card-blue-border">
-      <h2>Featured Commentary & News</h2>
+      <h2>Featured Commentary &amp; News</h2>
       <p>Read recent op-eds and articles written by CCA Members:</p>
       
       <div class="oped-item">
@@ -490,7 +137,7 @@
         <p>An encouraging reflection on bringing Christian integrity, transparent stewardship, and humility into local elective office...</p>
       </div>
 
-      <a href="op-eds/index.html" class="btn btn-red" style="margin-top: 1rem;">Read More Op-Eds</a>
+      <a href="o&n/op-eds.html" class="btn btn-red" style="margin-top: 1rem;">Read More Op-Eds</a>
     </div>
 
     <!-- Caucus Portal Login -->
@@ -512,7 +159,7 @@
       <p>
         If you would like to support the Christian Conservative Association, thank you for your generosity! We are not currently accepting financial contributions while we finish setting up our administrative systems. If you'd like us to notify you as soon as donation features go live, please feel free to drop our team an email.
       </p>
-      <a href="mailto:MrSmith.Treasurer@CCA.us.org?subject=Donation%20Notification%20Request" target="_blank" rel="noopener noreferrer" class="btn btn-red">
+      <a href="mailto:mr_____.treasurer@CCA.us.org?subject=Donation%20Notification%20Request" target="_blank" rel="noopener noreferrer" class="btn btn-red">
         Email Treasurer
       </a>
     </div>
@@ -520,15 +167,61 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
-    
-    <p class="disclaimer">
-      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
-    </p>
-    
-    <p class="disclaimer">
-      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
-    </p>
+    <div class="footer-accordion-container">
+      
+      <!-- 1. Disclaimer Dropdown -->
+      <details class="footer-accordion">
+        <summary>Disclaimer</summary>
+        <div class="footer-content-box">
+          <p>
+            All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+          </p>
+        </div>
+      </details>
+
+      <!-- 2. Accessibility Dropdown -->
+      <details class="footer-accordion">
+        <summary>Accessibility</summary>
+        <div class="footer-content-box">
+          <p>
+            We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+          </p>
+        </div>
+      </details>
+
+      <!-- 3. Cookies Dropdown -->
+      <details class="footer-accordion">
+        <summary>Cookies</summary>
+        <div class="footer-content-box">
+          <p>
+            This website utilizes privacy-respecting analytics (GoatCounter) and lightweight browser cookies solely to support secure user sessions (such as the Member MyPage portal login) and analyze broad traffic patterns. We do not track users across external sites, sell visitor data, or utilize intrusive advertising pixels.
+          </p>
+        </div>
+      </details>
+
+      <!-- 4. Privacy Dropdown -->
+      <details class="footer-accordion">
+        <summary>Privacy</summary>
+        <div class="footer-content-box">
+          <p>
+            We respect the personal privacy of all grassroots voters, subscribers, and members. Any contact information, ZIP codes, or application details submitted through our site forms are handled with strict confidentiality, used strictly for internal association communication and voter guide distribution, and are never shared or distributed to third-party marketing entities.
+          </p>
+        </div>
+      </details>
+
+      <!-- 5. Bylaws Link (Opens PDF directly in a new tab) -->
+      <div class="footer-accordion">
+        <a href="pdfs/bylaws.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.2rem; font-weight: bold; font-size: 0.95rem; color: var(--gold-metallic); text-decoration: none;">
+          <span>Bylaws</span>
+          <span style="font-size: 0.75rem; color: #D1D5DB;">&#8599;</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="copyright-text">
+      &copy; 2026 Henry W. Hart. All Rights Reserved.
+    </div>
   </footer>
 
   <script>
