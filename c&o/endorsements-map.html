@@ -617,7 +617,7 @@ We respect your privacy and are committed to protecting any personal information
     </div>
   </footer>
 
-  <!-- Leaflet JS -->
+ <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     // Toggle Mobile Navigation Drawer
@@ -657,26 +657,105 @@ We respect your privacy and are committed to protecting any personal information
     tileLayer.on('load', hideLoader);
     setTimeout(hideLoader, 3000);
 
-    // Helper: Turns "Paulding, GA" or "Paulding County, GA" into "pauldingga"
-    function formatCountyFilename(rawInput) {
-      return rawInput
+    // Map state abbreviations and full names to lowercase folder names
+    const STATE_MAP = {
+      al: 'alabama', alabama: 'alabama',
+      ak: 'alaska', alaska: 'alaska',
+      az: 'arizona', arizona: 'arizona',
+      ar: 'arkansas', arkansas: 'arkansas',
+      ca: 'california', california: 'california',
+      co: 'colorado', colorado: 'colorado',
+      ct: 'connecticut', connecticut: 'connecticut',
+      de: 'delaware', delaware: 'delaware',
+      fl: 'florida', florida: 'florida',
+      ga: 'georgia', georgia: 'georgia',
+      hi: 'hawaii', hawaii: 'hawaii',
+      id: 'idaho', idaho: 'idaho',
+      il: 'illinois', illinois: 'illinois',
+      in: 'indiana', indiana: 'indiana',
+      ia: 'iowa', iowa: 'iowa',
+      ks: 'kansas', kansas: 'kansas',
+      ky: 'kentucky', kentucky: 'kentucky',
+      la: 'louisiana', louisiana: 'louisiana',
+      me: 'maine', maine: 'maine',
+      md: 'maryland', maryland: 'maryland',
+      ma: 'massachusetts', massachusetts: 'massachusetts',
+      mi: 'michigan', michigan: 'michigan',
+      mn: 'minnesota', minnesota: 'minnesota',
+      ms: 'mississippi', mississippi: 'mississippi',
+      mo: 'missouri', missouri: 'missouri',
+      mt: 'montana', montana: 'montana',
+      ne: 'nebraska', nebraska: 'nebraska',
+      nv: 'nevada', nevada: 'nevada',
+      nh: 'newhampshire', newhampshire: 'newhampshire',
+      nj: 'newjersey', newjersey: 'newjersey',
+      nm: 'newmexico', newmexico: 'newmexico',
+      ny: 'newyork', newyork: 'newyork',
+      nc: 'northcarolina', northcarolina: 'northcarolina',
+      nd: 'northdakota', northdakota: 'northdakota',
+      oh: 'ohio', ohio: 'ohio',
+      ok: 'oklahoma', oklahoma: 'oklahoma',
+      or: 'oregon', oregon: 'oregon',
+      pa: 'pennsylvania', pennsylvania: 'pennsylvania',
+      ri: 'rhodeisland', rhodeisland: 'rhodeisland',
+      sc: 'southcarolina', southcarolina: 'southcarolina',
+      sd: 'southdakota', southdakota: 'southdakota',
+      tn: 'tennessee', tennessee: 'tennessee',
+      tx: 'texas', texas: 'texas',
+      ut: 'utah', utah: 'utah',
+      vt: 'vermont', vermont: 'vermont',
+      va: 'virginia', virginia: 'virginia',
+      wa: 'washington', washington: 'washington',
+      wv: 'westvirginia', westvirginia: 'westvirginia',
+      wi: 'wisconsin', wisconsin: 'wisconsin',
+      wy: 'wyoming', wyoming: 'wyoming',
+      dc: 'districtofcolumbia', districtofcolumbia: 'districtofcolumbia'
+    };
+
+    // Helper: Turns "Paulding, GA" or "Paulding County, Georgia" into { state: "georgia", county: "paulding" }
+    function parseCountyAndState(rawInput) {
+      if (!rawInput) return null;
+
+      let countyPart = '';
+      let statePart = '';
+
+      if (rawInput.includes(',')) {
+        const parts = rawInput.split(',');
+        countyPart = parts[0];
+        statePart = parts.slice(1).join('');
+      } else {
+        // Fallback if the user forgets a comma (e.g., "Paulding GA" or "Paulding Georgia")
+        const words = rawInput.trim().split(/\s+/);
+        if (words.length < 2) return null;
+        statePart = words.pop();
+        countyPart = words.join(' ');
+      }
+
+      const cleanStateKey = statePart.toLowerCase().replace(/[^a-z]/g, '');
+      const stateSlug = STATE_MAP[cleanStateKey];
+
+      const countySlug = countyPart
         .toLowerCase()
         .replace(/\b(county|parish)\b/g, '') // Strip "county" or "parish" if typed
-        .replace(/[^a-z0-9]/g, '');          // Strip spaces, commas, punctuation
+        .replace(/[^a-z0-9]/g, '');          // Strip spaces, punctuation
+
+      if (!stateSlug || !countySlug) return null;
+
+      return { state: stateSlug, county: countySlug };
     }
 
     // Load and render a county's .json GeoJSON file
     function loadCountyGeoJSON(rawQuery) {
-      const slug = formatCountyFilename(rawQuery);
+      const parsed = parseCountyAndState(rawQuery);
       const statusEl = document.getElementById('searchStatus');
 
-      if (!slug) {
+      if (!parsed) {
         statusEl.textContent = 'Please enter a valid county and state (e.g., Paulding, GA).';
         statusEl.className = 'search-status error';
         return;
       }
 
-      const filePath = `../districts/${slug}.json`;
+      const filePath = `../districts/${parsed.state}/${parsed.county}.json`;
       showLoader(`Loading districts for ${rawQuery.trim()}...`);
 
       fetch(filePath)
