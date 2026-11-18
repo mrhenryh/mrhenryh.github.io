@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CCA - Oakleigh Area My Page</title>
+
+  <!-- Open Graph / Text Preview Meta Tags -->
+  <meta property="og:title" content="The CCA - Oakleigh Area Subscriber Portal">
+  <meta property="og:description" content="Access your exclusively tailored Oakleigh area voter guide, contact cheat sheets, and local endorsements from the Christian Conservative Association.">
+  <meta property="og:image" content="https://cca.us.org/images/og-image.png">
+  <meta property="og:url" content="https://cca.us.org/mypages/georgia/cobb/oakleigh.html">
+  <meta property="og:type" content="website">
+
+  <!-- Browser Tab Icon & iPhone Touch Icon -->
+  <link rel="icon" type="image/png" href="../../../images/logowithbackground.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../../../style.css">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    /* Local MyPage Specific Layout Enhancements */
+    .dashboard-hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      padding: 2.5rem 1.5rem;
+      border-bottom: 4px solid var(--patriot-red);
+      text-align: center;
+    }
+
+    .dashboard-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .dashboard-hero h1 {
+      margin: 0 0 0.6rem 0;
+      font-size: 2rem;
+      color: var(--white);
+      line-height: 1.25;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.98rem;
+      color: #E2E8F0;
+    }
+
+    .hero-meta-badge {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      padding: 5px 14px;
+      border-radius: 20px;
+      color: #F8FAFC;
+      font-weight: 600;
+    }
+
+    .pdf-card {
+      background: #F8FAFC;
+      padding: 1.3rem 1.5rem;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pdf-card h3 {
+      margin: 0 0 0.35rem 0;
+      color: var(--navy-blue);
+      font-size: 1.15rem;
+    }
+
+    .pdf-card p {
+      margin: 0;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .endorsement-list {
+      margin: 0.5rem 0 0 1.2rem;
+      padding: 0;
+      color: var(--text-dark);
+    }
+
+    .endorsement-list li {
+      margin-bottom: 0.6rem;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 1rem;
+    }
+
+    .contact-card {
+      background: #F8FAFC;
+      padding: 1.25rem;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 0.3rem 0;
+      color: var(--navy-blue);
+      font-size: 1.1rem;
+    }
+
+    .contact-card p {
+      margin: 0 0 0.9rem 0;
+      color: #555;
+      font-size: 0.92rem;
+    }
+
+    .polling-highlight-box {
+      background-color: #F8FAFC;
+      border: 1px solid var(--card-border);
+      border-top: 4px solid var(--gold-metallic);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem auto;
+      max-width: 550px;
+      font-size: 1.12rem;
+      color: var(--navy-blue);
+    }
+
+    .thank-you-card {
+      text-align: center;
+      background: var(--navy-blue);
+      color: var(--white);
+      padding: 2.2rem 1.8rem;
+      border-radius: 8px;
+      border-top: 5px solid var(--gold-metallic);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .thank-you-card h2 {
+      color: var(--white);
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+    }
+
+    .thank-you-card p {
+      font-size: 1.08rem;
+      color: #E2E8F0;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .dashboard-hero h1 {
+        font-size: 1.65rem;
+      }
+
+      .pdf-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .pdf-card .btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="../../../index.html">
+        <img src="../../../images/logo.png" alt="The CCA Logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+
+    <!-- Complete 7-Page Accessibility Navigation -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../../../about.html">About</a></li>
+        <li><a href="../../../candidates&officeholders.html">Candidates &amp; Officeholders</a></li>
+        <li><a href="../../../resources.html">Resources</a></li>
+        <li><a href="../../../op-eds&news.html">Op-Eds &amp; News</a></li>
+        <li><a href="../../../community.html" class="active">Community</a></li>
+        <li><a href="../../../getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Secondary Community Sub-Menu Banner -->
+  <nav class="sub-nav-banner" aria-label="Community section menu">
+    <ul class="sub-nav-links">
+      <li><a href="../../../community/mypage.html" class="active">My Page</a></li>
+      <li><a href="../../../community/public.html">Public Community</a></li>
+      <li><a href="../../../community/private.html">Private Community</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="dashboard-hero">
+    <div class="dashboard-hero-inner">
+      <h1 id="welcomeGreeting">Welcome, Oakleigh Area Residents!</h1>
+      <div class="hero-meta-row">
+        <span id="userAddress" class="hero-meta-badge">Location: Cobb County, GA</span>
+        <span id="populationEstimate" class="hero-meta-badge">Estimated Population: ~5,000</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- Section 1: Local Voter Guide -->
+    <div class="card card-blue-border">
+      <h2>Your Local Voter Guide</h2>
+      <div class="pdf-card">
+        <div>
+          <h3 id="guideTitle">Oakleigh Area Voter Guide</h3>
+          <p id="guideDesc">Covers Cobb County Commission, School Board, and Judicial races, plus Georgia State endorsements.</p>
+        </div>
+        <a id="guideBtn" href="../../../pdfs/USHGA14&CCSB7voterguide.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-blue">View PDF</a>
+      </div>
+    </div>
+
+    <!-- Section 2: State Level Endorsed Candidates -->
+    <div class="card card-red-border">
+      <h2>Endorsed Candidates in This Area</h2>
+      <div id="stateEndorsementsList">
+        <ul class="endorsement-list">
+          <li>Lt. Governor: Greg Dolezal</li>
+          <li>Secretary of State: Tim Flemming</li>
+          <li>Agriculture Commissioner: Tyler Harper</li>
+          <li>School Superintendent: Richard Woods</li>
+          <li>Public Service Commission, District 5: Dr. Josh Tolbert</li>
+          <li>State Senator, District 37: Ed Setzler</li>
+          <li>State Representative, District 19: Joseph Gullett</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 3: Leadership & Official Contact Cheat Sheet -->
+    <div class="card card-blue-border">
+      <h2>The CCA Leadership Contact Cheat Sheet</h2>
+      <div class="grid-cards">
+        <div class="contact-card">
+          <div>
+            <h3>Georgia Board Member</h3>
+            <p id="boardMemberName">Pastor ___ ____</p>
+          </div>
+          <a href="mailto:BoardMember@CCA.us.org" class="btn btn-blue" target="_blank" rel="noopener noreferrer">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Secretary</h3>
+            <p>Andrew Alderman</p>
+          </div>
+          <a href="mailto:MrAlderman.Secretary@CCA.us.org" class="btn btn-blue" target="_blank" rel="noopener noreferrer">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Community Engagement</h3>
+            <p>Director of Community Engagement</p>
+          </div>
+          <a href="mailto:Mr_______.CommunityEngagement@CCA.us.org" class="btn btn-blue" target="_blank" rel="noopener noreferrer">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Elected Officials and Candidates -->
+    <div class="card card-red-border">
+      <h2>Elected Officials and Candidates in Your Area</h2>
+      <div id="officialsCards" class="grid-cards">
+        <div class="contact-card">
+          <div>
+            <h3>Donald J. Trump</h3>
+            <p>President of the United States</p>
+          </div>
+          <a href="https://www.whitehouse.gov/contact/" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Jon Ossoff</h3>
+            <p>Senior Senator from Georgia</p>
+          </div>
+          <a href="https://www.ossoff.senate.gov/contact-us/share-your-views/" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Mike Collins</h3>
+            <p>Candidate for U.S. Senate</p>
+          </div>
+          <a href="https://www.collins.house.gov/contact" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Raphael Warnock</h3>
+            <p>Junior Senator from Georgia</p>
+          </div>
+          <a href="https://www.warnock.senate.gov/contact/contact-form/" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Brian Kemp</h3>
+            <p>Governor of Georgia</p>
+          </div>
+          <a href="https://gov.georgia.gov/contact-us" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Rick Jackson</h3>
+            <p>Candidate for Governor</p>
+          </div>
+          <a href="https://rickjackson.com/contact/" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Kiesha Lance Bottoms</h3>
+            <p>Candidate for Governor</p>
+          </div>
+          <a href="https://www.keishaforgovernor.com/" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Burt Jones</h3>
+            <p>Lieutenant Governor of Georgia</p>
+          </div>
+          <a href="https://ltgov.georgia.gov/contact-lt-governor" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Greg Dolezal</h3>
+            <p>Candidate for Lt. Governor</p>
+          </div>
+          <a href="https://gregdolezal.com/#contact-form" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Josh McLaurin</h3>
+            <p>Candidate for Lt. Governor</p>
+          </div>
+          <a href="https://www.joshmclaurin.com/contact" target="_blank" rel="noopener noreferrer" class="btn btn-blue">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Voting Location in Area -->
+    <div class="card card-blue-border" style="text-align: center;">
+      <h2>Find Your Polling Place</h2>
+      <p>Ready to cast your ballot? The designated voting location serving the Oakleigh area is:</p>
+
+      <div class="polling-highlight-box">
+        📍 <strong>West Cobb Senior Services Center</strong>
+      </div>
+
+      <p style="font-size: 0.92rem; font-style: italic; color: var(--text-muted); margin: 0.75rem 0 1.25rem;">
+        *Note: Because precinct assignments depend on your exact residential address, please verify your registration and designated precinct before heading to the polls.*
+      </p>
+
+      <p style="color: #555; margin-bottom: 1rem;">Click below to confirm your registration and polling location through the official Cobb County lookup tool:</p>
+      <a id="voteSearchBtn" href="https://www.cobbcounty.gov/elections/election-reference/voter-maps" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="font-size: 1.05rem; padding: 12px 28px;">VOTE - Locate Polling Place</a>
+    </div>
+
+    <!-- Section 6: Donation Notice -->
+    <div class="card card-red-border">
+      <h2>Donations</h2>
+      <p>
+        The Christian Conservative Association is not accepting donations as of yet. If you would like, you can join our notification list for when fundraising officially opens by emailing our Treasurer below:
+      </p>
+      <a href="mailto:mr_____.treasurer@CCA.us.org?subject=Join%20Donation%20Notification%20List&body=Hello%20Mr.%20Treasurer,%20please%20add%20me%20to%20the%20notification%20list%20for%20future%20donations." class="btn btn-blue" target="_blank" rel="noopener noreferrer">Email Treasurer</a>
+    </div>
+
+    <!-- Section 7: Thank You Banner -->
+    <div class="thank-you-card">
+      <h2>THANK YOU!</h2>
+      <p>Your active subscription and commitment to informed voting mean the world to The CCA and our community!</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-accordion-container">
+
+      <!-- 1. Disclaimer Dropdown -->
+      <details class="footer-accordion">
+        <summary>Disclaimer</summary>
+        <div class="footer-content-box">
+          <p>
+            All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+          </p>
+        </div>
+      </details>
+
+      <!-- 2. Accessibility Dropdown -->
+      <details class="footer-accordion">
+        <summary>Accessibility</summary>
+        <div class="footer-content-box">
+          <p>
+            We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../../../getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+          </p>
+        </div>
+      </details>
+
+      <!-- 3. Cookies Dropdown -->
+      <details class="footer-accordion">
+        <summary>Cookies</summary>
+        <div class="footer-content-box">
+          <p>
+            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms &amp; Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
+          </p>
+        </div>
+      </details>
+
+      <!-- 4. Privacy Dropdown -->
+      <details class="footer-accordion">
+        <summary>Privacy</summary>
+        <div class="footer-content-box">
+          <p>
+            We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="../../../getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a>.
+          </p>
+        </div>
+      </details>
+
+      <!-- 5. Bylaws Link (Opens PDF directly in a new tab) -->
+      <div class="footer-accordion">
+        <a href="../../../pdfs/bylaws.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.2rem; font-weight: bold; font-size: 0.95rem; color: var(--gold-metallic); text-decoration: none;">
+          <span>Bylaws</span>
+          <span style="font-size: 0.75rem; color: #D1D5DB;">&#8599;</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="copyright-text">
+      &copy; 2026 Henry W. Hart. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>
