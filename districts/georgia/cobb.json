@@ -1,4 +1,7 @@
 {
+  "type": "FeatureCollection",
+  "features": [
+    {
       "type": "Feature",
       "properties": {
         "name": "Oakleigh, Cobb, GA",
