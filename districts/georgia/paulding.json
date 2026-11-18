@@ -4,9 +4,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Qualusi, Paulding, GA",
-        "pdf_url": "../pdfs/qualisi.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/qualusi.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "pdf_url": "../pdfs/georgia/paulding/qualusi.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/qualusi.html\\\" target=\\\"_blank\\\">Visit Website</a>",
+        "name": "Qualusi, Paulding, GA"
       },
       "geometry": {
         "type": "Polygon",
@@ -295,9 +295,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "East Graves, Paulding, GA",
-        "pdf_url": "../pdfs/eastgraves.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/eastgraves.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "pdf_url": "../pdfs/georgia/paulding/eastgraves.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/eastgraves.html\\\" target=\\\"_blank\\\">Visit Website</a>",
+        "name": "East Graves, Paulding, GA"
       },
       "geometry": {
         "type": "Polygon",
@@ -462,9 +462,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Bentwater, Paulding, GA",
-        "pdf_url": "../../pdfs/georgia/paulding/bentwater.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/bentwater.html\\\" target=\\\"_blank\\\">Visit Website"
+        "pdf_url": "../pdfs/georgia/paulding/bentwater.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/bentwater.html\\\" target=\\\"_blank\\\">Visit Website",
+        "name": "Bentwater, Paulding, GA"
       },
       "geometry": {
         "type": "Polygon",
@@ -1085,9 +1085,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "North Paulding, Paulding, GA",
-        "pdf_url": "../pdfs/northpaulding.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/northpaulding.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "North Paulding, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/northpaulding.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/northpaulding.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -1848,9 +1848,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Picketts Creek, Paulding, GA",
-        "pdf_url": "../pdfs/pickettscreek.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/pickettscreek.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Picketts Creek, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/pickettscreek.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/pickettscreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -2187,9 +2187,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Cheatham, Paulding, GA",
-        "pdf_url": "../pdfs/cheatham.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/cheatham.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Cheatham, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/cheatham.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/cheatham.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -2302,9 +2302,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "South Burnt Hickory, Paulding, GA",
-        "pdf_url": "../pdfs/southburnthickory.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/southburnthickory.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "South Burnt Hickory, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/southburnthickory.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/southburnthickory.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -2461,9 +2461,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "East Paulding, Paulding, GA",
-        "pdf_url": "../pdfs/eastpaulding.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/eastpaulding.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "East Paulding, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/eastpaulding.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/eastpaulding.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -2868,9 +2868,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Crossroads, Paulding, GA",
-        "pdf_url": "../pdfs/crossroads.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/crossroads.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Crossroads, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/crossroads.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/crossroads.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -3215,9 +3215,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Seven Hills",
-        "pdf_url": "../pdfs/sevenhills.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/sevenhills.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Seven Hills, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/sevenhills.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/sevenhills.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -3694,9 +3694,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Burnt Hickory, Paulding, GA",
-        "pdf_url": "../pdfs/burnthickory.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/burnthickory.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website"
+        "name": "Burnt Hickory, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/burnthickory.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/burnthickory.html\\\" target=\\\"_blank\\\">Visit Website"
       },
       "geometry": {
         "type": "Polygon",
@@ -4885,9 +4885,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Forest Central Paulding, Paulding, GA",
-        "pdf_url": "../pdfs/forestcentralpaulding.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/forestcentralpaulding.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website"
+        "name": "Forest Central Paulding, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/forestcentralpaulding.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/forestcentralpaulding.html\\\" target=\\\"_blank\\\">Visit Website"
       },
       "geometry": {
         "type": "Polygon",
@@ -4976,9 +4976,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Corley Lake",
-        "pdf_url": "../pdfs/corelylake.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/corelylake.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Corley Lake, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/corelylake.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/corelylake.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -5231,9 +5231,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Possum Creek, Paulding, GA",
-        "pdf_url": "../pdfs/possumcreek.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/possumcreek.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website"
+        "name": "Possum Creek, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/possumcreek.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/possumcreek.html\\\" target=\\\"_blank\\\">Visit Website"
       },
       "geometry": {
         "type": "Polygon",
@@ -5806,9 +5806,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "New Hope, Paulding, GA",
-        "pdf_url": "../pdfs/newhope.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/newhope.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "New Hope, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/newhope.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/newhope.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -6809,9 +6809,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Windmill Creek, Paulding, GA",
-        "pdf_url": "../pdfs/windmillcreek.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/windmillcreek.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Windmill Creek, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/windmillcreek.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/windmillcreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -8592,9 +8592,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Raccoon Creek, Paulding, GA",
-        "pdf_url": "../pdfs/raccooncreek.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/raccooncreek.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Raccoon Creek, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/raccooncreek.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/raccooncreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -9063,9 +9063,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "North Braswell, Paulding, GA",
-        "pdf_url": "../pdfs/northbraswell.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/northbraswell.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "North Braswell, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/northbraswell.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/northbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -9146,9 +9146,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "East Braswell, Paulding, GA",
-        "pdf_url": "../pdfs/eastbraswell.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/eastbraswell.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "East Braswell, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/eastbraswell.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/eastbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -9273,9 +9273,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "West Braswell, Paulding, GA",
-        "pdf_url": "../pdfs/westbraswell.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/westbraswell.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "West Braswell, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/westbraswell.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/westbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -9452,9 +9452,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "South Braswell, Paulding, GA",
-        "pdf_url": "../pdfs/southbraswell.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/southbraswell.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "South Braswell, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/southbraswell.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/southbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -9587,9 +9587,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Black Lake, Paulding, GA",
-        "pdf_url": "../pdfs/blacklake.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/blacklake.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Black Lake, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/blacklake.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/blacklake.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -10918,9 +10918,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Little Creek Farms, Paulding, GA",
-        "pdf_url": "../pdfs/littlecreekfarms.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\"https://mrhenryh.github.io/mypages/littlecreekfarms.paulding.ga.html\" target=\"_blank\">Visit Website</a>"
+        "name": "Little Creek Farms, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/littlecreekfarms.voterguide.pdf",
+        "link_url": "<a href=\"https://mrhenryh.github.io/mypages/georgia/paulding/littlecreekfarms.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -13667,9 +13667,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Lawrence Creek, Paulding, GA",
-        "pdf_url": "../pdfs/lawrencecreek.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/lawrencecreek.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Lawrence Creek, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/lawrencecreek.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/lawrencecreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -14630,9 +14630,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Mount Tabor, Paulding, GA",
-        "pdf_url": "../pdfs/mounttabor.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/mounttabor.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "Mount Tabor, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/mounttabor.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/mounttabor.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -15845,9 +15845,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "California Park, Paulding, GA",
-        "pdf_url": "../pdfs/californiapark.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/californiapark.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "California Park, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/californiapark.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/californiapark.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -16096,9 +16096,9 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Ray Mountain, Paulding, GA",
-        "pdf_url": "../pdfs/raymountain.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\"https://mrhenryh.github.io/mypages/raymountain.paulding.ga.html\" target=\"_blank\">Visit Website</a>"
+        "name": "Ray Mountain, Paulding, GA",
+        "pdf_url": "../pdfs/georgia/paulding/raymountain.voterguide.pdf",
+        "link_url": "<a href=\"https://mrhenryh.github.io/mypages/georgia/paulding/raymountain.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
         "type": "MultiPolygon",
