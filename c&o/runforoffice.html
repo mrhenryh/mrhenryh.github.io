@@ -18,334 +18,25 @@
   <!-- GoatCounter Analytics Script -->
   <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../style.css" />
+
   <style>
-    /* Global Styles & Red, White, Blue Palette */
-    :root {
-      --navy-blue: #0A2342;
-      --subnav-bg: #0E2D52;
-      --patriot-red: #BA1200;
-      --patriot-red-hover: #900E00;
-      --navy-blue-hover: #06162a;
-      --light-bg: #F4F6F9;
-      --white: #FFFFFF;
-      --text-dark: #2B2D42;
-      --gold-metallic: #D4AF37;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--light-bg);
-      color: var(--text-dark);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Header & Navigation Layout */
-    header {
-      background-color: var(--navy-blue);
-      color: var(--white);
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 5px solid var(--patriot-red);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-container a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .logo-container img {
-      max-height: 50px;
-      width: auto;
-    }
-
-    .brand-text {
-      color: var(--white);
-      font-size: 1.3rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-
-    /* Desktop Navigation Links */
-    .nav-links {
-      display: flex;
-      gap: 1.1rem;
-      align-items: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.4rem 0.2rem;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a.active {
-      border-bottom: 3px solid var(--patriot-red);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 36px;
-      height: 28px;
-      box-sizing: border-box;
-    }
-
-    .nav-toggle .bar {
-      height: 3px;
-      width: 100%;
-      background-color: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    /* Secondary Sub-Menu Banner */
-    .sub-nav-banner {
-      background-color: var(--subnav-bg);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 0.6rem 1rem;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
-      display: block;
-    }
-
-    .sub-nav-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.8rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .sub-nav-links a {
-      color: #D1D5DB;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      transition: all 0.2s ease;
-      letter-spacing: 0.3px;
-    }
-
-    .sub-nav-links a:hover {
-      color: var(--white);
-      background-color: rgba(255, 255, 255, 0.08);
-    }
-
-    .sub-nav-links a.active {
-      color: var(--white);
-      font-weight: bold;
-      background-color: rgba(212, 175, 55, 0.18);
-      border-bottom: 2px solid var(--gold-metallic);
-    }
-
-    /* Mobile Navigation Menu */
-    @media (max-width: 1200px) {
-      .nav-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 67px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--navy-blue);
-        padding: 1rem 0;
-        overflow-y: auto;
-        z-index: 999;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 1rem 1.5rem;
-        font-size: 1.1rem;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .nav-links a.active {
-        background-color: rgba(186, 18, 0, 0.25);
-        color: var(--white);
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      background-color: var(--navy-blue);
-      color: var(--white);
-      text-align: center;
-      padding: 3.5rem 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: 2.3rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.25;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: #D1D5DB;
-      max-width: 780px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-
-    /* Main Container & Layout */
+    /* Run For Office Page-Specific Styles & Overrides */
     .container {
-      max-width: 950px;
       margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .card {
-      background: var(--white);
-      padding: 2rem;
-      margin-bottom: 1.8rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-
-    .card-blue-border {
-      border-left: 6px solid var(--navy-blue);
-    }
-
-    .card-red-border {
-      border-left: 6px solid var(--patriot-red);
-    }
-
-    /* 3-Column Grid */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.2rem;
-    }
-
-    .pillar-item {
-      background-color: #F8FAFC;
-      padding: 1.2rem;
-      border-radius: 6px;
-      border-top: 4px solid var(--navy-blue);
-    }
-
-    .pillar-item h3 {
-      margin-top: 0;
-      color: var(--navy-blue);
-      font-size: 1.15rem;
-    }
-
-    .pillar-item p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 0;
-      color: #475569;
-    }
-
-    /* Form Layout & Field Styling */
-    .form-group {
-      margin-bottom: 1.2rem;
     }
 
     .form-group label {
-      display: block;
-      font-weight: bold;
-      color: var(--navy-blue);
       margin-bottom: 0.4rem;
       font-size: 0.95rem;
     }
 
     .form-control {
-      width: 100%;
       padding: 10px 14px;
       font-size: 0.95rem;
-      border: 2px solid #CBD5E1;
-      border-radius: 4px;
-      box-sizing: border-box;
+      border-width: 2px;
       font-family: inherit;
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--navy-blue);
-    }
-
-    textarea.form-control {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    /* Notice Callout Box */
-    .notice-box {
-      background-color: #FFF8E7;
-      border-left: 5px solid var(--gold-metallic);
-      padding: 1rem 1.25rem;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: #665000;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      color: var(--white);
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn-red {
-      background-color: var(--patriot-red);
-    }
-
-    .btn-red:hover {
-      background-color: var(--patriot-red-hover);
-    }
-
-    .btn-blue {
-      background-color: var(--navy-blue);
-    }
-
-    .btn-blue:hover {
-      background-color: var(--navy-blue-hover);
     }
 
     .checklist-ul {
@@ -358,33 +49,11 @@
       margin-bottom: 0.6rem;
     }
 
-    /* Footer & Disclaimer */
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      background-color: var(--navy-blue);
-      color: var(--white);
-      margin-top: 3rem;
-    }
-
-    .disclaimer {
-      max-width: 850px;
-      margin: 1.5rem auto 0;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: #D1D5DB;
-      text-align: justify;
-    }
-
     @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .hero p { font-size: 1rem; }
-      .sub-nav-links { gap: 0.4rem; flex-wrap: wrap; }
-      .sub-nav-links a { font-size: 0.85rem; padding: 0.25rem 0.5rem; }
-      .btn { width: 100%; box-sizing: border-box; }
-      .disclaimer { text-align: left; }
+      .btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
     }
   </style>
 </head>
@@ -408,9 +77,9 @@
       <ul class="nav-links" id="nav-menu">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../about.html">About</a></li>
-        <li><a href="../candidates&officeholders.html" class="active">Candidates & Officeholders</a></li>
+        <li><a href="../candidates&officeholders.html" class="active">Candidates &amp; Officeholders</a></li>
         <li><a href="../resources.html">Resources</a></li>
-        <li><a href="../op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds &amp; News</a></li>
         <li><a href="../community.html">Community</a></li>
         <li><a href="../getinvolved.html">Get Involved</a></li>
       </ul>
@@ -443,7 +112,7 @@
       </div>
       <p>If you fit one of the categories below, please use our direct contact channels instead:</p>
       <ul>
-        <li><strong>Already Endorsed Candidates & Verified Members:</strong> Please do not submit this form. Contact our Dean directly or email our <a href="mailto:Mr________.Secretary@CCA.us.org" style="color: var(--navy-blue); font-weight: bold;" target="_blank" rel="noopener noreferrer">Secretary</a>.</li>
+        <li><strong>Already Endorsed Candidates &amp; Verified Members:</strong> Please do not submit this form. Contact our Dean directly or email our <a href="mailto:Mr________.Secretary@CCA.us.org" style="color: var(--navy-blue); font-weight: bold;" target="_blank" rel="noopener noreferrer">Secretary</a>.</li>
         <li><strong>Candidates Seeking Official Endorsement:</strong> Candidates seeking an official endorsement from the Chairman should utilize the Endorsement Contact box below.</li>
       </ul>
     </div>
@@ -459,7 +128,7 @@
           <p>The nuclear family is society's primary building block. Christian leaders are needed to defend parental authority, marriage, and the well-being of children at every level of local governance.</p>
         </div>
         <div class="pillar-item">
-          <h3>2. Covered in Prayer & Support</h3>
+          <h3>2. Covered in Prayer &amp; Support</h3>
           <p>You do not have to stand alone. Our association provides spiritual encouragement, pastoral guidance, and a supportive network committed to praying for your walk and your family.</p>
         </div>
         <div class="pillar-item">
@@ -471,13 +140,13 @@
 
     <!-- Who Should Apply & Occupation Alignment Checklist -->
     <div class="card card-blue-border">
-      <h2>Discerning Your Calling & Vocation</h2>
+      <h2>Discerning Your Calling &amp; Vocation</h2>
       <p>When considering public office, we encourage candidates to examine their professional gifts, daily experience, and vocational background to match the right level of public service:</p>
 
       <ul class="checklist-ul">
         <li><strong>School Boards:</strong> Ideal for teachers, educators, parents, and Christian school administrators who understand classroom dynamics and curriculum stewardship.</li>
-        <li><strong>City Council & County Commission:</strong> Ideal for local small business owners, tradesmen, landowners, and ministry leaders who manage budgets and care about community safety.</li>
-        <li><strong>State House & Senate:</strong> Ideal for attorneys, policy advocates, civic leaders, and experienced local officials prepared to craft state legislation.</li>
+        <li><strong>City Council &amp; County Commission:</strong> Ideal for local small business owners, tradesmen, landowners, and ministry leaders who manage budgets and care about community safety.</li>
+        <li><strong>State House &amp; Senate:</strong> Ideal for attorneys, policy advocates, civic leaders, and experienced local officials prepared to craft state legislation.</li>
         <li><strong>Running to Be a Light:</strong> We actively encourage candidates in all districts—regardless of political breakdown—to step forward so every voter has a clear Christian conservative choice on their ballot.</li>
       </ul>
     </div>
@@ -513,7 +182,7 @@
           <label for="target-office">Target Office / Level of Government *</label>
           <select id="target-office" class="form-control" required>
             <option value="" disabled selected>-- Select Target Office --</option>
-            <optgroup label="Local / County Level (Georgia & General)">
+            <optgroup label="Local / County Level (Georgia &amp; General)">
               <option value="County Board of Education (School Board)">County Board of Education (School Board)</option>
               <option value="City Council Member">City Council Member</option>
               <option value="Mayor">Mayor</option>
@@ -524,7 +193,7 @@
               <option value="Clerk of Superior Court">Clerk of Superior Court</option>
               <option value="Tax Commissioner">Tax Commissioner</option>
               <option value="Coroner">Coroner</option>
-              <option value="Soil & Water Conservation District Supervisor">Soil & Water Conservation District Supervisor</option>
+              <option value="Soil & Water Conservation District Supervisor">Soil &amp; Water Conservation District Supervisor</option>
             </optgroup>
             <optgroup label="State Level (Georgia)">
               <option value="GA State House of Representatives">GA State House of Representatives</option>
@@ -548,7 +217,7 @@
         </div>
 
         <div class="form-group">
-          <label for="statement-bio">Brief Statement of Purpose & Background *</label>
+          <label for="statement-bio">Brief Statement of Purpose &amp; Background *</label>
           <textarea id="statement-bio" class="form-control" placeholder="Share a brief overview of your background, church affiliation, occupation, and why you feel led to consider public office..." required></textarea>
         </div>
 
@@ -556,7 +225,7 @@
       </form>
     </div>
 
-    <!-- Seeking Endorsement Callout Box (Carried over from index.html) -->
+    <!-- Seeking Endorsement Callout Box -->
     <div class="card card-blue-border">
       <h2>Are You a Candidate Seeking an Endorsement?</h2>
       <p>
@@ -577,7 +246,7 @@
 
   </main>
 
- <footer>
+  <footer>
     <div class="footer-accordion-container">
       
       <!-- 1. Disclaimer Dropdown -->
@@ -595,7 +264,7 @@
         <summary>Accessibility</summary>
         <div class="footer-content-box">
           <p>
-            We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+            We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
           </p>
         </div>
       </details>
@@ -605,7 +274,8 @@
         <summary>Cookies</summary>
         <div class="footer-content-box">
           <p>
-This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms & Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.          </p>
+            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms &amp; Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
+          </p>
         </div>
       </details>
 
@@ -614,13 +284,14 @@ This website does not use tracking, advertising, or third-party marketing cookie
         <summary>Privacy</summary>
         <div class="footer-content-box">
           <p>
-We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> Page.          </p>
+            We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="../getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a>.
+          </p>
         </div>
       </details>
 
       <!-- 5. Bylaws Link (Opens PDF directly in a new tab) -->
       <div class="footer-accordion">
-        <a href="pdfs/bylaws.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.2rem; font-weight: bold; font-size: 0.95rem; color: var(--gold-metallic); text-decoration: none;">
+        <a href="../pdfs/bylaws.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.2rem; font-weight: bold; font-size: 0.95rem; color: var(--gold-metallic); text-decoration: none;">
           <span>Bylaws</span>
           <span style="font-size: 0.75rem; color: #D1D5DB;">&#8599;</span>
         </a>
