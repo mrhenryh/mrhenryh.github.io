@@ -463,7 +463,7 @@
       "type": "Feature",
       "properties": {
         "pdf_url": "../pdfs/georgia/paulding/bentwater.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/bentwater.html\\\" target=\\\"_blank\\\">Visit Website",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/bentwater.html\\\" target=\\\"_blank\\\">Visit Website</a>",
         "name": "Bentwater, Paulding, GA"
       },
       "geometry": {
@@ -3696,7 +3696,7 @@
       "properties": {
         "name": "Burnt Hickory, Paulding, GA",
         "pdf_url": "../pdfs/georgia/paulding/burnthickory.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/burnthickory.html\\\" target=\\\"_blank\\\">Visit Website"
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/burnthickory.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -4887,7 +4887,7 @@
       "properties": {
         "name": "Forest Central Paulding, Paulding, GA",
         "pdf_url": "../pdfs/georgia/paulding/forestcentralpaulding.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/forestcentralpaulding.html\\\" target=\\\"_blank\\\">Visit Website"
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/forestcentralpaulding.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -5233,7 +5233,7 @@
       "properties": {
         "name": "Possum Creek, Paulding, GA",
         "pdf_url": "../pdfs/georgia/paulding/possumcreek.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/possumcreek.html\\\" target=\\\"_blank\\\">Visit Website"
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/possumcreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -10920,7 +10920,7 @@
       "properties": {
         "name": "Little Creek Farms, Paulding, GA",
         "pdf_url": "../pdfs/georgia/paulding/littlecreekfarms.voterguide.pdf",
-        "link_url": "<a href=\"https://mrhenryh.github.io/mypages/georgia/paulding/littlecreekfarms.html\" target=\"_blank\">Visit Website</a>"
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/littlecreekfarms.html\" target=\"_blank\">Visit Website</a>"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -17131,6 +17131,7 @@
               ]
             ]
           ]
-        ]
       }
     }
+]
+}
