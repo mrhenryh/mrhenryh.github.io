@@ -2,8 +2,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Oakliegh, Cobb, GA",
-        "pdf_url": "../pdfs/georgia/cobb/oakleigh.voterguide.pdf",
+        "Name": "Oakleigh, Cobb, GA",
+        "pdf_url": "../../pdfs/georgia/cobb/oakleigh.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/cobb/oakleigh.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
