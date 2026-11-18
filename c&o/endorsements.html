@@ -18,192 +18,12 @@
   <!-- GoatCounter Analytics Script -->
   <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../style.css" />
+
   <style>
-    /* Global Styles & Red, White, Blue Palette */
-    :root {
-      --navy-blue: #0A2342;
-      --subnav-bg: #0E2D52;
-      --tertiary-nav-bg: #153A66;
-      --patriot-red: #BA1200;
-      --patriot-red-hover: #900E00;
-      --light-bg: #F4F6F9;
-      --white: #FFFFFF;
-      --text-dark: #2B2D42;
-      --gold-metallic: #D4AF37;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--light-bg);
-      color: var(--text-dark);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Header & Navigation Layout */
-    header {
-      background-color: var(--navy-blue);
-      color: var(--white);
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 5px solid var(--patriot-red);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-container a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .logo-container img {
-      max-height: 50px;
-      width: auto;
-    }
-
-    .brand-text {
-      color: var(--white);
-      font-size: 1.3rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-
-    /* Desktop View Navigation */
-    .nav-links {
-      display: flex;
-      gap: 1.1rem;
-      align-items: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.4rem 0.2rem;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a.active {
-      border-bottom: 3px solid var(--patriot-red);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 36px;
-      height: 28px;
-      box-sizing: border-box;
-    }
-
-    .nav-toggle .bar {
-      height: 3px;
-      width: 100%;
-      background-color: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    /* Secondary Sub-Menu Banner */
-    .sub-nav-banner {
-      background-color: var(--subnav-bg);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 0.6rem 1rem;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
-      display: block;
-    }
-
-    .sub-nav-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.8rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .sub-nav-links a {
-      color: #D1D5DB;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      transition: all 0.2s ease;
-      letter-spacing: 0.3px;
-    }
-
-    .sub-nav-links a:hover {
-      color: var(--white);
-      background-color: rgba(255, 255, 255, 0.08);
-    }
-
-    .sub-nav-links a.active {
-      color: var(--white);
-      font-weight: bold;
-      background-color: rgba(212, 175, 55, 0.18);
-      border-bottom: 2px solid var(--gold-metallic);
-    }
-
-    /* Mobile Navigation Drawer */
-    @media (max-width: 1200px) {
-      .nav-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 67px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--navy-blue);
-        padding: 1rem 0;
-        overflow-y: auto;
-        z-index: 999;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 1rem 1.5rem;
-        font-size: 1.1rem;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .nav-links a.active {
-        background-color: rgba(186, 18, 0, 0.25);
-        color: var(--white);
-      }
-    }
-
-    /* Hero Section */
+    /* Endorsements Page-Specific Styles & Overrides */
     .hero {
-      background-color: var(--navy-blue);
-      color: var(--white);
-      text-align: center;
       padding: 3rem 2rem;
     }
 
@@ -213,10 +33,8 @@
     }
 
     .hero p {
-      color: #D1D5DB;
       font-size: 1.1rem;
       max-width: 700px;
-      margin: 0 auto;
     }
 
     /* Explanatory Banner Below Hero */
@@ -230,52 +48,20 @@
       font-weight: 600;
     }
 
-    /* Sub-Sub Navigation Bar (Active / Inactive / Retired) */
-    .category-nav-bar {
-      background-color: var(--tertiary-nav-bg);
-      padding: 0.5rem 1rem;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .category-nav-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .category-nav-links a {
-      color: #E2E8F0;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.35rem 1rem;
-      border-radius: 4px;
-      transition: all 0.2s ease;
-      letter-spacing: 0.4px;
-    }
-
-    .category-nav-links a:hover {
-      color: var(--white);
-      background-color: rgba(255, 255, 255, 0.12);
-    }
-
-    /* Distinct White Accent Highlight for Current Category Tab */
+    /* Sub-Sub Navigation Bar White Accent Overrides */
+    .category-nav-links a:hover,
     .category-nav-links a.active {
       color: var(--white);
-      font-weight: bold;
-      background-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .category-nav-links a.active {
       border-bottom: 3px solid var(--white);
     }
 
-    /* Main Container & Cards */
+    /* Main Container & Action Cards */
     .container {
       max-width: 900px;
       margin: 2rem auto;
-      padding: 0 1rem;
     }
 
     .action-card {
@@ -283,7 +69,7 @@
       padding: 1.8rem;
       margin-bottom: 1.8rem;
       border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .action-card-blue {
@@ -308,62 +94,12 @@
       font-size: 0.98rem;
     }
 
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      color: var(--white);
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
+    .action-card .btn {
       font-size: 0.92rem;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn-red {
-      background-color: var(--patriot-red);
-    }
-
-    .btn-red:hover {
-      background-color: var(--patriot-red-hover);
-    }
-
-    .btn-blue {
-      background-color: var(--navy-blue);
-    }
-
-    .btn-blue:hover {
-      background-color: #06162a;
-    }
-
-    /* Footer & Disclaimer */
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      background-color: var(--navy-blue);
-      color: var(--white);
-      margin-top: 3rem;
-    }
-
-    .disclaimer {
-      max-width: 850px;
-      margin: 1.5rem auto 0;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: #D1D5DB;
-      text-align: justify;
     }
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.8rem; }
-      .sub-nav-links, .category-nav-links { gap: 0.4rem; flex-wrap: wrap; }
-      .sub-nav-links a, .category-nav-links a { font-size: 0.85rem; padding: 0.25rem 0.5rem; }
-      .disclaimer { text-align: left; }
     }
   </style>
 </head>
@@ -387,9 +123,9 @@
       <ul class="nav-links" id="nav-menu">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../about.html">About</a></li>
-        <li><a href="../candidates&officeholders.html" class="active">Candidates & Officeholders</a></li>
+        <li><a href="../candidates&officeholders.html" class="active">Candidates &amp; Officeholders</a></li>
         <li><a href="../resources.html">Resources</a></li>
-        <li><a href="../op-eds&news.html">Op-Eds & News</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds &amp; News</a></li>
         <li><a href="../community.html">Community</a></li>
         <li><a href="../getinvolved.html">Get Involved</a></li>
       </ul>
@@ -481,7 +217,7 @@
         <summary>Accessibility</summary>
         <div class="footer-content-box">
           <p>
-            We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+            We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
           </p>
         </div>
       </details>
@@ -491,7 +227,8 @@
         <summary>Cookies</summary>
         <div class="footer-content-box">
           <p>
-This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms & Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.          </p>
+            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms &amp; Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
+          </p>
         </div>
       </details>
 
@@ -500,13 +237,14 @@ This website does not use tracking, advertising, or third-party marketing cookie
         <summary>Privacy</summary>
         <div class="footer-content-box">
           <p>
-We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> Page.          </p>
+            We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="../getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a>.
+          </p>
         </div>
       </details>
 
       <!-- 5. Bylaws Link (Opens PDF directly in a new tab) -->
       <div class="footer-accordion">
-        <a href="pdfs/bylaws.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.2rem; font-weight: bold; font-size: 0.95rem; color: var(--gold-metallic); text-decoration: none;">
+        <a href="../pdfs/bylaws.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.2rem; font-weight: bold; font-size: 0.95rem; color: var(--gold-metallic); text-decoration: none;">
           <span>Bylaws</span>
           <span style="font-size: 0.75rem; color: #D1D5DB;">&#8599;</span>
         </a>
