@@ -440,6 +440,8 @@
       maxZoom: 19,
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
+    console.log("SUCCESS: Leaflet layer created!");
+console.log("Map bounds:", currentGeoJsonLayer.getBounds());
 
     tileLayer.on('load', hideLoader);
     setTimeout(hideLoader, 3000);
@@ -553,6 +555,10 @@
           return response.json();
         })
         .then(geoData => {
+          console.log("SUCCESS: JSON file retrieved!");
+console.log("GeoJSON contents:", geoData);
+console.log("GeoJSON type:", geoData.type);
+console.log("Features:", geoData.features);
           // Remove previously loaded county polygons if any exist
           if (currentGeoJsonLayer) {
             map.removeLayer(currentGeoJsonLayer);
