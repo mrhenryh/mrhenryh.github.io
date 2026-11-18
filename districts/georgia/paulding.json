@@ -463,8 +463,8 @@
       "type": "Feature",
       "properties": {
         "Name": "Bentwater, Paulding, GA",
-        "pdf_url": "../pdfs/bentwater.paulding.gavoterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/bentwater.paulding.ga.html\\\" target=\\\"_blank\\\">Visit Website"
+        "pdf_url": "../pdfs/georgia/paulding/bentwater.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/bentwater.html\\\" target=\\\"_blank\\\">Visit Website"
       },
       "geometry": {
         "type": "Polygon",
@@ -17134,5 +17134,3 @@
         ]
       }
     }
-  ]
-}
