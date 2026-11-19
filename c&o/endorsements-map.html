@@ -406,7 +406,7 @@
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
+<script>
     // Toggle Mobile Navigation Drawer
     const navToggleBtn = document.getElementById('nav-toggle-btn');
     const navMenu = document.getElementById('nav-menu');
@@ -418,7 +418,7 @@
       });
     }
 
-    // Initialize Leaflet Map (starts with a wider US/regional view until a county is searched)
+    // Initialize Leaflet Map
     var map = L.map('map').setView([33.75, -84.39], 7);
     var loader = document.getElementById('mapLoader');
     var loaderText = document.getElementById('loaderText');
@@ -440,13 +440,10 @@
       maxZoom: 19,
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
-    console.log("SUCCESS: Leaflet layer created!");
-console.log("Map bounds:", currentGeoJsonLayer.getBounds());
 
     tileLayer.on('load', hideLoader);
     setTimeout(hideLoader, 3000);
 
-    // Map state abbreviations and full names to lowercase folder names
     const STATE_MAP = {
       al: 'alabama', alabama: 'alabama',
       ak: 'alaska', alaska: 'alaska',
@@ -501,7 +498,6 @@ console.log("Map bounds:", currentGeoJsonLayer.getBounds());
       dc: 'districtofcolumbia', districtofcolumbia: 'districtofcolumbia'
     };
 
-    // Helper: Turns "Paulding, GA" or "Paulding County, Georgia" into { state: "georgia", county: "paulding" }
     function parseCountyAndState(rawInput) {
       if (!rawInput) return null;
 
@@ -513,7 +509,6 @@ console.log("Map bounds:", currentGeoJsonLayer.getBounds());
         countyPart = parts[0];
         statePart = parts.slice(1).join('');
       } else {
-        // Fallback if the user forgets a comma (e.g., "Paulding GA" or "Paulding Georgia")
         const words = rawInput.trim().split(/\s+/);
         if (words.length < 2) return null;
         statePart = words.pop();
@@ -525,15 +520,14 @@ console.log("Map bounds:", currentGeoJsonLayer.getBounds());
 
       const countySlug = countyPart
         .toLowerCase()
-        .replace(/\b(county|parish)\b/g, '') // Strip "county" or "parish" if typed
-        .replace(/[^a-z0-9]/g, '');          // Strip spaces, punctuation
+        .replace(/\b(county|parish)\b/g, '')
+        .replace(/[^a-z0-9]/g, '');
 
       if (!stateSlug || !countySlug) return null;
 
       return { state: stateSlug, county: countySlug };
     }
 
-    // Load and render a county's .json GeoJSON file
     function loadCountyGeoJSON(rawQuery) {
       const parsed = parseCountyAndState(rawQuery);
       const statusEl = document.getElementById('searchStatus');
@@ -547,28 +541,23 @@ console.log("Map bounds:", currentGeoJsonLayer.getBounds());
       const filePath = `../districts/${parsed.state}/${parsed.county}.json`;
       showLoader(`Loading districts for ${rawQuery.trim()}...`);
 
-      fetch(filePath)
+      fetch(filePath, { cache: 'no-store' })
         .then(response => {
           if (!response.ok) {
-            throw new Error('County file not found');
+            throw new Error(`HTTP ${response.status}`);
           }
           return response.json();
         })
         .then(geoData => {
-          console.log("SUCCESS: JSON file retrieved!");
-console.log("GeoJSON contents:", geoData);
-console.log("GeoJSON type:", geoData.type);
-console.log("Features:", geoData.features);
-          // Remove previously loaded county polygons if any exist
           if (currentGeoJsonLayer) {
             map.removeLayer(currentGeoJsonLayer);
           }
 
           currentGeoJsonLayer = L.geoJSON(geoData, {
             style: {
-              color: "#BA1200",      // Patriot Red border stroke
+              color: "#BA1200",
               weight: 3,
-              fillColor: "#0A2342",  // Navy Blue polygon fill
+              fillColor: "#0A2342",
               fillOpacity: 0.4
             },
             onEachFeature: function (feature, layer) {
@@ -578,7 +567,7 @@ console.log("Features:", geoData.features);
 
               let linkUrl = '#';
               if (props.link_url) {
-                let match = props.link_url.match(/href="([^"]+)"/);
+                let match = props.link_url.match(/href=\\*"([^"\\]+)/);
                 if (match && match[1]) {
                   linkUrl = match[1];
                 } else if (props.link_url.startsWith('http') || props.link_url.startsWith('/') || props.link_url.startsWith('.')) {
@@ -599,7 +588,6 @@ console.log("Features:", geoData.features);
             }
           }).addTo(map);
 
-          // Automatically zoom and center the map on the loaded county
           const bounds = currentGeoJsonLayer.getBounds();
           if (bounds.isValid()) {
             map.fitBounds(bounds, { padding: [25, 25] });
@@ -607,22 +595,19 @@ console.log("Features:", geoData.features);
 
           statusEl.textContent = `Showing districts for "${rawQuery.trim()}". Click any shaded region for voter guides.`;
           statusEl.className = 'search-status success';
-          hideLoader();
         })
-        .catch(() => {
-          hideLoader();
-          statusEl.textContent = `No district map data found for "${rawQuery.trim()}" yet. Check your spelling (e.g., "Paulding, GA") or contact us if your area is missing.`;
+        .catch((err) => {
+          statusEl.textContent = `Could not load "${rawQuery.trim()}" (${err.message}). Check your spelling or contact us if your area is missing.`;
           statusEl.className = 'search-status error';
+        })
+        .finally(() => {
+          hideLoader();
         });
     }
 
-    // Handle Search Form Submit (Pressing Enter or Clicking Button)
     document.getElementById('countySearchForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const query = document.getElementById('countyInput').value;
       loadCountyGeoJSON(query);
     });
   </script>
-
-</body>
-</html>
