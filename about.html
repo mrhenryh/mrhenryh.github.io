@@ -16,168 +16,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="images/logowithbackground.png">
 
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
   <!-- GoatCounter Analytics Script -->
   <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
+  <!-- Page-Specific Styles for About Hub -->
   <style>
-    /* Global Styles & Red, White, Blue Palette */
-    :root {
-      --navy-blue: #0A2342;
-      --patriot-red: #BA1200;
-      --light-bg: #F4F6F9;
-      --white: #FFFFFF;
-      --text-dark: #2B2D42;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--light-bg);
-      color: var(--text-dark);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Header & Navigation Layout */
-    header {
-      background-color: var(--navy-blue);
-      color: var(--white);
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 5px solid var(--patriot-red);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-container a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .logo-container img {
-      max-height: 50px;
-      width: auto;
-    }
-
-    .brand-text {
-      color: var(--white);
-      font-size: 1.3rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-
-    /* Navigation Links */
-    .nav-links {
-      display: flex;
-      gap: 1.1rem;
-      align-items: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.4rem 0.2rem;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a.active {
-      border-bottom: 3px solid var(--patriot-red);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 36px;
-      height: 28px;
-      box-sizing: border-box;
-    }
-
-    .nav-toggle .bar {
-      height: 3px;
-      width: 100%;
-      background-color: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    /* Mobile Navigation Drawer */
-    @media (max-width: 1200px) {
-      .nav-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 67px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--navy-blue);
-        padding: 1rem 0;
-        overflow-y: auto;
-        z-index: 999;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 1rem 1.5rem;
-        font-size: 1.1rem;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .nav-links a.active {
-        background-color: rgba(186, 18, 0, 0.25);
-        color: var(--white);
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      background-color: var(--navy-blue);
-      color: var(--white);
-      text-align: center;
-      padding: 3rem 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: 2.3rem;
-      margin: 0 0 0.5rem 0;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: #D1D5DB;
-      margin: 0;
-    }
-
-    /* Main Container */
     .container {
       max-width: 800px;
       margin: 2.5rem auto;
-      padding: 0 1rem;
     }
 
     /* Interactive Menu Bricks */
@@ -204,7 +53,7 @@
     }
 
     /* Hover & Tap State (Red Transparent Mobile-Drawer Vibe) */
-    .about-brick:hover, 
+    .about-brick:hover,
     .about-brick:active,
     .about-brick:focus {
       background-color: rgba(186, 18, 0, 0.85);
@@ -213,30 +62,11 @@
       box-shadow: 0 6px 14px rgba(186, 18, 0, 0.3);
     }
 
-    /* Footer & Disclaimer */
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      background-color: var(--navy-blue);
-      color: var(--white);
-      margin-top: 4rem;
-    }
-
-    .disclaimer {
-      max-width: 850px;
-      margin: 1.5rem auto 0;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: #D1D5DB;
-      text-align: justify;
-    }
-
     @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .about-brick { font-size: 1.25rem; padding: 1.8rem 1rem; }
-      .disclaimer { text-align: left; }
+      .about-brick {
+        font-size: 1.25rem;
+        padding: 1.8rem 1rem;
+      }
     }
   </style>
 </head>
@@ -286,7 +116,7 @@
 
   <footer>
     <div class="footer-accordion-container">
-      
+
       <!-- 1. Disclaimer Dropdown -->
       <details class="footer-accordion">
         <summary>Disclaimer</summary>
@@ -312,7 +142,8 @@
         <summary>Cookies</summary>
         <div class="footer-content-box">
           <p>
-This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms & Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.          </p>
+            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms & Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
+          </p>
         </div>
       </details>
 
@@ -321,7 +152,8 @@ This website does not use tracking, advertising, or third-party marketing cookie
         <summary>Privacy</summary>
         <div class="footer-content-box">
           <p>
-We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> Page.          </p>
+            We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> Page.
+          </p>
         </div>
       </details>
 
