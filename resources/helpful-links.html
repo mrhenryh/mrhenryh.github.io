@@ -411,14 +411,62 @@
 
   </main>
 
-  <footer>
-    <p>&copy; 2026 Henry W. Hart. All Rights Reserved.</p>
-    <p class="disclaimer">
-      <strong>Disclaimer:</strong> All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
-    </p>
-    <p class="disclaimer">
-      <strong>Accessibility Statement:</strong> We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: #FFFFFF; text-decoration: underline;" target="_blank" rel="noopener noreferrer">Contact Page</a> so we can assist you and address the issue promptly.
-    </p>
+ <footer>
+    <div class="footer-accordion-container">
+      
+      <!-- 1. Disclaimer Dropdown -->
+      <details class="footer-accordion">
+        <summary>Disclaimer</summary>
+        <div class="footer-content-box">
+          <p>
+            All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+          </p>
+        </div>
+      </details>
+
+      <!-- 2. Accessibility Dropdown -->
+      <details class="footer-accordion">
+        <summary>Accessibility</summary>
+        <div class="footer-content-box">
+          <p>
+            We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+          </p>
+        </div>
+      </details>
+
+      <!-- 3. Cookies Dropdown -->
+      <details class="footer-accordion">
+        <summary>Cookies</summary>
+        <div class="footer-content-box">
+          <p>
+            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms &amp; Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
+          </p>
+        </div>
+      </details>
+
+      <!-- 4. Privacy Dropdown -->
+      <details class="footer-accordion">
+        <summary>Privacy</summary>
+        <div class="footer-content-box">
+          <p>
+            We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a>.
+          </p>
+        </div>
+      </details>
+
+      <!-- 5. Bylaws Link (Opens PDF directly in a new tab) -->
+      <div class="footer-accordion">
+        <a href="pdfs/bylaws.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.2rem; font-weight: bold; font-size: 0.95rem; color: var(--gold-metallic); text-decoration: none;">
+          <span>Bylaws</span>
+          <span style="font-size: 0.75rem; color: #D1D5DB;">&#8599;</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="copyright-text">
+      &copy; 2026 Henry W. Hart. All Rights Reserved.
+    </div>
   </footer>
 
   <script>
