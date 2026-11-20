@@ -194,7 +194,10 @@
     }
 
     .modal-footer-actions {
-      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .btn-modal-accept,
@@ -334,11 +337,11 @@
           <span class="topic-category-badge">Constitutional &amp; Legislative Policy</span>
           <span class="comment-count-tag">3 Active Discussion Threads</span>
         </div>
-        <h2><a href="../discussions/expandingtheushouse.html">Should Congress Expand the U.S. House of Representatives?</a></h2>
+        <h2><a href="../discussions/expandingtheushouse.html" class="discussion-gate-link">Should Congress Expand the U.S. House of Representatives?</a></h2>
         <p>Since the Permanent Apportionment Act of 1929, the U.S. House has been capped at 435 voting members—leaving each representative responsible for over 760,000 citizens. Share your perspective on grassroots accountability and district size.</p>
         <div class="card-footer-row">
           <span class="latest-activity">Latest reply by Sarah Jenkins &bull; October 25, 2026</span>
-          <a href="../discussions/expandingtheushouse.html" class="btn-join">Join Conversation &rarr;</a>
+          <a href="../discussions/expandingtheushouse.html" class="btn-join discussion-gate-link">Join Conversation &rarr;</a>
         </div>
       </article>
 
@@ -348,11 +351,11 @@
           <span class="topic-category-badge">Electoral Reform</span>
           <span class="comment-count-tag">2 Active Discussion Threads</span>
         </div>
-        <h2><a href="../discussions/canwegetridofpluralityvoting.html">Can We Get Rid of Plurality Voting? Exploring Alternative Voting Systems</a></h2>
+        <h2><a href="../discussions/canwegetridofpluralityvoting.html" class="discussion-gate-link">Can We Get Rid of Plurality Voting? Exploring Alternative Voting Systems</a></h2>
         <p>Plurality voting often forces voters into lesser-of-two-evils choices and limits third-party or independent participation. Examine how alternative frameworks like Ranked-Choice Voting, Approval Voting, or STAR voting impact Christian civic participation.</p>
         <div class="card-footer-row">
           <span class="latest-activity">Latest reply by Hon. Marcus Vance &bull; November 4, 2026</span>
-          <a href="../discussions/canwegetridofpluralityvoting.html" class="btn-join">Join Conversation &rarr;</a>
+          <a href="../discussions/canwegetridofpluralityvoting.html" class="btn-join discussion-gate-link">Join Conversation &rarr;</a>
         </div>
       </article>
 
@@ -362,11 +365,11 @@
           <span class="topic-category-badge">Education &amp; Local Governance</span>
           <span class="comment-count-tag">4 Active Discussion Threads</span>
         </div>
-        <h2><a href="../discussions/faithcultureandlocalschoolboard.html">Faith, Culture, and the Local School Board: Protecting Parental Authority</a></h2>
+        <h2><a href="../discussions/faithcultureandlocalschoolboard.html" class="discussion-gate-link">Faith, Culture, and the Local School Board: Protecting Parental Authority</a></h2>
         <p>Local school boards wield immense influence over curriculum, community standards, and the moral well-being of children. Discuss strategies for faithful Christian citizens to engage constructively, support transparent policies, and run for local office.</p>
         <div class="card-footer-row">
           <span class="latest-activity">Latest reply by Rebecca Miller &bull; November 10, 2026</span>
-          <a href="../discussions/faithcultureandlocalschoolboard.html" class="btn-join">Join Conversation &rarr;</a>
+          <a href="../discussions/faithcultureandlocalschoolboard.html" class="btn-join discussion-gate-link">Join Conversation &rarr;</a>
         </div>
       </article>
 
@@ -380,6 +383,32 @@
     </section>
 
   </main>
+
+  <!-- Gatekeeper Modal: Required "I Agree" Before Entering a Discussion Thread -->
+  <div class="modal-overlay" id="discussion-gate-modal" role="dialog" aria-modal="true" aria-labelledby="gate-modal-title">
+    <div class="modal-box">
+      <button type="button" class="modal-close-btn" id="close-gate-x" aria-label="Cancel and Stay on Hub">&times;</button>
+      <h2 id="gate-modal-title">Terms &amp; Conditions — Discussion Access</h2>
+      <p>Before entering this discussion thread, you must review and agree to our Community Guidelines &amp; Terms of Use:</p>
+
+      <ul>
+        <li><strong>Civil Discourse &amp; Netiquette:</strong> Keep all contributions respectful, constructive, and relevant to the topic. Personal attacks, profanity, hate speech, and off-topic arguments are not permitted.</li>
+        <li><strong>No Impersonation:</strong> Do not use a display name that falsely represents a public figure, elected official, political candidate, or another individual.</li>
+        <li><strong>Moderator &amp; Editor-in-Chief Authority:</strong> The <strong>CCA Editor-in-Chief</strong> and site moderators reserve the sole discretion to deny, edit, hide, or remove any comment, topic, or display name at any time without prior notice.</li>
+        <li><strong>User-Generated Content Disclaimer:</strong> Comments reflect individual posters' opinions and do not represent an official position of the Christian Conservative Association.</li>
+        <li><strong>Appeals &amp; Inquiries:</strong> Contact our moderation team via our <a href="../getinvolved/contact.html" style="color: var(--navy-blue); font-weight: bold; text-decoration: underline;">Contact Page</a> with questions or reports.</li>
+      </ul>
+
+      <div class="modal-review-note">
+        <strong>Required to Enter:</strong> Clicking <strong>I Agree</strong> opens the selected discussion thread. If you do not wish to agree, click <strong>Cancel</strong> to remain on the hub.
+      </div>
+
+      <div class="modal-footer-actions">
+        <button type="button" class="btn-modal-cancel" id="cancel-gate-btn">Cancel</button>
+        <button type="button" class="btn-modal-accept" id="confirm-gate-agree-btn">I Agree</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Start a New Discussion Popup Modal -->
   <div class="modal-overlay" id="new-topic-modal" role="dialog" aria-modal="true" aria-labelledby="new-topic-modal-title">
@@ -438,7 +467,7 @@
     </div>
   </div>
 
-  <!-- Community Guidelines & Terms Popup Modal -->
+  <!-- Community Guidelines & Terms Popup Modal (Free Browsing / Informational) -->
   <div class="modal-overlay" id="guidelines-modal" role="dialog" aria-modal="true" aria-labelledby="guidelines-modal-title">
     <div class="modal-box">
       <button type="button" class="modal-close-btn" id="close-guidelines-x" aria-label="Close Guidelines">&times;</button>
@@ -491,7 +520,7 @@
         <summary>Cookies</summary>
         <div class="footer-content-box">
           <p>
-            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms &amp; Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
+            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
           </p>
         </div>
       </details>
@@ -533,11 +562,15 @@
       });
     }
 
-    // Guidelines Modal Controls
-    const guidelinesModal = document.getElementById('guidelines-modal');
-    const openGuidelinesBtn = document.getElementById('open-guidelines-btn');
-    const closeGuidelinesX = document.getElementById('close-guidelines-x');
-    const closeGuidelinesBtn = document.getElementById('close-guidelines-btn');
+    // Discussion Gatekeeper Modal Controls (Stateless — does not store or track acceptance)
+    const gateModal = document.getElementById('discussion-gate-modal');
+    const closeGateX = document.getElementById('close-gate-x');
+    const cancelGateBtn = document.getElementById('cancel-gate-btn');
+    const confirmGateAgreeBtn = document.getElementById('confirm-gate-agree-btn');
+    const discussionGateLinks = document.querySelectorAll('.discussion-gate-link');
+
+    let pendingDiscussionUrl = null;
+    let pendingDiscussionTarget = null;
 
     function openModal(modal) {
       if (modal) modal.classList.add('open');
@@ -546,6 +579,55 @@
     function closeModal(modal) {
       if (modal) modal.classList.remove('open');
     }
+
+    function closeGateModal() {
+      pendingDiscussionUrl = null;
+      pendingDiscussionTarget = null;
+      closeModal(gateModal);
+    }
+
+    discussionGateLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        // Preserve standard new-tab / middle-click / modifier-key browser behavior if desired,
+        // or intercept normal clicks to enforce the gatekeeper first.
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+          return;
+        }
+        e.preventDefault();
+        pendingDiscussionUrl = link.getAttribute('href');
+        pendingDiscussionTarget = link.getAttribute('target') || '_self';
+        openModal(gateModal);
+      });
+    });
+
+    if (confirmGateAgreeBtn) {
+      confirmGateAgreeBtn.addEventListener('click', () => {
+        const targetUrl = pendingDiscussionUrl;
+        const targetWindow = pendingDiscussionTarget;
+        closeGateModal();
+
+        if (targetUrl) {
+          if (targetWindow === '_blank') {
+            window.open(targetUrl, '_blank', 'noopener,noreferrer');
+          } else {
+            window.location.href = targetUrl;
+          }
+        }
+      });
+    }
+
+    if (closeGateX) {
+      closeGateX.addEventListener('click', closeGateModal);
+    }
+    if (cancelGateBtn) {
+      cancelGateBtn.addEventListener('click', closeGateModal);
+    }
+
+    // Guidelines Modal Controls (Preserved for free browsing)
+    const guidelinesModal = document.getElementById('guidelines-modal');
+    const openGuidelinesBtn = document.getElementById('open-guidelines-btn');
+    const closeGuidelinesX = document.getElementById('close-guidelines-x');
+    const closeGuidelinesBtn = document.getElementById('close-guidelines-btn');
 
     if (openGuidelinesBtn) {
       openGuidelinesBtn.addEventListener('click', () => openModal(guidelinesModal));
@@ -590,15 +672,22 @@
     }
 
     // Close modals when clicking backdrop or pressing Escape
-    [guidelinesModal, newTopicModal].forEach((modal) => {
+    [gateModal, guidelinesModal, newTopicModal].forEach((modal) => {
       if (!modal) return;
       modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal(modal);
+        if (e.target === modal) {
+          if (modal === gateModal) {
+            closeGateModal();
+          } else {
+            closeModal(modal);
+          }
+        }
       });
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
+        closeGateModal();
         closeModal(guidelinesModal);
         closeModal(newTopicModal);
       }
