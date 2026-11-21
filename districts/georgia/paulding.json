@@ -6,7 +6,7 @@
       "properties": {
         "pdf_url": "../pdfs/georgia/paulding/qualusi.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/qualusi.html\\\" target=\\\"_blank\\\">Visit Website</a>",
-        "name": "Qualusi, Paulding, GA"
+        "name": "Qualusi Area"
       },
       "geometry": {
         "type": "Polygon",
@@ -297,7 +297,7 @@
       "properties": {
         "pdf_url": "../pdfs/georgia/paulding/eastgraves.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/eastgraves.html\\\" target=\\\"_blank\\\">Visit Website</a>",
-        "name": "East Graves, Paulding, GA"
+        "name": "East Graves Area"
       },
       "geometry": {
         "type": "Polygon",
@@ -464,7 +464,7 @@
       "properties": {
         "pdf_url": "../pdfs/georgia/paulding/bentwater.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/bentwater.html\\\" target=\\\"_blank\\\">Visit Website</a>",
-        "name": "Bentwater, Paulding, GA"
+        "name": "Bentwater Area"
       },
       "geometry": {
         "type": "Polygon",
@@ -1085,7 +1085,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "North Paulding, Paulding, GA",
+        "name": "North Paulding Area",
         "pdf_url": "../pdfs/georgia/paulding/northpaulding.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/northpaulding.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -1848,7 +1848,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Picketts Creek, Paulding, GA",
+        "name": "Picketts Creek Area",
         "pdf_url": "../pdfs/georgia/paulding/pickettscreek.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/pickettscreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -2187,7 +2187,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Cheatham, Paulding, GA",
+        "name": "Cheatham Area",
         "pdf_url": "../pdfs/georgia/paulding/cheatham.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/cheatham.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -2302,7 +2302,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "South Burnt Hickory, Paulding, GA",
+        "name": "South Burnt Hickory Area",
         "pdf_url": "../pdfs/georgia/paulding/southburnthickory.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/southburnthickory.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -2461,7 +2461,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "East Paulding, Paulding, GA",
+        "name": "East Paulding Area",
         "pdf_url": "../pdfs/georgia/paulding/eastpaulding.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/eastpaulding.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -2868,7 +2868,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Crossroads, Paulding, GA",
+        "name": "Crossroads Area",
         "pdf_url": "../pdfs/georgia/paulding/crossroads.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/crossroads.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -3215,7 +3215,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Seven Hills, Paulding, GA",
+        "name": "Seven Hills Area",
         "pdf_url": "../pdfs/georgia/paulding/sevenhills.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/sevenhills.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -3694,7 +3694,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Burnt Hickory, Paulding, GA",
+        "name": "Burnt Hickory Area",
         "pdf_url": "../pdfs/georgia/paulding/burnthickory.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/burnthickory.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -4885,7 +4885,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Forest Central Paulding, Paulding, GA",
+        "name": "Forest Central Paulding Area",
         "pdf_url": "../pdfs/georgia/paulding/forestcentralpaulding.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/forestcentralpaulding.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -4976,7 +4976,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Corley Lake, Paulding, GA",
+        "name": "Corley Lake Area",
         "pdf_url": "../pdfs/georgia/paulding/corelylake.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/corelylake.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -5231,7 +5231,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Possum Creek, Paulding, GA",
+        "name": "Possum Creek Area",
         "pdf_url": "../pdfs/georgia/paulding/possumcreek.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/possumcreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -5806,7 +5806,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "New Hope, Paulding, GA",
+        "name": "New Hope Area",
         "pdf_url": "../pdfs/georgia/paulding/newhope.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/newhope.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -6809,7 +6809,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Windmill Creek, Paulding, GA",
+        "name": "Windmill Creek Area",
         "pdf_url": "../pdfs/georgia/paulding/windmillcreek.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/windmillcreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -8592,7 +8592,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Raccoon Creek, Paulding, GA",
+        "name": "Raccoon Creek Area",
         "pdf_url": "../pdfs/georgia/paulding/raccooncreek.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/raccooncreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -9063,7 +9063,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "North Braswell, Paulding, GA",
+        "name": "North Braswell Area",
         "pdf_url": "../pdfs/georgia/paulding/northbraswell.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/northbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -9146,7 +9146,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "East Braswell, Paulding, GA",
+        "name": "East Braswell Area",
         "pdf_url": "../pdfs/georgia/paulding/eastbraswell.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/eastbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -9273,7 +9273,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "West Braswell, Paulding, GA",
+        "name": "West Braswell Area",
         "pdf_url": "../pdfs/georgia/paulding/westbraswell.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/westbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -9452,7 +9452,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "South Braswell, Paulding, GA",
+        "name": "South Braswell Area",
         "pdf_url": "../pdfs/georgia/paulding/southbraswell.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/southbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -9587,7 +9587,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Black Lake, Paulding, GA",
+        "name": "Black Lake Area",
         "pdf_url": "../pdfs/georgia/paulding/blacklake.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/blacklake.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -10918,7 +10918,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Little Creek Farms, Paulding, GA",
+        "name": "Little Creek Farms Area",
         "pdf_url": "../pdfs/georgia/paulding/littlecreekfarms.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/littlecreekfarms.html\" target=\"_blank\">Visit Website</a>"
       },
@@ -13667,7 +13667,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Lawrence Creek, Paulding, GA",
+        "name": "Lawrence Creek Area",
         "pdf_url": "../pdfs/georgia/paulding/lawrencecreek.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/lawrencecreek.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -14630,7 +14630,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Mount Tabor, Paulding, GA",
+        "name": "Mount Tabor Area",
         "pdf_url": "../pdfs/georgia/paulding/mounttabor.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/mounttabor.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -15845,7 +15845,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "California Park, Paulding, GA",
+        "name": "California Park Area",
         "pdf_url": "../pdfs/georgia/paulding/californiapark.voterguide.pdf",
         "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/californiapark.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
@@ -16096,7 +16096,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Ray Mountain, Paulding, GA",
+        "name": "Ray Mountain Area",
         "pdf_url": "../pdfs/georgia/paulding/raymountain.voterguide.pdf",
         "link_url": "<a href=\"https://mrhenryh.github.io/mypages/georgia/paulding/raymountain.html\" target=\"_blank\">Visit Website</a>"
       },
@@ -17133,6 +17133,904 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pdf_url": "../pdfs/georgia/paulding/southcharleshardy.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/southcharleshardy.html\\\" target=\\\"_blank\\\">Visit Website</a>",
+        "name": "South Charles Hardy Area"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -84.7681773,
+              33.9154343
+            ],
+            [
+              -84.7691973,
+              33.9160962
+            ],
+            [
+              -84.7703741,
+              33.9167581
+            ],
+            [
+              -84.7695765,
+              33.9172681
+            ],
+            [
+              -84.768112,
+              33.9178215
+            ],
+            [
+              -84.765536,
+              33.9187439
+            ],
+            [
+              -84.7631038,
+              33.9198398
+            ],
+            [
+              -84.758393,
+              33.9218748
+            ],
+            [
+              -84.7510768,
+              33.9248894
+            ],
+            [
+              -84.7443888,
+              33.9275806
+            ],
+            [
+              -84.7385193,
+              33.9301015
+            ],
+            [
+              -84.7366102,
+              33.9309044
+            ],
+            [
+              -84.7340211,
+              33.9317832
+            ],
+            [
+              -84.7281984,
+              33.9335516
+            ],
+            [
+              -84.7235433,
+              33.9348209
+            ],
+            [
+              -84.723661,
+              33.9289298
+            ],
+            [
+              -84.7237826,
+              33.923226
+            ],
+            [
+              -84.7238479,
+              33.9216743
+            ],
+            [
+              -84.7239002,
+              33.9174947
+            ],
+            [
+              -84.7239525,
+              33.9164096
+            ],
+            [
+              -84.7239656,
+              33.915726
+            ],
+            [
+              -84.7239799,
+              33.9153923
+            ],
+            [
+              -84.723993,
+              33.9148009
+            ],
+            [
+              -84.7240061,
+              33.9141498
+            ],
+            [
+              -84.7240322,
+              33.9134499
+            ],
+            [
+              -84.7240453,
+              33.9129507
+            ],
+            [
+              -84.7240453,
+              33.9122996
+            ],
+            [
+              -84.7241041,
+              33.9095033
+            ],
+            [
+              -84.7241499,
+              33.9075289
+            ],
+            [
+              -84.7241761,
+              33.9066065
+            ],
+            [
+              -84.7242218,
+              33.9034148
+            ],
+            [
+              -84.724248,
+              33.9033226
+            ],
+            [
+              -84.7240388,
+              33.9024815
+            ],
+            [
+              -84.7240518,
+              33.9018791
+            ],
+            [
+              -84.724163,
+              33.8985706
+            ],
+            [
+              -84.7243068,
+              33.8946066
+            ],
+            [
+              -84.7243395,
+              33.8929211
+            ],
+            [
+              -84.7243395,
+              33.8913689
+            ],
+            [
+              -84.7243526,
+              33.8909727
+            ],
+            [
+              -84.7243461,
+              33.8902943
+            ],
+            [
+              -84.7243395,
+              33.8867891
+            ],
+            [
+              -84.7243461,
+              33.8849462
+            ],
+            [
+              -84.7243853,
+              33.8840507
+            ],
+            [
+              -84.7243787,
+              33.8839693
+            ],
+            [
+              -84.7262682,
+              33.8845663
+            ],
+            [
+              -84.7284041,
+              33.8852339
+            ],
+            [
+              -84.7287833,
+              33.8851416
+            ],
+            [
+              -84.7287833,
+              33.8853424
+            ],
+            [
+              -84.7296267,
+              33.8853804
+            ],
+            [
+              -84.7296267,
+              33.8859883
+            ],
+            [
+              -84.7313331,
+              33.8859938
+            ],
+            [
+              -84.7312547,
+              33.8862
+            ],
+            [
+              -84.7316862,
+              33.8862109
+            ],
+            [
+              -84.7332426,
+              33.886265
+            ],
+            [
+              -84.7332687,
+              33.8868132
+            ],
+            [
+              -84.7341775,
+              33.8868241
+            ],
+            [
+              -84.7342233,
+              33.8883437
+            ],
+            [
+              -84.7331576,
+              33.8883329
+            ],
+            [
+              -84.7331589,
+              33.8889496
+            ],
+            [
+              -84.7352969,
+              33.8890147
+            ],
+            [
+              -84.7352903,
+              33.8866266
+            ],
+            [
+              -84.7363659,
+              33.8864863
+            ],
+            [
+              -84.7364771,
+              33.8864483
+            ],
+            [
+              -84.7373728,
+              33.8867359
+            ],
+            [
+              -84.7373989,
+              33.8867251
+            ],
+            [
+              -84.7375951,
+              33.8867631
+            ],
+            [
+              -84.7379678,
+              33.8868933
+            ],
+            [
+              -84.7383012,
+              33.8869856
+            ],
+            [
+              -84.7381312,
+              33.8873329
+            ],
+            [
+              -84.7386216,
+              33.8875066
+            ],
+            [
+              -84.7388177,
+              33.8871538
+            ],
+            [
+              -84.739125,
+              33.8872244
+            ],
+            [
+              -84.7393604,
+              33.887295
+            ],
+            [
+              -84.7396807,
+              33.8873926
+            ],
+            [
+              -84.7400162,
+              33.8874705
+            ],
+            [
+              -84.740245,
+              33.8874923
+            ],
+            [
+              -84.7404215,
+              33.8875031
+            ],
+            [
+              -84.7404281,
+              33.8882521
+            ],
+            [
+              -84.7413172,
+              33.8886049
+            ],
+            [
+              -84.7429648,
+              33.8891096
+            ],
+            [
+              -84.7437298,
+              33.8890988
+            ],
+            [
+              -84.743769,
+              33.8891096
+            ],
+            [
+              -84.7437167,
+              33.8903091
+            ],
+            [
+              -84.7436422,
+              33.8919771
+            ],
+            [
+              -84.7459893,
+              33.8919662
+            ],
+            [
+              -84.745937,
+              33.8895728
+            ],
+            [
+              -84.7459288,
+              33.8888809
+            ],
+            [
+              -84.7485374,
+              33.8897004
+            ],
+            [
+              -84.7485309,
+              33.8896298
+            ],
+            [
+              -84.7490539,
+              33.8897927
+            ],
+            [
+              -84.7491062,
+              33.8898741
+            ],
+            [
+              -84.7504727,
+              33.8903408
+            ],
+            [
+              -84.7502177,
+              33.8905416
+            ],
+            [
+              -84.7502156,
+              33.891211
+            ],
+            [
+              -84.7501568,
+              33.8912327
+            ],
+            [
+              -84.7502287,
+              33.8945595
+            ],
+            [
+              -84.7525642,
+              33.8945511
+            ],
+            [
+              -84.7526557,
+              33.8946759
+            ],
+            [
+              -84.7529696,
+              33.8946976
+            ],
+            [
+              -84.7530676,
+              33.8947519
+            ],
+            [
+              -84.753303,
+              33.8948441
+            ],
+            [
+              -84.7530807,
+              33.8956365
+            ],
+            [
+              -84.7491187,
+              33.895631
+            ],
+            [
+              -84.7491311,
+              33.8976415
+            ],
+            [
+              -84.749288,
+              33.8977066
+            ],
+            [
+              -84.7494122,
+              33.8976795
+            ],
+            [
+              -84.7496149,
+              33.8975818
+            ],
+            [
+              -84.7497914,
+              33.8975113
+            ],
+            [
+              -84.7499353,
+              33.8974624
+            ],
+            [
+              -84.7500595,
+              33.8974407
+            ],
+            [
+              -84.7502164,
+              33.8974462
+            ],
+            [
+              -84.750321,
+              33.8975059
+            ],
+            [
+              -84.7504583,
+              33.897571
+            ],
+            [
+              -84.7506022,
+              33.897609
+            ],
+            [
+              -84.7507329,
+              33.8976361
+            ],
+            [
+              -84.7508768,
+              33.8976958
+            ],
+            [
+              -84.7509944,
+              33.8977989
+            ],
+            [
+              -84.7511448,
+              33.8979671
+            ],
+            [
+              -84.751256,
+              33.8981028
+            ],
+            [
+              -84.7513475,
+              33.8982276
+            ],
+            [
+              -84.7515357,
+              33.8985449
+            ],
+            [
+              -84.7516272,
+              33.8987077
+            ],
+            [
+              -84.7517056,
+              33.8988054
+            ],
+            [
+              -84.7517906,
+              33.8989139
+            ],
+            [
+              -84.7518037,
+              33.8989845
+            ],
+            [
+              -84.7518233,
+              33.8992341
+            ],
+            [
+              -84.7521829,
+              33.8992558
+            ],
+            [
+              -84.7514441,
+              33.9007767
+            ],
+            [
+              -84.7503327,
+              33.9028714
+            ],
+            [
+              -84.7497943,
+              33.9042504
+            ],
+            [
+              -84.7489639,
+              33.9064969
+            ],
+            [
+              -84.7481168,
+              33.9085689
+            ],
+            [
+              -84.7505424,
+              33.9085961
+            ],
+            [
+              -84.7518108,
+              33.9086937
+            ],
+            [
+              -84.7530999,
+              33.90892
+            ],
+            [
+              -84.754571,
+              33.9093649
+            ],
+            [
+              -84.7562643,
+              33.9099835
+            ],
+            [
+              -84.7580904,
+              33.9106131
+            ],
+            [
+              -84.7594503,
+              33.9110906
+            ],
+            [
+              -84.7610914,
+              33.9117851
+            ],
+            [
+              -84.7653268,
+              33.9137675
+            ],
+            [
+              -84.766864,
+              33.9145484
+            ],
+            [
+              -84.7681773,
+              33.9154343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pdf_url": "../pdfs/georgia/paulding/carringtonchase.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/carringtonchase.html\\\" target=\\\"_blank\\\">Visit Website</a>",
+        "name": "Carrington Chase Area"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -84.7600147,
+              33.9068327
+            ],
+            [
+              -84.7603458,
+              33.9066225
+            ],
+            [
+              -84.7607451,
+              33.9064609
+            ],
+            [
+              -84.7609885,
+              33.9063558
+            ],
+            [
+              -84.761193,
+              33.9058386
+            ],
+            [
+              -84.7613293,
+              33.9053537
+            ],
+            [
+              -84.7617675,
+              33.9049334
+            ],
+            [
+              -84.7621278,
+              33.904594
+            ],
+            [
+              -84.7625368,
+              33.9042788
+            ],
+            [
+              -84.7627802,
+              33.9038276
+            ],
+            [
+              -84.7628873,
+              33.9030274
+            ],
+            [
+              -84.762975,
+              33.902397
+            ],
+            [
+              -84.7630724,
+              33.9014595
+            ],
+            [
+              -84.7630858,
+              33.9010759
+            ],
+            [
+              -84.7629495,
+              33.9009627
+            ],
+            [
+              -84.7631735,
+              33.9005667
+            ],
+            [
+              -84.763378,
+              33.9001383
+            ],
+            [
+              -84.7634948,
+              33.8998393
+            ],
+            [
+              -84.7635922,
+              33.8996453
+            ],
+            [
+              -84.7637675,
+              33.8994837
+            ],
+            [
+              -84.7640012,
+              33.8993948
+            ],
+            [
+              -84.7644199,
+              33.8993543
+            ],
+            [
+              -84.7646049,
+              33.8993624
+            ],
+            [
+              -84.7647899,
+              33.8992493
+            ],
+            [
+              -84.7648581,
+              33.8989583
+            ],
+            [
+              -84.7649263,
+              33.8987886
+            ],
+            [
+              -84.7651113,
+              33.898635
+            ],
+            [
+              -84.7653937,
+              33.898441
+            ],
+            [
+              -84.7655787,
+              33.898247
+            ],
+            [
+              -84.7657637,
+              33.8979076
+            ],
+            [
+              -84.7659195,
+              33.8975681
+            ],
+            [
+              -84.7660656,
+              33.8969883
+            ],
+            [
+              -84.7661727,
+              33.8966003
+            ],
+            [
+              -84.764897,
+              33.8957759
+            ],
+            [
+              -84.764342,
+              33.8959861
+            ],
+            [
+              -84.7641472,
+              33.8958567
+            ],
+            [
+              -84.7639428,
+              33.8962609
+            ],
+            [
+              -84.763115,
+              33.8968752
+            ],
+            [
+              -84.7604567,
+              33.897837
+            ],
+            [
+              -84.7603982,
+              33.8976996
+            ],
+            [
+              -84.7602327,
+              33.8975137
+            ],
+            [
+              -84.7598627,
+              33.8972065
+            ],
+            [
+              -84.7595316,
+              33.8968832
+            ],
+            [
+              -84.759529,
+              33.8956691
+            ],
+            [
+              -84.7548452,
+              33.8955963
+            ],
+            [
+              -84.7548744,
+              33.8964046
+            ],
+            [
+              -84.7530171,
+              33.8964458
+            ],
+            [
+              -84.7523842,
+              33.8987332
+            ],
+            [
+              -84.7520142,
+              33.8996465
+            ],
+            [
+              -84.751233,
+              33.9011064
+            ],
+            [
+              -84.7508143,
+              33.9019712
+            ],
+            [
+              -84.7503761,
+              33.9028441
+            ],
+            [
+              -84.7499087,
+              33.9039352
+            ],
+            [
+              -84.7495289,
+              33.9050343
+            ],
+            [
+              -84.7489057,
+              33.9066483
+            ],
+            [
+              -84.7481072,
+              33.9085798
+            ],
+            [
+              -84.7507266,
+              33.9086202
+            ],
+            [
+              -84.7519049,
+              33.908701
+            ],
+            [
+              -84.7530929,
+              33.908895
+            ],
+            [
+              -84.7536856,
+              33.9090959
+            ],
+            [
+              -84.7538512,
+              33.9087403
+            ],
+            [
+              -84.7540557,
+              33.908506
+            ],
+            [
+              -84.7542699,
+              33.9083686
+            ],
+            [
+              -84.7546399,
+              33.9083039
+            ],
+            [
+              -84.7552242,
+              33.9083201
+            ],
+            [
+              -84.7566459,
+              33.9083605
+            ],
+            [
+              -84.7571912,
+              33.9083282
+            ],
+            [
+              -84.7575612,
+              33.9081908
+            ],
+            [
+              -84.7578144,
+              33.9080615
+            ],
+            [
+              -84.7583547,
+              33.9079064
+            ],
+            [
+              -84.7590363,
+              33.9076721
+            ],
+            [
+              -84.7593771,
+              33.9074862
+            ],
+            [
+              -84.7596693,
+              33.9072276
+            ],
+            [
+              -84.7600147,
+              33.9068327
+            ]
+          ]
+        ]
+      }
     }
-    ]
-  }
+  ]
+}
