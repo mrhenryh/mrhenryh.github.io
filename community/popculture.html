@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CCA - Culture &amp; Connections</title>
+
+  <!-- Apple Touch Icon & App Metadata -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="The CCA">
+
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="../images/logowithbackground.png">
+
+  <!-- Open Graph & Social/Messaging Thumbnail Preview -->
+  <meta property="og:title" content="Christian Conservative Association - Culture &amp; Connections">
+  <meta property="og:description" content="Uniting musicians, pastors, public servants, and everyday families—where faith, culture, and community meet.">
+  <meta property="og:image" content="https://thecca.us.org/images/logo.png">
+  <meta property="og:url" content="https://thecca.us.org/community/popculture.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Christian Conservative Association - Culture &amp; Connections">
+  <meta name="twitter:description" content="Uniting musicians, pastors, public servants, and everyday families—where faith, culture, and community meet.">
+  <meta name="twitter:image" content="https://thecca.us.org/images/logo.png">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- GoatCounter Analytics Script -->
+  <script data-goatcounter="https://thecca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <!-- Page-Specific Styles -->
+  <style>
+    /* Breadcrumb Bar */
+    .breadcrumb-bar {
+      background-color: #F4F6F9;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb-container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb-bar a {
+      color: var(--navy-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .breadcrumb-bar a:hover {
+      color: var(--patriot-red);
+      text-decoration: underline;
+    }
+
+    /* Hero Banner */
+    .culture-hero {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 1.5rem 3rem 1.5rem;
+      border-bottom: 4px solid var(--gold-metallic);
+    }
+
+    .culture-hero-container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .eyebrow-tag {
+      display: inline-block;
+      background-color: rgba(212, 175, 55, 0.18);
+      color: var(--gold-metallic);
+      border: 1px solid var(--gold-metallic);
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .culture-title {
+      font-size: 2.4rem;
+      margin: 0 0 1rem 0;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+
+    .culture-subtitle {
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: #E0E6ED;
+      margin: 0;
+    }
+
+    /* Main Content Container */
+    .culture-main {
+      max-width: 1050px;
+      margin: 3rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Mission Ethos Banner */
+    .ethos-box {
+      background-color: var(--white);
+      border: 1px solid var(--card-border);
+      border-left: 6px solid var(--patriot-red);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .ethos-box h2 {
+      color: var(--navy-blue);
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+    }
+
+    .ethos-box p {
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 1.02rem;
+    }
+
+    .ethos-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ethos-pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .pillar-pill {
+      background-color: #F0F4F8;
+      color: var(--navy-blue);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid #D9E2EC;
+    }
+
+    /* Filter Bar */
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--card-border);
+      padding-bottom: 0.8rem;
+    }
+
+    .section-heading {
+      color: var(--navy-blue);
+      font-size: 1.65rem;
+      margin: 0;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      background-color: var(--white);
+      color: var(--navy-blue);
+      border: 1px solid var(--navy-blue);
+      padding: 0.45rem 0.95rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: var(--navy-blue);
+      color: var(--white);
+    }
+
+    /* Spotlight Grid */
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .spotlight-card {
+      background-color: var(--white);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .spotlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .card-media-placeholder {
+      background: linear-gradient(135deg, var(--navy-blue) 0%, #1B3B6F 100%);
+      color: var(--white);
+      height: 170px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .card-media-placeholder .media-icon {
+      font-size: 2.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-media-placeholder .media-caption {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-metallic);
+      font-weight: bold;
+    }
+
+    /* Use this class when you swap in real photos/thumbnails */
+    .card-media-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-category {
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--patriot-red);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      color: var(--navy-blue);
+      margin: 0 0 0.6rem 0;
+      line-height: 1.35;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      color: #4A5568;
+      line-height: 1.55;
+      margin: 0 0 1.2rem 0;
+      flex: 1;
+    }
+
+    .card-footer-meta {
+      font-size: 0.82rem;
+      color: #718096;
+      border-top: 1px solid #EDF2F7;
+      padding-top: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Collab & Story Submission Callout */
+    .collab-cta {
+      background-color: var(--navy-blue);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-top: 4px solid var(--patriot-red);
+    }
+
+    .collab-cta h2 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.75rem;
+      color: var(--white);
+    }
+
+    .collab-cta p {
+      max-width: 680px;
+      margin: 0 auto 1.5rem auto;
+      color: #E0E6ED;
+      line-height: 1.6;
+      font-size: 1.02rem;
+    }
+
+    .cta-btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn-gold {
+      background-color: var(--gold-metallic);
+      color: var(--navy-blue);
+      font-weight: bold;
+      padding: 0.8rem 1.6rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-gold:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      border: 2px solid var(--white);
+      color: var(--white);
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-outline-light:hover {
+      background-color: var(--white);
+      color: var(--navy-blue);
+    }
+
+    @media (max-width: 600px) {
+      .culture-title {
+        font-size: 1.85rem;
+      }
+
+      .ethos-box {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="The CCA Logo">
+        <span class="brand-text">The CCA</span>
+      </a>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="main-nav">
+      <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../candidates&officeholders.html">Candidates &amp; Officeholders</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+        <li><a href="../op-eds&news.html">Op-Eds &amp; News</a></li>
+        <li><a href="../community.html" class="active">Community</a></li>
+        <li><a href="../getinvolved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-container">
+      <a href="../community.html">&larr; Back to Community Hub</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="culture-hero">
+      <div class="culture-hero-container">
+        <span class="eyebrow-tag">Faith &bull; Family &bull; Fellowship</span>
+        <h1 class="culture-title">Culture &amp; Connections</h1>
+        <p class="culture-subtitle">
+          A gathering place for musicians, pastors, public servants, moms, dads, scientists, and teens alike—proving that when believers show up in real life, community comes first and good policy follows naturally.
+        </p>
+      </div>
+    </section>
+
+    <div class="culture-main">
+
+      <!-- Why We're Different / Vision Section -->
+      <section class="ethos-box">
+        <h2>People First. Policy as a Byproduct.</h2>
+        <p>
+          Most political organizations are built around rallies, talking points, and winning the next election cycle. The CCA was built to be an online home for the church—a place where joy, authenticity, and real relationships lead the way. Our ultimate goal isn't the presidency; it's strengthening the nuclear family and uniting believers across every walk of life.
+        </p>
+        <p>
+          Whether it's a Christian teen in Iowa, a worship artist on tour, a local pastor, a disaster-relief volunteer, or a governor serving their state, there is nothing quite like believers walking together in public life. They are approachable, relational, and deeply invested in their neighbors.
+        </p>
+        <div class="ethos-pillars">
+          <span class="pillar-pill">🎸 Artists &amp; Creators</span>
+          <span class="pillar-pill">⛪ Pastors &amp; Ministries</span>
+          <span class="pillar-pill">🏛️ Relational Public Servants</span>
+          <span class="pillar-pill">👨‍👩‍👧‍👦 Moms, Dads &amp; Teens</span>
+          <span class="pillar-pill">🔬 Scientists &amp; Builders</span>
+        </div>
+      </section>
+
+      <!-- Filterable Highlights / Stories Wall -->
+      <section>
+        <div class="section-header-row">
+          <h2 class="section-heading">On the Ground &amp; In the Culture</h2>
+          <div class="filter-buttons" role="group" aria-label="Filter culture posts">
+            <button class="filter-btn active" data-filter="all">All Moments</button>
+            <button class="filter-btn" data-filter="music">Music &amp; Artists</button>
+            <button class="filter-btn" data-filter="leaders">Public Servants &amp; Ministries</button>
+            <button class="filter-btn" data-filter="families">Everyday Families</button>
+          </div>
+        </div>
+
+        <div class="spotlight-grid" id="spotlight-grid">
+
+          <!-- Card 1: Music & Artists (Template ready for your real video/photo) -->
+          <article class="spotlight-card" data-category="music">
+            <div class="card-media-placeholder">
+              <div class="media-icon">🎶</div>
+              <div class="media-caption">Music &amp; Collab Spotlight</div>
+            </div>
+            <!-- Swap the div above with: <img src="../images/your-photo.jpg" alt="..." class="card-media-img"> -->
+            <div class="card-body">
+              <div class="card-category">Music &amp; Artists</div>
+              <h3 class="card-title">Where Christian Music Meets Civic Joy</h3>
+              <p class="card-text">
+                From acoustic backstage hangs to unexpected cameos and worship nights, we're partnering with Christian artists who aren't afraid to bring genuine faith and joy into the public square.
+              </p>
+              <div class="card-footer-meta">
+                <span>Featured Series</span>
+                <span>Coming Soon &rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Public Servants & Ministries -->
+          <article class="spotlight-card" data-category="leaders">
+            <div class="card-media-placeholder">
+              <div class="media-icon">🤝</div>
+              <div class="media-caption">Relational Leadership</div>
+            </div>
+            <div class="card-body">
+              <div class="card-category">Public Servants &amp; Ministries</div>
+              <h3 class="card-title">Beyond the Podium: Believers in Office</h3>
+              <p class="card-text">
+                Highlighting governors, state lawmakers, and hands-on ministries serving on the front lines—showing what happens when servant-hearted Christians bring their faith to work.
+              </p>
+              <div class="card-footer-meta">
+                <span>Conversations</span>
+                <span>CCA Network</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Everyday Families & Youth -->
+          <article class="spotlight-card" data-category="families">
+            <div class="card-media-placeholder">
+              <div class="media-icon">🏡</div>
+              <div class="media-caption">The Heart of the CCA</div>
+            </div>
+            <div class="card-body">
+              <div class="card-category">Everyday Families</div>
+              <h3 class="card-title">From Small-Town Teens to Kitchen Tables</h3>
+              <p class="card-text">
+                You don't need a title or a platform to shape the culture. Meet the high schoolers in Iowa, homeschool moms, coaches, and local church families making faith vibrant in their neighborhoods.
+              </p>
+              <div class="card-footer-meta">
+                <span>Community Stories</span>
+                <span>Nationwide</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Call to Action: Pitch a Collab or Feature -->
+      <section class="collab-cta">
+        <h2>Want to Build Something Unexpected Together?</h2>
+        <p>
+          Whether you're a touring musician, a local pastor, a public official, a content creator, or a family with a story worth telling—our door is open. Let's collaborate, film something memorable, or spotlight your community.
+        </p>
+        <div class="cta-btn-group">
+          <a href="../getinvolved/contact.html" class="btn-gold">Pitch a Collab or Story</a>
+          <a href="community/public.html" class="btn-outline-light">Join the Public Forum</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-accordion-container">
+      
+      <!-- 1. Disclaimer Dropdown -->
+      <details class="footer-accordion">
+        <summary>Disclaimer</summary>
+        <div class="footer-content-box">
+          <p>
+            All candidate endorsements contained within these voter guides and on this website represent the individual, personal opinions of the Board Members, executive staff, Dean, and Chairman acting solely as private citizens. Clergy titles and organizational affiliations are listed strictly for identification purposes. Endorsements do not constitute an official position, express or implied, of any church, ministry, or 501(c)(3) tax-exempt organization. No church facilities, equipment, or funds were used in the creation or distribution of this publication.
+          </p>
+        </div>
+      </details>
+
+      <!-- 2. Accessibility Dropdown -->
+      <details class="footer-accordion">
+        <summary>Accessibility</summary>
+        <div class="footer-content-box">
+          <p>
+            We are committed to ensuring digital accessibility for all visitors, including individuals with disabilities. We continually work to improve the user experience and apply relevant accessibility standards (such as WCAG guidelines). If you experience any difficulty accessing content or navigating this website, please reach out through our <a href="../getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> so we can assist you and address the issue promptly.
+          </p>
+        </div>
+      </details>
+
+      <!-- 3. Cookies Dropdown -->
+      <details class="footer-accordion">
+        <summary>Cookies</summary>
+        <div class="footer-content-box">
+          <p>
+            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms &amp; Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
+          </p>
+        </div>
+      </details>
+
+      <!-- 4. Privacy Dropdown -->
+      <details class="footer-accordion">
+        <summary>Privacy</summary>
+        <div class="footer-content-box">
+          <p>
+            We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="../getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a>.
+          </p>
+        </div>
+      </details>
+
+      <!-- 5. Bylaws Link (Opens PDF directly in a new tab) -->
+      <div class="footer-accordion">
+        <a href="../pdfs/bylaws.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.2rem; font-weight: bold; font-size: 0.95rem; color: var(--gold-metallic); text-decoration: none;">
+          <span>Bylaws</span>
+          <span style="font-size: 0.75rem; color: #D1D5DB;">&#8599;</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="copyright-text">
+      &copy; 2026 Henry W. Hart. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Toggle Mobile Navigation Drawer
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggleBtn && navMenu) {
+      navToggleBtn.addEventListener('click', () => {
+        navToggleBtn.classList.toggle('active');
+        navMenu.classList.toggle('open');
+      });
+    }
+
+    // Category Filter for Spotlight Cards
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const spotlightCards = document.querySelectorAll('.spotlight-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button state
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filterValue = button.getAttribute('data-filter');
+
+        spotlightCards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
