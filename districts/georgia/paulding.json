@@ -9063,9 +9063,9 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "North Braswell Area",
-        "pdf_url": "../pdfs/georgia/paulding/northbraswell.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/northbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "North Paulding Braswell Area",
+        "pdf_url": "../pdfs/georgia/paulding/northpauldingbraswell.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/northpauldingbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -9146,9 +9146,9 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "East Braswell Area",
-        "pdf_url": "../pdfs/georgia/paulding/eastbraswell.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/eastbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "East Paulding Braswell Area",
+        "pdf_url": "../pdfs/georgia/paulding/eastpauldingbraswell.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/eastpauldingbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -9273,9 +9273,9 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "West Braswell Area",
-        "pdf_url": "../pdfs/georgia/paulding/westbraswell.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/westbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "West Paulding Braswell Area",
+        "pdf_url": "../pdfs/georgia/paulding/westpauldingbraswell.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/westpauldingbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -9452,9 +9452,9 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "South Braswell Area",
-        "pdf_url": "../pdfs/georgia/paulding/southbraswell.voterguide.pdf",
-        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/southbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
+        "name": "South Paulding Braswell Area",
+        "pdf_url": "../pdfs/georgia/paulding/southpauldingbraswell.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/southpauldingbraswell.html\\\" target=\\\"_blank\\\">Visit Website</a>"
       },
       "geometry": {
         "type": "Polygon",
@@ -29980,6 +29980,373 @@
             [
               -84.9235423,
               33.8588744
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pdf_url": "../pdfs/georgia/paulding/mulberryrock.voterguide.pdf",
+        "link_url": "<a href=\\\"https://mrhenryh.github.io/mypages/georgia/paulding/mulberryrock.html\\\" target=\\\"_blank\\\">Visit Website</a>",
+        "name": "Mulberry Rock Area"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -84.8905911,
+              33.8315581
+            ],
+            [
+              -84.8902056,
+              33.8281037
+            ],
+            [
+              -84.8899026,
+              33.825244
+            ],
+            [
+              -84.8895446,
+              33.824306
+            ],
+            [
+              -84.8900679,
+              33.8232536
+            ],
+            [
+              -84.8888837,
+              33.8227274
+            ],
+            [
+              -84.8872589,
+              33.8182431
+            ],
+            [
+              -84.8853586,
+              33.8140342
+            ],
+            [
+              -84.8869284,
+              33.8121122
+            ],
+            [
+              -84.8886083,
+              33.8100528
+            ],
+            [
+              -84.890481,
+              33.8076502
+            ],
+            [
+              -84.8917753,
+              33.8061857
+            ],
+            [
+              -84.8921884,
+              33.8056265
+            ],
+            [
+              -84.8926015,
+              33.8047341
+            ],
+            [
+              -84.8928493,
+              33.8037272
+            ],
+            [
+              -84.8930146,
+              33.802972
+            ],
+            [
+              -84.8930972,
+              33.8018507
+            ],
+            [
+              -84.8931798,
+              33.8004548
+            ],
+            [
+              -84.8933175,
+              33.7989215
+            ],
+            [
+              -84.8933726,
+              33.7975255
+            ],
+            [
+              -84.8935103,
+              33.7959921
+            ],
+            [
+              -84.8935933,
+              33.7947865
+            ],
+            [
+              -84.8937034,
+              33.7938711
+            ],
+            [
+              -84.8939513,
+              33.7926352
+            ],
+            [
+              -84.8942267,
+              33.7911018
+            ],
+            [
+              -84.8945847,
+              33.7897057
+            ],
+            [
+              -84.8949152,
+              33.7881493
+            ],
+            [
+              -84.8953283,
+              33.7867073
+            ],
+            [
+              -84.8957413,
+              33.7851051
+            ],
+            [
+              -84.8962921,
+              33.7827352
+            ],
+            [
+              -84.896898,
+              33.7805836
+            ],
+            [
+              -84.8971734,
+              33.779668
+            ],
+            [
+              -84.8973662,
+              33.7787981
+            ],
+            [
+              -84.9062889,
+              33.7818654
+            ],
+            [
+              -84.9197952,
+              33.786604
+            ],
+            [
+              -84.9365161,
+              33.7907467
+            ],
+            [
+              -84.9596731,
+              33.7964635
+            ],
+            [
+              -84.9715947,
+              33.7994207
+            ],
+            [
+              -84.9809856,
+              33.8012057
+            ],
+            [
+              -85.0015144,
+              33.805096
+            ],
+            [
+              -85.024664,
+              33.809446
+            ],
+            [
+              -85.0379148,
+              33.8119506
+            ],
+            [
+              -85.0378046,
+              33.8230016
+            ],
+            [
+              -85.0376945,
+              33.8290789
+            ],
+            [
+              -85.0333432,
+              33.8300855
+            ],
+            [
+              -85.0267338,
+              33.8318241
+            ],
+            [
+              -85.017144,
+              33.8341607
+            ],
+            [
+              -85.0044419,
+              33.8373853
+            ],
+            [
+              -84.9955743,
+              33.8395584
+            ],
+            [
+              -84.9802364,
+              33.843388
+            ],
+            [
+              -84.9653402,
+              33.8473725
+            ],
+            [
+              -84.9589909,
+              33.8489506
+            ],
+            [
+              -84.9496826,
+              33.8509404
+            ],
+            [
+              -84.9360771,
+              33.8538907
+            ],
+            [
+              -84.9301059,
+              33.8551379
+            ],
+            [
+              -84.928371,
+              33.8557097
+            ],
+            [
+              -84.926994,
+              33.8564644
+            ],
+            [
+              -84.9250112,
+              33.8579509
+            ],
+            [
+              -84.9241024,
+              33.8585912
+            ],
+            [
+              -84.9232486,
+              33.8590257
+            ],
+            [
+              -84.9221746,
+              33.8594602
+            ],
+            [
+              -84.921073,
+              33.8598719
+            ],
+            [
+              -84.9191177,
+              33.8602378
+            ],
+            [
+              -84.9169837,
+              33.8608019
+            ],
+            [
+              -84.9151661,
+              33.8612136
+            ],
+            [
+              -84.9137616,
+              33.8614651
+            ],
+            [
+              -84.9123571,
+              33.8615566
+            ],
+            [
+              -84.9108149,
+              33.8616252
+            ],
+            [
+              -84.9093553,
+              33.8619682
+            ],
+            [
+              -84.9081436,
+              33.8623798
+            ],
+            [
+              -84.9069043,
+              33.8629973
+            ],
+            [
+              -84.9054447,
+              33.8639349
+            ],
+            [
+              -84.904233,
+              33.8649639
+            ],
+            [
+              -84.9029207,
+              33.865767
+            ],
+            [
+              -84.901709,
+              33.8661557
+            ],
+            [
+              -84.9001668,
+              33.8663158
+            ],
+            [
+              -84.8987072,
+              33.8663386
+            ],
+            [
+              -84.8967519,
+              33.8662014
+            ],
+            [
+              -84.895072,
+              33.8662243
+            ],
+            [
+              -84.8936124,
+              33.8663386
+            ],
+            [
+              -84.8920978,
+              33.866796
+            ],
+            [
+              -84.891905,
+              33.8667731
+            ],
+            [
+              -84.8919601,
+              33.8650809
+            ],
+            [
+              -84.8923181,
+              33.8596612
+            ],
+            [
+              -84.8928689,
+              33.8536944
+            ],
+            [
+              -84.8921804,
+              33.8475878
+            ],
+            [
+              -84.8911339,
+              33.8361844
+            ],
+            [
+              -84.8905911,
+              33.8315581
             ]
           ]
         ]
