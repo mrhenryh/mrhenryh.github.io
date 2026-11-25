@@ -94,11 +94,14 @@
     <!-- Search / Voter Guide Lookup -->
     <div class="card card-red-border">
       <h2>Find Endorsed Candidates Near You</h2>
-      <p>Enter your ZIP code or city below to look up endorsed Christian candidates running for public office in your area.</p>
+      <p>Enter your ZIP code, city, or county &amp; state (e.g., <strong>Paulding, GA</strong>) below to look up endorsed Christian candidates and voter guides in your area.</p>
       
       <form class="search-box-form" id="voter-lookup-form" action="c&o/by-location.html" method="GET">
-        <input type="text" name="search" id="zip-search-input" placeholder="Enter ZIP Code or City" required>
-        <button type="submit" class="btn btn-blue">Search Voter Guides</button>
+        <input type="text" name="search" id="zip-search-input" placeholder="Enter ZIP Code, City, or County & State" required>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <button type="submit" class="btn btn-blue" data-target="c&o/by-location.html">Search PDFs</button>
+          <button type="submit" class="btn btn-red" data-target="c&o/endorsements-map.html">Search Map</button>
+        </div>
       </form>
     </div>
 
@@ -203,7 +206,7 @@ This website does not use tracking, advertising, or third-party marketing cookie
         <summary>Privacy</summary>
         <div class="footer-content-box">
           <p>
-We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a> Page.          </p>
+We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a>.          </p>
         </div>
       </details>
 
@@ -234,15 +237,21 @@ We respect your privacy and are committed to protecting any personal information
       });
     }
 
-    // Direct Form Handling for Zip / City Lookup
+    // Direct Form Handling for PDFs or Map Lookup
     const voterForm = document.getElementById('voter-lookup-form');
     if (voterForm) {
       voterForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const searchInput = document.getElementById('zip-search-input').value.trim();
-        if (searchInput) {
-          window.location.href = 'c&o/by-location.html?search=' + encodeURIComponent(searchInput);
-        }
+        if (!searchInput) return;
+
+        // Check which button submitted the form (defaults to Search PDFs if Enter is pressed)
+        const submitter = e.submitter;
+        const targetPage = (submitter && submitter.dataset.target)
+          ? submitter.dataset.target
+          : 'c&o/by-location.html';
+
+        window.location.href = targetPage + '?search=' + encodeURIComponent(searchInput);
       });
     }
 
