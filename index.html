@@ -94,15 +94,20 @@
     <!-- Search / Voter Guide Lookup -->
     <div class="card card-red-border">
       <h2>Find Endorsed Candidates Near You</h2>
-      <p>Enter your ZIP code, city, or county &amp; state (e.g., <strong>Paulding, GA</strong>) below to look up endorsed Christian candidates and voter guides in your area.</p>
+      <p>Enter your location below to look up endorsed Christian candidates and voter guides in your area:</p>
+      <ul style="margin-top: 0.25rem; margin-bottom: 1rem; font-size: 0.93rem;">
+        <li><strong>Search PDFs:</strong> Accepts a ZIP code, city, or county &amp; state (e.g., <em>30132</em>, <em>Dallas</em>, or <em>Paulding, GA</em>).</li>
+        <li><strong>Search Map:</strong> Requires <strong>County, State</strong> format only (e.g., <em>Paulding, GA</em>).</li>
+      </ul>
       
       <form class="search-box-form" id="voter-lookup-form" action="c&o/by-location.html" method="GET">
-        <input type="text" name="search" id="zip-search-input" placeholder="Enter ZIP Code, City, or County & State" required>
+        <input type="text" name="search" id="zip-search-input" placeholder="Enter ZIP/City (PDFs) or County, State (Map)" required>
         <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-          <button type="submit" class="btn btn-blue" data-target="c&o/by-location.html">Search PDFs</button>
-          <button type="submit" class="btn btn-red" data-target="c&o/endorsements-map.html">Search Map</button>
+          <button type="submit" id="btn-search-pdfs" class="btn btn-blue">Search PDFs</button>
+          <button type="button" id="btn-search-map" class="btn btn-red">Search Map</button>
         </div>
       </form>
+      <p id="lookup-status-msg" style="margin-top: 0.65rem; margin-bottom: 0; font-size: 0.9rem; font-weight: bold; color: #BA1200; display: none;"></p>
     </div>
 
     <!-- Endorsements Spotlight -->
@@ -197,7 +202,8 @@
         <summary>Cookies</summary>
         <div class="footer-content-box">
           <p>
-This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms & Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.          </p>
+            This website does not use tracking, advertising, or third-party marketing cookies. Our analytics provider, GoatCounter, operates entirely without cookies or persistent browser storage, and our static web host, GitHub Pages, does not place tracking cookies on your device. If you enter our forum, your browser may use temporary local storage solely to remember that you have accepted our Terms &amp; Conditions during your visit. Because we do not use tracking cookies, no cookie consent banner is required to browse this site.
+          </p>
         </div>
       </details>
 
@@ -206,7 +212,8 @@ This website does not use tracking, advertising, or third-party marketing cookie
         <summary>Privacy</summary>
         <div class="footer-content-box">
           <p>
-We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a>.          </p>
+            We respect your privacy and are committed to protecting any personal information you share with us. This website is hosted on GitHub Pages, which may temporarily log visitor IP addresses strictly for security and technical delivery purposes. We use GoatCounter for basic traffic analytics, which does not collect personally identifiable information or track individual users across sessions. If you choose to contact us or submit content for our forum via email, we collect your email address and any information you voluntarily include solely to review, moderate, and respond to your submission. We do not sell, rent, or trade your personal information to third parties. To request the removal of your email correspondence or published forum submissions, please reach out through our <a href="getinvolved/contact.html" style="color: var(--gold-metallic); text-decoration: underline;">Contact Page</a>.
+          </p>
         </div>
       </details>
 
@@ -237,21 +244,75 @@ We respect your privacy and are committed to protecting any personal information
       });
     }
 
-    // Direct Form Handling for PDFs or Map Lookup
+    // Valid State Names & Abbreviations for County, State Map Validation
+    const VALID_STATES = new Set([
+      'al', 'alabama', 'ak', 'alaska', 'az', 'arizona', 'ar', 'arkansas',
+      'ca', 'california', 'co', 'colorado', 'ct', 'connecticut', 'de', 'delaware',
+      'fl', 'florida', 'ga', 'georgia', 'hi', 'hawaii', 'id', 'idaho',
+      'il', 'illinois', 'in', 'indiana', 'ia', 'iowa', 'ks', 'kansas',
+      'ky', 'kentucky', 'la', 'louisiana', 'me', 'maine', 'md', 'maryland',
+      'ma', 'massachusetts', 'mi', 'michigan', 'mn', 'minnesota', 'ms', 'mississippi',
+      'mo', 'missouri', 'mt', 'montana', 'ne', 'nebraska', 'nv', 'nevada',
+      'nh', 'newhampshire', 'nj', 'newjersey', 'nm', 'newmexico', 'ny', 'newyork',
+      'nc', 'northcarolina', 'nd', 'northdakota', 'oh', 'ohio', 'ok', 'oklahoma',
+      'or', 'oregon', 'pa', 'pennsylvania', 'ri', 'rhodeisland', 'sc', 'southcarolina',
+      'sd', 'southdakota', 'tn', 'tennessee', 'tx', 'texas', 'ut', 'utah',
+      'vt', 'vermont', 'va', 'virginia', 'wa', 'washington', 'wv', 'westvirginia',
+      'wi', 'wisconsin', 'wy', 'wyoming', 'dc', 'districtofcolumbia'
+    ]);
+
+    function isValidCountyStateFormat(rawInput) {
+      if (!rawInput || !rawInput.includes(',')) return false;
+      const parts = rawInput.split(',');
+      if (parts.length !== 2) return false;
+
+      const countyPart = parts[0].trim();
+      const statePart = parts[1].trim().toLowerCase().replace(/[^a-z]/g, '');
+
+      // Ensure county has letters (not a ZIP code) and state is valid
+      const hasValidCounty = /[a-z]/i.test(countyPart) && !/^\d+$/.test(countyPart);
+      return hasValidCounty && VALID_STATES.has(statePart);
+    }
+
+    // Direct Form Handling for PDFs (Submit / Enter) & Map (Click)
     const voterForm = document.getElementById('voter-lookup-form');
+    const searchInputEl = document.getElementById('zip-search-input');
+    const mapBtn = document.getElementById('btn-search-map');
+    const lookupStatusMsg = document.getElementById('lookup-status-msg');
+
+    if (searchInputEl && lookupStatusMsg) {
+      searchInputEl.addEventListener('input', () => {
+        lookupStatusMsg.style.display = 'none';
+      });
+    }
+
     if (voterForm) {
       voterForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const searchInput = document.getElementById('zip-search-input').value.trim();
-        if (!searchInput) return;
+        const searchInput = searchInputEl.value.trim();
+        if (searchInput) {
+          window.location.href = 'c&o/by-location.html?search=' + encodeURIComponent(searchInput);
+        }
+      });
+    }
 
-        // Check which button submitted the form (defaults to Search PDFs if Enter is pressed)
-        const submitter = e.submitter;
-        const targetPage = (submitter && submitter.dataset.target)
-          ? submitter.dataset.target
-          : 'c&o/by-location.html';
+    if (mapBtn) {
+      mapBtn.addEventListener('click', function() {
+        const searchInput = searchInputEl.value.trim();
 
-        window.location.href = targetPage + '?search=' + encodeURIComponent(searchInput);
+        if (!searchInput) {
+          searchInputEl.reportValidity();
+          return;
+        }
+
+        if (!isValidCountyStateFormat(searchInput)) {
+          lookupStatusMsg.textContent = 'For Search Map, please use the "County, State" format (for example: Paulding, GA).';
+          lookupStatusMsg.style.display = 'block';
+          searchInputEl.focus();
+          return;
+        }
+
+        window.location.href = 'c&o/endorsements-map.html?search=' + encodeURIComponent(searchInput);
       });
     }
 
