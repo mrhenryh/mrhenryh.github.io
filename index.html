@@ -97,7 +97,7 @@
       <p>Enter your location below to look up endorsed Christian candidates and voter guides in your area:</p>
       <ul style="margin-top: 0.25rem; margin-bottom: 1rem; font-size: 0.93rem;">
         <li><strong>Search PDFs:</strong> Accepts a ZIP code, city, or county &amp; state (e.g., <em>30132</em>, <em>Dallas</em>, or <em>Paulding, GA</em>).</li>
-        <li><strong>Search Map:</strong> Requires <strong>County, State</strong> format only (e.g., <em>Paulding, GA</em>).</li>
+        <li><strong>Search Map:</strong> Requires <strong>County &amp; State</strong> format (e.g., <em>Paulding, GA</em> or <em>Paulding GA</em>).</li>
       </ul>
       
       <form class="search-box-form" id="voter-lookup-form" action="c&o/by-location.html" method="GET">
@@ -244,7 +244,7 @@
       });
     }
 
-    // Valid State Names & Abbreviations for County, State Map Validation
+    // Valid State Names & Abbreviations for County & State Map Validation
     const VALID_STATES = new Set([
       'al', 'alabama', 'ak', 'alaska', 'az', 'arizona', 'ar', 'arkansas',
       'ca', 'california', 'co', 'colorado', 'ct', 'connecticut', 'de', 'delaware',
@@ -262,16 +262,39 @@
     ]);
 
     function isValidCountyStateFormat(rawInput) {
-      if (!rawInput || !rawInput.includes(',')) return false;
-      const parts = rawInput.split(',');
-      if (parts.length !== 2) return false;
+      if (!rawInput) return false;
 
-      const countyPart = parts[0].trim();
-      const statePart = parts[1].trim().toLowerCase().replace(/[^a-z]/g, '');
+      let countyPart = '';
+      let statePart = '';
 
-      // Ensure county has letters (not a ZIP code) and state is valid
-      const hasValidCounty = /[a-z]/i.test(countyPart) && !/^\d+$/.test(countyPart);
-      return hasValidCounty && VALID_STATES.has(statePart);
+      if (rawInput.includes(',')) {
+        const parts = rawInput.split(',');
+        countyPart = parts[0];
+        statePart = parts.slice(1).join('');
+      } else {
+        const words = rawInput.trim().split(/\s+/);
+        if (words.length < 2) return false;
+
+        // Handle two-word state names (e.g., "New York", "North Carolina") when no comma is used
+        const lastTwo = words.slice(-2).join('').toLowerCase().replace(/[^a-z]/g, '');
+        if (words.length >= 3 && VALID_STATES.has(lastTwo)) {
+          statePart = lastTwo;
+          countyPart = words.slice(0, -2).join(' ');
+        } else {
+          statePart = words.pop();
+          countyPart = words.join(' ');
+        }
+      }
+
+      const cleanStateKey = statePart.toLowerCase().replace(/[^a-z]/g, '');
+      const cleanCountySlug = countyPart
+        .toLowerCase()
+        .replace(/\b(county|parish)\b/g, '')
+        .replace(/[^a-z0-9]/g, '');
+
+      // Ensure county has letters (not just a ZIP code) and state is valid
+      const hasValidCounty = /[a-z]/i.test(cleanCountySlug) && !/^\d+$/.test(cleanCountySlug);
+      return hasValidCounty && VALID_STATES.has(cleanStateKey);
     }
 
     // Direct Form Handling for PDFs (Submit / Enter) & Map (Click)
@@ -306,7 +329,7 @@
         }
 
         if (!isValidCountyStateFormat(searchInput)) {
-          lookupStatusMsg.textContent = 'For Search Map, please use the "County, State" format (for example: Paulding, GA).';
+          lookupStatusMsg.textContent = 'For Search Map, please enter a County and State (for example: Paulding, GA or Paulding GA).';
           lookupStatusMsg.style.display = 'block';
           searchInputEl.focus();
           return;
