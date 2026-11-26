@@ -324,13 +324,13 @@
           type="text" 
           id="countyInput" 
           class="search-input" 
-          placeholder="Enter County and State (e.g., Paulding, GA)" 
+          placeholder="Enter County, State (e.g., Paulding, GA)" 
           aria-label="Enter County and State"
           required
         />
         <button type="submit" class="btn-search">Load County Map</button>
       </form>
-      <p class="search-status" id="searchStatus">Type your county and two-letter state abbreviation (for example: <strong>Paulding, GA</strong>) and press Enter.</p>
+      <p class="search-status" id="searchStatus">Use the <strong>County, State</strong> format (for example: <strong>Paulding, GA</strong>) and press Enter.</p>
     </div>
     
     <div class="map-card">
@@ -413,7 +413,7 @@
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
+  <script>
     // Toggle Mobile Navigation Drawer
     const navToggleBtn = document.getElementById('nav-toggle-btn');
     const navMenu = document.getElementById('nav-menu');
@@ -506,21 +506,13 @@
     };
 
     function parseCountyAndState(rawInput) {
-      if (!rawInput) return null;
+      if (!rawInput || !rawInput.includes(',')) return null;
 
-      let countyPart = '';
-      let statePart = '';
+      const parts = rawInput.split(',');
+      if (parts.length !== 2) return null;
 
-      if (rawInput.includes(',')) {
-        const parts = rawInput.split(',');
-        countyPart = parts[0];
-        statePart = parts.slice(1).join('');
-      } else {
-        const words = rawInput.trim().split(/\s+/);
-        if (words.length < 2) return null;
-        statePart = words.pop();
-        countyPart = words.join(' ');
-      }
+      const countyPart = parts[0];
+      const statePart = parts[1];
 
       const cleanStateKey = statePart.toLowerCase().replace(/[^a-z]/g, '');
       const stateSlug = STATE_MAP[cleanStateKey];
@@ -540,7 +532,7 @@
       const statusEl = document.getElementById('searchStatus');
 
       if (!parsed) {
-        statusEl.textContent = 'Please enter a valid county and state (e.g., Paulding, GA).';
+        statusEl.textContent = 'Please use the "County, State" format (e.g., Paulding, GA).';
         statusEl.className = 'search-status error';
         return;
       }
@@ -617,6 +609,14 @@
       const query = document.getElementById('countyInput').value;
       loadCountyGeoJSON(query);
     });
+
+    // Automatically populate and run search when redirected with ?search=...
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialSearch = urlParams.get('search');
+    if (initialSearch) {
+      document.getElementById('countyInput').value = initialSearch;
+      loadCountyGeoJSON(initialSearch);
+    }
   </script>
 </body>
 </html>
