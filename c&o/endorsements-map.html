@@ -324,13 +324,13 @@
           type="text" 
           id="countyInput" 
           class="search-input" 
-          placeholder="Enter County, State (e.g., Paulding, GA)" 
+          placeholder="Enter County and State (e.g., Paulding, GA or Paulding GA)" 
           aria-label="Enter County and State"
           required
         />
         <button type="submit" class="btn-search">Load County Map</button>
       </form>
-      <p class="search-status" id="searchStatus">Use the <strong>County, State</strong> format (for example: <strong>Paulding, GA</strong>) and press Enter.</p>
+      <p class="search-status" id="searchStatus">Enter your <strong>County and State</strong> (for example: <strong>Paulding, GA</strong> or <strong>Paulding GA</strong>) and press Enter.</p>
     </div>
     
     <div class="map-card">
@@ -430,6 +430,21 @@
     var loader = document.getElementById('mapLoader');
     var loaderText = document.getElementById('loaderText');
     var currentGeoJsonLayer = null;
+    var selectedDistrictLayer = null;
+
+    const DEFAULT_DISTRICT_STYLE = {
+      color: "#BA1200",
+      weight: 3,
+      fillColor: "#0A2342",
+      fillOpacity: 0.4
+    };
+
+    const SELECTED_DISTRICT_STYLE = {
+      color: "#D4AF37",
+      weight: 4,
+      fillColor: "#BA1200",
+      fillOpacity: 0.65
+    };
 
     function showLoader(message) {
       if (loaderText && message) loaderText.textContent = message;
@@ -506,16 +521,34 @@
     };
 
     function parseCountyAndState(rawInput) {
-      if (!rawInput || !rawInput.includes(',')) return null;
+      if (!rawInput) return null;
 
-      const parts = rawInput.split(',');
-      if (parts.length !== 2) return null;
+      const trimmed = rawInput.trim().replace(/\s+/g, ' ');
+      if (!trimmed) return null;
 
-      const countyPart = parts[0];
-      const statePart = parts[1];
+      let countyPart = '';
+      let stateSlug = '';
 
-      const cleanStateKey = statePart.toLowerCase().replace(/[^a-z]/g, '');
-      const stateSlug = STATE_MAP[cleanStateKey];
+      if (trimmed.includes(',')) {
+        const lastCommaIndex = trimmed.lastIndexOf(',');
+        countyPart = trimmed.slice(0, lastCommaIndex);
+        const statePart = trimmed.slice(lastCommaIndex + 1);
+        const cleanStateKey = statePart.toLowerCase().replace(/[^a-z]/g, '');
+        stateSlug = STATE_MAP[cleanStateKey] || '';
+      } else {
+        // Support space-separated inputs without a comma (e.g., "Paulding GA" or "Wake North Carolina")
+        const words = trimmed.split(' ');
+        for (let wordCount = 3; wordCount >= 1; wordCount--) {
+          if (words.length > wordCount) {
+            const candidateState = words.slice(-wordCount).join('').toLowerCase().replace(/[^a-z]/g, '');
+            if (STATE_MAP[candidateState]) {
+              stateSlug = STATE_MAP[candidateState];
+              countyPart = words.slice(0, -wordCount).join(' ');
+              break;
+            }
+          }
+        }
+      }
 
       const countySlug = countyPart
         .toLowerCase()
@@ -532,7 +565,7 @@
       const statusEl = document.getElementById('searchStatus');
 
       if (!parsed) {
-        statusEl.textContent = 'Please use the "County, State" format (e.g., Paulding, GA).';
+        statusEl.textContent = 'Please enter both a county and a state (e.g., Paulding, GA or Paulding GA).';
         statusEl.className = 'search-status error';
         return;
       }
@@ -551,14 +584,10 @@
           if (currentGeoJsonLayer) {
             map.removeLayer(currentGeoJsonLayer);
           }
+          selectedDistrictLayer = null;
 
           currentGeoJsonLayer = L.geoJSON(geoData, {
-            style: {
-              color: "#BA1200",
-              weight: 3,
-              fillColor: "#0A2342",
-              fillOpacity: 0.4
-            },
+            style: DEFAULT_DISTRICT_STYLE,
             onEachFeature: function (feature, layer) {
               let props = feature.properties || {};
               let pdfUrl = props.pdf_url || '#';
@@ -573,6 +602,26 @@
                   linkUrl = props.link_url;
                 }
               }
+
+              // Highlight clicked territory and reset any previously selected territory
+              layer.on('click', function () {
+                if (selectedDistrictLayer && selectedDistrictLayer !== layer && currentGeoJsonLayer) {
+                  currentGeoJsonLayer.resetStyle(selectedDistrictLayer);
+                }
+                selectedDistrictLayer = layer;
+                layer.setStyle(SELECTED_DISTRICT_STYLE);
+                if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                  layer.bringToFront();
+                }
+              });
+
+              // Reset highlight when this territory's popup is closed
+              layer.on('popupclose', function () {
+                if (selectedDistrictLayer === layer && currentGeoJsonLayer) {
+                  currentGeoJsonLayer.resetStyle(layer);
+                  selectedDistrictLayer = null;
+                }
+              });
 
               layer.bindPopup(
                 `<div style="font-family: Arial, sans-serif; text-align: center; padding: 1px;">` +
